@@ -1,0 +1,27 @@
+[global_config]
+  enabled_plugins = ,
+  suppress_multiple_term_dialog = True
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    allow_bold = False
+    background_image = None
+    background_type = transparent
+    cursor_color = "#d3d0c8"
+    cursor_shape = ibeam
+    font = Droid Sans Mono for Powerline 10
+    foreground_color = "#d3d0c8"
+    icon_bell = False
+    palette = "#2d2d2d:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#d3d0c8:#747369:#f2777a:#99cc99:#ffcc66:#6699cc:#cc99cc:#66cccc:#f2f0ec"
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False

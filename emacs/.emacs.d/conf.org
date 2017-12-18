@@ -1,0 +1,58 @@
+* Identité
+  #+BEGIN_SRC emacs-lisp
+(setq user-full-name "David BELEY")
+  #+END_SRC
+* Paramètres basiques
+** better-defaults
+  #+BEGIN_SRC emacs-lisp
+(use-package better-defaults
+  :ensure t)
+  #+END_SRC
+** Interface
+  #+BEGIN_SRC emacs-lisp
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(setq display-line-numbers 'relative)
+
+(scroll-bar-mode -1)
+
+(global-prettify-symbols-mode t)
+  #+END_SRC
+** Navigation
+  #+BEGIN_SRC emacs-lisp
+ (when (fboundp 'windmove-default-keybindings)
+  (windmove-default-keybindings))
+  #+END_SRC
+** Autres
+ #+BEGIN_SRC emacs-lisp
+(require 'iso-transl)
+(setq x-select-enable-clipboard t)
+(global-auto-revert-mode 1)
+
+(setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose nil)
+
+(setq echo-keystrokes 0.1)
+
+(global-font-lock-mode t)
+
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+(setq locale-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+
+(setq jump-char-lazy-highlight-face nil)
+
+(setq line-number-mode t)
+(setq column-number-mode t)
+(setq vc-follow-symlinks t)
+
+(setq fill-column 80)
+(set-default 'fill-column 80)
+
+ #+END_SRC 
+ 
+ 

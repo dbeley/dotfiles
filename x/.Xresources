@@ -1,0 +1,26 @@
+
+! URxvt
+URxvt.font:xft:FuraCode\ Nerd\ Font:style=Regular:size=9:antialias=true:hinting=true
+!URxvt.font:xft:Overpass\ Mono:style:Regular:size=9
+!URxvt.font: xft:Iosevka\ Nerd\ Font:style=Medium:size=9:antialias=true:hinting=true
+
+URxvt.scrollBar: false
+Rxvt.iso14755:	false
+URxvt.iso14755_52: false
+URxvt.internalBorder: 10
+
+URxvt.perl-ext:	  default,matcher,resize-font
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
+URxvt*skipBuiltinGlyphs:    true
+
+! rofi
+rofi.modi: run
+rofi.color-enabled: true
+rofi.padding: 5
+rofi.location: 0
+rofi.fuzzy: true
+rofi.separator-style: solid
+rofi.hide-scrollbar: true
+rofi.show-icons:true

@@ -1,0 +1,313 @@
+* Plug-ins
+** Nettoyage
+#+BEGIN_SRC emacs-lisp
+  (use-package no-littering
+    :ensure t
+    :config
+    (require 'recentf)
+    (add-to-list 'recentf-exclude no-littering-var-directory)
+    (add-to-list 'recentf-exclude no-littering-etc-directory)
+    )
+#+END_SRC
+** Navigation
+*** Evil-mode
+#+BEGIN_SRC emacs-lisp
+(setq evil-want-C-i-jump nil)
+(setq evil-want-C-u-scroll t)
+
+(use-package evil
+  :ensure t
+  :config (evil-mode 1)
+  )
+
+(use-package evil-surround
+  :ensure t
+  :config (global-evil-surround-mode 1)
+  )
+#+END_SRC   
+
+*** ranger
+#+BEGIN_SRC emacs-lisp
+(use-package ranger
+  :ensure t
+  )
+#+END_SRC   
+   
+*** ace-window
+ #+BEGIN_SRC emacs-lisp
+ (use-package ace-window
+   :ensure t
+   :config
+     (global-set-key [remap other-window] 'ace-window)
+   )
+ #+END_SRC
+** Apparence
+*** Powerline
+#+BEGIN_SRC emacs-lisp
+(use-package powerline
+        :ensure t
+        :config (powerline-center-evil-theme)
+        )
+#+END_SRC
+
+*** Airline-themes
+#+BEGIN_SRC emacs-lisp
+
+ (use-package airline-themes
+   :ensure t
+   )
+
+(setq-default custom-safe-themes t)
+
+(setq powerline-utf-8-separator-left        #xe0b0
+      powerline-utf-8-separator-right       #xe0b2
+      airline-utf-glyph-separator-left      #xe0b0
+      airline-utf-glyph-separator-right     #xe0b2
+      airline-utf-glyph-subseparator-left   #xe0b1
+      airline-utf-glyph-subseparator-right  #xe0b3
+      airline-utf-glyph-branch              #xe0a0
+      airline-utf-glyph-readonly            #xe0a2
+      airline-utf-glyph-linenumber          #xe0a1)
+#+END_SRC
+
+*** base16-theme
+#+BEGIN_SRC emacs-lisp
+  (use-package base16-theme
+      :ensure t
+      )
+#+END_SRC
+
+*** Chargement des thèmes
+#+BEGIN_SRC emacs-lisp
+(load-theme 'base16-gruvbox-dark-hard)
+(load-theme 'airline-ubaryd)
+#+END_SRC
+** Recherche, complétion, …
+*** swiper
+#+BEGIN_SRC emacs-lisp
+  (use-package ivy
+    :ensure t
+    )
+
+  (use-package counsel
+    :ensure t
+    )
+
+  (use-package swiper
+    :ensure t
+    )
+
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
+  (global-set-key "\C-s" 'swiper)
+  (global-set-key (kbd "C-c C-r") 'ivy-resume)
+;;  (global-set-key (kbd "<f6>") 'ivy-resume)
+;;  (global-set-key (kbd "M-x") 'counsel-M-x)
+;;  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+;;  (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+;;  (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+;;  (global-set-key (kbd "<f1> l") 'counsel-find-library)
+;;  (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+;;  (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+;;  (global-set-key (kbd "C-c g") 'counsel-git)
+;;  (global-set-key (kbd "C-c j") 'counsel-git-grep)
+;;  (global-set-key (kbd "C-c k") 'counsel-ag)
+;;  (global-set-key (kbd "C-x l") 'counsel-locate)
+;;  (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+;;  (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+#+END_SRC
+
+*** avy
+#+BEGIN_SRC emacs-lisp
+(use-package avy
+  :ensure t
+  :config (avy-setup-default)
+  )
+#+END_SRC
+
+*** Helm
+#+BEGIN_SRC emacs-lisp
+(use-package helm
+  :ensure t
+  :config (helm-mode 1)
+  )
+
+(require 'helm-config)
+
+(global-set-key (kbd "M-x") #'helm-M-x)
+(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
+#+END_SRC
+
+*** Yasnippet
+#+BEGIN_SRC emacs-lisp
+(use-package yasnippet
+  :ensure t
+  :config (yas-global-mode 1)
+  )
+#+END_SRC
+
+*** Company-mode
+#+BEGIN_SRC emacs-lisp
+  (use-package company
+    :ensure t
+    )
+
+  (add-hook 'after-init-hook 'global-company-mode)
+
+  (use-package company-quickhelp
+    :ensure t
+    )
+
+  (company-quickhelp-mode 1)
+
+  (eval-after-load 'company
+      '(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin))
+
+#+END_SRC
+
+*** elpy
+#+BEGIN_SRC emacs-lisp
+  (use-package elpy
+    :ensure t
+    :config (elpy-enable)
+)
+
+  (defun company-yasnippet-or-completion ()
+    "Solve company yasnippet conflicts."
+    (interactive)
+    (let ((yas-fallback-behavior
+           (apply 'company-complete-common nil)))
+      (yas-expand)))
+
+  (add-hook 'company-mode-hook
+            (lambda ()
+              (substitute-key-definition
+               'company-complete-common
+               'company-yasnippet-or-completion
+               company-active-map)))
+#+END_SRC
+** Projets
+*** Magit
+ #+BEGIN_SRC emacs-lisp
+ (use-package magit
+   :ensure t
+   )
+ #+END_SRC
+*** projectile
+#+BEGIN_SRC emacs-lisp
+  (use-package projectile
+    :ensure t
+    :config (projectile-mode t)
+    )
+#+END_SRC
+
+** Org-mode
+*** Org-mode
+    
+#+BEGIN_SRC emacs-lisp
+(use-package org
+  :ensure org-plus-contrib
+  )
+
+(setq org-agenda-files '("~/Dropbox/org/"))
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(setq org-replace-disputed-keys t)
+(setq org-src-fontify-natively t)
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
+#+END_SRC
+
+*** Evil-org
+#+BEGIN_SRC emacs-lips
+(use-package evil-org
+  :ensure t
+  )
+
+(add-hook 'org-mode-hook 'evil-org-mode)
+(evil-org-set-key-theme '(navigation insert textobjects additional))
+#+END_SRC
+
+*** Points
+#+BEGIN_SRC emacs-lisp
+(use-package org-bullets
+    :ensure t
+    :config (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+    
+(setq org-bullets-bullet-list '("◉" "○" "●" "◆"))
+#+END_SRC
+
+*** Exports 
+**** Twitter Bootstrap
+#+BEGIN_SRC emacs-lisp
+(use-package ox-twbs
+  :ensure t
+  )
+#+END_SRC
+
+**** org-reveal
+#+BEGIN_SRC emacs-lisp
+  (use-package ox-reveal
+    :ensure ox-reveal
+    )
+
+  (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")
+  (setq org-reveal-mathjax t)
+
+  (use-package htmlize
+    :ensure t
+    )
+#+END_SRC
+
+*** Org-capture
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-c c")
+                  'org-capture)
+
+  (setq org-capture-templates
+        '(("a" "Album" entry (file+headline "~/OneDrive/org/Musique/Albums.org" "Album")
+           "* Album %?\n%T")
+          ("t" "À Faire" entry (file+headline "~/OneDrive/org/Listes/TODO.org" "À Faire")
+           "* %?\n%T\n" :prepend t)))
+#+END_SRC
+** Autres
+*** ess
+#+BEGIN_SRC emacs-lips
+(use-package ess
+  :ensure t)
+#+END_SRC
+
+*** exwm
+#+BEGIN_SRC emacs-lisp
+(use-package exwm-x
+    :ensure t
+    )
+
+;(require 'exwm-x)
+;(require 'exwm-config)
+;(exwm-enable)
+
+(require 'exwm-systemtray)
+(exwm-systemtray-enable)
+#+END_SRC
+
+*** eww
+    
+#+BEGIN_SRC emacs-lisp
+(use-package eww
+    :ensure t
+    )
+#+END_SRC
+
+*** auctex
+
+#+BEGIN_SRC emacs-lisp
+(load "auctex.el" nil t t)
+
+(load "preview-latex.el" nil t t)
+
+(setq TeX-auto-save t
+      TeX-parse-self t)
+#+END_SRC
