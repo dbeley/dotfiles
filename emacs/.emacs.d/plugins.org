@@ -82,6 +82,22 @@
 (load-theme 'base16-gruvbox-dark-hard)
 (load-theme 'airline-ubaryd)
 #+END_SRC
+
+** Latex
+*** auctex
+
+#+BEGIN_SRC emacs-lisp
+(use-package latex 
+      :ensure auctex)
+
+(load "auctex.el" nil t t)
+
+(load "preview-latex.el" nil t t)
+
+(setq TeX-auto-save t
+      TeX-parse-self t)
+#+END_SRC
+
 ** Recherche, complétion, …
 *** swiper
 #+BEGIN_SRC emacs-lisp
@@ -301,13 +317,3 @@
     )
 #+END_SRC
 
-*** auctex
-
-#+BEGIN_SRC emacs-lisp
-(load "auctex.el" nil t t)
-
-(load "preview-latex.el" nil t t)
-
-(setq TeX-auto-save t
-      TeX-parse-self t)
-#+END_SRC
