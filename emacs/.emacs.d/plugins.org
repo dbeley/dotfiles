@@ -88,7 +88,9 @@
 
 #+BEGIN_SRC emacs-lisp
 (use-package latex 
-      :ensure auctex)
+      :ensure auctex
+      )
+
 
 (load "auctex.el" nil t t)
 
@@ -96,6 +98,13 @@
 
 (setq TeX-auto-save t
       TeX-parse-self t)
+
+(use-package magic-latex-buffer
+      :ensure t
+      )
+
+(add-hook 'latex-mode-hook 'magic-latex-buffer)
+
 #+END_SRC
 
 ** Recherche, complétion, …
