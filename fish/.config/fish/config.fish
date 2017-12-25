@@ -1,7 +1,5 @@
 source /etc/profile.d/autojump.fish
 
-fish_vi_key_bindings
-
 set -g theme_display_vi no
 set -g theme_display_date no
 set -g theme_nerd_fonts yes
