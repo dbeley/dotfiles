@@ -8,8 +8,8 @@ set $mod Mod4
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 4
-new_float pixel 4
+new_window pixel 3
+new_float pixel 3
 
 # Hide borders
 hide_edge_borders none
@@ -245,7 +245,7 @@ mode "resize" {
 
 # wal script
 exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")" -o $HOME/.config/polybar/launch.sh
-bindsym $mod+m exec --no-startup-id "wal -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh"
+bindsym $mod+n exec --no-startup-id "wal -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh"
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id compton --config "$HOME/.config/compton.conf"
 
@@ -359,7 +359,7 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "$mode_gaps"
 }
 
-bindsym $mod+n mode "Move"
+bindsym $mod+m mode "Move"
 
 mode "Move" {
 	bindsym j move left
