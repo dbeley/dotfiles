@@ -50,7 +50,6 @@ syntax on
 colorscheme wal
 
 " Aides visuelles
-set number
 set ruler
 set showcmd
 set relativenumber
