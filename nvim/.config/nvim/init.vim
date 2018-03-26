@@ -12,7 +12,8 @@ Plug 'scrooloose/nerdtree'
 "Plug 'scrooloose/nerdcommenter'
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 "Plug 'morhetz/gruvbox'
 Plug 'dylanaraps/wal'
@@ -37,51 +38,55 @@ Plug 'lervag/vimtex'
 "Plug 'rhysd/vim-grammarous'
 
 Plug 'jceb/vim-orgmode'
-Plug 'ryanss/vim-hackernews'
 Plug 'joshhartigan/vim-reddit'
 Plug 'itchyny/calendar.vim'
 
 call plug#end()
 
-set number
-set relativenumber
+" Coloration syntaxique
 syntax on
+"colorscheme gruvbox
+"set background=dark
+colorscheme wal
+
+" Aides visuelles
+set number
+set ruler
+set showcmd
+set relativenumber
+
+" Recherche incrémentale
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+if has ('nvim')
+    set inccommand=nosplit
+endif
+nnoremap <esc> :noh<return><esc>
+
+" Auto-indentation à 2 espaces
+set autoindent
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+
+" Compléter avec <Tab> en mode commande
+set wildmenu
+set wildmode=longest,full
+
 set clipboard+=unnamedplus
 set t_Co=256
 set encoding=utf8
 set linespace=0
 
-"" Text Wraping
+" Text Wraping
 set textwidth=79
 set colorcolumn=80
 set nowrap
 
-"" Search and Substitute
-set hlsearch
-set ignorecase
-set smartcase
-"Disable search highlighting
-nnoremap <esc> :noh<return><esc>
-
-"" Tabs
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-
-let g:livepreview_previewer = 'zathura'
-let python_hightlight_all=1
-let g:python_host_prog = '/usr/bin/python2'
-let g:python3_host_prog = '/usr/bin/python'
-
-let g:calendar_google_calendar = 1
-
-call deoplete#enable()
-let g:deoplete#enable_at_startup=1
-
-"colorscheme gruvbox
-"set background=dark
-colorscheme wal
+set scrolloff=5
 
 "Split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -89,27 +94,34 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nnoremap <F5> :buffers<CR>:buffer!<Space>
+nnoremap gf :e <cfile><cr>
+nnoremap <c-w> :sp <cfile><cr>
+noremap g<CR> g<C-]>
+noremap <C-]> g<C-]>
 
-" Mappings to access buffers (don't use "\p" because a
-" delay before pressing "p" would accidentally paste).
-" \l       : list buffers
-" \b \f \g : go back/forward/last-used
-" \1 \2 \3 : go to buffer 1/2/3 etc
-nnoremap <Leader>l :ls<CR>
-nnoremap <Leader>b :bp<CR>
-nnoremap <Leader>f :bn<CR>
-nnoremap <Leader>g :e#<CR>
-nnoremap <Leader>1 :1b<CR>
-nnoremap <Leader>2 :2b<CR>
-nnoremap <Leader>3 :3b<CR>
-nnoremap <Leader>4 :4b<CR>
-nnoremap <Leader>5 :5b<CR>
-nnoremap <Leader>6 :6b<CR>
-nnoremap <Leader>7 :7b<CR>
-nnoremap <Leader>8 :8b<CR>
-nnoremap <Leader>9 :9b<CR>
-nnoremap <Leader>0 :10b<CR>
+nnoremap <leader>p :History<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>t :Files<CR>
+
+noremap <BS> <PageUp>
+noremap <Space> <PageDown>
+
+let g:livepreview_previewer = 'zathura'
+let python_hightlight_all=1
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python'
+
+call deoplete#enable()
+let g:deoplete#enable_at_startup=1
+
+" Source fichiers de conf à la modification
+augroup configurationFiles
+  autocmd! BufWritePost init.vim      source %
+  autocmd! BufWritePost Xresources    !xrdb -load ~/.Xresources
+  autocmd! BufWritePost .Xresources   !xrdb -load ~/.Xresources
+augroup END
+
+" Airline
 
 "set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
@@ -150,6 +162,9 @@ highlight Normal guibg=NONE ctermbg=NONE
 if exists("g:loaded_webdevicons")
 	call webdevicons#refresh()
 endif
+
+
+
 " Press \r to start rotating lines and <C-c> (Control+c) to stop.
 
 function! s:RotateString(string)
