@@ -38,8 +38,8 @@ Plug 'lervag/vimtex'
 "Plug 'rhysd/vim-grammarous'
 
 Plug 'jceb/vim-orgmode'
-Plug 'joshhartigan/vim-reddit'
-Plug 'itchyny/calendar.vim'
+"Plug 'joshhartigan/vim-reddit'
+"Plug 'itchyny/calendar.vim'
 
 call plug#end()
 
@@ -66,9 +66,11 @@ nnoremap <esc> :noh<return><esc>
 
 " Auto-indentation à 2 espaces
 set autoindent
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+filetype plugin indent on
+
+set tabstop=8
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 
 " Compléter avec <Tab> en mode commande
@@ -95,22 +97,21 @@ nnoremap <C-H> <C-W><C-H>
 
 nnoremap gf :e <cfile><cr>
 nnoremap <c-w> :sp <cfile><cr>
-noremap g<CR> g<C-]>
-noremap <C-]> g<C-]>
+nnoremap g<CR> g<C-]>
+nnoremap <C-]> g<C-]>
 
 nnoremap <leader>p :History<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>t :Files<CR>
 
-noremap <BS> <PageUp>
-noremap <Space> <PageDown>
+nnoremap <BS> <PageUp>
+nnoremap <Space> <PageDown>
 
 let g:livepreview_previewer = 'zathura'
 let python_hightlight_all=1
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python'
 
-call deoplete#enable()
 let g:deoplete#enable_at_startup=1
 
 " Source fichiers de conf à la modification
@@ -155,8 +156,8 @@ if !exists('g:airline_symbols')
     let g:airline_symbols.linenr = ''
 
 
-highlight NonText ctermbg=none
-highlight Normal guibg=NONE ctermbg=NONE
+"highlight NonText ctermbg=none
+"highlight Normal guibg=NONE ctermbg=NONE
 
 if exists("g:loaded_webdevicons")
 	call webdevicons#refresh()
