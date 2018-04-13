@@ -18,3 +18,6 @@ alias la "exa -lah"
 
 alias emc "emacsclient -nw"
 
+set FZF_DEFAULT_COMMAND "fd --type file --ignore-case --hidden --follow --exclude .git"
+set FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+set FZF_ALT_C_COMMAND "fd --ignore-case --hidden -t d"
