@@ -6,6 +6,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-vinegar'
 
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
@@ -46,7 +47,7 @@ call plug#end()
 " Coloration syntaxique
 syntax on
 "colorscheme gruvbox
-"set background=dark
+set background=dark
 colorscheme wal
 
 " Aides visuelles

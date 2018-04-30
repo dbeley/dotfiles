@@ -33,7 +33,7 @@
 #
 ## Needed for tag editor and file operations to work.
 ##
-mpd_music_dir = ~/Musique
+mpd_music_dir = /mnt/Seagate4To/Nextcloud/Musique
 #
 #mpd_crossfade_time = 5
 #
@@ -337,7 +337,7 @@ visualizer_type = ellipse
 #
 ## Available values: artist, album_artist, date, genre, composer, performer.
 ##
-#media_library_primary_tag = artist
+media_library_primary_tag = album_artist
 #
 ## Available values: wrapped, normal.
 ##
@@ -527,3 +527,4 @@ visualizer_type = ellipse
 #
 #active_window_border = red
 #
+#media_library_left_column = "A"
