@@ -9,7 +9,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-vinegar'
 
 Plug 'scrooloose/syntastic'
-Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdtree'
 "Plug 'scrooloose/nerdcommenter'
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 
