@@ -247,13 +247,15 @@
 #+END_SRC
 
 *** Evil-org
-#+BEGIN_SRC emacs-lips
+#+BEGIN_SRC emacs-lisp
 (use-package evil-org
   :ensure t
-  )
-
-(add-hook 'org-mode-hook 'evil-org-mode)
-(evil-org-set-key-theme '(navigation insert textobjects additional))
+  :after org
+  :hook ((org-mode . evil-org-mode)
+         (evil-org-mode . evil-org-set-key-theme))
+  :config
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
 #+END_SRC
 
 *** Points
@@ -262,7 +264,11 @@
     :ensure t
     :config (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
     
-;;(setq org-bullets-bullet-list '("◉" "○" "●" "◆"))
+(setq org-bullets-bullet-list '("▶" "○" "●" "◆" "◇"))
+;; au choix
+;; ◉ ○ ✸ ✿
+;; ♥ ● ◇ ✚ ✜ ☯ ◆ ♠ ♣ ♦ ☢ ❀ ◆ ◖ ▶
+;; ► • ★ ▸
 #+END_SRC
 
 *** Exports 
@@ -279,7 +285,7 @@
     :ensure ox-reveal
     )
 
-  (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/")
+  (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.6.0/")
   (setq org-reveal-mathjax t)
 
   (use-package htmlize
@@ -307,16 +313,16 @@
 
 *** exwm
 #+BEGIN_SRC emacs-lisp
-(use-package exwm-x
-    :ensure t
-    )
+;;(use-package exwm-x
+;;    :ensure t
+;;    )
 
-;(require 'exwm-x)
-;(require 'exwm-config)
-;(exwm-enable)
+;;(require 'exwm-x)
+;;(require 'exwm-config)
+;;(exwm-enable)
 
-(require 'exwm-systemtray)
-(exwm-systemtray-enable)
+;;(require 'exwm-systemtray)
+;;(exwm-systemtray-enable)
 #+END_SRC
 
 *** eww

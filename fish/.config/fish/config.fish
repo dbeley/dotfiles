@@ -17,6 +17,7 @@ alias ll "exa -lh"
 alias la "exa -lah"
 
 alias emc "emacsclient -nw"
+alias enw "emacs -nw"
 alias merde "fuck"
 
 set FZF_DEFAULT_COMMAND "fd --type file --ignore-case --hidden --follow --exclude .git"
