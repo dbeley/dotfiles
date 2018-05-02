@@ -12,24 +12,35 @@
 ** Navigation
 *** Evil-mode
 #+BEGIN_SRC emacs-lisp
+
 (setq evil-want-C-i-jump nil)
 (setq evil-want-C-u-scroll t)
 
 (use-package evil
   :ensure t
-  :config (evil-mode 1)
+  :config
+  (evil-mode 1)
+
+  (use-package evil-leader
+    :ensure t
+    :config
+    (global-evil-leader-mode))
+
+  (use-package evil-surround
+    :ensure t
+    :config
+    (global-evil-surround-mode))
+
   )
 
-(use-package evil-surround
-  :ensure t
-  :config (global-evil-surround-mode 1)
-  )
 #+END_SRC   
 
 *** ranger
 #+BEGIN_SRC emacs-lisp
 (use-package ranger
   :ensure t
+  :config
+  (ranger-override-dired-mode t)
   )
 #+END_SRC   
    
@@ -110,23 +121,23 @@
 ** Recherche, complétion, …
 *** swiper
 #+BEGIN_SRC emacs-lisp
-  (use-package ivy
-    :ensure t
-    )
-
-  (use-package counsel
-    :ensure t
-    )
-
-  (use-package swiper
-    :ensure t
-    )
-
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t)
-  (global-set-key "\C-s" 'swiper)
-  (global-set-key (kbd "C-c C-r") 'ivy-resume)
+;;  (use-package ivy
+;;    :ensure t
+;;    )
+;;
+;;  (use-package counsel
+;;    :ensure t
+;;    )
+;;
+;;  (use-package swiper
+;;    :ensure t
+;;    )
+;;
+;;  (ivy-mode 1)
+;;  (setq ivy-use-virtual-buffers t)
+;;  (setq enable-recursive-minibuffers t)
+;;  (global-set-key "\C-s" 'swiper)
+;;  (global-set-key (kbd "C-c C-r") 'ivy-resume)
 ;;  (global-set-key (kbd "<f6>") 'ivy-resume)
 ;;  (global-set-key (kbd "M-x") 'counsel-M-x)
 ;;  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
@@ -163,6 +174,7 @@
 (global-set-key (kbd "M-x") #'helm-M-x)
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
+(global-set-key (kbd "C-x C-b") #'helm-buffers-list)
 #+END_SRC
 
 *** Yasnippet
@@ -251,9 +263,11 @@
 (use-package evil-org
   :ensure t
   :after org
-  :hook ((org-mode . evil-org-mode)
-         (evil-org-mode . evil-org-set-key-theme))
   :config
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'evil-org-mode-hook
+            (lambda ()
+              (evil-org-set-key-theme)))
   (require 'evil-org-agenda)
   (evil-org-agenda-set-keys))
 #+END_SRC
