@@ -347,3 +347,26 @@
     )
 #+END_SRC
 
+*** which-key
+#+BEGIN_SRC emacs-lisp
+(use-package which-key
+    :ensure t
+    :config
+    (which-key-mode)
+)
+#+END_SRC
+
+*** engine-mode
+#+BEGIN_SRC emacs-lisp
+(use-package engine-mode
+    :ensure t
+    :config
+    (engine-mode t)
+)
+#+END_SRC
+
+*** mu4e
+
+*** elfeed
+
+*** circe (ou erc)
