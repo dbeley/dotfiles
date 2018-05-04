@@ -31,7 +31,7 @@ IMAGE_CACHE_PATH="${4}"  # Full path that should be used to cache image preview
 PV_IMAGE_ENABLED="${5}"  # 'True' if image previews are enabled, 'False' otherwise.
 
 FILE_EXTENSION="${FILE_PATH##*.}"
-FILE_EXTENSION_LOWER="${FILE_EXTENSION,,}"
+FILE_EXTENSION_LOWER=$(echo ${FILE_EXTENSION} | tr '[:upper:]' '[:lower:]')
 
 # Settings
 HIGHLIGHT_SIZE_MAX=262143  # 256KiB
@@ -95,6 +95,15 @@ handle_image() {
 
         # Image
         image/*)
+            local orientation
+            orientation="$( identify -format '%[EXIF:Orientation]\n' -- "${FILE_PATH}" )"
+            # If orientation data is present and the image actually
+            # needs rotating ("1" means no rotation)...
+            if [[ -n "$orientation" && "$orientation" != 1 ]]; then
+                # ...auto-rotate the image according to the EXIF data.
+                convert -- "${FILE_PATH}" -auto-orient "${IMAGE_CACHE_PATH}" && exit 6
+            fi
+
             # `w3mimgdisplay` will be called for all images (unless overriden as above),
             # but might fail for unsupported types.
             exit 7;;
@@ -104,6 +113,15 @@ handle_image() {
         #     # Thumbnail
         #     ffmpegthumbnailer -i "${FILE_PATH}" -o "${IMAGE_CACHE_PATH}" -s 0 && exit 6
         #     exit 1;;
+        # PDF
+        # application/pdf)
+        #     pdftoppm -f 1 -l 1 \
+        #              -scale-to-x 1920 \
+        #              -scale-to-y -1 \
+        #              -singlefile \
+        #              -jpeg -tiffcompression jpeg \
+        #              -- "${FILE_PATH}" "${IMAGE_CACHE_PATH%.*}" \
+        #         && exit 6 || exit 1;;
     esac
 }
 
@@ -124,7 +142,7 @@ handle_mime() {
                 local highlight_format='ansi'
             fi
             highlight --replace-tabs="${HIGHLIGHT_TABWIDTH}" --out-format="${highlight_format}" \
-                --style="${HIGHLIGHT_STYLE}" -- "${FILE_PATH}" && exit 5
+                --style="${HIGHLIGHT_STYLE}" --force -- "${FILE_PATH}" && exit 5
             # pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}" -- "${FILE_PATH}" && exit 5
             exit 2;;
 
@@ -149,11 +167,11 @@ handle_fallback() {
 }
 
 
-handle_extension
 MIMETYPE="$( file --dereference --brief --mime-type -- "${FILE_PATH}" )"
 if [[ "${PV_IMAGE_ENABLED}" == 'True' ]]; then
     handle_image "${MIMETYPE}"
 fi
+handle_extension
 handle_mime "${MIMETYPE}"
 handle_fallback
 

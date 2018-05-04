@@ -42,6 +42,7 @@
   :config
   (ranger-override-dired-mode t)
   )
+(global-set-key (kbd "C-c r") #'ranger)
 #+END_SRC   
    
 *** ace-window
@@ -52,13 +53,44 @@
      (global-set-key [remap other-window] 'ace-window)
    )
  #+END_SRC
+
+*** treemacs
+#+BEGIN_SRC emacs-lisp
+(use-package treemacs
+:ensure t
+:defer t
+:config
+(progn
+  (treemacs-follow-mode t)
+  (treemacs-filewatch-mode t)
+  )
+:bind
+(:map global-map
+      ("M-0"        . treemacs-select-window)
+      ("C-c 1"      . treemacs-delete-other-windows)
+      ("C-c t"     . treemacs)
+      ("C-c g"     . treemacs-bookmark)
+      ("C-c f"  . treemacs-find-file)
+)
+)
+
+(use-package treemacs-evil
+  :after treemacs
+  :ensure t)
+
+(use-package treemacs-projectile
+  :after treemacs
+  :ensure t)
+  
+#+END_SRC
+
 ** Apparence
 *** Powerline
 #+BEGIN_SRC emacs-lisp
-(use-package powerline
-        :ensure t
-        :config (powerline-center-evil-theme)
-        )
+;;(use-package powerline
+;;        :ensure t
+;;        :config (powerline-center-evil-theme)
+;;        )
 #+END_SRC
 
 *** Airline-themes
@@ -81,17 +113,54 @@
       airline-utf-glyph-linenumber          #xe0a1)
 #+END_SRC
 
+*** spaceline
+#+BEGIN_SRC emacs-lisp
+;;(use-package spaceline
+;;  :ensure t
+;;  :config
+;;  (spaceline-spacemacs-theme)
+;;)
+#+END_SRC
+
+*** telephone-line
+    
+#+BEGIN_SRC emacs-lisp
+;;(use-package telephone-line
+;;  :ensure t
+;;  :config
+;;  (telephone-line-mode 1)
+;;)
+#+END_SRC
 *** base16-theme
 #+BEGIN_SRC emacs-lisp
   (use-package base16-theme
       :ensure t
       )
+;;      
+;;(defvar my/base16-colors base16-default-dark-colors)
+;;(setq evil-emacs-state-cursor   `(,(plist-get my/base16-colors :base0D) box)
+;;      evil-insert-state-cursor  `(,(plist-get my/base16-colors :base0D) bar)
+;;      evil-motion-state-cursor  `(,(plist-get my/base16-colors :base0E) box)
+;;      evil-normal-state-cursor  `(,(plist-get my/base16-colors :base0B) box)
+;;      evil-replace-state-cursor `(,(plist-get my/base16-colors :base08) bar)
+;;      evil-visual-state-cursor  `(,(plist-get my/base16-colors :base09) box))
+#+END_SRC
+
+*** xressources-theme
+#+BEGIN_SRC emacs-lisp
+;;  (use-package xresources-theme
+;;      :ensure t
+;;      )
 #+END_SRC
 
 *** Chargement des thèmes
 #+BEGIN_SRC emacs-lisp
-(load-theme 'base16-gruvbox-dark-hard)
+(when (display-graphic-p)
+  (load-theme 'xresources)
+  (load-theme 'base16-gruvbox-dark-hard)
+  )
 (load-theme 'airline-ubaryd)
+
 #+END_SRC
 
 ** Latex
@@ -182,26 +251,45 @@
 (use-package yasnippet
   :ensure t
   :config (yas-global-mode 1)
-  )
+)
+  
+(use-package yasnippet-snippets
+  :ensure t
+)
 #+END_SRC
 
 *** Company-mode
 #+BEGIN_SRC emacs-lisp
   (use-package company
     :ensure t
+    :config
+    (global-company-mode)
     )
 
-  (add-hook 'after-init-hook 'global-company-mode)
 
   (use-package company-quickhelp
     :ensure t
+    :config
+    (company-quickhelp-mode 1)
     )
 
-  (company-quickhelp-mode 1)
 
   (eval-after-load 'company
       '(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin))
 
+;;  (defun company-yasnippet-or-completion ()
+;;    "Solve company yasnippet conflicts."
+;;    (interactive)
+;;    (let ((yas-fallback-behavior
+;;           (apply 'company-complete-common nil)))
+;;      (yas-expand)))
+;;
+;;  (add-hook 'company-mode-hook
+;;            (lambda ()
+;;              (substitute-key-definition
+;;               'company-complete-common
+;;               'company-yasnippet-or-completion
+;;               company-active-map)))
 #+END_SRC
 
 *** elpy
@@ -211,19 +299,6 @@
     :config (elpy-enable)
 )
 
-  (defun company-yasnippet-or-completion ()
-    "Solve company yasnippet conflicts."
-    (interactive)
-    (let ((yas-fallback-behavior
-           (apply 'company-complete-common nil)))
-      (yas-expand)))
-
-  (add-hook 'company-mode-hook
-            (lambda ()
-              (substitute-key-definition
-               'company-complete-common
-               'company-yasnippet-or-completion
-               company-active-map)))
 #+END_SRC
 ** Projets
 *** Magit
@@ -237,6 +312,13 @@
   (use-package projectile
     :ensure t
     :config (projectile-mode t)
+    )
+#+END_SRC
+*** helm-projectile
+#+BEGIN_SRC emacs-lisp
+  (use-package helm-projectile
+    :ensure t
+    :config (helm-projectile-on)
     )
 #+END_SRC
 
@@ -279,7 +361,7 @@
     :config (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
     
 (setq org-bullets-bullet-list '("▶" "○" "●" "◆" "◇"))
-;; au choix
+;; Choix
 ;; ◉ ○ ✸ ✿
 ;; ♥ ● ◇ ✚ ✜ ☯ ◆ ♠ ♣ ♦ ☢ ❀ ◆ ◖ ▶
 ;; ► • ★ ▸
@@ -313,14 +395,14 @@
                   'org-capture)
 
   (setq org-capture-templates
-        '(("a" "Album" entry (file+headline "~/OneDrive/org/Musique/Albums.org" "Album")
+        '(("a" "Album" entry (file+headline "~/Nextcloud/org/Musique/Albums.org" "Album")
            "* Album %?\n%T")
-          ("t" "À Faire" entry (file+headline "~/OneDrive/org/Listes/TODO.org" "À Faire")
+          ("t" "À Faire" entry (file+headline "~/Nextcloud/org/Listes/TODO.org" "À Faire")
            "* %?\n%T\n" :prepend t)))
 #+END_SRC
 ** Autres
 *** ess
-#+BEGIN_SRC emacs-lips
+#+BEGIN_SRC emacs-lisp
 (use-package ess
   :ensure t)
 #+END_SRC
@@ -370,3 +452,42 @@
 *** elfeed
 
 *** circe (ou erc)
+
+*** pdf-tools
+    
+#+BEGIN_SRC emacs-lisp
+(use-package pdf-tools
+    :ensure t
+    :config
+    (pdf-tools-install)
+
+)
+#+END_SRC
+
+*** mingus
+
+#+BEGIN_SRC emacs-lisp
+(use-package mingus
+    :ensure t
+    :config
+    (dolist (mode '(mingus-help-mode
+                mingus-playlist-mode
+                mingus-browse-mode))
+    (evil-set-initial-state mode 'emacs))
+
+)
+#+END_SRC
+
+*** emms
+
+#+BEGIN_SRC emacs-lisp
+(use-package emms
+    :ensure t
+    :config
+    (emms-all)
+    (emms-default-players)
+    (add-to-list 'emms-info-functions 'emms-info-mpd)
+    (add-to-list 'emms-player-list 'emms-player-mpd)
+    (emms-cache-set-from-mpd-all) 
+)
+#+END_SRC
