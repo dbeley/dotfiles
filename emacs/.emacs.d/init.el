@@ -3,9 +3,12 @@
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
-;;(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
-
  
+(setq package-archive-priorities
+      '(("org"          . 200)
+        ("melpa"        . 150)
+        ("melpa-stable" . 100)
+        ))
 (setq package-enable-at-startup nil)
 (package-initialize)
 
@@ -26,7 +29,7 @@
 
 
 (org-babel-load-file (expand-file-name "~/.emacs.d/conf.org"))
-(org-babel-load-file (expand-file-name "~/.emacs.d/plugins.org"))
+;;(org-babel-load-file (expand-file-name "~/.emacs.d/plugins.org"))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

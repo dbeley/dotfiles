@@ -19,7 +19,6 @@
 
 (global-prettify-symbols-mode t)
 
-(windmove-default-keybindings)
 (global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
 (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
@@ -29,6 +28,10 @@
   #+BEGIN_SRC emacs-lisp
  (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
+(add-hook 'org-shiftup-final-hook 'windmove-up)
+(add-hook 'org-shiftleft-final-hook 'windmove-left)
+(add-hook 'org-shiftdown-final-hook 'windmove-down)
+(add-hook 'org-shiftright-final-hook 'windmove-right)
   #+END_SRC
 ** Autres
  #+BEGIN_SRC emacs-lisp
@@ -62,4 +65,554 @@
 
  #+END_SRC 
  
- 
+* Plug-ins
+** Nettoyage
+#+BEGIN_SRC emacs-lisp
+  (use-package no-littering
+    :ensure t
+    :config
+    (require 'recentf)
+    (add-to-list 'recentf-exclude no-littering-var-directory)
+    (add-to-list 'recentf-exclude no-littering-etc-directory)
+    )
+#+END_SRC
+** Navigation
+*** buffer-move
+#+BEGIN_SRC emacs-lisp
+
+  (setq evil-want-C-i-jump nil)
+  (setq evil-want-C-u-scroll t)
+
+  (use-package buffer-move
+    :ensure t
+    )
+  (global-set-key (kbd "C-c <up>")     'buf-move-up)
+  (global-set-key (kbd "C-c <down>")   'buf-move-down)
+  (global-set-key (kbd "C-c <left>")   'buf-move-left)
+  (global-set-key (kbd "C-c <right>") 'buf-move-right)
+
+#+END_SRC   
+*** Evil-mode 
+#+BEGIN_SRC emacs-lisp
+
+(setq evil-want-C-i-jump nil)
+(setq evil-want-C-u-scroll t)
+
+(use-package evil
+  :ensure t
+  :config
+  (evil-mode 1)
+
+  (use-package evil-leader
+    :ensure t
+    :config
+    (global-evil-leader-mode))
+
+  (use-package evil-surround
+    :ensure t
+    :config
+    (global-evil-surround-mode))
+
+  )
+
+#+END_SRC   
+
+*** ranger
+#+BEGIN_SRC emacs-lisp
+(use-package ranger
+  :ensure t
+  :config
+  (ranger-override-dired-mode t)
+  )
+(global-set-key (kbd "C-c r") #'ranger)
+#+END_SRC   
+   
+*** ace-window
+ #+BEGIN_SRC emacs-lisp
+ (use-package ace-window
+   :ensure t
+   :config
+     (global-set-key [remap other-window] 'ace-window)
+   )
+ #+END_SRC
+
+*** treemacs
+#+BEGIN_SRC emacs-lisp
+(use-package treemacs
+:ensure t
+:defer t
+:config
+(progn
+  (treemacs-follow-mode t)
+  (treemacs-filewatch-mode t)
+  )
+:bind
+(:map global-map
+      ("M-0"        . treemacs-select-window)
+      ("C-c 1"      . treemacs-delete-other-windows)
+      ("C-c t"     . treemacs)
+      ("C-c g"     . treemacs-bookmark)
+      ("C-c f"  . treemacs-find-file)
+)
+)
+
+(use-package treemacs-evil
+  :after treemacs
+  :ensure t)
+
+(use-package treemacs-projectile
+  :after treemacs
+  :ensure t)
+  
+#+END_SRC
+
+*** dump-jump
+#+BEGIN_SRC emacs-lisp
+(use-package dumb-jump
+  :bind (("M-g o" . dumb-jump-go-other-window)
+         ("M-g j" . dumb-jump-go)
+         ("M-g i" . dumb-jump-go-prompt)
+         ("M-g x" . dumb-jump-go-prefer-external)
+         ("M-g z" . dumb-jump-go-prefer-external-other-window))
+  :config (setq dumb-jump-selector 'helm)
+  :ensure t
+)
+
+#+END_SRC
+
+** Apparence
+*** rainbow-mode
+#+BEGIN_SRC emacs-lisp
+(use-package rainbow-mode
+        :ensure t
+        )
+#+END_SRC
+
+*** Powerline
+#+BEGIN_SRC emacs-lisp
+;;(use-package powerline
+;;        :ensure t
+;;        :config (powerline-center-evil-theme)
+;;        )
+#+END_SRC
+
+*** Airline-themes
+#+BEGIN_SRC emacs-lisp
+
+ (use-package airline-themes
+   :ensure t
+   )
+
+(setq-default custom-safe-themes t)
+
+(setq powerline-utf-8-separator-left        #xe0b0
+      powerline-utf-8-separator-right       #xe0b2
+      airline-utf-glyph-separator-left      #xe0b0
+      airline-utf-glyph-separator-right     #xe0b2
+      airline-utf-glyph-subseparator-left   #xe0b1
+      airline-utf-glyph-subseparator-right  #xe0b3
+      airline-utf-glyph-branch              #xe0a0
+      airline-utf-glyph-readonly            #xe0a2
+      airline-utf-glyph-linenumber          #xe0a1)
+#+END_SRC
+
+*** spaceline
+#+BEGIN_SRC emacs-lisp
+;;(use-package spaceline
+;;  :ensure t
+;;  :config
+;;  (spaceline-spacemacs-theme)
+;;)
+#+END_SRC
+
+*** telephone-line
+    
+#+BEGIN_SRC emacs-lisp
+;;(use-package telephone-line
+;;  :ensure t
+;;  :config
+;;  (telephone-line-mode 1)
+;;)
+#+END_SRC
+*** base16-theme
+#+BEGIN_SRC emacs-lisp
+  (use-package base16-theme
+      :ensure t
+      )
+;;      
+;;(defvar my/base16-colors base16-default-dark-colors)
+;;(setq evil-emacs-state-cursor   `(,(plist-get my/base16-colors :base0D) box)
+;;      evil-insert-state-cursor  `(,(plist-get my/base16-colors :base0D) bar)
+;;      evil-motion-state-cursor  `(,(plist-get my/base16-colors :base0E) box)
+;;      evil-normal-state-cursor  `(,(plist-get my/base16-colors :base0B) box)
+;;      evil-replace-state-cursor `(,(plist-get my/base16-colors :base08) bar)
+;;      evil-visual-state-cursor  `(,(plist-get my/base16-colors :base09) box))
+#+END_SRC
+
+*** xressources-theme
+#+BEGIN_SRC emacs-lisp
+;;  (use-package xresources-theme
+;;      :ensure t
+;;      )
+#+END_SRC
+
+*** Chargement des thèmes
+#+BEGIN_SRC emacs-lisp
+(when (display-graphic-p)
+  (load-theme 'xresources)
+  (load-theme 'base16-gruvbox-dark-hard)
+  )
+(load-theme 'airline-ubaryd)
+
+#+END_SRC
+** Recherche, complétion, …
+*** swiper
+#+BEGIN_SRC emacs-lisp
+;;  (use-package ivy
+;;    :ensure t
+;;    )
+;;
+;;  (use-package counsel
+;;    :ensure t
+;;    )
+;;
+;;  (use-package swiper
+;;    :ensure t
+;;    )
+;;
+;;  (ivy-mode 1)
+;;  (setq ivy-use-virtual-buffers t)
+;;  (setq enable-recursive-minibuffers t)
+;;  (global-set-key "\C-s" 'swiper)
+;;  (global-set-key (kbd "C-c C-r") 'ivy-resume)
+;;  (global-set-key (kbd "<f6>") 'ivy-resume)
+;;  (global-set-key (kbd "M-x") 'counsel-M-x)
+;;  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+;;  (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+;;  (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+;;  (global-set-key (kbd "<f1> l") 'counsel-find-library)
+;;  (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+;;  (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+;;  (global-set-key (kbd "C-c g") 'counsel-git)
+;;  (global-set-key (kbd "C-c j") 'counsel-git-grep)
+;;  (global-set-key (kbd "C-c k") 'counsel-ag)
+;;  (global-set-key (kbd "C-x l") 'counsel-locate)
+;;  (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+;;  (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+#+END_SRC
+
+*** avy
+#+BEGIN_SRC emacs-lisp
+(use-package avy
+  :ensure t
+  :config (avy-setup-default)
+  )
+#+END_SRC
+
+*** Helm
+#+BEGIN_SRC emacs-lisp
+(use-package helm
+  :ensure t
+  :config (helm-mode 1)
+  )
+
+(require 'helm-config)
+
+(global-set-key (kbd "M-x") #'helm-M-x)
+(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
+(global-set-key (kbd "C-x C-b") #'helm-buffers-list)
+#+END_SRC
+
+*** Yasnippet
+#+BEGIN_SRC emacs-lisp
+(use-package yasnippet
+  :ensure t
+  :config (yas-global-mode 1)
+)
+  
+(use-package yasnippet-snippets
+  :ensure t
+)
+#+END_SRC
+
+*** Company-mode
+#+BEGIN_SRC emacs-lisp
+  (use-package company
+    :ensure t
+    :config
+    (global-company-mode)
+    )
+
+
+  (use-package company-quickhelp
+    :ensure t
+    :config
+    (company-quickhelp-mode 1)
+    )
+
+
+  (eval-after-load 'company
+      '(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin))
+
+;;  (defun company-yasnippet-or-completion ()
+;;    "Solve company yasnippet conflicts."
+;;    (interactive)
+;;    (let ((yas-fallback-behavior
+;;           (apply 'company-complete-common nil)))
+;;      (yas-expand)))
+;;
+;;  (add-hook 'company-mode-hook
+;;            (lambda ()
+;;              (substitute-key-definition
+;;               'company-complete-common
+;;               'company-yasnippet-or-completion
+;;               company-active-map)))
+#+END_SRC
+
+** Projets
+*** Magit
+ #+BEGIN_SRC emacs-lisp
+ (use-package magit
+   :ensure t
+   )
+ #+END_SRC
+*** projectile
+#+BEGIN_SRC emacs-lisp
+  (use-package projectile
+    :ensure t
+    :config (projectile-mode t)
+    )
+#+END_SRC
+*** helm-projectile
+#+BEGIN_SRC emacs-lisp
+  (use-package helm-projectile
+    :ensure t
+    :config (helm-projectile-on)
+    )
+#+END_SRC
+
+** Org-mode
+*** Org-mode
+    
+#+BEGIN_SRC emacs-lisp
+(use-package org
+  :ensure org-plus-contrib
+  )
+
+(setq org-agenda-files '("~/Nextcloud/6. org/"))
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(setq org-replace-disputed-keys t)
+(setq org-src-fontify-natively t)
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
+(setq org-log-done t)
+#+END_SRC
+
+*** Evil-org
+#+BEGIN_SRC emacs-lisp
+(use-package evil-org
+  :ensure t
+  :after org
+  :config
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'evil-org-mode-hook
+            (lambda ()
+              (evil-org-set-key-theme)))
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
+#+END_SRC
+
+*** org-bullets
+#+BEGIN_SRC emacs-lisp
+(use-package org-bullets
+    :ensure t
+    :config (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+    
+(setq org-bullets-bullet-list '("▶" "○" "●" "◆" "◇"))
+;; Choix
+;; ◉ ○ ✸ ✿
+;; ♥ ● ◇ ✚ ✜ ☯ ◆ ♠ ♣ ♦ ☢ ❀ ◆ ◖ ▶
+;; ► • ★ ▸
+#+END_SRC
+
+*** Exports 
+**** Twitter Bootstrap
+#+BEGIN_SRC emacs-lisp
+(use-package ox-twbs
+  :ensure t
+  )
+#+END_SRC
+
+**** org-reveal
+#+BEGIN_SRC emacs-lisp
+  (use-package ox-reveal
+    :ensure ox-reveal
+    )
+
+  (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.6.0/")
+  (setq org-reveal-mathjax t)
+
+  (use-package htmlize
+    :ensure t
+    )
+#+END_SRC
+
+*** Org-capture
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-c c")
+                  'org-capture)
+
+  (setq org-capture-templates
+        '(("a" "Album" entry (file+headline "~/Nextcloud/6. org/Musique/Albums.org" "Album")
+           "* Album %?\n%T")
+          ("t" "À Faire" entry (file+headline "~/Nextcloud/6. org/Listes/TODO.org" "À Faire")
+           "* %?\n%T\n" :prepend t)))
+#+END_SRC
+
+** Latex
+*** auctex
+
+#+BEGIN_SRC emacs-lisp
+(use-package latex 
+      :ensure auctex
+      )
+
+
+(load "auctex.el" nil t t)
+
+;;(load "preview-latex.el" nil t t)
+
+(setq TeX-auto-save t
+      TeX-parse-self t)
+
+(use-package magic-latex-buffer
+      :ensure t
+      )
+
+(add-hook 'latex-mode-hook 'magic-latex-buffer)
+
+#+END_SRC
+** Autres
+*** ess
+#+BEGIN_SRC emacs-lisp
+(use-package ess
+  :ensure t)
+#+END_SRC
+
+*** exwm
+#+BEGIN_SRC emacs-lisp
+;;(use-package exwm-x
+;;    :ensure t
+;;    )
+
+;;(require 'exwm-x)
+;;(require 'exwm-config)
+;;(exwm-enable)
+
+;;(require 'exwm-systemtray)
+;;(exwm-systemtray-enable)
+#+END_SRC
+
+*** eww
+    
+#+BEGIN_SRC emacs-lisp
+(use-package eww
+    :ensure t
+    )
+#+END_SRC
+
+*** which-key
+#+BEGIN_SRC emacs-lisp
+(use-package which-key
+    :ensure t
+    :config
+    (which-key-mode)
+)
+#+END_SRC
+
+*** engine-mode
+#+BEGIN_SRC emacs-lisp
+(use-package engine-mode
+    :ensure t
+    :config
+    (engine-mode t)
+)
+#+END_SRC
+
+*** mu4e
+
+*** elfeed
+
+*** circe (ou erc)
+
+*** pdf-tools
+    
+#+BEGIN_SRC emacs-lisp
+(use-package pdf-tools
+    :ensure t
+    :config
+    (pdf-tools-install)
+
+)
+#+END_SRC
+
+*** mingus
+
+#+BEGIN_SRC emacs-lisp
+(use-package mingus
+    :ensure t
+    :config
+    (dolist (mode '(mingus-help
+                mingus-playlist
+                mingus-browse))
+    (evil-set-initial-state mode 'emacs))
+    
+    (evil-set-initial-state 'mingus-help 'emacs)
+    (evil-set-initial-state 'mingus-playlist 'emacs)
+    (evil-set-initial-state 'mingus-browse 'emacs)
+
+)
+#+END_SRC
+
+*** emms
+
+#+BEGIN_SRC emacs-lisp
+(use-package emms
+    :ensure t
+    :config
+    (emms-all)
+    (emms-default-players)
+    (add-to-list 'emms-info-functions 'emms-info-mpd)
+    (add-to-list 'emms-player-list 'emms-player-mpd)
+    (emms-cache-set-from-mpd-all) 
+    (emms-mode-line 1)
+    (emms-playing-time 1)
+)
+#+END_SRC
+
+** Languages
+
+*** elpy
+#+BEGIN_SRC emacs-lisp
+  (use-package elpy
+    :ensure t
+    :config (elpy-enable)
+)
+#+END_SRC
+*** web-mode
+#+BEGIN_SRC emacs-lisp
+  (use-package web-mode
+    :ensure t
+    :config
+    (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+)
+#+END_SRC
