@@ -80,16 +80,17 @@
 *** buffer-move
 #+BEGIN_SRC emacs-lisp
 
-  (setq evil-want-C-i-jump nil)
-  (setq evil-want-C-u-scroll t)
+(setq evil-want-C-i-jump nil)
+(setq evil-want-C-u-scroll t)
 
-  (use-package buffer-move
-    :ensure t
-    )
+(use-package buffer-move
+  :ensure t
+  :config
   (global-set-key (kbd "C-c <up>")     'buf-move-up)
   (global-set-key (kbd "C-c <down>")   'buf-move-down)
   (global-set-key (kbd "C-c <left>")   'buf-move-left)
   (global-set-key (kbd "C-c <right>") 'buf-move-right)
+  )
 
 #+END_SRC   
 *** Evil-mode 
@@ -100,20 +101,27 @@
 
 (use-package evil
   :ensure t
+  :init
+  (setq evil-want-integration nil)
   :config
   (evil-mode 1)
 
-  (use-package evil-leader
-    :ensure t
-    :config
-    (global-evil-leader-mode))
+(use-package evil-leader
+  :ensure t
+  :config
+  (global-evil-leader-mode))
 
-  (use-package evil-surround
-    :ensure t
-    :config
-    (global-evil-surround-mode))
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode))
 
-  )
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
+)
 
 #+END_SRC   
 
@@ -123,18 +131,18 @@
   :ensure t
   :config
   (ranger-override-dired-mode t)
+  (global-set-key (kbd "C-c r") #'ranger)
   )
-(global-set-key (kbd "C-c r") #'ranger)
 #+END_SRC   
    
 *** ace-window
- #+BEGIN_SRC emacs-lisp
- (use-package ace-window
-   :ensure t
-   :config
-     (global-set-key [remap other-window] 'ace-window)
-   )
- #+END_SRC
+#+BEGIN_SRC emacs-lisp
+(use-package ace-window
+  :ensure t
+  :config
+  (global-set-key (kbd "M-o") 'ace-window)
+  )
+#+END_SRC
 
 *** treemacs
 #+BEGIN_SRC emacs-lisp
@@ -180,6 +188,33 @@
 
 #+END_SRC
 
+*** switch-window
+#+BEGIN_SRC emacs-lisp
+;;(use-package switch-window
+;;:ensure t
+;;:config
+;;(setq switch-window-shortcut-style 'qwerty)
+;;(setq switch-window-qwerty-shortcuts
+;;      '("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o"))
+;;(setq switch-window-input-style 'minibuffer))
+;;
+;;(global-set-key (kbd "C-x o") 'switch-window)
+;;(global-set-key (kbd "C-x 1") 'switch-window-then-maximize)
+;;(global-set-key (kbd "C-x 2") 'switch-window-then-split-below)
+;;(global-set-key (kbd "C-x 3") 'switch-window-then-split-right)
+;;(global-set-key (kbd "C-x 0") 'switch-window-then-delete)
+;;
+;;(global-set-key (kbd "C-x 4 d") 'switch-window-then-dired)
+;;(global-set-key (kbd "C-x 4 f") 'switch-window-then-find-file)
+;;(global-set-key (kbd "C-x 4 m") 'switch-window-then-compose-mail)
+;;(global-set-key (kbd "C-x 4 r") 'switch-window-then-find-file-read-only)
+;;
+;;(global-set-key (kbd "C-x 4 C-f") 'switch-window-then-find-file)
+;;(global-set-key (kbd "C-x 4 C-o") 'switch-window-then-display-buffer)
+;;
+;;(global-set-key (kbd "C-x 4 0") 'switch-window-then-kill-buffer)
+
+#+END_SRC
 ** Apparence
 *** rainbow-mode
 #+BEGIN_SRC emacs-lisp
@@ -314,14 +349,14 @@
 (use-package helm
   :ensure t
   :config (helm-mode 1)
+  (require 'helm-config)
+  (global-set-key (kbd "M-x") #'helm-M-x)
+  (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+  (global-set-key (kbd "C-x C-f") #'helm-find-files)
+  (global-set-key (kbd "C-x f") #'helm-recentf)
+  (global-set-key (kbd "C-x C-b") #'helm-buffers-list)
   )
 
-(require 'helm-config)
-
-(global-set-key (kbd "M-x") #'helm-M-x)
-(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-(global-set-key (kbd "C-x C-f") #'helm-find-files)
-(global-set-key (kbd "C-x C-b") #'helm-buffers-list)
 #+END_SRC
 
 *** Yasnippet
@@ -370,6 +405,16 @@
 ;;               company-active-map)))
 #+END_SRC
 
+*** smartparens
+#+BEGIN_SRC emacs-lisp
+(use-package smartparens
+:ensure t
+:config
+(require 'smartparens-config)
+)
+
+#+END_SRC
+
 ** Projets
 *** Magit
  #+BEGIN_SRC emacs-lisp
@@ -381,7 +426,7 @@
    )
 )
  #+END_SRC
-*** Magit-org
+*** evil-magit
     #+BEGIN_SRC emacs-lisp
  (use-package evil-magit
     :ensure t
@@ -409,16 +454,17 @@
 #+BEGIN_SRC emacs-lisp
 (use-package org
   :ensure org-plus-contrib
+  :config
+  (setq org-agenda-files '("~/Nextcloud/6. org/"))
+  (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+  (setq org-replace-disputed-keys t)
+  (setq org-src-fontify-natively t)
+  (global-set-key "\C-cl" 'org-store-link)
+  (global-set-key "\C-ca" 'org-agenda)
+  (global-set-key "\C-cb" 'org-iswitchb)
+  (setq org-log-done t)
   )
 
-(setq org-agenda-files '("~/Nextcloud/6. org/"))
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-(setq org-replace-disputed-keys t)
-(setq org-src-fontify-natively t)
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-(setq org-log-done t)
 #+END_SRC
 
 *** Evil-org
@@ -472,14 +518,14 @@
 
 *** Org-capture
 #+BEGIN_SRC emacs-lisp
-  (global-set-key (kbd "C-c c")
-                  'org-capture)
+(global-set-key (kbd "C-c c")
+                'org-capture)
 
-  (setq org-capture-templates
-        '(("a" "Album" entry (file+headline "~/Nextcloud/6. org/Musique/Albums.org" "Album")
-           "* Album %?\n%T")
-          ("t" "À Faire" entry (file+headline "~/Nextcloud/6. org/Listes/TODO.org" "À Faire")
-           "* %?\n%T\n" :prepend t)))
+(setq org-capture-templates
+      '(("a" "Album" entry (file+headline "~/Nextcloud/6. org/Musique/Albums.org" "Album")
+         "* Album %?\n%T")
+        ("t" "À Faire" entry (file+headline "~/Nextcloud/6. org/Listes/TODO.org" "À Faire")
+         "* %?\n%T\n" :prepend t)))
 #+END_SRC
 
 ** Latex
@@ -555,9 +601,34 @@
 *** mu4e
 
 *** elfeed
+#+BEGIN_SRC emacs-lisp
+(use-package elfeed
+  :ensure t
+  :config
+  (global-set-key (kbd "C-x w") 'elfeed)
+)
 
+(use-package elfeed-org
+  :ensure t
+  :config
+  (elfeed-org)
+  (setq rmh-elfeed-org-files (list "~/Nextcloud/6. org/Listes/rss.org"))
+)
+
+;;(use-package elfeed-goodies
+;;  :ensure t
+;;  :config
+;;  (elfeed-goodies/setup)
+;;)
+
+#+END_SRC
 *** circe (ou erc)
+#+BEGIN_SRC emacs-lisp
+;;(use-package circe
+;;  :ensure t
+;;)
 
+#+END_SRC
 *** pdf-tools
     
 #+BEGIN_SRC emacs-lisp
@@ -603,6 +674,15 @@
 )
 #+END_SRC
 
+*** symon
+#+BEGIN_SRC emacs-lisp
+(use-package symon
+  :ensure t
+  :config
+  (symon-mode)
+)
+
+#+END_SRC
 ** Languages
 
 *** elpy
