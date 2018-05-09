@@ -41,7 +41,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (smartparens telephone-line spaceline-config spaceline emms esup counsel use-package ranger projectile ox-twbs ox-reveal org-plus-contrib org-bullets no-littering magit htmlize helm exwm-x evil-surround elpy company-quickhelp better-defaults base16-theme airline-themes ace-window))))
+    (flycheck smartparens telephone-line spaceline-config spaceline emms esup counsel use-package ranger projectile ox-twbs ox-reveal org-plus-contrib org-bullets no-littering magit htmlize helm exwm-x evil-surround elpy company-quickhelp better-defaults base16-theme airline-themes ace-window))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

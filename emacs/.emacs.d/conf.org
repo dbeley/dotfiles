@@ -300,7 +300,7 @@
 (load-theme 'airline-ubaryd)
 
 #+END_SRC
-** Recherche, complétion, …
+** Recherche, complétion, Syntaxe, …
 *** swiper
 #+BEGIN_SRC emacs-lisp
 ;;  (use-package ivy
@@ -341,7 +341,10 @@
 (use-package avy
   :ensure t
   :config (avy-setup-default)
-  )
+  (global-set-key (kbd "C-:") 'avy-goto-char)
+  (global-set-key (kbd "C-'") 'avy-goto-char-2)
+  (global-set-key (kbd "C-c C-j") 'avy-resume)
+)
 #+END_SRC
 
 *** Helm
@@ -379,7 +382,6 @@
     (global-company-mode)
     )
 
-
   (use-package company-quickhelp
     :ensure t
     :config
@@ -411,6 +413,15 @@
 :ensure t
 :config
 (require 'smartparens-config)
+)
+
+#+END_SRC
+
+*** Flycheck
+#+BEGIN_SRC emacs-lisp
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode)
 )
 
 #+END_SRC
