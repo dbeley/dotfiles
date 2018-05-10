@@ -13,7 +13,6 @@
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 
-(global-linum-mode t)
 
 (scroll-bar-mode -1)
 
@@ -36,9 +35,15 @@
 ** Autres
  #+BEGIN_SRC emacs-lisp
 (require 'iso-transl)
-(setq x-select-enable-clipboard t)
-(global-auto-revert-mode 1)
+(setq locale-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
 
+(setq x-select-enable-clipboard t)
+
+(global-auto-revert-mode 1)
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
 
@@ -48,21 +53,15 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(setq locale-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
-(prefer-coding-system 'utf-8)
-
 (setq jump-char-lazy-highlight-face nil)
 
-(setq line-number-mode t)
-(setq column-number-mode t)
-(setq vc-follow-symlinks t)
+(global-linum-mode t)
 
 (setq fill-column 80)
 (set-default 'fill-column 80)
 
+;; Always follow symlinks
+(setq vc-follow-symlinks t)
  #+END_SRC 
  
 * Plug-ins
@@ -300,6 +299,24 @@
 (load-theme 'airline-ubaryd)
 
 #+END_SRC
+*** page-break-lines
+#+BEGIN_SRC emacs-lisp
+(use-package page-break-lines
+  :ensure t
+  :config (turn-on-page-break-lines-mode)
+)
+
+#+END_SRC
+*** dashboard
+#+BEGIN_SRC emacs-lisp
+(use-package dashboard
+  :ensure t
+  :config (dashboard-setup-startup-hook)
+  (setq dashboard-banner-logo-title "Bienvenue dans Emacs")
+  (add-to-list 'dashboard-items '(agenda) t)
+)
+
+#+END_SRC
 ** Recherche, complétion, Syntaxe, …
 *** swiper
 #+BEGIN_SRC emacs-lisp
@@ -419,10 +436,10 @@
 
 *** Flycheck
 #+BEGIN_SRC emacs-lisp
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode)
-)
+;;(use-package flycheck
+;;  :ensure t
+;;  :init (global-flycheck-mode)
+;;)
 
 #+END_SRC
 
@@ -474,7 +491,7 @@
   (global-set-key "\C-ca" 'org-agenda)
   (global-set-key "\C-cb" 'org-iswitchb)
   (setq org-log-done t)
-  )
+)
 
 #+END_SRC
 
