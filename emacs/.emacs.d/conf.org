@@ -299,6 +299,7 @@
 (load-theme 'airline-ubaryd)
 
 #+END_SRC
+<<<<<<< HEAD
 *** page-break-lines
 #+BEGIN_SRC emacs-lisp
 (use-package page-break-lines
@@ -317,6 +318,8 @@
 )
 
 #+END_SRC
+=======
+>>>>>>> 1bf242f... modifs emacs
 ** Recherche, complétion, Syntaxe, …
 *** swiper
 #+BEGIN_SRC emacs-lisp
@@ -436,10 +439,17 @@
 
 *** Flycheck
 #+BEGIN_SRC emacs-lisp
+<<<<<<< HEAD
 ;;(use-package flycheck
 ;;  :ensure t
 ;;  :init (global-flycheck-mode)
 ;;)
+=======
+(use-package flycheck
+  :ensure t
+  :init (global-flycheck-mode)
+)
+>>>>>>> 1bf242f... modifs emacs
 
 #+END_SRC
 
