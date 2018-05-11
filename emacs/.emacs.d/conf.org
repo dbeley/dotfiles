@@ -495,6 +495,8 @@
   (setq org-log-done t)
 )
 
+(setq org-confirm-babel-evaluate nil)
+
 #+END_SRC
 
 *** Evil-org
@@ -522,6 +524,15 @@
 ;; ◉ ○ ✸ ✿
 ;; ♥ ● ◇ ✚ ✜ ☯ ◆ ♠ ♣ ♦ ☢ ❀ ◆ ◖ ▶
 ;; ► • ★ ▸
+#+END_SRC
+
+*** org-babel
+#+BEGIN_SRC emacs-lisp
+
+(org-babel-do-load-languages
+'org-babel-load-languages
+'((python . t)))
+
 #+END_SRC
 
 *** Exports 
@@ -552,10 +563,14 @@
                 'org-capture)
 
 (setq org-capture-templates
-      '(("a" "Album" entry (file+headline "~/Nextcloud/6. org/Musique/Albums.org" "Album")
-         "* Album %?\n%T")
-        ("t" "À Faire" entry (file+headline "~/Nextcloud/6. org/Listes/TODO.org" "À Faire")
-         "* %?\n%T\n" :prepend t)))
+      '(("a" "Album à écouter" entry (file+headline "~/Nextcloud/6. org/Musique/Albums.org" "Albums à écouter")
+         "* %?\n%^g\n
+         %T" :prepend t)
+        ("t" "À faire" entry (file+headline "~/Nextcloud/6. org/Listes/TODO.org" "À Faire")
+         "* %?\n%T\n" :prepend t)
+         ("p" "Idée programmation" entry (file+headline "~/Nextcloud/6. org/Listes/Idées programmation.org" "Idées programmation")
+         "* %?\n%T\n" :prepend t)
+))
 #+END_SRC
 
 ** Latex

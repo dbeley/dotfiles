@@ -1,3 +1,7 @@
+;; garbage collection settings
+(setq gc-cons-threshold 402653184
+      gc-cons-percentage 0.6)
+
 (require 'package)
 
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
@@ -9,6 +13,7 @@
         ("melpa"        . 150)
         ("melpa-stable" . 100)
         ))
+
 (setq package-enable-at-startup nil)
 (package-initialize)
 
@@ -19,17 +24,9 @@
 (eval-when-compile
   (require 'use-package))
 
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (message "Emacs ready in %s with %d garbage collections."
-                     (format "%.2f seconds"
-                             (float-time
-                              (time-subtract after-init-time before-init-time)))
-                     gcs-done)))
-
-
 (org-babel-load-file (expand-file-name "~/.emacs.d/conf.org"))
 ;;(org-babel-load-file (expand-file-name "~/.emacs.d/plugins.org"))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -48,3 +45,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; reset garbage collection settings and display startup time
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (message "Emacs ready in %s with %d garbage collections."
+                     (format "%.2f seconds"
+                             (float-time
+                              (time-subtract after-init-time before-init-time)))
+                     gcs-done))
+           (setq gc-cons-threshold 16777216
+                 gc-cons-percentage 0.1))
