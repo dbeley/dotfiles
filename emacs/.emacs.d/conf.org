@@ -487,15 +487,16 @@
   :config
   (setq org-agenda-files '("~/Nextcloud/6. org/"))
   (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-  (setq org-replace-disputed-keys t)
-  (setq org-src-fontify-natively t)
   (global-set-key "\C-cl" 'org-store-link)
   (global-set-key "\C-ca" 'org-agenda)
   (global-set-key "\C-cb" 'org-iswitchb)
+  (setq org-replace-disputed-keys t)
+  (setq org-src-fontify-natively t)
   (setq org-log-done t)
+  (setq org-ssrc-fontify-natively t)
+  (setq org-confirm-babel-evaluate nil)
 )
 
-(setq org-confirm-babel-evaluate nil)
 
 #+END_SRC
 
@@ -517,7 +518,8 @@
 #+BEGIN_SRC emacs-lisp
 (use-package org-bullets
     :ensure t
-    :config (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+    :config (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+    (setq org-ellipsis "⤵"))
     
 (setq org-bullets-bullet-list '("▶" "○" "●" "◆" "◇"))
 ;; Choix
@@ -564,8 +566,7 @@
 
 (setq org-capture-templates
       '(("a" "Album à écouter" entry (file+headline "~/Nextcloud/6. org/Musique/Albums.org" "Albums à écouter")
-         "* %?\n%^g\n
-         %T" :prepend t)
+         "* %?\n%^g\n%T" :prepend t)
         ("t" "À faire" entry (file+headline "~/Nextcloud/6. org/Listes/TODO.org" "À Faire")
          "* %?\n%T\n" :prepend t)
          ("p" "Idée programmation" entry (file+headline "~/Nextcloud/6. org/Listes/Idées programmation.org" "Idées programmation")
