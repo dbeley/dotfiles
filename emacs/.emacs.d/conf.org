@@ -12,11 +12,18 @@
    
 ** Interface
    #+BEGIN_SRC emacs-lisp
+   ;; Hide GUI elements
    (tool-bar-mode 0)
    (menu-bar-mode 0)
-
    (scroll-bar-mode -1)
    
+   ;; Smooth scrolling
+   (setq scroll-margin 5)
+   (setq smooth-scroll-margin 1)
+   (setq scroll-step 1)
+   (setq scroll-conservatively 10000)
+   (setq auto-window-vscroll nil)
+    
    (global-prettify-symbols-mode +1)
    
    (add-hook 'emacs-lisp-mode-hook
@@ -86,9 +93,6 @@
 ** Navigation
 *** buffer-move
     #+BEGIN_SRC emacs-lisp
-    (setq evil-want-C-i-jump nil)
-    (setq evil-want-C-u-scroll t)
-    
     (use-package buffer-move
     :ensure t
     :config
@@ -315,7 +319,11 @@
     :ensure t
     :config (dashboard-setup-startup-hook)
     (setq dashboard-banner-logo-title "Bienvenue dans Emacs")
-    (add-to-list 'dashboard-items '(agenda) t)
+    (setq dashboard-items '((recents . 5)
+    (bookmarks . 5)
+    (projects . 5)
+    (agenda . 5)
+    (registers . 5)))
     )
     #+END_SRC
     
@@ -424,6 +432,12 @@
     ;;               company-active-map)))
     #+END_SRC
 
+*** Company-box
+    #+BEGIN_SRC emacs-lisp
+    (use-package company-box
+    :hook (company-mode . company-box-mode))
+    #+END_SRC
+
 *** smartparens
     #+BEGIN_SRC emacs-lisp
     (use-package smartparens
@@ -513,10 +527,8 @@
     (use-package org-bullets
     :ensure t
     :config (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-    (setq org-ellipsis nil)
     (setq org-ellipsis "…")
-    ;;(setq org-ellipsis "⤵")
-    ;;(setq org-ellipsis "▸")
+    ;; ▼ ↴ ⬎ ⤷ ⋱ … ⤵ ▸
     ) 
     (setq org-bullets-bullet-list '("▶" "○" "●" "◆" "◇"))
     ;; Choix
