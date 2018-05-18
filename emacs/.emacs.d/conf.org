@@ -434,8 +434,8 @@
 
 *** Company-box
     #+BEGIN_SRC emacs-lisp
-    (use-package company-box
-    :hook (company-mode . company-box-mode))
+    ;;(use-package company-box
+    ;;:hook (company-mode . company-box-mode))
     #+END_SRC
 
 *** smartparens
