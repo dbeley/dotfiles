@@ -9,9 +9,9 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-vinegar'
 
 Plug 'scrooloose/syntastic'
-"Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 "Plug 'scrooloose/nerdcommenter'
-"Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -165,6 +165,8 @@ if exists("g:loaded_webdevicons")
 endif
 
 
+" Vim-markdown preferences
+let g:vim_markdown_folding_disabled = 1
 
 " Press \r to start rotating lines and <C-c> (Control+c) to stop.
 

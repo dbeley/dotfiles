@@ -76,6 +76,9 @@
    
    ;; Always follow symlinks
    (setq vc-follow-symlinks t)
+
+   ;; Always allow colorschemes
+   (setq-default custom-safe-themes t)
    #+END_SRC 
  
 * Plug-ins
@@ -231,49 +234,32 @@
 
 *** Powerline
     #+BEGIN_SRC emacs-lisp
-    ;;(use-package powerline
-    ;;        :ensure t
-    ;;        :config (powerline-center-evil-theme)
-    ;;        )
-    #+END_SRC
-
-*** Spaceline
-    #+BEGIN_SRC emacs-lisp
-    ;;(use-package spaceline
-    ;;  :ensure t
-    ;;  :config
-    ;;  (spaceline-spacemacs-theme)
-    ;;)
+    (use-package powerline
+            :ensure t
+            :config (powerline-center-evil-theme)
+            (setq powerline-arrow-shape 'curve)
+            )
     #+END_SRC
 
 *** Airline-themes
     #+BEGIN_SRC emacs-lisp
-    (use-package airline-themes
-    :ensure t
-    )
+    ;;(use-package airline-themes
+    ;;:ensure t
+    ;;:config
+    ;;(setq powerline-height 12)
+    ;;(setq powerline-utf-8-separator-left        #xe0b0
+    ;;powerline-utf-8-separator-right       #xe0b2
+    ;;airline-utf-glyph-separator-left      #xe0b0
+    ;;airline-utf-glyph-separator-right     #xe0b2
+    ;;airline-utf-glyph-subseparator-left   #xe0b1
+    ;;airline-utf-glyph-subseparator-right  #xe0b3
+    ;;airline-utf-glyph-branch              #xe0a0
+    ;;airline-utf-glyph-readonly            #xe0a2
+    ;;airline-utf-glyph-linenumber          #xe0a1)
+    ;;)
     
-    (setq-default custom-safe-themes t)
-    
-    (setq powerline-utf-8-separator-left        #xe0b0
-    powerline-utf-8-separator-right       #xe0b2
-    airline-utf-glyph-separator-left      #xe0b0
-    airline-utf-glyph-separator-right     #xe0b2
-    airline-utf-glyph-subseparator-left   #xe0b1
-    airline-utf-glyph-subseparator-right  #xe0b3
-    airline-utf-glyph-branch              #xe0a0
-    airline-utf-glyph-readonly            #xe0a2
-    airline-utf-glyph-linenumber          #xe0a1)
     #+END_SRC
 
-*** telephone-line
-    #+BEGIN_SRC emacs-lisp
-    ;;(use-package telephone-line
-    ;;  :ensure t
-    ;;  :config
-    ;;  (telephone-line-mode 1)
-    ;;)
-    #+END_SRC
-    
 *** base16-theme
     #+BEGIN_SRC emacs-lisp
     (use-package base16-theme
@@ -291,18 +277,41 @@
 
 *** xresources-theme
     #+BEGIN_SRC emacs-lisp
-    ;;  (use-package xresources-theme
-    ;;      :ensure t
-    ;;      )
+    (use-package xresources-theme
+        :ensure t
+        )
     #+END_SRC
     
 *** Chargement des thèmes
     #+BEGIN_SRC emacs-lisp
     (when (display-graphic-p)
-    (load-theme 'xresources)
-    (load-theme 'base16-gruvbox-dark-hard)
+    (load-theme 'xresources t)
+    (load-theme 'base16-gruvbox-dark-hard t)
     )
-    (load-theme 'airline-ubaryd)
+    ;;(load-theme 'airline-ubaryd)
+    #+END_SRC
+    
+*** Spaceline
+    #+BEGIN_SRC emacs-lisp
+    ;;(use-package spaceline
+    ;;  :ensure t
+    ;;  :config
+    ;;  (spaceline-emacs-theme)
+    ;;)
+    #+END_SRC
+
+*** telephone-line
+    #+BEGIN_SRC emacs-lisp
+    (use-package telephone-line
+      :ensure t
+      :config
+      (setq telephone-line-primary-left-separator 'telephone-line-cubed-left
+      telephone-line-secondary-left-separator 'telephone-line-cubed-hollow-left
+      telephone-line-primary-right-separator 'telephone-line-cubed-right
+      telephone-line-secondary-right-separator 'telephone-line-cubed-hollow-right)
+      (setq telephone-line-height 18
+      telephone-line-evil-use-short-tag t)
+      (telephone-line-mode 1))
     #+END_SRC
     
 *** page-break-lines
