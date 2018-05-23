@@ -13,9 +13,10 @@
 ** Interface
    #+BEGIN_SRC emacs-lisp
    ;; Hide GUI elements
-   (tool-bar-mode 0)
-   (menu-bar-mode 0)
+   (tool-bar-mode -1)
+   (menu-bar-mode -1)
    (scroll-bar-mode -1)
+   (fringe-mode 1)
    
    ;; Smooth scrolling
    (setq scroll-margin 5)
@@ -31,9 +32,13 @@
    (push '("<=" . ?≤) prettify-symbols-alist))) 
    
    (global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
-   (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
    (global-set-key (kbd "S-C-<down>") 'shrink-window)
+   (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
    (global-set-key (kbd "S-C-<up>") 'enlarge-window)
+   (global-set-key (kbd "S-C-h") 'shrink-window-horizontally)
+   (global-set-key (kbd "S-C-j") 'shrink-window)
+   (global-set-key (kbd "S-C-l") 'enlarge-window-horizontally)
+   (global-set-key (kbd "S-C-k") 'enlarge-window)
    #+END_SRC
    
 ** Navigation
@@ -75,7 +80,7 @@
    (set-default 'fill-column 80)
    
    ;; Always follow symlinks
-   (setq vc-follow-symlinks t)
+   ;;(setq vc-follow-symlinks t)
 
    ;; Always allow colorschemes
    (setq-default custom-safe-themes t)
@@ -99,10 +104,14 @@
     (use-package buffer-move
     :ensure t
     :config
-    (global-set-key (kbd "C-c <up>")     'buf-move-up)
-    (global-set-key (kbd "C-c <down>")   'buf-move-down)
     (global-set-key (kbd "C-c <left>")   'buf-move-left)
+    (global-set-key (kbd "C-c <down>")   'buf-move-down)
+    (global-set-key (kbd "C-c <up>")     'buf-move-up)
     (global-set-key (kbd "C-c <right>") 'buf-move-right)
+    (global-set-key (kbd "C-c h")   'buf-move-left)
+    (global-set-key (kbd "C-c j")   'buf-move-down)
+    (global-set-key (kbd "C-c k")     'buf-move-up)
+    (global-set-key (kbd "C-c l") 'buf-move-right)
     )
     #+END_SRC   
     
@@ -152,6 +161,8 @@
     :ensure t
     :config
     (global-set-key (kbd "M-o") 'ace-window)
+    ;;(setq aw-dispatch-always t)
+    ;;(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
     )
     #+END_SRC
     
@@ -162,9 +173,13 @@
     :defer t
     :config
     (progn
+    (setq treemacs-width 25
+          treemacs-show-hidden-files t
+          )
     (treemacs-follow-mode t)
     (treemacs-filewatch-mode t)
     )
+    (add-hook 'after-init-hook #'treemacs)
     :bind
     (:map global-map
     ("M-0"        . treemacs-select-window)
@@ -236,8 +251,12 @@
     #+BEGIN_SRC emacs-lisp
     (use-package powerline
             :ensure t
-            :config (powerline-center-evil-theme)
-            (setq powerline-arrow-shape 'curve)
+            :config
+            ;; (powerline-center-evil-theme)
+            (setq powerline-default-separator 'wave)
+     ;; choix : alternate, arrow, arrow-fade, bar, box, brace,
+     ;; butt, chamfer, contour, curve, rounded, roundstub, wave, zigzag,
+     ;; utf-8.
             )
     #+END_SRC
 
@@ -265,14 +284,14 @@
     (use-package base16-theme
     :ensure t
     )
-    ;;      
-    ;;(defvar my/base16-colors base16-default-dark-colors)
-    ;;(setq evil-emacs-state-cursor   `(,(plist-get my/base16-colors :base0D) box)
-    ;;      evil-insert-state-cursor  `(,(plist-get my/base16-colors :base0D) bar)
-    ;;      evil-motion-state-cursor  `(,(plist-get my/base16-colors :base0E) box)
-    ;;      evil-normal-state-cursor  `(,(plist-get my/base16-colors :base0B) box)
-    ;;      evil-replace-state-cursor `(,(plist-get my/base16-colors :base08) bar)
-    ;;      evil-visual-state-cursor  `(,(plist-get my/base16-colors :base09) box))
+          
+    (defvar my/base16-colors base16-default-dark-colors)
+    (setq evil-emacs-state-cursor   `(,(plist-get my/base16-colors :base0D) box)
+          evil-insert-state-cursor  `(,(plist-get my/base16-colors :base0D) bar)
+          evil-motion-state-cursor  `(,(plist-get my/base16-colors :base0E) box)
+          evil-normal-state-cursor  `(,(plist-get my/base16-colors :base0B) box)
+          evil-replace-state-cursor `(,(plist-get my/base16-colors :base08) bar)
+          evil-visual-state-cursor  `(,(plist-get my/base16-colors :base09) box))
     #+END_SRC
 
 *** xresources-theme
@@ -293,25 +312,43 @@
     
 *** Spaceline
     #+BEGIN_SRC emacs-lisp
-    ;;(use-package spaceline
-    ;;  :ensure t
-    ;;  :config
-    ;;  (spaceline-emacs-theme)
+    (use-package spaceline
+      :ensure t
+      :config
+      (spaceline-spacemacs-theme)
+      ;;(spaceline-emacs-theme)
+      (setq powerline-default-separator 'wave)
+    ;; choix : alternate, arrow, arrow-fade, bar, box, brace,
+    ;; butt, chamfer, contour, curve, rounded, roundstub, wave, zigzag,
+    ;; utf-8.
+      (spaceline-helm-mode 1)
+      (spaceline-compile)
+    )
+    
+    ;;(use-package all-the-icons
+    ;;:ensure t
+    ;;)
+    ;;
+    ;;(use-package spaceline-all-the-icons
+    ;;:ensure t
+    ;;:after spaceline
+    ;;:config (spaceline-all-the-icons-theme)
+    ;;(setq spaceline-all-the-icons-separator-type 'wave)
     ;;)
     #+END_SRC
 
 *** telephone-line
     #+BEGIN_SRC emacs-lisp
-    (use-package telephone-line
-      :ensure t
-      :config
-      (setq telephone-line-primary-left-separator 'telephone-line-cubed-left
-      telephone-line-secondary-left-separator 'telephone-line-cubed-hollow-left
-      telephone-line-primary-right-separator 'telephone-line-cubed-right
-      telephone-line-secondary-right-separator 'telephone-line-cubed-hollow-right)
-      (setq telephone-line-height 18
-      telephone-line-evil-use-short-tag t)
-      (telephone-line-mode 1))
+    ;;(use-package telephone-line
+    ;;  :ensure t
+    ;;  :config
+    ;;  (setq telephone-line-primary-left-separator 'telephone-line-cubed-left
+    ;;  telephone-line-secondary-left-separator 'telephone-line-cubed-hollow-left
+    ;;  telephone-line-primary-right-separator 'telephone-line-cubed-right
+    ;;  telephone-line-secondary-right-separator 'telephone-line-cubed-hollow-right)
+    ;;  (setq telephone-line-height 18
+    ;;  telephone-line-evil-use-short-tag t)
+    ;;  (telephone-line-mode 1))
     #+END_SRC
     
 *** page-break-lines
@@ -336,6 +373,15 @@
     )
     #+END_SRC
     
+*** smart-mode-line
+    #+BEGIN_SRC emacs-lisp
+    ;;(use-package smart-mode-line
+    ;;:ensure t
+    ;;:config
+    ;;(setq sml/theme 'dark)
+    ;;(sml/setup))
+    
+    #+END_SRC
 ** Recherche, complétion, Syntaxe, …
 *** swiper
     #+BEGIN_SRC emacs-lisp
@@ -377,9 +423,10 @@
     (use-package avy
     :ensure t
     :config (avy-setup-default)
-    (global-set-key (kbd "C-:") 'avy-goto-char)
-    (global-set-key (kbd "C-'") 'avy-goto-char-2)
-    (global-set-key (kbd "C-c C-j") 'avy-resume)
+    (global-set-key (kbd "C-;") 'avy-goto-line)
+    (global-set-key (kbd "M-s") 'avy-goto-char)
+    (global-set-key (kbd "M-e") 'avy-goto-word-or-subword-0)
+    (global-set-key (kbd "C-c j") 'avy-goto-word-or-subword-0)
     )
     #+END_SRC
     
@@ -620,6 +667,31 @@
     (add-hook 'latex-mode-hook 'magic-latex-buffer)
     #+END_SRC
     
+** Languages
+*** elpy
+    #+BEGIN_SRC emacs-lisp
+    (use-package elpy
+    :ensure t
+    :config (elpy-enable)
+    )
+    #+END_SRC
+    
+*** web-mode
+    #+BEGIN_SRC emacs-lisp
+    (use-package web-mode
+    :ensure t
+    :config
+    (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+    )
+    #+END_SRC
+    
 ** Autres
 *** ess
     #+BEGIN_SRC emacs-lisp
@@ -744,28 +816,13 @@
     (symon-mode)
     )
     #+END_SRC
-    
-** Languages
-*** elpy
+
+*** twittering-mode
     #+BEGIN_SRC emacs-lisp
-    (use-package elpy
-    :ensure t
-    :config (elpy-enable)
-    )
-    #+END_SRC
-    
-*** web-mode
-    #+BEGIN_SRC emacs-lisp
-    (use-package web-mode
+    (use-package twittering-mode
     :ensure t
     :config
-    (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-    (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-    (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-    (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-    (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-    (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-    (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+    (setq twittering-icon-mode t)
     )
+    
     #+END_SRC
