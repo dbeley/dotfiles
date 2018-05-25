@@ -38,7 +38,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (spaceline-all-the-icons all-the-icons smart-mode-line minimap sublimity-map sublimity-scroll twittering-mode flycheck smartparens emms esup counsel use-package ranger projectile ox-twbs ox-reveal org-plus-contrib org-bullets no-littering magit htmlize helm exwm-x evil-surround elpy company-quickhelp better-defaults base16-theme ace-window))))
+    (ess-site spaceline-all-the-icons all-the-icons smart-mode-line minimap sublimity-map sublimity-scroll twittering-mode flycheck smartparens emms esup counsel use-package ranger projectile ox-twbs ox-reveal org-plus-contrib org-bullets no-littering magit htmlize helm exwm-x evil-surround elpy company-quickhelp better-defaults base16-theme ace-window))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

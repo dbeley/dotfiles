@@ -44,6 +44,11 @@ Plug 'jceb/vim-orgmode'
 
 call plug#end()
 
+" Performances 
+set synmaxcol=200
+let did_install_default_menus=1
+set lazyredraw
+
 " Coloration syntaxique
 syntax on
 "colorscheme gruvbox
@@ -86,7 +91,7 @@ set linespace=0
 " Text Wraping
 set textwidth=79
 set colorcolumn=80
-set nowrap
+set wrap
 
 set scrolloff=5
 

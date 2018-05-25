@@ -283,15 +283,7 @@
     #+BEGIN_SRC emacs-lisp
     (use-package base16-theme
     :ensure t
-    )
-          
-    (defvar my/base16-colors base16-default-dark-colors)
-    (setq evil-emacs-state-cursor   `(,(plist-get my/base16-colors :base0D) box)
-          evil-insert-state-cursor  `(,(plist-get my/base16-colors :base0D) bar)
-          evil-motion-state-cursor  `(,(plist-get my/base16-colors :base0E) box)
-          evil-normal-state-cursor  `(,(plist-get my/base16-colors :base0B) box)
-          evil-replace-state-cursor `(,(plist-get my/base16-colors :base08) bar)
-          evil-visual-state-cursor  `(,(plist-get my/base16-colors :base09) box))
+    )          
     #+END_SRC
 
 *** xresources-theme
@@ -380,8 +372,8 @@
     ;;:config
     ;;(setq sml/theme 'dark)
     ;;(sml/setup))
-    
     #+END_SRC
+    
 ** Recherche, complétion, Syntaxe, …
 *** swiper
     #+BEGIN_SRC emacs-lisp
@@ -755,11 +747,11 @@
     (setq rmh-elfeed-org-files (list "~/Nextcloud/6. org/Listes/rss.org"))
     )
     
-    ;;(use-package elfeed-goodies
-    ;;  :ensure t
-    ;;  :config
-    ;;  (elfeed-goodies/setup)
-    ;;)
+    (use-package elfeed-goodies
+      :ensure t
+      :config
+      (elfeed-goodies/setup)
+    )
     #+END_SRC
 *** circe (ou erc)
     #+BEGIN_SRC emacs-lisp
@@ -824,5 +816,4 @@
     :config
     (setq twittering-icon-mode t)
     )
-    
     #+END_SRC
