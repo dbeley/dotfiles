@@ -74,7 +74,11 @@
    
    (setq jump-char-lazy-highlight-face nil)
    
-   (global-linum-mode t)
+   ;;(global-linum-mode t)
+   (global-display-line-numbers-mode)
+   (setq display-line-numbers-type 'relative)
+
+   (setq auto-hscroll-mode 'current-line)
    
    (setq fill-column 80)
    (set-default 'fill-column 80)
