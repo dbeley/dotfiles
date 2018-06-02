@@ -243,6 +243,40 @@
     ;;(global-set-key (kbd "C-x 4 0") 'switch-window-then-kill-buffer)
     #+END_SRC
     
+*** minimap
+  #+BEGIN_SRC emacs-lisp
+  (use-package minimap
+  :ensure t
+  :config
+  (add-to-list 'minimap-major-modes 'org-mode)
+  (setq minimap-highlight-line nil)
+  (setq minimap-window-location 'right)
+  (setq minimap-recreate-window t)
+  (custom-set-faces
+  '(minimap-active-region-background
+  ((((background dark)) (:background "#2A2A2A222222"))
+  (t (:background "#D3D3D3222222")))
+  "Face for the active region in the minimap.
+  By default, this is only a different background color."
+  :group 'minimap))
+  ;;(unless (display-graphic-p)
+  ;;(minimap-mode -1)
+  ;;)
+  ;;(global-set-key (kbd "C-c n") 'minimap-mode)
+  (minimap-mode t)
+  )
+  
+  ;;(use-package sublimity
+  ;;:ensure t
+  ;;:config 
+  ;;(require 'sublimity)
+  ;;;;(require 'sublimity-scroll)
+  ;;(require 'sublimity-map)
+  ;;(sublimity-mode 1)
+  ;;;;  (sublimity-map-set-delay 3) 
+  ;;)
+  #+END_SRC
+
 ** Apparence
 *** rainbow-mode
     #+BEGIN_SRC emacs-lisp
