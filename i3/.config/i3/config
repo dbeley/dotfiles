@@ -1,6 +1,19 @@
-# With this exact configuration file :
-# The mouse buttons will be inverted
+# ctrl-f to access sections
+# 1. Standard options
+# 2. Workspaces
+# 3. Colors
+# 4. User-defined modes
+# 5. User-defined commands
 
+
+######################################
+########## Standard options ##########
+######################################
+
+# Set inner/outer gaps
+gaps inner 8
+
+gaps outer 0
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
@@ -34,17 +47,13 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+Tab exec --no-startup-id rofi -show window
 
-# Screen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 5%
-bindsym XF86MonBrightnessDown exec light -U 5%
-
 # focus_follows_mouse no
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -53,10 +62,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -103,6 +112,20 @@ bindsym $mod+F9 scratchpad show
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+################################
+########## Workspaces ##########
+################################
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -180,68 +203,10 @@ for_window [instance="mupdf"] floating enable
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
-# reload the configuration file
-bindsym $mod+Shift+c reload
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-# Set shut down, restart and locking features
-bindsym $mod+0 mode "$mode_system"
-set $mode_system (r)eboot, (s)hutdown
-#, (l)ock
-mode "$mode_system" {
-    bindsym r exec --no-startup-id reboot, mode "default"
-    bindsym s exec --no-startup-id poweroff, mode "default"
-#	bindsym l exec --no-startup-id $HOME/.lock.sh, mode "default"
-
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-# Resize window (you can also use the mouse for that)
-bindsym $mod+r mode "resize"
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 5 px or 5 ppt
-
-        bindsym Shift+h resize shrink width 1 px or 1 ppt
-        bindsym Shift+j resize grow height 1 px or 1 ppt
-        bindsym Shift+k resize shrink height 1 px or 1 ppt
-        bindsym Shift+l resize grow width 1 px or 1 ppt
-
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 8 px or 8 ppt
-        bindsym Down resize grow height 8 px or 8 ppt
-        bindsym Up resize shrink height 8 px or 8 ppt
-        bindsym Right resize grow width 8 px or 8 ppt
-
-		bindsym Shift+Left resize shrink width 1 px or 1 ppt
-        bindsym Shift+Down resize grow height 1 px or 1 ppt
-        bindsym Shift+Up resize shrink height 1 px or 1 ppt
-        bindsym Shift+Right resize grow width 1 px or 1 ppt
-
-	bindsym c move position center
-
-        # exit resize mode: Enter or Escape
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-}
-
-# Lock screen
-# bindsym $mod+9 exec --no-startup-id $HOME/.lock.sh
+############################
+########## Colors ##########
+############################
 
 # wal script
 exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")" -o $HOME/.config/polybar/launch.sh
@@ -267,45 +232,63 @@ client.focused_inactive		$bd		$bd		$tx		$bd
 client.urgent	        	$tx		$tx		$tx		$tx
 client.placeholder      	$tx		$tx		$tx		$tx
 
-## Colors
-#set $bg-color            #000000
-#set $inactive-bg-color   #000000
-#set $text-color          #ffffff
-#set $inactive-text-color #676E7D
-#set $urgent-bg-color     #E53935
-#set $transparent         #00000065
-#
-#
-## window colors
 ##                       border              background         text                     indicator     child-border
 #client.focused          $bg-color           $bg-color          $text-color              $bg-color      #444444
 #client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color 	$inactive-bg-color
 #client.focused_inactive $urgent-bg-color    $inactive-bg-color $inactive-text-color	$inactive-bg-color
 #client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color              $urgent-bg-color
-#
 
-#############################
-### settings for i3-gaps: ###
-#############################
 
-# Set inner/outer gaps
-gaps inner 8
+########################################
+########## User-defined modes ##########
+########################################
 
-gaps outer 0
+# System mode, reboot/poweroff/lock
+bindsym $mod+0 mode "$mode_system"
+set $mode_system (r)eboot, (s)hutdown
+#, (l)ock
+mode "$mode_system" {
+    bindsym r exec --no-startup-id reboot, mode "default"
+    bindsym s exec --no-startup-id poweroff, mode "default"
+    # bindsym l exec --no-startup-id $HOME/.lock.sh, mode "default"
 
-# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
-# gaps inner|outer current|all set|plus|minus <px>
-# gaps inner all set 10
-# gaps outer all plus 5
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
-# Smart gaps (gaps used if only more than one container on the workspace)
-#smart_gaps on
+# Resizing mode
+bindsym $mod+r mode "resize"
+mode "resize" {
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
-#smart_borders on
+        bindsym Shift+h resize shrink width 1 px or 1 ppt
+        bindsym Shift+j resize grow height 1 px or 1 ppt
+        bindsym Shift+k resize shrink height 1 px or 1 ppt
+        bindsym Shift+l resize grow width 1 px or 1 ppt
 
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 8 px or 8 ppt
+        bindsym Down resize grow height 8 px or 8 ppt
+        bindsym Up resize shrink height 8 px or 8 ppt
+        bindsym Right resize grow width 8 px or 8 ppt
+
+	bindsym Shift+Left resize shrink width 1 px or 1 ppt
+        bindsym Shift+Down resize grow height 1 px or 1 ppt
+        bindsym Shift+Up resize shrink height 1 px or 1 ppt
+        bindsym Shift+Right resize grow width 1 px or 1 ppt
+
+	bindsym c move position center
+
+        # exit resize mode: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+# Gap mode
 set $mode_gaps Gaps: (p) presets, (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (1px), Shift + +|-|0 (5px)
 set $mode_gaps_inner Inner Gaps: +|-|0 (1px), Shift + +|-|0 (5px)
@@ -313,26 +296,26 @@ set $mode_presets (1 | 0,0) (2 | 8,0) (3 | 8,2) (4 | 8,4) (5 | 8,8) (6 | 8,16) (
 bindsym $mod+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
-		bindsym p	   mode "$mode_presets"
+	bindsym p      mode "$mode_presets"
         bindsym o      mode "$mode_gaps_outer"
         bindsym i      mode "$mode_gaps_inner"
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 mode "$mode_presets" {
-		bindsym 1 gaps inner all set 0, gaps outer all set 0
-		bindsym 2 gaps inner all set 8, gaps outer all set 0
-		bindsym 3 gaps inner all set 8, gaps outer all set 2
-		bindsym 4 gaps inner all set 8, gaps outer all set 4
-		bindsym 5 gaps inner all set 8, gaps outer all set 8
-		bindsym 6 gaps inner all set 8, gaps outer all set 16
-		bindsym 7 gaps inner all set 16, gaps outer all set 8
-		bindsym 8 gaps inner all set 16, gaps outer all set 16
-		bindsym 9 gaps inner all set 16, gaps outer all set 24
-		bindsym 0 gaps inner all set 16, gaps outer all set 36
+	bindsym 1 gaps inner all set 0, gaps outer all set 0
+	bindsym 2 gaps inner all set 8, gaps outer all set 0
+	bindsym 3 gaps inner all set 8, gaps outer all set 2
+	bindsym 4 gaps inner all set 8, gaps outer all set 4
+	bindsym 5 gaps inner all set 8, gaps outer all set 8
+	bindsym 6 gaps inner all set 8, gaps outer all set 16
+	bindsym 7 gaps inner all set 16, gaps outer all set 8
+	bindsym 8 gaps inner all set 16, gaps outer all set 16
+	bindsym 9 gaps inner all set 16, gaps outer all set 24
+	bindsym 0 gaps inner all set 16, gaps outer all set 36
 
-		bindsym Return mode "$mode_gaps" 
-		bindsym Escape mode "$mode_gaps"
+	bindsym Return mode "$mode_gaps" 
+	bindsym Escape mode "$mode_gaps"
 }
 mode "$mode_gaps_inner" {
         bindsym plus  gaps inner current plus 1
@@ -359,13 +342,14 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "$mode_gaps"
 }
 
+# Move mode
 bindsym $mod+m mode "Move"
 
 mode "Move" {
-	bindsym j move left
-	bindsym k move up
-	bindsym l move down
-	bindsym semicolon move right
+	bindsym h move left
+	bindsym j move up
+	bindsym k move down
+	bindsym l move right
 	bindsym c move position center
 
 	bindsym Left move left
@@ -376,6 +360,15 @@ mode "Move" {
 	bindsym Return mode "default" 
 	bindsym Escape mode "default" 
 }
+
+
+###########################################
+########## User-defined commands ##########
+###########################################
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec light -A 5%
+bindsym XF86MonBrightnessDown exec light -U 5%
 
 # Pulse Audio Controls
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 1%+
@@ -390,33 +383,33 @@ bindsym XF86AudioMute exec amixer -q sset Master toggle
 #bindsym XF86AudioNext exec rhythmbox-client --next
 #bindsym XF86AudioPrev exec rhythmbox-client --previous
 
-############ Autostart Applications ##############
-
-# Generic applications
-exec --no-startup-id redshift-gtk
-exec --no-startup-id nm-applet
+# Keyboard / Mouse
 #exec --no-startup-id xmodmap -e "pointer = 3 2 1"
-exec --no-startup-id xset -dpms
-exec --no-startup-id xset s off
-exec --no-startup-id xset -b
-exec --no-startup-id mpd
-exec --no-startup-id mpdscribble
-exec --no-startup-id emacs --daemon
-exec_always --no-startup-id dunst
-exec --no-startup-id udiskie --use-udisks2
-exec_always --no-startup-id urxvtd -q -o -f
-
-# Keyboard
 exec_always --no-startup-id setxkbmap us -variant intl
 bindsym $mod+c exec --no-startup-id setxkbmap us -variant intl
 bindsym $mod+b exec --no-startup-id setxkbmap fr bepo
 
-# Floating urxvt
-bindsym --release $mod+Shift+v exec --no-startup-id "bash $HOME/.config/i3/t.sh"
+# Power management
+exec --no-startup-id xset -dpms
+exec --no-startup-id xset s off
+exec --no-startup-id xset -b
 
-# Emacs bindings
+# Emacs
+exec --no-startup-id emacs --daemon
+
+# Urxvt
+exec_always --no-startup-id urxvtd -q -o -f
+bindsym --release $mod+Shift+v exec --no-startup-id "bash $HOME/.config/i3/t.sh"
 bindsym $mod+z exec --no-startup-id urxvtc -e emacsclient -nw
 
-# Nextcloud
+# Other
+exec --no-startup-id redshift-gtk
+exec --no-startup-id nm-applet
+exec --no-startup-id mpd
+exec --no-startup-id mpdscribble
+exec_always --no-startup-id dunst
+exec --no-startup-id udiskie --use-udisks2
 exec_always --no-startup-id nextcloud
 
+# Lock screen
+# bindsym $mod+9 exec --no-startup-id $HOME/.lock.sh
