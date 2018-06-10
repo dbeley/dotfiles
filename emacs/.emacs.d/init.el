@@ -16,6 +16,7 @@
 
 (setq package-enable-at-startup nil)
 ;;(package-initialize)
+(unless package--initialized (package-initialize t))
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -25,7 +26,6 @@
   (require 'use-package))
 
 (org-babel-load-file (expand-file-name "~/.emacs.d/conf.org"))
-;;(org-babel-load-file (expand-file-name "~/.emacs.d/plugins.org"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
