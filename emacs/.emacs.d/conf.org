@@ -829,18 +829,18 @@
     
 *** mingus
     #+BEGIN_SRC emacs-lisp
-    (use-package mingus
-    :ensure t
-    :config
-    (dolist (mode '(mingus-help
-    mingus-playlist
-    mingus-browse))
-    (evil-set-initial-state mode 'emacs))
-    
-    (evil-set-initial-state 'mingus-help 'emacs)
-    (evil-set-initial-state 'mingus-playlist 'emacs)
-    (evil-set-initial-state 'mingus-browse 'emacs)
-    )
+    ;;(use-package mingus
+    ;;:ensure t
+    ;;:config
+    ;;(dolist (mode '(mingus-help
+    ;;mingus-playlist
+    ;;mingus-browse))
+    ;;(evil-set-initial-state mode 'emacs))
+    ;;
+    ;;(evil-set-initial-state 'mingus-help 'emacs)
+    ;;(evil-set-initial-state 'mingus-playlist 'emacs)
+    ;;(evil-set-initial-state 'mingus-browse 'emacs)
+    ;;)
     #+END_SRC
 
 *** emms
@@ -873,6 +873,7 @@
     :ensure t
     :config
     (setq twittering-icon-mode t)
+    (global-set-key (kbd "C-c w") #'twittering-mode)
     )
     #+END_SRC
     
