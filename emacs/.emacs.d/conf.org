@@ -136,8 +136,8 @@
     :config
     (global-evil-leader-mode)
     (evil-leader/set-key
-    ;;"e" 'helm-find-files
-    ;;"b" 'helm-mini
+    "e" 'helm-find-files
+    "b" 'helm-mini
     "k" 'kill-buffer
     "t" 'treemacs
     "r" 'ranger)
@@ -148,11 +148,13 @@
     :config
     (global-evil-surround-mode))
     
-    (use-package evil-collection
-    :after evil
-    :ensure t
-    :config
-    (evil-collection-init))
+    ;;(use-package evil-collection
+    ;;:after evil
+    ;;:ensure t
+    ;;:config
+    ;;(evil-collection-init)
+    ;;(setq evil-collection-setup-minibuffer t)
+    ;;)
     )
     #+END_SRC   
     
@@ -219,7 +221,7 @@
     ("M-g i" . dumb-jump-go-prompt)
     ("M-g x" . dumb-jump-go-prefer-external)
     ("M-g z" . dumb-jump-go-prefer-external-other-window))
-    ;;:config (setq dumb-jump-selector 'helm)
+    :config (setq dumb-jump-selector 'helm)
     :ensure t
     )
     #+END_SRC
@@ -359,7 +361,7 @@
     ;; choix : alternate, arrow, arrow-fade, bar, box, brace,
     ;; butt, chamfer, contour, curve, rounded, roundstub, wave, zigzag,
     ;; utf-8.
-    ;;(spaceline-helm-mode 1)
+    (spaceline-helm-mode 1)
       (spaceline-compile)
     )
     
@@ -423,31 +425,31 @@
 ** Recherche, complétion, Syntaxe, …
 *** swiper
     #+BEGIN_SRC emacs-lisp
-      (use-package ivy
-        :ensure t
-        :config
-        (ivy-mode 1)
-        (setq ivy-use-virtual-buffers t)
-        (setq enable-recursive-minibuffers t)
-        (global-set-key "\C-s" 'swiper)
-        (global-set-key (kbd "C-c C-r") 'ivy-resume)
-        (global-set-key (kbd "<f6>") 'ivy-resume)
-        (global-set-key (kbd "M-x") 'counsel-M-x)
-        (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-        (global-set-key (kbd "C-x f") 'counsel-recentf)
-        (global-set-key (kbd "C-x C-b") 'counsel-ibuffer)
-        (global-set-key (kbd "<f1> f") 'counsel-describe-function)
-        (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-        (global-set-key (kbd "<f1> l") 'counsel-find-library)
-        (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-        (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-        (global-set-key (kbd "C-c g") 'counsel-git)
-        (global-set-key (kbd "C-c j") 'counsel-git-grep)
-        (global-set-key (kbd "C-c k") 'counsel-ag)
-        (global-set-key (kbd "C-x l") 'counsel-locate)
-        (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-        (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
-        )
+      ;;(use-package ivy
+      ;;  :ensure t
+      ;;  :config
+      ;;  (ivy-mode 1)
+      ;;  (setq ivy-use-virtual-buffers t)
+      ;;  (setq enable-recursive-minibuffers t)
+      ;;  (global-set-key "\C-s" 'swiper)
+      ;;  (global-set-key (kbd "C-c C-r") 'ivy-resume)
+      ;;  (global-set-key (kbd "<f6>") 'ivy-resume)
+      ;;  (global-set-key (kbd "M-x") 'counsel-M-x)
+      ;;  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+      ;;  (global-set-key (kbd "C-x f") 'counsel-recentf)
+      ;;  (global-set-key (kbd "C-x C-b") 'counsel-ibuffer)
+      ;;  (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+      ;;  (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+      ;;  (global-set-key (kbd "<f1> l") 'counsel-find-library)
+      ;;  (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+      ;;  (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+      ;;  (global-set-key (kbd "C-c g") 'counsel-git)
+      ;;  (global-set-key (kbd "C-c j") 'counsel-git-grep)
+      ;;  (global-set-key (kbd "C-c k") 'counsel-ag)
+      ;;  (global-set-key (kbd "C-x l") 'counsel-locate)
+      ;;  (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+      ;;  (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+      ;;  )
     
       ;;(use-package counsel
       ;;  :ensure t
@@ -473,21 +475,21 @@
     
 *** Helm
     #+BEGIN_SRC emacs-lisp
-    ;;(use-package helm
-    ;;:ensure t
-    ;;:config (helm-mode 1)
-    ;;(require 'helm-config)
-    ;;(setq helm-mini-default-sources '(helm-source-buffers-list
-    ;;                                helm-source-recentf
-    ;;                                helm-source-bookmarks
-    ;;                                helm-source-buffer-not-found))
-    ;;(global-set-key (kbd "M-x") #'helm-M-x)
-    ;;(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-    ;;(global-set-key (kbd "C-x C-f") #'helm-find-files)
-    ;;(global-set-key (kbd "C-x f") #'helm-recentf)
-    ;;(global-set-key (kbd "C-x C-b") #'helm-mini)
-    ;;(global-set-key (kbd "C-x b") #'helm-mini)
-    ;;)
+    (use-package helm
+    :ensure t
+    :config (helm-mode 1)
+    (require 'helm-config)
+    (setq helm-mini-default-sources '(helm-source-buffers-list
+                                    helm-source-recentf
+                                    helm-source-bookmarks
+                                    helm-source-buffer-not-found))
+    (global-set-key (kbd "M-x") #'helm-M-x)
+    (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+    (global-set-key (kbd "C-x C-f") #'helm-find-files)
+    (global-set-key (kbd "C-x f") #'helm-recentf)
+    (global-set-key (kbd "C-x C-b") #'helm-mini)
+    (global-set-key (kbd "C-x b") #'helm-mini)
+    )
     #+END_SRC
 
 *** Yasnippet
@@ -585,19 +587,19 @@
     
 *** helm-projectile
     #+BEGIN_SRC emacs-lisp
-    ;;(use-package helm-projectile
-    ;;:ensure t
-    ;;:config (helm-projectile-on)
-    ;;)
+    (use-package helm-projectile
+    :ensure t
+    :config (helm-projectile-on)
+    )
     #+END_SRC
    
 *** counsel-projectile
     #+BEGIN_SRC emacs-lisp
-    (use-package counsel-projectile
-    :ensure t
-    :config
-    (counsel-projectile-mode)
-    )
+    ;;(use-package counsel-projectile
+    ;;:ensure t
+    ;;:config
+    ;;(counsel-projectile-mode)
+    ;;)
     
     #+END_SRC
 ** Org-mode
