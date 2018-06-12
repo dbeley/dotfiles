@@ -49,6 +49,14 @@
    (add-hook 'org-shiftleft-final-hook 'windmove-left)
    (add-hook 'org-shiftdown-final-hook 'windmove-down)
    (add-hook 'org-shiftright-final-hook 'windmove-right)
+   
+   ;;turn on everywhere
+   (global-undo-tree-mode 1)
+   ;; make ctrl-z undo
+   (global-set-key (kbd "C-z") 'undo)
+   ;; make ctrl-Z redo
+   (defalias 'redo 'undo-tree-redo)
+   (global-set-key (kbd "C-S-z") 'redo)
    #+END_SRC
    
 ** Autres
@@ -130,6 +138,7 @@
     (setq evil-want-integration nil)
     :config
     (evil-mode 1)
+    )
     
     (use-package evil-leader
     :ensure t
@@ -148,14 +157,14 @@
     :config
     (global-evil-surround-mode))
     
-    ;;(use-package evil-collection
-    ;;:after evil
-    ;;:ensure t
-    ;;:config
-    ;;(evil-collection-init)
-    ;;(setq evil-collection-setup-minibuffer t)
-    ;;)
+    (use-package evil-collection
+    :after evil
+    :ensure t
+    :config
+    (evil-collection-init)
+    (setq evil-collection-setup-minibuffer t)
     )
+    
     #+END_SRC   
     
 *** ranger
@@ -171,13 +180,13 @@
    
 *** ace-window
     #+BEGIN_SRC emacs-lisp
-    (use-package ace-window
-    :ensure t
-    :config
-    (global-set-key (kbd "M-o") 'ace-window)
-    ;;(setq aw-dispatch-always t)
-    ;;(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-    )
+    ;;(use-package ace-window
+    ;;:ensure t
+    ;;:config
+    ;;(global-set-key (kbd "M-o") 'ace-window)
+    ;;;;(setq aw-dispatch-always t)
+    ;;;;(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+    ;;)
     #+END_SRC
     
 *** treemacs
@@ -228,63 +237,64 @@
     
 *** switch-window
     #+BEGIN_SRC emacs-lisp
-    ;;(use-package switch-window
-    ;;:ensure t
-    ;;:config
-    ;;(setq switch-window-shortcut-style 'qwerty)
-    ;;(setq switch-window-qwerty-shortcuts
-    ;;      '("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o"))
-    ;;(setq switch-window-input-style 'minibuffer))
-    ;;
-    ;;(global-set-key (kbd "C-x o") 'switch-window)
-    ;;(global-set-key (kbd "C-x 1") 'switch-window-then-maximize)
-    ;;(global-set-key (kbd "C-x 2") 'switch-window-then-split-below)
-    ;;(global-set-key (kbd "C-x 3") 'switch-window-then-split-right)
-    ;;(global-set-key (kbd "C-x 0") 'switch-window-then-delete)
-    ;;
-    ;;(global-set-key (kbd "C-x 4 d") 'switch-window-then-dired)
-    ;;(global-set-key (kbd "C-x 4 f") 'switch-window-then-find-file)
-    ;;(global-set-key (kbd "C-x 4 m") 'switch-window-then-compose-mail)
-    ;;(global-set-key (kbd "C-x 4 r") 'switch-window-then-find-file-read-only)
-    ;;
-    ;;(global-set-key (kbd "C-x 4 C-f") 'switch-window-then-find-file)
-    ;;(global-set-key (kbd "C-x 4 C-o") 'switch-window-then-display-buffer)
-    ;;
-    ;;(global-set-key (kbd "C-x 4 0") 'switch-window-then-kill-buffer)
+    (use-package switch-window
+    :ensure t
+    :config
+    (setq switch-window-shortcut-style 'qwerty)
+    (setq switch-window-qwerty-shortcuts
+          '("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o"))
+    (setq switch-window-input-style 'minibuffer))
+    
+    (global-set-key (kbd "M-o") 'switch-window)
+    (global-set-key (kbd "C-x o") 'switch-window)
+    (global-set-key (kbd "C-x 1") 'switch-window-then-maximize)
+    (global-set-key (kbd "C-x 2") 'switch-window-then-split-below)
+    (global-set-key (kbd "C-x 3") 'switch-window-then-split-right)
+    (global-set-key (kbd "C-x 0") 'switch-window-then-delete)
+    
+    (global-set-key (kbd "C-x 4 d") 'switch-window-then-dired)
+    (global-set-key (kbd "C-x 4 f") 'switch-window-then-find-file)
+    (global-set-key (kbd "C-x 4 m") 'switch-window-then-compose-mail)
+    (global-set-key (kbd "C-x 4 r") 'switch-window-then-find-file-read-only)
+    
+    (global-set-key (kbd "C-x 4 C-f") 'switch-window-then-find-file)
+    (global-set-key (kbd "C-x 4 C-o") 'switch-window-then-display-buffer)
+    
+    (global-set-key (kbd "C-x 4 0") 'switch-window-then-kill-buffer)
     #+END_SRC
     
 *** minimap
   #+BEGIN_SRC emacs-lisp
-  (use-package minimap
-  :ensure t
-  :config
-  (add-to-list 'minimap-major-modes 'org-mode)
-  (setq minimap-highlight-line nil)
-  (setq minimap-window-location 'right)
-  (setq minimap-recreate-window t)
-  (custom-set-faces
-  '(minimap-active-region-background
-  ((((background dark)) (:background "#2A2A2A222222"))
-  (t (:background "#D3D3D3222222")))
-  "Face for the active region in the minimap.
-  By default, this is only a different background color."
-  :group 'minimap))
-  ;;(unless (display-graphic-p)
-  ;;(minimap-mode -1)
-  ;;)
-  ;;(global-set-key (kbd "C-c n") 'minimap-mode)
-  (minimap-mode t)
-  )
-  
-  ;;(use-package sublimity
+  ;;(use-package minimap
   ;;:ensure t
-  ;;:config 
-  ;;(require 'sublimity)
-  ;;;;(require 'sublimity-scroll)
-  ;;(require 'sublimity-map)
-  ;;(sublimity-mode 1)
-  ;;;;  (sublimity-map-set-delay 3) 
+  ;;:config
+  ;;(add-to-list 'minimap-major-modes 'org-mode)
+  ;;(setq minimap-highlight-line nil)
+  ;;(setq minimap-window-location 'right)
+  ;;(setq minimap-recreate-window t)
+  ;;(custom-set-faces
+  ;;'(minimap-active-region-background
+  ;;((((background dark)) (:background "#2A2A2A222222"))
+  ;;(t (:background "#D3D3D3222222")))
+  ;;"Face for the active region in the minimap.
+  ;;By default, this is only a different background color."
+  ;;:group 'minimap))
+  ;;;;(unless (display-graphic-p)
+  ;;;;(minimap-mode -1)
+  ;;;;)
+  ;;;;(global-set-key (kbd "C-c n") 'minimap-mode)
+  ;;(minimap-mode t)
   ;;)
+  
+  (use-package sublimity
+  :ensure t
+  :config 
+  (require 'sublimity)
+  ;;(require 'sublimity-scroll)
+  (require 'sublimity-map)
+  (sublimity-mode 1)
+  (sublimity-map-set-delay nil)
+  )
   #+END_SRC
 
 ** Apparence
@@ -478,7 +488,6 @@
     (use-package helm
     :ensure t
     :config (helm-mode 1)
-    (require 'helm-config)
     (setq helm-mini-default-sources '(helm-source-buffers-list
                                     helm-source-recentf
                                     helm-source-bookmarks
