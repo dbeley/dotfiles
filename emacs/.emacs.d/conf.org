@@ -297,6 +297,14 @@
   )
   #+END_SRC
 
+*** perspective-dl
+    #+BEGIN_SRC emacs-lisp
+    (use-package perspective
+    :ensure t
+    :config
+    (persp-mode)
+    )
+    #+END_SRC
 ** Apparence
 *** rainbow-mode
     #+BEGIN_SRC emacs-lisp
@@ -688,7 +696,7 @@
      )
      #+END_SRC
      
-*** Org-capture
+*** org-capture
       #+BEGIN_SRC emacs-lisp
       (global-set-key (kbd "C-c c")
       'org-capture)
@@ -706,6 +714,25 @@
       "* %?\n%T\n" :prepend t)
       ))
       #+END_SRC
+
+*** org-brain
+    #+BEGIN_SRC emacs-lisp
+    (use-package org-brain
+    :init
+    (setq org-brain-path "/home/david/Nextcloud/6. org/org-brain/")
+    ;; For Evil users
+    (with-eval-after-load 'evil
+    (evil-set-initial-state 'org-brain-visualize-mode 'emacs))
+    :config
+    (setq org-id-track-globally t)
+    (setq org-id-locations-file "~/.emacs.d/.org-id-locations")
+    (push '("b" "Brain" plain (function org-brain-goto-end)
+    "* %i%?" :empty-lines 1)
+    org-capture-templates)
+    (setq org-brain-visualize-default-choices 'all)
+    (setq org-brain-title-max-length 12))
+    
+    #+END_SRC
 
 ** Latex
 *** auctex
@@ -888,3 +915,9 @@
     )
     #+END_SRC
     
+*** md4rd
+    #+BEGIN_SRC emacs-lisp
+    (use-package md4rd
+    :ensure t
+    )
+    #+END_SRC

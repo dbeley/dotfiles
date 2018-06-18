@@ -38,6 +38,8 @@ Plug 'lervag/vimtex'
 "Plug 'vim-latex/vim-latex'
 "Plug 'rhysd/vim-grammarous'
 
+Plug 'w0rp/ale'
+
 Plug 'jceb/vim-orgmode'
 "Plug 'joshhartigan/vim-reddit'
 "Plug 'itchyny/calendar.vim'
@@ -110,8 +112,8 @@ nnoremap <leader>p :History<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>t :Files<CR>
 
-nnoremap <BS> <PageUp>
-nnoremap <Space> <PageDown>
+" nnoremap <BS> <PageUp>
+" nnoremap <Space> <PageDown>
 
 let g:livepreview_previewer = 'zathura'
 let python_hightlight_all=1
@@ -126,6 +128,29 @@ augroup configurationFiles
   autocmd! BufWritePost Xresources    !xrdb -load ~/.Xresources
   autocmd! BufWritePost .Xresources   !xrdb -load ~/.Xresources
 augroup END
+
+" Nvim-R
+
+" R output is highlighted with current colorscheme
+let g:rout_follow_colorscheme = 1
+
+" R commands in R output are highlighted
+let g:Rout_more_colors = 1
+
+" Change Leader and LocalLeader keys:
+let maplocalleader = ','
+let mapleader = ';'
+
+" Use Ctrl+Space to do omnicompletion:
+if has('nvim') || has('gui_running')
+    inoremap <C-Space> <C-x><C-o>
+else
+    inoremap <Nul> <C-x><C-o>
+endif
+
+" Press the space bar to send lines and selection to R:
+vmap <Space> <Plug>RDSendSelection
+nmap <Space> <Plug>RDSendLine
 
 " Airline
 
