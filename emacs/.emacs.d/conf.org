@@ -185,13 +185,13 @@
    
 *** ace-window
     #+BEGIN_SRC emacs-lisp
-    ;;(use-package ace-window
-    ;;:ensure t
-    ;;:config
-    ;;(global-set-key (kbd "M-o") 'ace-window)
-    ;;;;(setq aw-dispatch-always t)
-    ;;;;(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-    ;;)
+    (use-package ace-window
+    :ensure t
+    :config
+    (global-set-key (kbd "M-o") 'ace-window)
+    (setq aw-dispatch-always t)
+    (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+    )
     #+END_SRC
     
 *** treemacs
@@ -242,30 +242,30 @@
     
 *** switch-window
     #+BEGIN_SRC emacs-lisp
-    (use-package switch-window
-    :ensure t
-    :config
-    (setq switch-window-shortcut-style 'qwerty)
-    (setq switch-window-qwerty-shortcuts
-          '("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o"))
-    (setq switch-window-input-style 'minibuffer))
-    
-    (global-set-key (kbd "M-o") 'switch-window)
-    (global-set-key (kbd "C-x o") 'switch-window)
-    (global-set-key (kbd "C-x 1") 'switch-window-then-maximize)
-    (global-set-key (kbd "C-x 2") 'switch-window-then-split-below)
-    (global-set-key (kbd "C-x 3") 'switch-window-then-split-right)
-    (global-set-key (kbd "C-x 0") 'switch-window-then-delete)
-    
-    (global-set-key (kbd "C-x 4 d") 'switch-window-then-dired)
-    (global-set-key (kbd "C-x 4 f") 'switch-window-then-find-file)
-    (global-set-key (kbd "C-x 4 m") 'switch-window-then-compose-mail)
-    (global-set-key (kbd "C-x 4 r") 'switch-window-then-find-file-read-only)
-    
-    (global-set-key (kbd "C-x 4 C-f") 'switch-window-then-find-file)
-    (global-set-key (kbd "C-x 4 C-o") 'switch-window-then-display-buffer)
-    
-    (global-set-key (kbd "C-x 4 0") 'switch-window-then-kill-buffer)
+    ;;(use-package switch-window
+    ;;:ensure t
+    ;;:config
+    ;;(setq switch-window-shortcut-style 'qwerty)
+    ;;(setq switch-window-qwerty-shortcuts
+    ;;      '("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o"))
+    ;;(setq switch-window-input-style 'minibuffer))
+    ;;
+    ;;(global-set-key (kbd "M-o") 'switch-window)
+    ;;(global-set-key (kbd "C-x o") 'switch-window)
+    ;;(global-set-key (kbd "C-x 1") 'switch-window-then-maximize)
+    ;;(global-set-key (kbd "C-x 2") 'switch-window-then-split-below)
+    ;;(global-set-key (kbd "C-x 3") 'switch-window-then-split-right)
+    ;;(global-set-key (kbd "C-x 0") 'switch-window-then-delete)
+    ;;
+    ;;(global-set-key (kbd "C-x 4 d") 'switch-window-then-dired)
+    ;;(global-set-key (kbd "C-x 4 f") 'switch-window-then-find-file)
+    ;;(global-set-key (kbd "C-x 4 m") 'switch-window-then-compose-mail)
+    ;;(global-set-key (kbd "C-x 4 r") 'switch-window-then-find-file-read-only)
+    ;;
+    ;;(global-set-key (kbd "C-x 4 C-f") 'switch-window-then-find-file)
+    ;;(global-set-key (kbd "C-x 4 C-o") 'switch-window-then-display-buffer)
+    ;;
+    ;;(global-set-key (kbd "C-x 4 0") 'switch-window-then-kill-buffer)
     #+END_SRC
     
 *** perspective-el
@@ -325,9 +325,11 @@
 
 *** xresources-theme
     #+BEGIN_SRC emacs-lisp
+    (when (display-graphic-p)
     (use-package xresources-theme
         :ensure t
         )
+    )
     #+END_SRC
     
 *** Chargement des thèmes
@@ -864,3 +866,9 @@
     #+END_SRC
     
 *** mu4e
+    #+BEGIN_SRC emacs-lisp
+    ;;(use-package mu4e
+    ;;:ensure t
+    ;;)
+    
+    #+END_SRC
