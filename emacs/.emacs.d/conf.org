@@ -105,7 +105,16 @@
    #+END_SRC 
  
 * Plug-ins
-
+** Nettoyage
+   #+BEGIN_SRC emacs-lisp
+   (use-package no-littering
+   :ensure t
+   :config
+   (require 'recentf)
+   (add-to-list 'recentf-exclude no-littering-var-directory)
+   (add-to-list 'recentf-exclude no-littering-etc-directory)
+   )
+   #+END_SRC
 ** Navigation
 *** buffer-move
     #+BEGIN_SRC emacs-lisp
@@ -267,16 +276,6 @@
     (persp-mode)
     )
     #+END_SRC
-** Nettoyage
-   #+BEGIN_SRC emacs-lisp
-   (use-package no-littering
-   :ensure t
-   :config
-   (require 'recentf)
-   (add-to-list 'recentf-exclude no-littering-var-directory)
-   (add-to-list 'recentf-exclude no-littering-etc-directory)
-   )
-   #+END_SRC
 ** Apparence
 *** rainbow-mode
     #+BEGIN_SRC emacs-lisp
