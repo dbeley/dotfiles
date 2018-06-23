@@ -756,6 +756,25 @@
     :ensure t)
     
     #+END_SRC
+** Documentation
+*** Helpful
+    #+BEGIN_SRC emacs-lisp
+    (use-package helpful
+    :ensure t
+    :config
+    (global-set-key (kbd "C-h f") #'helpful-callable)
+    
+    (global-set-key (kbd "C-h v") #'helpful-variable)
+    (global-set-key (kbd "C-h k") #'helpful-key)
+    
+    ;; Lookup the current symbol at point. C-c C-d is a common keybinding
+    ;; for this in lisp modes.
+    (global-set-key (kbd "C-c C-d") #'helpful-at-point)
+    
+    (global-set-key (kbd "C-h F") #'helpful-function)
+    (global-set-key (kbd "C-h C") #'helpful-command)
+    )
+    #+END_SRC
 ** Autres
 *** ess
     #+BEGIN_SRC emacs-lisp
