@@ -1,0 +1,14 @@
+1 - chmap=mapping_01.txt
+2 - chmap=mapping_02.txt
+3 - chmap=mapping_03.txt
+4 - key=win+1
+5 - key=win+2
+6 - key=win+3
+7 - key=win+4
+8 - key=win+5
+9 - key=win+6
+10 - key=win+7
+11 - key=win+8
+12 - key=win+9
+13 - click=2
+14 - click=2

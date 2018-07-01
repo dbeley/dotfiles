@@ -1,0 +1,14 @@
+1 - chmap=mapping_01.txt
+2 - chmap=mapping_02.txt
+3 - chmap=mapping_03.txt
+4 - key=Home
+5 - key=Up
+6 - key=Page_Up
+7 - key=Left
+8 - click=2
+9 - key=Right
+10 - key=End
+11 - key=Down
+12 - key=Page_Down
+13 - click=2
+14 - click=2

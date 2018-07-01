@@ -1,0 +1,14 @@
+1 - chmap=mapping_01.txt
+2 - chmap=mapping_02.txt
+3 - chmap=mapping_03.txt
+4 - key=F3
+5 - key=F5
+6 - key=ctrl+Shift+Tab
+7 - key=ctrl+w
+8 - key=click=2
+9 - key=ctrl+t
+10 - key=ctrl+Shift+t
+11 - key=F6
+12 - key=ctrl+Tab
+13 - click=2
+14 - click=2
