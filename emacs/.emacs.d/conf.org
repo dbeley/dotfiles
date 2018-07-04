@@ -356,8 +356,8 @@
 *** Chargement des thèmes
     #+BEGIN_SRC emacs-lisp
     (when (display-graphic-p)
-    (load-theme 'xresources t)
     (load-theme 'base16-gruvbox-dark-hard t)
+    (load-theme 'xresources t)
     )
     ;;(load-theme 'airline-ubaryd)
     #+END_SRC
@@ -486,7 +486,10 @@
     (setq helm-mini-default-sources '(helm-source-buffers-list
                                     helm-source-recentf
                                     helm-source-bookmarks
-                                    helm-source-buffer-not-found))
+                                    helm-source-buffer-not-found)
+    ;;helm-always-two-windows t
+    helm-split-window-inside-p nil
+    )
     (global-set-key (kbd "M-x") #'helm-M-x)
     (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
     (global-set-key (kbd "C-x C-f") #'helm-find-files)
