@@ -53,13 +53,6 @@
    (add-hook 'org-shiftdown-final-hook 'windmove-down)
    (add-hook 'org-shiftright-final-hook 'windmove-right)
    
-   ;;turn on everywhere
-   (global-undo-tree-mode 1)
-   ;; make ctrl-z undo
-   (global-set-key (kbd "C-z") 'undo)
-   ;; make ctrl-Z redo
-   (defalias 'redo 'undo-tree-redo)
-   (global-set-key (kbd "C-S-z") 'redo)
    #+END_SRC
    
 ** Autres
@@ -268,14 +261,42 @@
     ;;(global-set-key (kbd "C-x 4 0") 'switch-window-then-kill-buffer)
     #+END_SRC
     
-*** perspective-el
+*** minimap
     #+BEGIN_SRC emacs-lisp
-    (use-package perspective
+    (use-package sublimity
+    :ensure t
+    :config 
+    (require 'sublimity)
+    ;;(require 'sublimity-scroll)
+    (require 'sublimity-map)
+    (sublimity-mode 1)
+    (sublimity-map-set-delay nil)
+    )
+    #+END_SRC    
+  
+*** undo-tree
+    #+BEGIN_SRC emacs-lisp
+    (use-package undo-tree
     :ensure t
     :config
-    (persp-mode)
+    (global-undo-tree-mode)
+    ;; make ctrl-z undo
+    (global-set-key (kbd "C-z") 'undo)
+    ;; make ctrl-Z redo
+    (defalias 'redo 'undo-tree-redo)
+    (global-set-key (kbd "C-S-z") 'redo)
     )
     #+END_SRC
+    
+*** perspective-el
+    #+BEGIN_SRC emacs-lisp
+    ;;(use-package perspective
+    ;;:ensure t
+    ;;:config
+    ;;(persp-mode)
+    ;;)
+    #+END_SRC
+    
 ** Apparence
 *** rainbow-mode
     #+BEGIN_SRC emacs-lisp
@@ -583,8 +604,8 @@
     ;;:config
     ;;(counsel-projectile-mode)
     ;;)
-    
     #+END_SRC
+    
 ** Org-mode
 *** Org-mode
     #+BEGIN_SRC emacs-lisp
@@ -698,7 +719,6 @@
     org-capture-templates)
     (setq org-brain-visualize-default-choices 'all)
     (setq org-brain-title-max-length 12))
-    
     #+END_SRC
 
 ** Latex
@@ -749,11 +769,11 @@
    
 ***  clojure
     #+BEGIN_SRC emacs-lisp
-    (use-package clojure-mode
-    :ensure t)
-    
-    (use-package cider
-    :ensure t)
+    ;;(use-package clojure-mode
+    ;;:ensure t)
+    ;;
+    ;;(use-package cider
+    ;;:ensure t)
     
     #+END_SRC
 ** Documentation
@@ -793,7 +813,6 @@
     ;;    (require 'exwm-systemtray)
     ;;    (exwm-systemtray-enable)
     ;;    )
-    
     #+END_SRC
     
 *** eww
@@ -898,5 +917,4 @@
     ;;(use-package mu4e
     ;;:ensure t
     ;;)
-    
     #+END_SRC
