@@ -6,6 +6,8 @@
 URxvt.font: xft:Iosevka\ Nerd\ Font:style=Italic:size=11:antialias=true:hinting=true
 !Emacs.font: xft:Iosevka\ Nerd\ Font:style=Italic:size=11:antialias=true:hinting=true
 
+rofi.font: iosevka nerd font italic 14
+
 URxvt.scrollBar: false
 Rxvt.iso14755:	false
 URxvt.iso14755_52: false
