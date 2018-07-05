@@ -488,7 +488,7 @@
                                     helm-source-bookmarks
                                     helm-source-buffer-not-found)
     ;;helm-always-two-windows t
-    helm-split-window-inside-p nil
+    helm-split-window-inside-p t
     )
     (global-set-key (kbd "M-x") #'helm-M-x)
     (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
