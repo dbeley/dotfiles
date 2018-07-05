@@ -73,6 +73,13 @@
    (setq echo-keystrokes 0.1)
    
    (global-font-lock-mode t)
+   (set-face-attribute 'default nil
+      :family "Iosevka Nerd Font"
+      :weight 'normal
+      :width 'normal
+      :height 110
+      :slant 'italic
+      )
    
    (defalias 'yes-or-no-p 'y-or-n-p)
    
@@ -346,19 +353,21 @@
 
 *** xresources-theme
     #+BEGIN_SRC emacs-lisp
-    (when (display-graphic-p)
+    ;;(when (display-graphic-p)
     (use-package xresources-theme
         :ensure t
+        :config
+        (load-theme 'xresources t)
         )
-    )
+    ;;)
     #+END_SRC
     
 *** Chargement des thèmes
     #+BEGIN_SRC emacs-lisp
-    (when (display-graphic-p)
-    (load-theme 'base16-gruvbox-dark-hard t)
-    (load-theme 'xresources t)
-    )
+    ;;(when (display-graphic-p)
+    ;;(load-theme 'base16-gruvbox-dark-hard t)
+    ;;(load-theme 'xresources t)
+    ;;)
     ;;(load-theme 'airline-ubaryd)
     #+END_SRC
     

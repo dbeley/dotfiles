@@ -2,7 +2,9 @@
 ! URxvt
 !URxvt.font:xft:FuraCode\ Nerd\ Font:style=Regular:size=9:antialias=true:hinting=true
 !URxvt.font:xft:Overpass\ Mono:style:Regular:size=9
-URxvt.font: xft:Iosevka\ Nerd\ Font:style=Regular:size=11:antialias=true:hinting=true
+!URxvt.font: xft:Iosevka\ Nerd\ Font:style=Regular:size=11:antialias=true:hinting=true
+URxvt.font: xft:Iosevka\ Nerd\ Font:style=Italic:size=11:antialias=true:hinting=true
+!Emacs.font: xft:Iosevka\ Nerd\ Font:style=Italic:size=11:antialias=true:hinting=true
 
 URxvt.scrollBar: false
 Rxvt.iso14755:	false
