@@ -884,9 +884,9 @@
     #+END_SRC
 *** circe (ou erc)
     #+BEGIN_SRC emacs-lisp
-    ;;(use-package circe
-    ;;  :ensure t
-    ;;)
+    (use-package circe
+      :ensure t
+    )
     #+END_SRC
     
 *** pdf-tools

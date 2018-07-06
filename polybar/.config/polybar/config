@@ -8,21 +8,20 @@
 ;=====================================================
 
 [colors]
-;background = #222
-;background-alt = #444
 foreground = #dfdfdf
 foreground-alt = #888
-;primary = #444444
-;secondary = #444444
-alert = #bd2c40
-
 background = ${xrdb:color0:#222}
 background-alt = ${xrdb:color0:#222}
-;foreground = ${xrdb:color2}
-;foreground-alt = ${xrdb:color3}
 primary = ${xrdb:color3:#222}
 secondary = ${xrdb:color3:#222}
-;alert = #bd2c40
+alert = #bd2c40
+
+;foreground = #cc000000
+;foreground-alt = #cc000000
+;background = #00000000
+;background-alt = #444
+;primary = #444444
+;secondary = #444444
 
 [global/wm]
 margin-top = 5
