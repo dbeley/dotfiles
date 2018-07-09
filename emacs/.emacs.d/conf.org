@@ -170,6 +170,12 @@
     (setq evil-collection-setup-minibuffer t)
     )
     
+    (use-package evil-goggles
+    :ensure t
+    :config
+    (evil-goggles-mode)
+    )
+    
     #+END_SRC   
     
 *** ranger
@@ -353,21 +359,21 @@
 
 *** xresources-theme
     #+BEGIN_SRC emacs-lisp
-    ;;(when (display-graphic-p)
+    (when (display-graphic-p)
     (use-package xresources-theme
         :ensure t
         :config
         (load-theme 'xresources t)
         )
-    ;;)
+    )
     #+END_SRC
     
 *** Chargement des thèmes
     #+BEGIN_SRC emacs-lisp
-    ;;(when (display-graphic-p)
-    ;;(load-theme 'base16-gruvbox-dark-hard t)
-    ;;(load-theme 'xresources t)
-    ;;)
+    (load-theme 'base16-gruvbox-dark-hard t)
+    (when (display-graphic-p)
+    (load-theme 'xresources t)
+    )
     ;;(load-theme 'airline-ubaryd)
     #+END_SRC
     
