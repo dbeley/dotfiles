@@ -361,6 +361,17 @@ mode "Move" {
 	bindsym Escape mode "default" 
 }
 
+# Keyboard mode
+bindsym Scroll_Lock mode "Keyboard | q: qwerty | b: bépo"
+
+mode "Keyboard | q: qwerty | b: bépo" {
+    bindsym q exec setxkbmap us -variant intl
+    bindsym b exec setxkbmap fr bepo
+
+    bindsym Return mode "default" 
+    bindsym Escape mode "default" 
+}
+
 
 ##############################################
 ########## 5. User-defined commands ##########
@@ -369,6 +380,17 @@ mode "Move" {
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 5%
 bindsym XF86MonBrightnessDown exec light -U 5%
+
+# Screenshot
+#bindsym --release Print exec --no-startup-id "maim ~/Nextcloud/Images/Captures\ d\'écran/(date +%s).png"
+bindsym --release Print exec --no-startup-id "maim ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s).png"
+
+# X220 keys
+bindsym XF86Launch1 exec urxvtc
+bindsym XF86Back workspace prev
+bindsym XF86Forward workspace next
+# bindsym Scroll_Lock
+bindsym Pause exec --no-startup-id "wal -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh"
 
 # Pulse Audio Controls
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 1%+
@@ -386,8 +408,6 @@ bindsym XF86AudioPrev exec mpc prev
 # Keyboard / Mouse
 #exec --no-startup-id xmodmap -e "pointer = 3 2 1"
 exec_always --no-startup-id setxkbmap us -variant intl
-bindsym $mod+c exec --no-startup-id setxkbmap us -variant intl
-bindsym $mod+b exec --no-startup-id setxkbmap fr bepo
 
 # Power management
 exec --no-startup-id xset -dpms
@@ -413,5 +433,3 @@ exec_always --no-startup-id nextcloud
 
 # Lock screen
 # bindsym $mod+9 exec --no-startup-id $HOME/.lock.sh
-
-# X220 top row
