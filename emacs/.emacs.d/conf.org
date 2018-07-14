@@ -370,7 +370,7 @@
     
 *** Chargement des thèmes
     #+BEGIN_SRC emacs-lisp
-    (load-theme 'base16-gruvbox-dark-hard t)
+    ;;(load-theme 'base16-gruvbox-dark-hard t)
     (when (display-graphic-p)
     (load-theme 'xresources t)
     )
@@ -384,24 +384,29 @@
       :config
       (spaceline-spacemacs-theme)
       ;;(spaceline-emacs-theme)
-      (setq powerline-default-separator 'wave)
-    ;; choix : alternate, arrow, arrow-fade, bar, box, brace,
-    ;; butt, chamfer, contour, curve, rounded, roundstub, wave, zigzag,
-    ;; utf-8.
-    (spaceline-helm-mode 1)
+      (setq powerline-default-separator 'arrow)
+      ;; choix : alternate, arrow, arrow-fade, bar, box, brace,
+      ;; butt, chamfer, contour, curve, rounded, roundstub, slant, wave, zigzag,
+      ;; utf-8.
+      (spaceline-helm-mode 1)
+      (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+      (set-face-attribute 'spaceline-evil-normal nil :foreground "black")
       (spaceline-compile)
     )
     
-    ;;(use-package all-the-icons
-    ;;:ensure t
-    ;;)
-    ;;
-    ;;(use-package spaceline-all-the-icons
-    ;;:ensure t
-    ;;:after spaceline
-    ;;:config (spaceline-all-the-icons-theme)
-    ;;(setq spaceline-all-the-icons-separator-type 'wave)
-    ;;)
+    (use-package all-the-icons
+    :ensure t
+    )
+    
+    (use-package spaceline-all-the-icons
+    :ensure t
+    :after spaceline
+    :config (spaceline-all-the-icons-theme)
+    (setq spaceline-all-the-icons-separator-type 'arrow)
+    (setq powerline-text-scale-factor 1.1)
+    ;; slant arrow cup wave none
+    )
+
     #+END_SRC
 
 *** telephone-line
@@ -873,7 +878,7 @@
     :ensure t
     :config
     (global-set-key (kbd "C-x w") 'elfeed)
-    (setf url-queue-timeout 30)
+    (setf url-queue-timeout 1)
     )
     
     (use-package elfeed-org
@@ -990,3 +995,12 @@ visit otherwise."
 (evil-define-key 'normal elfeed-search-mode-map (kbd "<S-return>") #'ambrevar/elfeed-visit-maybe-external)
 
 #+END_SRC
+* Personnalisation
+** custom-set-faces
+   #+BEGIN_SRC emacs-lisp
+   (custom-set-faces
+    '(minimap-active-region-background ((((background dark)) (:background "#2A2A2A222222")) (t (:background "#D3D3D3222222"))) nil :group)
+    '(spaceline-evil-normal ((t (:background "dark gray" :foreground "black"))))
+    ;;'(spaceline-highlight-face ((t (:background "dark gray" :foreground "#3E3D31" :inherit 'mode-line))))
+    )
+   #+END_SRC

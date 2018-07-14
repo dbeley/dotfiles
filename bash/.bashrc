@@ -14,6 +14,7 @@ export TERM=xterm-256color
 #source /etc/profile.d/autojump.sh
 
 #(wal -r &)
+#wal -R
 (cat /home/david/.cache/wal/sequences &)
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
