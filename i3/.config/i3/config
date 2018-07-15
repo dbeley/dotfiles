@@ -405,7 +405,7 @@ bindsym XF86AudioPrev exec mpc prev
 #bindsym XF86AudioPrev exec rhythmbox-client --previous
 
 # Keyboard / Mouse
-exec --no-startup-id xmodmap -e "pointer = 3 2 1"
+# exec --no-startup-id xmodmap -e "pointer = 3 2 1"
 exec_always --no-startup-id setxkbmap us -variant intl
 
 # Power management
