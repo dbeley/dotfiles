@@ -362,11 +362,15 @@ mode "Move" {
 }
 
 # Keyboard mode
-bindsym Scroll_Lock mode "Keyboard | q: qwerty | b: bépo"
+set $mode_others Keyboard | q : qwerty | b : bépo || Screens | 1 : x220 | 2 : +1080_left | 3 : +1080_right
+bindsym Scroll_Lock mode "$mode_others"
 
-mode "Keyboard | q: qwerty | b: bépo" {
+mode "$mode_others" {
     bindsym q exec setxkbmap us -variant intl
     bindsym b exec setxkbmap fr bepo
+    bindsym 1 exec --no-startup-id "bash $HOME/dotfiles/Autres/Écrans/x220.sh"
+    bindsym 2 exec --no-startup-id "bash $HOME/dotfiles/Autres/Écrans/x220+1080_VGA_gauche.sh"
+    bindsym 3 exec --no-startup-id "bash $HOME/dotfiles/Autres/Écrans/x220+1080_VGA_droite.sh"
 
     bindsym Return mode "default" 
     bindsym Escape mode "default" 
