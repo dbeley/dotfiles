@@ -1002,11 +1002,13 @@ visit otherwise."
 ** custom-set-faces
    #+BEGIN_SRC emacs-lisp
    (custom-set-faces
-    '(minimap-active-region-background ((((background dark)) (:background "#2A2A2A222222")) (t (:background "#D3D3D3222222"))) nil :group)
-    '(spaceline-evil-normal ((t (:background "dim grey" :foreground "black"))))
-    '(spaceline-evil-insert ((t (:background "dark slate grey" :foreground "black"))))
-    '(spaceline-evil-visual ((t (:background "indian red" :foreground "black"))))
-    '(spaceline-evil-replace ((t (:background "dark gray" :foreground "black"))))
-    ;;'(spaceline-highlight-face ((t (:background "dark gray" :foreground "#3E3D31" :inherit 'mode-line))))
-    )
+   '(helm-M-x-key ((t (:foreground "white" :underline t))))
+   '(helm-match ((t (:foreground "white"))))
+   '(minimap-active-region-background ((((background dark)) (:background "#2A2A2A222222")) (t (:background "#D3D3D3222222"))) nil :group)
+   '(spaceline-evil-normal ((t (:background "dim grey" :foreground "black"))))
+   '(spaceline-evil-insert ((t (:background "dark slate grey" :foreground "black"))))
+   '(spaceline-evil-visual ((t (:background "indian red" :foreground "black"))))
+   '(spaceline-evil-replace ((t (:background "dark gray" :foreground "black"))))
+   ;;'(spaceline-highlight-face ((t (:background "dark gray" :foreground "#3E3D31" :inherit 'mode-line))))
+   )
    #+END_SRC

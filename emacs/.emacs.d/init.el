@@ -53,6 +53,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(helm-M-x-key ((t (:foreground "white" :underline t))))
+ '(helm-match ((t (:foreground "white"))))
  '(minimap-active-region-background ((((background dark)) (:background "#2A2A2A222222")) (t (:background "#D3D3D3222222"))) nil :group)
  '(spaceline-evil-insert ((t (:background "dark slate grey" :foreground "black"))))
  '(spaceline-evil-normal ((t (:background "dim grey" :foreground "black"))))
