@@ -85,7 +85,9 @@
    
    (setq jump-char-lazy-highlight-face nil)
    
+   ;; Deprecated
    ;;(global-linum-mode t)
+   ;; Performances issues
    (global-display-line-numbers-mode)
    (setq display-line-numbers-type 'relative)
 
@@ -170,11 +172,11 @@
     (setq evil-collection-setup-minibuffer t)
     )
     
-    (use-package evil-goggles
-    :ensure t
-    :config
-    (evil-goggles-mode)
-    )
+    ;;(use-package evil-goggles
+    ;;:ensure t
+    ;;:config
+    ;;(evil-goggles-mode)
+    ;;)
     
     #+END_SRC   
     
@@ -445,7 +447,7 @@
     (registers . 5)))
     )
     #+END_SRC
-    
+   
 ** Recherche, complétion, Syntaxe, …
 *** swiper
     #+BEGIN_SRC emacs-lisp
