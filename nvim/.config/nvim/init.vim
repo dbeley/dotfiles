@@ -39,6 +39,7 @@ Plug 'lervag/vimtex'
 "Plug 'rhysd/vim-grammarous'
 
 Plug 'w0rp/ale'
+Plug 'sheerun/vim-polyglot'
 
 Plug 'jceb/vim-orgmode'
 "Plug 'joshhartigan/vim-reddit'
@@ -247,4 +248,4 @@ endfunction
 
 nnoremap <silent> <Plug>(RotateLines) :<C-u>call <SID>RotateLines()<CR>
 
-nmap \r <Plug>(RotateLines)
+nmap \R <Plug>(RotateLines)

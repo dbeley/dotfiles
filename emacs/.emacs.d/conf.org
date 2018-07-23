@@ -120,18 +120,18 @@
 ** Navigation
 *** buffer-move
     #+BEGIN_SRC emacs-lisp
-    (use-package buffer-move
-    :ensure t
-    :config
-    (global-set-key (kbd "C-c <left>")   'buf-move-left)
-    (global-set-key (kbd "C-c <down>")   'buf-move-down)
-    (global-set-key (kbd "C-c <up>")     'buf-move-up)
-    (global-set-key (kbd "C-c <right>") 'buf-move-right)
-    (global-set-key (kbd "C-c h")   'buf-move-left)
-    (global-set-key (kbd "C-c j")   'buf-move-down)
-    (global-set-key (kbd "C-c k")     'buf-move-up)
-    (global-set-key (kbd "C-c l") 'buf-move-right)
-    )
+    ;;(use-package buffer-move
+    ;;:ensure t
+    ;;:config
+    ;;(global-set-key (kbd "C-c <left>")   'buf-move-left)
+    ;;(global-set-key (kbd "C-c <down>")   'buf-move-down)
+    ;;(global-set-key (kbd "C-c <up>")     'buf-move-up)
+    ;;(global-set-key (kbd "C-c <right>") 'buf-move-right)
+    ;;(global-set-key (kbd "C-c h")   'buf-move-left)
+    ;;(global-set-key (kbd "C-c j")   'buf-move-down)
+    ;;(global-set-key (kbd "C-c k")     'buf-move-up)
+    ;;(global-set-key (kbd "C-c l") 'buf-move-right)
+    ;;)
     #+END_SRC   
     
 *** Evil-mode 
@@ -311,7 +311,15 @@
     ;;(persp-mode)
     ;;)
     #+END_SRC
-    
+ 
+*** fzf
+    #+BEGIN_SRC emacs-lisp
+    (use-package fzf
+    :ensure t
+    :config
+    (global-set-key (kbd "C-c z") 'fzf)
+    )
+    #+END_SRC
 ** Apparence
 *** rainbow-mode
     #+BEGIN_SRC emacs-lisp
@@ -455,6 +463,7 @@
       ;;  :ensure t
       ;;  :config
       ;;  (ivy-mode 1)
+      ;;  (setq ivy-display-style 'fancy)
       ;;  (setq ivy-use-virtual-buffers t)
       ;;  (setq enable-recursive-minibuffers t)
       ;;  (global-set-key "\C-s" 'swiper)
@@ -476,6 +485,17 @@
       ;;  (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
       ;;  (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
       ;;  )
+      ;;
+      ;;(use-package ivy-rich
+      ;;  :ensure t
+      ;;  :config
+      ;;  :custom
+      ;;  (ivy-virtual-abbreviate 'full
+      ;;  ivy-rich-switch-buffer-align-virtual-buffer t
+      ;;  ivy-rich-path-style 'abbrev)
+      ;;  :config
+      ;;  (ivy-set-display-transformer 'ivy-switch-buffer
+      ;;  'ivy-rich-switch-buffer-transformer))
     
       ;;(use-package counsel
       ;;  :ensure t
@@ -484,7 +504,12 @@
       ;;(use-package swiper
       ;;  :ensure t
       ;;  )
-    
+      ;;
+      ;;(use-package all-the-icons-ivy
+      ;;  :ensure t
+      ;;  :config
+      ;;  (all-the-icons-ivy-setup))
+      
     #+END_SRC
     
 *** avy
@@ -586,7 +611,8 @@
     #+BEGIN_SRC emacs-lisp
     (use-package flycheck
       :ensure t
-      :init (global-flycheck-mode)
+      :config
+      (add-hook 'after-init-hook 'global-flycheck-mode)
     )
     #+END_SRC
     
@@ -953,7 +979,6 @@
 #+BEGIN_SRC emacs-lisp
 (setq elfeed-db-directory (expand-file-name "elfeed" user-emacs-directory))
 
-        ;(quality-val (completing-read "Max height resolution (0 for unlimited): " '("0" "480" "720") nil nil)))
 (defun ambrevar/elfeed-play-with-mpv ()
   "Play entry link with mpv."
   (interactive)
