@@ -394,7 +394,8 @@
       :config
       (spaceline-spacemacs-theme)
       ;;(spaceline-emacs-theme)
-      (setq powerline-default-separator 'arrow)
+      (setq powerline-default-separator 'slant)
+      ;;(setq powerline-default-separator 'rounded)
       ;; choix : alternate, arrow, arrow-fade, bar, box, brace,
       ;; butt, chamfer, contour, curve, rounded, roundstub, slant, wave, zigzag,
       ;; utf-8.
@@ -411,11 +412,14 @@
     :ensure t
     :after spaceline
     :config (spaceline-all-the-icons-theme)
+    (setq spaceline-all-the-icons-flycheck-alternate t)
     (setq spaceline-all-the-icons-separator-type 'arrow)
+    (setq spaceline-all-the-icons-separators-invert-direction t)
+    (setq spaceline-all-the-icons-primary-separator "")
+    (setq spaceline-all-the-icons-secondary-separator "")
     (setq powerline-text-scale-factor 1.1)
     ;; slant arrow cup wave none
     )
-
     #+END_SRC
 
 *** telephone-line
@@ -455,7 +459,16 @@
     (registers . 5)))
     )
     #+END_SRC
-   
+
+*** eshell-git-prompt
+    #+BEGIN_SRC emacs-lisp
+    (use-package eshell-git-prompt
+    :ensure t
+    :config
+    (eshell-git-prompt-use-theme 'powerline)
+    )
+    
+    #+END_SRC
 ** Recherche, complétion, Syntaxe, …
 *** swiper
     #+BEGIN_SRC emacs-lisp
@@ -1045,6 +1058,7 @@ visit otherwise."
 ** custom-set-faces
    #+BEGIN_SRC emacs-lisp
    (custom-set-faces
+   '(eshell-git-prompt-powerline-dir-face ((t (:background "gray18"))))
    '(helm-M-x-key ((t (:foreground "white" :underline t))))
    '(helm-match ((t (:foreground "white"))))
    '(minimap-active-region-background ((((background dark)) (:background "#2A2A2A222222")) (t (:background "#D3D3D3222222"))) nil :group)
