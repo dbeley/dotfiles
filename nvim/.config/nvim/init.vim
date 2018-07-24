@@ -199,7 +199,7 @@ endif
 " Vim-markdown preferences
 let g:vim_markdown_folding_disabled = 1
 
-" Press \r to start rotating lines and <C-c> (Control+c) to stop.
+" Press \R to start rotating lines and <C-c> (Control+c) to stop.
 
 function! s:RotateString(string)
     let split_string = split(a:string, '\zs')

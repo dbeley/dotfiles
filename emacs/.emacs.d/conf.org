@@ -802,6 +802,11 @@
     (use-package elpy
     :ensure t
     :config (elpy-enable)
+    (setq python-shell-interpreter "jupyter"
+    python-shell-interpreter-args "console --simple-prompt"
+    python-shell-prompt-detect-failure-warning nil)
+    (add-to-list 'python-shell-completion-native-disabled-interpreters
+    "jupyter")
     )
     #+END_SRC
     
@@ -828,6 +833,17 @@
     ;;
     ;;(use-package cider
     ;;:ensure t)
+    
+    #+END_SRC
+*** markdown
+    #+BEGIN_SRC emacs-lisp
+    (use-package markdown-mode
+    :ensure t
+    :commands (markdown-mode gfm-mode)
+    :mode (("README\\.md\\'" . gfm-mode)
+    ("\\.md\\'" . markdown-mode)
+    ("\\.markdown\\'" . markdown-mode))
+    :init (setq markdown-command "markdown"))
     
     #+END_SRC
 ** Documentation
