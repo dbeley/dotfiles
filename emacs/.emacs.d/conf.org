@@ -305,11 +305,11 @@
     
 *** perspective-el
     #+BEGIN_SRC emacs-lisp
-    ;;(use-package perspective
-    ;;:ensure t
-    ;;:config
-    ;;(persp-mode)
-    ;;)
+    (use-package perspective
+    :ensure t
+    :config
+    (persp-mode)
+    )
     #+END_SRC
  
 *** fzf
@@ -688,6 +688,14 @@
     (setq org-log-done t)
     (setq org-ssrc-fontify-natively t)
     (setq org-confirm-babel-evaluate nil)
+    (setq org-startup-with-inline-images t)
+    (org-babel-do-load-languages
+    'org-babel-load-languages
+    '((python . t)
+    (emacs-lisp . t)
+    (R . t)
+    (org . t)
+    ))
     )
     #+END_SRC
     
@@ -720,13 +728,6 @@
     ;; ► • ★ ▸
     #+END_SRC
     
-*** org-babel
-    #+BEGIN_SRC emacs-lisp
-    (org-babel-do-load-languages
-    'org-babel-load-languages
-    '((python . t)))
-    #+END_SRC
-    
 *** Exports
 **** Twitter Bootstrap
      #+BEGIN_SRC emacs-lisp
@@ -741,7 +742,7 @@
      :ensure ox-reveal
      )
      
-     (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.6.0/")
+     (setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js@3.6.0/")
      (setq org-reveal-mathjax t)
      
      (use-package htmlize
@@ -1061,6 +1062,7 @@ visit otherwise."
    '(eshell-git-prompt-powerline-dir-face ((t (:background "gray18"))))
    '(helm-M-x-key ((t (:foreground "white" :underline t))))
    '(helm-match ((t (:foreground "white"))))
+   '(hl-line ((t (:background "gray30"))))
    '(minimap-active-region-background ((((background dark)) (:background "#2A2A2A222222")) (t (:background "#D3D3D3222222"))) nil :group)
    '(spaceline-evil-normal ((t (:background "dim grey" :foreground "black"))))
    '(spaceline-evil-insert ((t (:background "dark slate grey" :foreground "black"))))
