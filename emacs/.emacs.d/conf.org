@@ -228,15 +228,15 @@
   
 *** minimap
     #+BEGIN_SRC emacs-lisp
-    (use-package minimap
-    :ensure t
-    :config
-    (add-to-list 'minimap-major-modes 'org-mode)
-    (setq minimap-highlight-line nil)
-    (setq minimap-window-location 'right)
-    (setq minimap-recreate-window t)
-    (minimap-mode t)
-    )
+    ;;(use-package minimap
+    ;;:ensure t
+    ;;:config
+    ;;(add-to-list 'minimap-major-modes 'org-mode)
+    ;;(setq minimap-highlight-line nil)
+    ;;(setq minimap-window-location 'right)
+    ;;(setq minimap-recreate-window t)
+    ;;(minimap-mode t)
+    ;;)
     #+END_SRC
     
 *** sublimity
