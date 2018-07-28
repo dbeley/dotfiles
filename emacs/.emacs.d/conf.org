@@ -1,6 +1,6 @@
 * Identité
   #+BEGIN_SRC emacs-lisp
-  (setq user-full-name "David BELEY")
+  (setq user-full-name "dbeley")
   #+END_SRC
   
 * Paramètres basiques
@@ -118,22 +118,6 @@
    )
    #+END_SRC
 ** Navigation
-*** buffer-move
-    #+BEGIN_SRC emacs-lisp
-    ;;(use-package buffer-move
-    ;;:ensure t
-    ;;:config
-    ;;(global-set-key (kbd "C-c <left>")   'buf-move-left)
-    ;;(global-set-key (kbd "C-c <down>")   'buf-move-down)
-    ;;(global-set-key (kbd "C-c <up>")     'buf-move-up)
-    ;;(global-set-key (kbd "C-c <right>") 'buf-move-right)
-    ;;(global-set-key (kbd "C-c h")   'buf-move-left)
-    ;;(global-set-key (kbd "C-c j")   'buf-move-down)
-    ;;(global-set-key (kbd "C-c k")     'buf-move-up)
-    ;;(global-set-key (kbd "C-c l") 'buf-move-right)
-    ;;)
-    #+END_SRC   
-    
 *** Evil-mode 
     #+BEGIN_SRC emacs-lisp
     (setq evil-want-C-i-jump nil)
@@ -171,12 +155,6 @@
     (evil-collection-init)
     (setq evil-collection-setup-minibuffer t)
     )
-    
-    ;;(use-package evil-goggles
-    ;;:ensure t
-    ;;:config
-    ;;(evil-goggles-mode)
-    ;;)
     
     #+END_SRC   
     
@@ -248,34 +226,6 @@
     )
     #+END_SRC
     
-*** switch-window
-    #+BEGIN_SRC emacs-lisp
-    ;;(use-package switch-window
-    ;;:ensure t
-    ;;:config
-    ;;(setq switch-window-shortcut-style 'qwerty)
-    ;;(setq switch-window-qwerty-shortcuts
-    ;;      '("a" "s" "d" "f" "j" "k" "l" ";" "w" "e" "i" "o"))
-    ;;(setq switch-window-input-style 'minibuffer))
-    ;;
-    ;;(global-set-key (kbd "M-o") 'switch-window)
-    ;;(global-set-key (kbd "C-x o") 'switch-window)
-    ;;(global-set-key (kbd "C-x 1") 'switch-window-then-maximize)
-    ;;(global-set-key (kbd "C-x 2") 'switch-window-then-split-below)
-    ;;(global-set-key (kbd "C-x 3") 'switch-window-then-split-right)
-    ;;(global-set-key (kbd "C-x 0") 'switch-window-then-delete)
-    ;;
-    ;;(global-set-key (kbd "C-x 4 d") 'switch-window-then-dired)
-    ;;(global-set-key (kbd "C-x 4 f") 'switch-window-then-find-file)
-    ;;(global-set-key (kbd "C-x 4 m") 'switch-window-then-compose-mail)
-    ;;(global-set-key (kbd "C-x 4 r") 'switch-window-then-find-file-read-only)
-    ;;
-    ;;(global-set-key (kbd "C-x 4 C-f") 'switch-window-then-find-file)
-    ;;(global-set-key (kbd "C-x 4 C-o") 'switch-window-then-display-buffer)
-    ;;
-    ;;(global-set-key (kbd "C-x 4 0") 'switch-window-then-kill-buffer)
-    #+END_SRC
-    
 *** minimap
     #+BEGIN_SRC emacs-lisp
     (use-package sublimity
@@ -328,63 +278,39 @@
     )
     #+END_SRC
 
-*** Powerline
-    #+BEGIN_SRC emacs-lisp
-    ;;(use-package powerline
-    ;;        :ensure t
-    ;;        :config
-    ;;        ;; (powerline-center-evil-theme)
-    ;;        (setq powerline-default-separator 'wave)
-    ;; ;; choix : alternate, arrow, arrow-fade, bar, box, brace,
-    ;; ;; butt, chamfer, contour, curve, rounded, roundstub, wave, zigzag,
-    ;; ;; utf-8.
-    ;;        )
-    #+END_SRC
-
-*** Airline-themes
-    #+BEGIN_SRC emacs-lisp
-    ;;(use-package airline-themes
-    ;;:ensure t
-    ;;:config
-    ;;(setq powerline-height 12)
-    ;;(setq powerline-utf-8-separator-left        #xe0b0
-    ;;powerline-utf-8-separator-right       #xe0b2
-    ;;airline-utf-glyph-separator-left      #xe0b0
-    ;;airline-utf-glyph-separator-right     #xe0b2
-    ;;airline-utf-glyph-subseparator-left   #xe0b1
-    ;;airline-utf-glyph-subseparator-right  #xe0b3
-    ;;airline-utf-glyph-branch              #xe0a0
-    ;;airline-utf-glyph-readonly            #xe0a2
-    ;;airline-utf-glyph-linenumber          #xe0a1)
-    ;;)
-    
-    #+END_SRC
-
 *** base16-theme
     #+BEGIN_SRC emacs-lisp
-    (use-package base16-theme
-    :ensure t
-    )          
+    ;;(use-package base16-theme
+    ;;:ensure t
+    ;;)          
     #+END_SRC
 
 *** xresources-theme
     #+BEGIN_SRC emacs-lisp
-    (when (display-graphic-p)
     (use-package xresources-theme
         :ensure t
-        :config
-        (load-theme 'xresources t)
         )
-    )
     #+END_SRC
     
 *** Chargement des thèmes
     #+BEGIN_SRC emacs-lisp
     ;;(load-theme 'base16-gruvbox-dark-hard t)
-    (when (display-graphic-p)
-    (load-theme 'xresources t)
-    )
     ;;(load-theme 'airline-ubaryd)
+    
+    (defun my-frame-tweaks (&optional frame)
+    "My personal frame tweaks."
+    (unless frame
+    (setq frame (selected-frame)))
+    (when frame
+    (with-selected-frame frame
+    (when (display-graphic-p)
+    (load-theme 'xresources t)))))
+    ;; For the case that the init file runs after the frame has been created.
+    ;; Call of emacs without --daemon option.
+    ;;(my-frame-tweaks) 
+    ;; For the case that the init file runs before the frame is created.
+    ;; Call of emacs with --daemon option.
+    (add-hook 'after-make-frame-functions #'my-frame-tweaks t)    
     #+END_SRC
     
 *** Spaceline
@@ -422,20 +348,6 @@
     )
     #+END_SRC
 
-*** telephone-line
-    #+BEGIN_SRC emacs-lisp
-    ;;(use-package telephone-line
-    ;;  :ensure t
-    ;;  :config
-    ;;  (setq telephone-line-primary-left-separator 'telephone-line-cubed-left
-    ;;  telephone-line-secondary-left-separator 'telephone-line-cubed-hollow-left
-    ;;  telephone-line-primary-right-separator 'telephone-line-cubed-right
-    ;;  telephone-line-secondary-right-separator 'telephone-line-cubed-hollow-right)
-    ;;  (setq telephone-line-height 18
-    ;;  telephone-line-evil-use-short-tag t)
-    ;;  (telephone-line-mode 1))
-    #+END_SRC
-    
 *** page-break-lines
     #+BEGIN_SRC emacs-lisp
     (use-package page-break-lines
@@ -933,6 +845,7 @@
     ;;(engine-mode t)
     ;;)
     #+END_SRC
+    
 *** elfeed
     #+BEGIN_SRC emacs-lisp
     (use-package elfeed
