@@ -225,18 +225,31 @@
     :ensure t
     )
     #+END_SRC
-    
+  
 *** minimap
     #+BEGIN_SRC emacs-lisp
-    (use-package sublimity
+    (use-package minimap
     :ensure t
-    :config 
-    (require 'sublimity)
-    ;;(require 'sublimity-scroll)
-    (require 'sublimity-map)
-    (sublimity-mode 1)
-    (sublimity-map-set-delay nil)
+    :config
+    (add-to-list 'minimap-major-modes 'org-mode)
+    (setq minimap-highlight-line nil)
+    (setq minimap-window-location 'right)
+    (setq minimap-recreate-window t)
+    (minimap-mode t)
     )
+    #+END_SRC
+    
+*** sublimity
+    #+BEGIN_SRC emacs-lisp
+    ;;(use-package sublimity
+    ;;:ensure t
+    ;;:config 
+    ;;(require 'sublimity)
+    ;;;;(require 'sublimity-scroll)
+    ;;(require 'sublimity-map)
+    ;;(sublimity-mode 1)
+    ;;(sublimity-map-set-delay nil)
+    ;;)
     #+END_SRC    
   
 *** undo-tree
@@ -976,11 +989,12 @@ visit otherwise."
    '(helm-M-x-key ((t (:foreground "white" :underline t))))
    '(helm-match ((t (:foreground "white"))))
    '(hl-line ((t (:background "gray30"))))
-   '(minimap-active-region-background ((((background dark)) (:background "#2A2A2A222222")) (t (:background "#D3D3D3222222"))) nil :group)
+   ;;'(minimap-active-region-background ((((background dark)) (:background "#2A2A2A222222")) (t (:background "#D3D3D3222222"))) nil :group)
    '(spaceline-evil-normal ((t (:background "dim grey" :foreground "black"))))
    '(spaceline-evil-insert ((t (:background "dark slate grey" :foreground "black"))))
    '(spaceline-evil-visual ((t (:background "indian red" :foreground "black"))))
    '(spaceline-evil-replace ((t (:background "dark gray" :foreground "black"))))
    ;;'(spaceline-highlight-face ((t (:background "dark gray" :foreground "#3E3D31" :inherit 'mode-line))))
    )
+   
    #+END_SRC
