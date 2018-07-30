@@ -268,13 +268,23 @@
     
 *** perspective-el
     #+BEGIN_SRC emacs-lisp
-    (use-package perspective
-    :ensure t
-    :config
-    (persp-mode)
-    )
+    ;; Conflit avec company-mode
+    ;;(use-package perspective
+    ;;:ensure t
+    ;;:config
+    ;;(persp-mode)
+    ;;)
     #+END_SRC
- 
+
+***  eyebrowse
+    #+BEGIN_SRC emacs-lisp
+    ;;(use-package eyebrowse
+    ;;:ensure t
+    ;;:config
+    ;;(eyebrowse-mode t)
+    ;;)
+    #+END_SRC
+   
 *** fzf
     #+BEGIN_SRC emacs-lisp
     (use-package fzf
@@ -332,12 +342,15 @@
       :ensure t
       :config
       (spaceline-spacemacs-theme)
-      ;;(spaceline-emacs-theme)
+      (spaceline-emacs-theme)
       (setq powerline-default-separator 'slant)
-      ;;(setq powerline-default-separator 'rounded)
+      ;;(setq powerline-default-separator 'wave)
       ;; choix : alternate, arrow, arrow-fade, bar, box, brace,
       ;; butt, chamfer, contour, curve, rounded, roundstub, slant, wave, zigzag,
       ;; utf-8.
+      (setq spaceline-workspace-numbers-unicode t)
+      (setq spaceline-window-numbers-unicode t)
+      ;;(spaceline-toggle-workspace-number-off)
       (spaceline-helm-mode 1)
       (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
       (spaceline-compile)
@@ -353,11 +366,12 @@
     :config (spaceline-all-the-icons-theme)
     (setq spaceline-all-the-icons-flycheck-alternate t)
     (setq spaceline-all-the-icons-separator-type 'arrow)
+    ;; slant arrow cup wave none
     (setq spaceline-all-the-icons-separators-invert-direction t)
     (setq spaceline-all-the-icons-primary-separator "")
     (setq spaceline-all-the-icons-secondary-separator "")
     (setq powerline-text-scale-factor 1.1)
-    ;; slant arrow cup wave none
+    (spaceline-toggle-all-the-icons-buffer-position-on)
     )
     #+END_SRC
 
@@ -487,11 +501,13 @@
     #+BEGIN_SRC emacs-lisp
     (use-package yasnippet
     :ensure t
-    :config (yas-global-mode 1)
+    :config (yas-global-mode)
     )
     
     (use-package yasnippet-snippets
     :ensure t
+    :after yasnippet
+    :config (yasnippet-snippets-initialize)
     )
     #+END_SRC
     
@@ -500,37 +516,35 @@
     (use-package company
     :ensure t
     :config
-    (global-company-mode)
+    '(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin)
+    (setq company-begin-commands '(self-insert-command))
+    (setq company-idle-delay .1)
+    (setq company-minimum-prefix-length 2)
+    (setq company-show-numbers t)
+    (setq company-tooltip-align-annotations 't)
+    (global-company-mode t)
     )
     
     (use-package company-quickhelp
     :ensure t
     :config
-    (company-quickhelp-mode 1)
+    (company-quickhelp-mode)
     )
-    
-    (eval-after-load 'company
-    '(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin))
-    
-    ;;  (defun company-yasnippet-or-completion ()
-    ;;    "Solve company yasnippet conflicts."
-    ;;    (interactive)
-    ;;    (let ((yas-fallback-behavior
-    ;;           (apply 'company-complete-common nil)))
-    ;;      (yas-expand)))
-    ;;
-    ;;  (add-hook 'company-mode-hook
-    ;;            (lambda ()
-    ;;              (substitute-key-definition
-    ;;               'company-complete-common
-    ;;               'company-yasnippet-or-completion
-    ;;               company-active-map)))
     #+END_SRC
-
+    
 *** Company-box
     #+BEGIN_SRC emacs-lisp
-    ;;(use-package company-box
-    ;;:hook (company-mode . company-box-mode))
+    (use-package company-box
+    :ensure t
+    :after company
+    :hook (company-mode . company-box-mode))
+    #+END_SRC
+
+*** Company-anaconda
+    #+BEGIN_SRC emacs-lisp
+    ;;(use-package company-anaconda
+    ;;:after (anaconda-mode company)
+    ;;:config (add-to-list 'company-backends 'company-anaconda))
     #+END_SRC
 
 *** smartparens
@@ -747,6 +761,14 @@
     (add-to-list 'python-shell-completion-native-disabled-interpreters
     "jupyter")
     )
+    #+END_SRC
+    
+***  anaconda-mode
+    #+BEGIN_SRC emacs-lisp
+    ;;(use-package anaconda-mode
+    ;;:ensure t
+    ;;:config
+    ;;(add-hook 'python-mode-hook 'anaconda-mode))
     #+END_SRC
     
 *** web-mode

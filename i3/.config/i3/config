@@ -210,7 +210,7 @@ for_window [urgent=latest] focus
 
 # wal script
 exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")" -o $HOME/.config/polybar/launch.sh
-bindsym $mod+n exec --no-startup-id "wal -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh & systemctl --user restart emacs"
+bindsym $mod+n exec --no-startup-id "wal -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh"
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id compton --config "$HOME/.config/compton.conf"
 
@@ -393,7 +393,7 @@ bindsym XF86Launch1 exec urxvtc
 bindsym XF86Back workspace prev
 bindsym XF86Forward workspace next
 # bindsym Scroll_Lock
-bindsym Pause exec --no-startup-id "wal -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh & systemctl --user restart emacs"
+bindsym Pause exec --no-startup-id "wal -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh"
 
 # Pulse Audio Controls
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 1%+
@@ -417,14 +417,10 @@ exec --no-startup-id xset -dpms
 exec --no-startup-id xset s off
 exec --no-startup-id xset -b
 
-# Emacs
-# exec --no-startup-id emacs --daemon
-
 # Urxvt
 exec_always --no-startup-id urxvtd -q -o -f
 bindsym --release $mod+Shift+v exec --no-startup-id "bash $HOME/.config/i3/t.sh"
 bindsym $mod+z exec --no-startup-id emacsclient -c
-#bindsym $mod+z exec --no-startup-id urxvtc -e emacsclient -nw
 
 # Other
 exec --no-startup-id redshift-gtk
