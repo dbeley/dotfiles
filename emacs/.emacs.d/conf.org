@@ -298,6 +298,8 @@
     #+BEGIN_SRC emacs-lisp
     (use-package rainbow-mode
     :ensure t
+    :config
+    (rainbow-mode)
     )
     #+END_SRC
 
@@ -312,7 +314,15 @@
     #+BEGIN_SRC emacs-lisp
     (use-package xresources-theme
         :ensure t
+        :config
+        ;;(let ((line (face-attribute 'mode-line :underline)))
+        ;;(set-face-attribute 'mode-line          nil :overline   line)
+        ;;(set-face-attribute 'mode-line-inactive nil :overline   line)
+        ;;(set-face-attribute 'mode-line-inactive nil :underline  line)
+        ;;(set-face-attribute 'mode-line          nil :box        nil)
+        ;;(set-face-attribute 'mode-line-inactive nil :box        nil))
         )
+;;        (set-face-attribute 'mode-line-inactive nil :background "#f9f2d9")))
     #+END_SRC
     
 *** Chargement des thèmes
@@ -375,6 +385,15 @@
     )
     #+END_SRC
 
+*** moody
+    #+BEGIN_SRC emacs-lisp
+    ;;(use-package moody
+    ;;:ensure t
+    ;;:config
+    ;;(setq x-underline-at-descent-line t)
+    ;;(moody-replace-mode-line-buffer-identification)
+    ;;(moody-replace-vc-mode))
+    #+END_SRC
 *** page-break-lines
     #+BEGIN_SRC emacs-lisp
     (use-package page-break-lines
@@ -843,6 +862,8 @@
     ;;    (exwm-config-default)
     ;;    (require 'exwm-systemtray)
     ;;    (exwm-systemtray-enable)
+    ;;    (display-time-mode 1)
+    ;;    (display-battery-mode 1)
     ;;    )
     #+END_SRC
     

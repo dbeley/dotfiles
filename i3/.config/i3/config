@@ -193,7 +193,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 #for_window [class="Calamares"] floating enable border normal
 
 #for_window [class="URxvt"] floating enable
-#for_window [class="URxvt" instance="float"] floating enable
+for_window [class="URxvt" instance="float"] floating enable
 for_window [window_role="float"] floating enable
 for_window [class="mpv"] floating enable
 for_window [instance="feh"] floating enable
@@ -210,7 +210,7 @@ for_window [urgent=latest] focus
 
 # wal script
 exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")" -o $HOME/.config/polybar/launch.sh
-bindsym $mod+n exec --no-startup-id "wal -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh"
+bindsym $mod+n exec --no-startup-id "wal -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh & systemctl --user restart emacs"
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id compton --config "$HOME/.config/compton.conf"
 
@@ -393,7 +393,7 @@ bindsym XF86Launch1 exec urxvtc
 bindsym XF86Back workspace prev
 bindsym XF86Forward workspace next
 # bindsym Scroll_Lock
-bindsym Pause exec --no-startup-id "wal -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh"
+bindsym Pause exec --no-startup-id "wal -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh & systemctl --user restart emacs"
 
 # Pulse Audio Controls
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 1%+
@@ -425,8 +425,8 @@ bindsym $mod+z exec --no-startup-id emacsclient -c
 # Other
 exec --no-startup-id redshift-gtk
 exec --no-startup-id nm-applet
-exec --no-startup-id mpd
-exec --no-startup-id mpdscribble
+#exec --no-startup-id mpd
+#exec --no-startup-id mpdscribble
 exec_always --no-startup-id dunst
 exec --no-startup-id udiskie --use-udisks2
 exec_always --no-startup-id nextcloud
