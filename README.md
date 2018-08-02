@@ -5,6 +5,8 @@
 # Some software I use :
 * [i3-gaps](https://github.com/Airblader/i3)
 * [polybar](https://github.com/jaagr/polybar)
+* [emacs](https://www.gnu.org/software/emacs/)
+* [rofi](https://github.com/DaveDavenport/rofi)
 * [urxvt](https://github.com/exg/rxvt-unicode)
 * [tmux](https://github.com/tmux/tmux)
 * [fish](https://github.com/lericson/fish)

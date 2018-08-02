@@ -11,4 +11,19 @@ xsetroot -cursor_name left_ptr
 xset r rate 200 60
 
 # Start emacs
-exec dbus-launch --exit-with-session emacs
+#exec dbus-launch --exit-with-session emacs
+
+wal -i $HOME/Nextcloud/Wallpapers/wal
+setxkbmap us -variant intl
+xset -dpms
+xset s off
+xset -b
+urxvtd -q -o -f
+redshift-gtk &
+nm-applet &
+dunst &
+udiskie --use-udisks2 &
+nextcloud &
+
+export VISUAL=emacsclient
+export EDITOR="$VISUAL"
