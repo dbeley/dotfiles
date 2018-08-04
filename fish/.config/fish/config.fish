@@ -1,5 +1,3 @@
-source /etc/profile.d/autojump.fish
-
 fish_default_key_bindings
 #fish_vi_key_bindings
 
