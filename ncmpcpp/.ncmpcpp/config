@@ -284,7 +284,7 @@ visualizer_type = ellipse
 ## Note: Custom command that will be executed each
 ## time song changes. Useful for notifications etc.
 ##
-#execute_on_song_change = ""
+execute_on_song_change = "bash ~/scripts/mpdnotify.sh"
 #
 #playlist_show_mpd_host = no
 #

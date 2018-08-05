@@ -538,7 +538,7 @@
         :config
         '(define-key company-active-map (kbd "C-c h") #'company-quickhelp-manual-begin)
         (setq company-begin-commands '(self-insert-command))
-        (setq company-idle-delay .1)
+        (setq company-idle-delay 0)
         (setq company-minimum-prefix-length 2)
         (setq company-show-numbers t)
         (setq company-tooltip-align-annotations 't)
