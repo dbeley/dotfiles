@@ -243,8 +243,6 @@ client.placeholder      	$tx		$tx		$tx		$tx
 ########## 4. User-defined modes ##########
 ###########################################
 
-# System mode, reboot/poweroff/lock
-bindsym $mod+0 mode "$mode_system"
 set $mode_system (r)eboot, (s)hutdown
 #, (l)ock
 mode "$mode_system" {
@@ -257,8 +255,6 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-# Resizing mode
-bindsym $mod+r mode "resize"
 mode "resize" {
         bindsym h resize shrink width 5 px or 5 ppt
         bindsym j resize grow height 5 px or 5 ppt
@@ -288,12 +284,10 @@ mode "resize" {
 	bindsym Escape mode "default"
 }
 
-# Gap mode
 set $mode_gaps Gaps: (p) presets, (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (1px), Shift + +|-|0 (5px)
 set $mode_gaps_inner Inner Gaps: +|-|0 (1px), Shift + +|-|0 (5px)
 set $mode_presets (1 | 0,0) (2 | 8,0) (3 | 8,2) (4 | 8,4) (5 | 8,8) (6 | 8,16) (7 | 16,8) (8 | 16,16) (9 | 16,24) (0 | 16,36)
-bindsym $mod+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
 	bindsym p      mode "$mode_presets"
@@ -342,8 +336,6 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "$mode_gaps"
 }
 
-# Move mode
-bindsym $mod+m mode "Move"
 
 mode "Move" {
 	bindsym h move left
@@ -361,9 +353,7 @@ mode "Move" {
 	bindsym Escape mode "default" 
 }
 
-# Keyboard mode
 set $mode_others Keyboard | q : qwerty | b : bépo || Screens | 1 : x220 | 2 : +1080_left | 3 : +1080_right
-bindsym Scroll_Lock mode "$mode_others"
 
 mode "$mode_others" {
     bindsym q exec setxkbmap us -variant intl
@@ -381,6 +371,17 @@ mode "$mode_others" {
 ########## 5. User-defined commands ##########
 ##############################################
 
+# System mode, reboot/poweroff/lock
+bindsym $mod+0 mode "$mode_system"
+# Resizing mode
+bindsym $mod+r mode "resize"
+# Gap mode
+bindsym $mod+g mode "$mode_gaps"
+# Move mode
+bindsym $mod+m mode "Move"
+# Keyboard / Screen Layout mode
+bindsym Scroll_Lock mode "$mode_others"
+
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 5%
 bindsym XF86MonBrightnessDown exec light -U 5%
@@ -390,10 +391,10 @@ bindsym --release Print exec --no-startup-id "maim ~/Nextcloud/Images/Captures\ 
 
 # X220 keys
 #bindsym XF86Launch1 exec urxvtc
-bindsym XF86Launch1 exec --no-startup-id "bash $HOME/Scripts/search.sh"
+bindsym XF86Launch1 exec --no-startup-id "bash $HOME/scripts/search.sh"
+bindsym Shift+XF86Launch1 exec --no-startup-id "bash $HOME/scripts/launch.sh"
 bindsym XF86Back workspace prev
 bindsym XF86Forward workspace next
-# bindsym Scroll_Lock
 bindsym Pause exec --no-startup-id "wal -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh & systemctl --user restart emacs"
 
 # Pulse Audio Controls

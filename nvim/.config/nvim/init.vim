@@ -25,7 +25,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'edkolev/tmuxline.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
@@ -40,10 +40,20 @@ Plug 'lervag/vimtex'
 
 Plug 'w0rp/ale'
 Plug 'sheerun/vim-polyglot'
+Plug 'majutsushi/tagbar'
 
 Plug 'jceb/vim-orgmode'
 "Plug 'joshhartigan/vim-reddit'
 "Plug 'itchyny/calendar.vim'
+
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+Plug 'nsf/gocode', {'rtp':'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh'}
+
+Plug 'neovimhaskell/haskell-vim'
+
+Plug 'tpope/vim-fireplace'
+
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -152,6 +162,8 @@ endif
 " Press the space bar to send lines and selection to R:
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
+
+nmap <F8> :TagbarToggle<CR>
 
 " Airline
 
