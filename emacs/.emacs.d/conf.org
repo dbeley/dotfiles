@@ -1,3 +1,5 @@
+#+TITLE: Emacs
+#+OPTIONS: toc:3
 * Identité
   #+BEGIN_SRC emacs-lisp
     (setq user-full-name "dbeley")
@@ -766,7 +768,13 @@
 
     #+END_SRC
     
-** Langages
+** Programmation
+*** ess
+    #+BEGIN_SRC emacs-lisp
+      (use-package ess
+        :ensure t)
+    #+END_SRC
+
 *** web-mode
     #+BEGIN_SRC emacs-lisp
       (use-package web-mode
@@ -883,13 +891,16 @@
         (global-set-key (kbd "C-h C") #'helpful-command)
         )
     #+END_SRC
-** Autres
-*** ess
+*** which-key
     #+BEGIN_SRC emacs-lisp
-      (use-package ess
-        :ensure t)
+      (use-package which-key
+        :ensure t
+        :config
+        (which-key-mode)
+        )
     #+END_SRC
-
+    
+** Système
 *** exwm
     #+BEGIN_SRC emacs-lisp
       ;;(use-package exwm
@@ -918,6 +929,27 @@
       ;;    )
     #+END_SRC
     
+*** pdf-tools
+    #+BEGIN_SRC emacs-lisp
+      (use-package pdf-tools
+        :ensure t
+        :config
+        (pdf-tools-install)
+        )
+    #+END_SRC
+
+*** symon
+    #+BEGIN_SRC emacs-lisp
+      (use-package symon
+        :ensure t
+        :config
+        (setq symon-refresh-rate 4)
+        (setq symon-sparkline-type 'boxed)
+        (symon-mode)
+        )
+    #+END_SRC
+
+** Programmes
 *** eww
     #+BEGIN_SRC emacs-lisp
       (use-package eww
@@ -933,15 +965,6 @@
         (add-to-list 'evil-emacs-state-modes 'simple-mpc-mode)
         )
 
-    #+END_SRC
-    
-*** which-key
-    #+BEGIN_SRC emacs-lisp
-      (use-package which-key
-        :ensure t
-        :config
-        (which-key-mode)
-        )
     #+END_SRC
     
 *** engine-mode
@@ -982,26 +1005,6 @@
         )
     #+END_SRC
     
-*** pdf-tools
-    #+BEGIN_SRC emacs-lisp
-      (use-package pdf-tools
-        :ensure t
-        :config
-        (pdf-tools-install)
-        )
-    #+END_SRC
-
-*** symon
-    #+BEGIN_SRC emacs-lisp
-      (use-package symon
-        :ensure t
-        :config
-        (setq symon-refresh-rate 4)
-        (setq symon-sparkline-type 'boxed)
-        (symon-mode)
-        )
-    #+END_SRC
-
 *** twittering-mode
     #+BEGIN_SRC emacs-lisp
       ;;(use-package twittering-mode
@@ -1090,7 +1093,6 @@
       '(spaceline-evil-replace ((t (:background "dark gray" :foreground "black"))))
       ;;'(spaceline-highlight-face ((t (:background "dark gray" :foreground "#3E3D31" :inherit 'mode-line))))
       )
-
    #+END_SRC
 ** Raccourcis clavier
    #+BEGIN_SRC emacs-lisp
