@@ -1,5 +1,4 @@
 #+TITLE: Emacs
-#+OPTIONS: toc:3
 * Identité
   #+BEGIN_SRC emacs-lisp
     (setq user-full-name "dbeley")
@@ -823,55 +822,66 @@
        ;;(add-hook 'python-mode-hook 'anaconda-mode))
      #+END_SRC
 *** Markdown
-    #+BEGIN_SRC emacs-lisp
-      (use-package markdown-mode
-        :ensure t
-        :commands (markdown-mode gfm-mode)
-        :mode (("README\\.md\\'" . gfm-mode)
-               ("\\.md\\'" . markdown-mode)
-               ("\\.markdown\\'" . markdown-mode))
-        :init (setq markdown-command "markdown"))
+**** markdown-mode
+     #+BEGIN_SRC emacs-lisp
+       (use-package markdown-mode
+         :ensure t
+         :commands (markdown-mode gfm-mode)
+         :mode (("README\\.md\\'" . gfm-mode)
+                ("\\.md\\'" . markdown-mode)
+                ("\\.markdown\\'" . markdown-mode))
+         :init (setq markdown-command "markdown"))
 
-    #+END_SRC
+     #+END_SRC
 *** Clojure
-    #+BEGIN_SRC emacs-lisp
-      (use-package clojure-mode
-        :ensure t)
+**** clojure-mode
+     #+BEGIN_SRC emacs-lisp
+       (use-package clojure-mode
+         :ensure t)
+     #+END_SRC
+**** cider
+     #+BEGIN_SRC emacs-lisp
+       (use-package cider
+         :ensure t)
 
-      (use-package cider
-        :ensure t)
+     #+END_SRC
 
-    #+END_SRC
 *** Go
-    #+BEGIN_SRC emacs-lisp
-      (use-package go-mode
-        :ensure t)
+**** go-mode
+     #+BEGIN_SRC emacs-lisp
+       (use-package go-mode
+         :ensure t)
+     #+END_SRC
+**** company-go
+     #+BEGIN_SRC emacs-lisp
+       (use-package company-go
+         :ensure t
+         :config
+         (add-hook 'go-mode-hook (lambda ()
+                                   (set (make-local-variable 'company-backends) '(company-go))
+                                   (company-mode)
+                                   )
+                   )
+         )
 
-      (use-package company-go
-        :ensure t
-        :config
-        (add-hook 'go-mode-hook (lambda ()
-                                  (set (make-local-variable 'company-backends) '(company-go))
-                                  (company-mode)
-                                  )
-                  )
-        )
+     #+END_SRC
 
-    #+END_SRC
 *** Haskell
-    #+BEGIN_SRC emacs-lisp
-      (use-package haskell-mode
-        :ensure t
-        )
+**** haskell-mode
+     #+BEGIN_SRC emacs-lisp
+       (use-package haskell-mode
+         :ensure t
+         )
 
-    #+END_SRC
+     #+END_SRC
 *** Rust
-    #+BEGIN_SRC emacs-lisp
-      (use-package rust-mode
-        :ensure t
-        )
+**** rust-mode
+     #+BEGIN_SRC emacs-lisp
+       (use-package rust-mode
+         :ensure t
+         )
 
-    #+END_SRC
+     #+END_SRC
 ** Documentation
 *** helpful
     #+BEGIN_SRC emacs-lisp
@@ -1038,9 +1048,9 @@
       (defun ambrevar/elfeed-play-with-mpv ()
         "Play entry link with mpv."
         (interactive)
-         (let ((entry (if (eq major-mode 'elfeed-show-mode) elfeed-show-entry (elfeed-search-selected :single)))
-               (quality-arg "")
-               (quality-val "720"))
+        (let ((entry (if (eq major-mode 'elfeed-show-mode) elfeed-show-entry (elfeed-search-selected :single)))
+              (quality-arg "")
+              (quality-val "720"))
           (setq quality-val (string-to-number quality-val))
           (message "Opening %s with height≤%s with mpv..." (elfeed-entry-link entry) quality-val)
           (when (< 0 quality-val)
