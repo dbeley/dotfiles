@@ -353,11 +353,19 @@ mode "Move" {
 	bindsym Escape mode "default" 
 }
 
-set $mode_others Keyboard | q : qwerty | b : bépo || Screens | 1 : x220 | 2 : +1080_left | 3 : +1080_right
+set $mode_keyboard Keyboard | q : qwerty | b : bépo
 
-mode "$mode_others" {
+mode "$mode_keyboard" {
     bindsym q exec setxkbmap us -variant intl
     bindsym b exec setxkbmap fr bepo
+
+    bindsym Return mode "default" 
+    bindsym Escape mode "default" 
+}
+
+set $mode_display Display settings | 1 : Main screen only | 2 : +1080_left | 3 : +1080_right
+
+mode "$mode_display" {
     bindsym 1 exec --no-startup-id "bash $HOME/dotfiles/Autres/Écrans/x220.sh"
     bindsym 2 exec --no-startup-id "bash $HOME/dotfiles/Autres/Écrans/x220+1080_VGA_gauche.sh"
     bindsym 3 exec --no-startup-id "bash $HOME/dotfiles/Autres/Écrans/x220+1080_VGA_droite.sh"
@@ -379,8 +387,10 @@ bindsym $mod+r mode "resize"
 bindsym $mod+g mode "$mode_gaps"
 # Move mode
 bindsym $mod+m mode "Move"
-# Keyboard / Screen Layout mode
-bindsym Scroll_Lock mode "$mode_others"
+# Keyboard
+bindsym XF86TouchpadToggle mode "$mode_keyboard"
+# Display settings
+bindsym XF86Display mode "$mode_display"
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 5%
@@ -388,6 +398,15 @@ bindsym XF86MonBrightnessDown exec light -U 5%
 
 # Screenshot
 bindsym --release Print exec --no-startup-id "maim ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s).png"
+
+# Lockscreen
+#exec_always light-locker
+#bindsym XF86ScreenSaver exec --no-startup-id "physlock -d -p \\"Écran verrouillé\\""
+bindsym XF86ScreenSaver exec --no-startup-id "slock"
+#bindsym XF86ScreenSaver exec --no-startup-id "light-locker-command -l"
+#bindsym XF86Suspend exec --no-startup-id "physlock -d -p \\"Écran verrouillé\\""
+bindsym XF86Suspend exec --no-startup-id "slock"
+#bindsym XF86Suspend exec --no-startup-id "light-locker-command -l"
 
 # X220 keys
 #bindsym XF86Launch1 exec urxvtc
