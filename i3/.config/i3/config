@@ -210,7 +210,6 @@ for_window [urgent=latest] focus
 
 # wal script
 exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")" -o $HOME/.config/polybar/launch.sh
-bindsym $mod+n exec --no-startup-id "wal -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh & systemctl --user restart emacs"
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id compton --config "$HOME/.config/compton.conf"
 
@@ -248,7 +247,6 @@ set $mode_system (r)eboot, (s)hutdown
 mode "$mode_system" {
     bindsym r exec --no-startup-id reboot, mode "default"
     bindsym s exec --no-startup-id poweroff, mode "default"
-    # bindsym l exec --no-startup-id $HOME/.lock.sh, mode "default"
 
     # exit system mode: "Enter" or "Escape"
     bindsym Return mode "default"
@@ -353,32 +351,53 @@ mode "Move" {
 	bindsym Escape mode "default" 
 }
 
-set $mode_keyboard Keyboard | q : qwerty | b : bépo
+set $mode_keyboard Keyboard | 1/q : qwerty | 2/b : bépo
 
 mode "$mode_keyboard" {
     bindsym q exec setxkbmap us -variant intl
+    bindsym 1 exec setxkbmap us -variant intl
     bindsym b exec setxkbmap fr bepo
+    bindsym 2 exec setxkbmap fr bepo
 
     bindsym Return mode "default" 
     bindsym Escape mode "default" 
 }
-
-set $mode_display Display settings | 1 : Main screen only | 2 : +1080_left | 3 : +1080_right
-
-mode "$mode_display" {
-    bindsym 1 exec --no-startup-id "bash $HOME/dotfiles/Autres/Écrans/x220.sh"
-    bindsym 2 exec --no-startup-id "bash $HOME/dotfiles/Autres/Écrans/x220+1080_VGA_gauche.sh"
-    bindsym 3 exec --no-startup-id "bash $HOME/dotfiles/Autres/Écrans/x220+1080_VGA_droite.sh"
-
-    bindsym Return mode "default" 
-    bindsym Escape mode "default" 
-}
-
 
 ##############################################
 ########## 5. User-defined commands ##########
 ##############################################
 
+################
+### PROGRAMS ###
+################
+
+# Keyboard / Mouse
+# exec --no-startup-id xmodmap -e "pointer = 3 2 1"
+exec_always --no-startup-id setxkbmap us -variant intl
+
+# Power management
+exec --no-startup-id xset -dpms
+exec --no-startup-id xset s off
+exec --no-startup-id xset -b
+
+# Urxvt
+exec_always --no-startup-id urxvtd -q -o -f
+
+# Other
+exec --no-startup-id redshift-gtk
+exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
+#exec --no-startup-id mpd
+#exec --no-startup-id mpdscribble
+exec_always --no-startup-id dunst
+exec --no-startup-id udiskie --use-udisks2
+exec_always --no-startup-id nextcloud
+
+###################
+### KEYBINDINGS ###
+###################
+
+# i3 Modes
 # System mode, reboot/poweroff/lock
 bindsym $mod+0 mode "$mode_system"
 # Resizing mode
@@ -387,34 +406,27 @@ bindsym $mod+r mode "resize"
 bindsym $mod+g mode "$mode_gaps"
 # Move mode
 bindsym $mod+m mode "Move"
-# Keyboard
+# Keyboard configuration
 bindsym XF86TouchpadToggle mode "$mode_keyboard"
+
+# Screenshot
+bindsym --release Print exec --no-startup-id "maim ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s).png"
+bindsym Shift+Print exec --no-startup-id "maim -s ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s)_cropped.png | xclip" 
+
+# Lockscreen
+bindsym XF86ScreenSaver exec --no-startup-id "slock"
+bindsym XF86Suspend exec --no-startup-id "slock"
+
 # Display settings
-bindsym XF86Display mode "$mode_display"
+bindsym XF86Display exec --no-startup-id "bash $HOME/scripts/display_config.sh"
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 5%
 bindsym XF86MonBrightnessDown exec light -U 5%
 
-# Screenshot
-bindsym --release Print exec --no-startup-id "maim ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s).png"
-
-# Lockscreen
-#exec_always light-locker
-#bindsym XF86ScreenSaver exec --no-startup-id "physlock -d -p \\"Écran verrouillé\\""
-bindsym XF86ScreenSaver exec --no-startup-id "slock"
-#bindsym XF86ScreenSaver exec --no-startup-id "light-locker-command -l"
-#bindsym XF86Suspend exec --no-startup-id "physlock -d -p \\"Écran verrouillé\\""
-bindsym XF86Suspend exec --no-startup-id "slock"
-#bindsym XF86Suspend exec --no-startup-id "light-locker-command -l"
-
-# X220 keys
-#bindsym XF86Launch1 exec urxvtc
-bindsym XF86Launch1 exec --no-startup-id "bash $HOME/scripts/search.sh"
-bindsym Shift+XF86Launch1 exec --no-startup-id "bash $HOME/scripts/launch.sh"
-bindsym XF86Back workspace prev
-bindsym XF86Forward workspace next
+# Restart i3
 bindsym Pause exec --no-startup-id "wal -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh & systemctl --user restart emacs"
+bindsym $mod+n exec --no-startup-id "wal -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh & systemctl --user restart emacs"
 
 # Pulse Audio Controls
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 1%+
@@ -429,29 +441,12 @@ bindsym XF86AudioPrev exec mpc prev
 #bindsym XF86AudioNext exec rhythmbox-client --next
 #bindsym XF86AudioPrev exec rhythmbox-client --previous
 
-# Keyboard / Mouse
-# exec --no-startup-id xmodmap -e "pointer = 3 2 1"
-exec_always --no-startup-id setxkbmap us -variant intl
-
-# Power management
-exec --no-startup-id xset -dpms
-exec --no-startup-id xset s off
-exec --no-startup-id xset -b
-
-# Urxvt
-exec_always --no-startup-id urxvtd -q -o -f
+# Other
+#bindsym XF86Launch1 exec urxvtc
+bindsym XF86Launch1 exec --no-startup-id "bash $HOME/scripts/search.sh"
+bindsym Shift+XF86Launch1 exec --no-startup-id "bash $HOME/scripts/launch.sh"
+bindsym XF86Back workspace prev
+bindsym XF86Forward workspace next
 bindsym --release $mod+Shift+v exec --no-startup-id "bash $HOME/.config/i3/t.sh"
 bindsym $mod+z exec --no-startup-id emacsclient -c
 
-# Other
-exec --no-startup-id redshift-gtk
-exec --no-startup-id nm-applet
-exec --no-startup-id blueman-applet
-#exec --no-startup-id mpd
-#exec --no-startup-id mpdscribble
-exec_always --no-startup-id dunst
-exec --no-startup-id udiskie --use-udisks2
-exec_always --no-startup-id nextcloud
-
-# Lock screen
-# bindsym $mod+9 exec --no-startup-id $HOME/.lock.sh

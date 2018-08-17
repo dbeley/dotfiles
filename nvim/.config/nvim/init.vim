@@ -71,7 +71,8 @@ colorscheme wal
 " Aides visuelles
 set ruler
 set showcmd
-set relativenumber
+"set relativenumber
+set number relativenumber
 
 " Recherche incrémentale
 set hlsearch
