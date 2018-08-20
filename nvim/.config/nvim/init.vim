@@ -123,6 +123,8 @@ nnoremap <C-]> g<C-]>
 nnoremap <leader>p :History<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>t :Files<CR>
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>k :bdelete<CR>
 
 " nnoremap <BS> <PageUp>
 " nnoremap <Space> <PageDown>
