@@ -351,13 +351,15 @@ mode "Move" {
 	bindsym Escape mode "default" 
 }
 
-set $mode_keyboard Keyboard | 1/q : qwerty | 2/b : bépo
+set $mode_keyboard Keyboard | 1/q : qwerty | 2/b : bépo | 3/a : azerty
 
 mode "$mode_keyboard" {
     bindsym q exec setxkbmap us -variant intl
     bindsym 1 exec setxkbmap us -variant intl
     bindsym b exec setxkbmap fr bepo
     bindsym 2 exec setxkbmap fr bepo
+    bindsym a exec setxkbmap fr azerty
+    bindsym 3 exec setxkbmap fr azerty
 
     bindsym Return mode "default" 
     bindsym Escape mode "default" 

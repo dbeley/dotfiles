@@ -745,7 +745,6 @@
       (use-package ox-hugo
         :ensure t
         :after ox)
-
     #+END_SRC
 ** Latex
 *** auctex
