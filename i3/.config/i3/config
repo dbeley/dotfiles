@@ -374,8 +374,8 @@ mode "$mode_keyboard" {
 ################
 
 # Keyboard / Mouse
-# exec --no-startup-id xmodmap -e "pointer = 3 2 1"
-exec_always --no-startup-id setxkbmap us -variant intl
+#exec --no-startup-id xmodmap -e "pointer = 3 2 1"
+exec --no-startup-id setxkbmap us -variant intl
 
 # Power management
 exec --no-startup-id xset -dpms
@@ -383,17 +383,17 @@ exec --no-startup-id xset s off
 exec --no-startup-id xset -b
 
 # Urxvt
-exec_always --no-startup-id urxvtd -q -o -f
+exec --no-startup-id urxvtd -q -o -f
 
 # Other
 exec --no-startup-id redshift-gtk
 exec --no-startup-id nm-applet
-exec --no-startup-id blueman-applet
+#exec --no-startup-id blueman-applet
 #exec --no-startup-id mpd
 #exec --no-startup-id mpdscribble
-exec_always --no-startup-id dunst
+exec --no-startup-id dunst
 exec --no-startup-id udiskie --use-udisks2
-exec_always --no-startup-id nextcloud
+exec --no-startup-id nextcloud
 
 ###################
 ### KEYBINDINGS ###

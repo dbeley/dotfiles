@@ -269,6 +269,7 @@
         :ensure t
         :config
         (global-set-key (kbd "C-c z") 'fzf)
+        (global-set-key (kbd "C-c x") 'fzf-directory)
         )
     #+END_SRC
 ** Apparence
