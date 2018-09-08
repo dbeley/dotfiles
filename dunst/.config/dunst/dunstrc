@@ -1,5 +1,6 @@
 [global]
-    font = Monospace 8
+    #font = Monospace 8
+    font = Iosevka Nerd Font Italic 10
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
