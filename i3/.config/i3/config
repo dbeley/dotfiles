@@ -209,7 +209,7 @@ for_window [urgent=latest] focus
 ###############################
 
 # wal script
-exec --no-startup-id wal -i "$(< "${HOME}/.cache/wal/wal")" -o $HOME/.config/polybar/launch.sh
+exec --no-startup-id wal -g -i "$(< "${HOME}/.cache/wal/wal")" -o $HOME/.config/polybar/launch.sh
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id compton --config "$HOME/.config/compton.conf"
 
@@ -427,8 +427,8 @@ bindsym XF86MonBrightnessUp exec light -A 5%
 bindsym XF86MonBrightnessDown exec light -U 5%
 
 # Restart i3
-bindsym Pause exec --no-startup-id "wal -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh & systemctl --user restart emacs"
-bindsym $mod+n exec --no-startup-id "wal -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh & systemctl --user restart emacs"
+bindsym Pause exec --no-startup-id "wal -g -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh & systemctl --user restart emacs"
+bindsym $mod+n exec --no-startup-id "wal -g -i $HOME/Nextcloud/Wallpapers/wal -o $HOME/.config/polybar/launch.sh & systemctl --user restart emacs"
 
 # Pulse Audio Controls
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 1%+
