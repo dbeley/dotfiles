@@ -376,6 +376,8 @@ mode "$mode_keyboard" {
 # Keyboard / Mouse
 #exec --no-startup-id xmodmap -e "pointer = 3 2 1"
 exec --no-startup-id setxkbmap us -variant intl
+exec --no-startup-id unclutter --timeout 3 --ignore-scrolling &
+exec --no-startup-id "bash $HOME/scripts/touchpad_toggle.sh"
 
 # Power management
 exec --no-startup-id xset -dpms
@@ -409,7 +411,7 @@ bindsym $mod+g mode "$mode_gaps"
 # Move mode
 bindsym $mod+m mode "Move"
 # Keyboard configuration
-bindsym XF86TouchpadToggle mode "$mode_keyboard"
+bindsym XF86Webcam mode "$mode_keyboard"
 
 # Screenshot
 bindsym --release Print exec --no-startup-id "maim ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s).png"
@@ -418,6 +420,9 @@ bindsym Shift+Print exec --no-startup-id "maim -s ~/Nextcloud/Images/Captures\ d
 # Lockscreen
 bindsym XF86ScreenSaver exec --no-startup-id "slock"
 bindsym XF86Suspend exec --no-startup-id "slock"
+
+# Touchpad
+bindsym XF86TouchpadToggle exec --no-startup-id "bash $HOME/scripts/touchpad_toggle.sh"
 
 # Display settings
 bindsym XF86Display exec --no-startup-id "bash $HOME/scripts/display_config.sh"
