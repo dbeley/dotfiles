@@ -454,6 +454,5 @@ bindsym XF86Launch1 exec --no-startup-id "bash $HOME/scripts/search.sh"
 bindsym Shift+XF86Launch1 exec --no-startup-id "bash $HOME/scripts/launch.sh"
 bindsym XF86Back workspace prev
 bindsym XF86Forward workspace next
-bindsym --release $mod+Shift+v exec --no-startup-id "bash $HOME/.config/i3/t.sh"
+bindsym --release $mod+Shift+v exec --no-startup-id "bash $HOME/scripts/draw_urxvt.sh"
 bindsym $mod+z exec --no-startup-id emacsclient -c
-
