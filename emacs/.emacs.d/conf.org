@@ -15,7 +15,7 @@
     ;; Font settings
     (global-font-lock-mode t)
     (set-face-attribute 'default nil
-                        :family "Iosevka Nerd Font"
+                        :family "Iosevka Nerd Font Mono"
                         :weight 'normal
                         :width 'normal
                         :height 110
@@ -930,7 +930,7 @@
       ;;    (exwm-input-set-key (kbd "<XF86MonBrightnessUp>") (lambda () (interactive) (shell-command "light -A 5%")))
       ;;    
       ;;    (exwm-input-set-key (kbd "<Print>") (lambda () (interactive) (shell-command "maim ~/Nextcloud/Images/Captures\ d\'écran\$(date +%s).png")))
-      ;;    (exwm-input-set-key (kbd "<Pause>") (lambda () (interactive) (shell-command "wal -i $HOME/Nextcloud/Wallpapers/wal")))
+      ;;    (exwm-input-set-key (kbd "<Pause>") (lambda () (interactive) (shell-command "wal -i $HOME/Nextcloud/5. Fonds d'écran/wal")))
       ;;    
       ;;    (exwm-input-set-key (kbd "<XF86AudioRaiseVolume>") (lambda () (interactive) (shell-command "amixer -q sset Master 1%+")))
       ;;    (exwm-input-set-key (kbd "<XF86AudioLowerVolume>") (lambda () (interactive) (shell-command "amixer -q sset Master 1%-")))

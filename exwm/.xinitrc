@@ -13,7 +13,7 @@ xset r rate 200 60
 # Start emacs
 #exec dbus-launch --exit-with-session emacs
 
-wal -i $HOME/Nextcloud/Wallpapers/wal
+wal -i $HOME/Nextcloud/5. Fonds d'écran/wal
 setxkbmap us -variant intl
 xset -dpms
 xset s off
