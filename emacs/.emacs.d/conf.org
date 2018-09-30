@@ -15,7 +15,7 @@
     ;; Font settings
     (global-font-lock-mode t)
     (set-face-attribute 'default nil
-                        :family "Iosevka Nerd Font Mono"
+                        :family "Iosevka Nerd Font"
                         :weight 'normal
                         :width 'normal
                         :height 110
