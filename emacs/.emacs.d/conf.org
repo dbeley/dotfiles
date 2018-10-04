@@ -590,6 +590,7 @@
         :config
         (progn
           (bind-key "C-x g" 'magit-status)
+          ;;(bind-key "C-c a " 'magit-blame)
           ))
     #+END_SRC
     
@@ -635,9 +636,9 @@
         :config
         (setq org-agenda-files '("~/Nextcloud/3. org/"))
         (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-        (global-set-key "\C-cl" 'org-store-link)
-        (global-set-key "\C-ca" 'org-agenda)
-        (global-set-key "\C-cb" 'org-iswitchb)
+        (global-set-key "C-c l" 'org-store-link)
+        (global-set-key "C-c a" 'org-agenda)
+        (global-set-key "C-c b" 'org-iswitchb)
         (setq org-replace-disputed-keys t)
         (setq org-src-fontify-natively t)
         (setq org-src-tab-acts-natively t)
