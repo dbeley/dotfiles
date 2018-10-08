@@ -411,7 +411,7 @@ bindsym $mod+g mode "$mode_gaps"
 # Move mode
 bindsym $mod+m mode "Move"
 # Keyboard configuration
-bindsym XF86Webcam mode "$mode_keyboard"
+bindsym XF86WebCam mode "$mode_keyboard"
 
 # Screenshot
 bindsym --release Print exec --no-startup-id "maim ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s).png"
