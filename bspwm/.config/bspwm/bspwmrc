@@ -2,6 +2,24 @@
 
 sxhkd &
 
+~/.config/polybar/launch.sh &
+
+setxkbmap us -variant intl &
+unclutter --timeout 3 --ignore scrolling &
+~/scripts/touchpad_toggle.sh &
+
+xset -dpms &
+xset s off &
+xset -b &
+
+urxvtd -q -o -f &
+compton --config ~/.config/compton.conf &
+dunst &
+redshift-gtk &
+nm-applet &
+udiskie --use-udisks2 &
+nextcloud &
+
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc config border_width         2

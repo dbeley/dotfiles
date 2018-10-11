@@ -10,10 +10,15 @@ super + Return
 super + @space
 	rofi -show run
 
+alt + Tab
+        rofi -show window
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
+super + e
+        notify-send "test2"
 #
 # bspwm hotkeys
 #
@@ -119,3 +124,44 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+#
+# custom keybinds
+#
+
+Print
+        maim ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s).png
+{XF86ScreenSaver, XF86Suspend}
+        slock
+XF86TouchpadToggle
+        ~/scripts/touchpad_toggle.sh
+XF86Display
+        ~/scripts/display_config.sh
+XF86MonBrightnessUp
+        light -A 5%
+XF86BrightnessDown
+        light -U 5%
+XF86AudioRaiseVolume
+        amixer -q sset Master 1%+
+XF86AudioLowerVolume
+        amixer -q sset Master 1%-
+XF86AudioMute
+        amixer -q sset Master toggle
+{XF86AudioPlay, XF86AudioPause}
+        mpc toggle
+XF86AudioNext
+        mpc next
+XF86AudioPrev
+        mpc prev
+XF86Launch1
+        ~/scripts/search.sh
+shift + XF86Launch1
+        ~/scripts/launch.sh
+super + z
+        emacsclient -c
+Pause
+        wal -gi ~/Nextcloud/5.\ Fonds\ d\'écran/wal -o ~/.config/polybar/launch.sh & notify-send 'Polybar' 'Config reloaded' & systemctl --user restart emacs
+XF86Back
+        bspc desktop -f prev.local
+XF86Forward
+        bspc desktop -f next.local
