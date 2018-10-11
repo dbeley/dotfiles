@@ -1,8 +1,8 @@
 #! /bin/sh
 
-sxhkd &
-
 ~/.config/polybar/launch.sh &
+
+sxhkd &
 
 setxkbmap us -variant intl &
 unclutter --timeout 3 --ignore scrolling &

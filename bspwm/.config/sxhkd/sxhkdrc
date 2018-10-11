@@ -15,7 +15,9 @@ alt + Tab
 
 # make sxhkd reload its configuration files:
 super + Escape
-	pkill -USR1 -x sxhkd
+     	~/.config/bspwm/bspwmrc; \
+	pkill -USR1 -x sxhkd; \
+        notify-send 'Bspwm/Sxhkd' 'Configs reloaded'
 
 super + e
         notify-send "test2"
@@ -124,6 +126,9 @@ super + alt + shift + {h,j,k,l}
 # move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+super + {minus,equal}
+        bspc config -d focused window_gap $((`bspc config -d focused window_gap` {+,-} 2))
 
 #
 # custom keybinds

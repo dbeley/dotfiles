@@ -776,7 +776,9 @@
 *** ess
     #+BEGIN_SRC emacs-lisp
       (use-package ess
-        :ensure t)
+        :ensure t
+        :config
+        (setq ess-use-company t))
     #+END_SRC
 
 *** web-mode
