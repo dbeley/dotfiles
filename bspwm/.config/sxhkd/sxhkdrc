@@ -4,23 +4,21 @@
 
 # terminal emulator
 super + Return
-	urxvt
+	urxvtc
 
 # program launcher
 super + @space
 	rofi -show run
 
 alt + Tab
-        rofi -show window
+	rofi -show window
 
 # make sxhkd reload its configuration files:
 super + Escape
-     	~/.config/bspwm/bspwmrc; \
+	~/.config/bspwm/bspwmrc; \
 	pkill -USR1 -x sxhkd; \
-        notify-send 'Bspwm/Sxhkd' 'Configs reloaded'
+	notify-send 'Bspwm/Sxhkd' 'Configs reloaded'
 
-super + e
-        notify-send "test2"
 #
 # bspwm hotkeys
 #
@@ -128,14 +126,14 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 super + {minus,equal}
-        bspc config -d focused window_gap $((`bspc config -d focused window_gap` {+,-} 2))
+	bspc config -d focused window_gap $((`bspc config -d focused window_gap` {+,-} 2))
 
 #
-# custom keybinds
+# Custom keybindings
 #
 
-Print
-        maim ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s).png
+#Print
+#	maim ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s).png
 {XF86ScreenSaver, XF86Suspend}
         slock
 XF86TouchpadToggle
@@ -152,21 +150,21 @@ XF86AudioLowerVolume
         amixer -q sset Master 1%-
 XF86AudioMute
         amixer -q sset Master toggle
-{XF86AudioPlay, XF86AudioPause}
-        mpc toggle
-XF86AudioNext
-        mpc next
-XF86AudioPrev
-        mpc prev
+#{XF86AudioPlay, XF86AudioPause}
+#	mpc toggle
+#XF86AudioNext
+#	mpc next
+#XF86audioPrev
+#	mpc prev
 XF86Launch1
         ~/scripts/search.sh
 shift + XF86Launch1
         ~/scripts/launch.sh
 super + z
-        emacsclient -c
-Pause
-        wal -gi ~/Nextcloud/5.\ Fonds\ d\'écran/wal -o ~/.config/polybar/launch.sh & notify-send 'Polybar' 'Config reloaded' & systemctl --user restart emacs
+	emacsclient -c
+#Pause
+#	wal -gi ~/Nextcloud/5.\ Fonds\ d\'écran/wal -o ~/.config/polybar/launch.sh & notify-send 'Polybar' 'Config reloaded' & systemctl --user restart emacs
 XF86Back
-        bspc desktop -f prev.local
+	bspc desktop -f prev.local
 XF86Forward
-        bspc desktop -f next.local
+	bspc desktop -f next.local
