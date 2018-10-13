@@ -1,11 +1,20 @@
-;=====================================================
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
 ;
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 ;
 ;   The README contains alot of information
 ;
-;=====================================================
+;==========================================================
 
 [colors]
 foreground = #dfdfdf
@@ -23,16 +32,20 @@ alert = #bd2c40
 ;primary = #444444
 ;secondary = #444444
 
-[global/wm]
-margin-top = 5
-margin-bottom = 5
-
 [bar/bar]
+enable-ipc = true
+
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 23
 offset-x = 0
 offset-y = 0
+
+border-bottom-size = 2
+border-bottom-color = #444
+;border-top-size = 5
+;border-right-size = 10
+;border-left-size = 10
 
 tray-position = right 
 tray-padding = 2
@@ -47,9 +60,6 @@ overline-size = 2
 overline-color = #f00
 underline-size = 2
 underline-color = #00f
-
-border-bottom-size = 2
-border-bottom-color = #444
 
 spacing = 0
 padding-left = 0
@@ -69,7 +79,6 @@ modules-left = i3 bspwm xwindow
 modules-center = date 
 modules-right = alsa battery
 
-#wm-restack = bspwm i3
 #wm-restack = i3
 
 #override-redirect = true
@@ -78,6 +87,10 @@ modules-right = alsa battery
 ;scroll-down = bspwm-deskprev
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
 
 [module/xwindow]
 type = internal/xwindow
@@ -132,56 +145,6 @@ label-visible = %index%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
-label = %percentage%
-
-[module/memory]
-type = internal/memory
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
-label = %percentage_used%
-
-[module/wlan]
-type = internal/network
-interface = wlp3s0 
-interval = 3.0
-
-format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
-format-disconnected-underline = ${self.format-connected-underline}
-
-label-connected = %essid%
-label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.foreground-alt}
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
-
-[module/eth]
-type = internal/network
-interface = 
-interval = 3.0
-
-format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-foreground-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
-
-format-disconnected-underline = ${self.format-connected-underline}
-label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/date]
 type = internal/date
@@ -265,106 +228,3 @@ animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-framerate = 750
-
-#[module/powermenu]
-#type = custom/menu
-#
-#label-open =  power
-#label-open-foreground = ${colors.secondary}
-#label-close =  cancel
-#label-close-foreground = ${colors.secondary}
-#label-separator = |
-#label-separator-foreground = ${colors.foreground-alt}
-#
-#menu-0-0 = reboot
-#menu-0-0-exec = menu-open-1
-#menu-0-1 = power off
-#menu-0-1-exec = menu-open-2
-#
-#menu-1-0 = cancel
-#menu-1-0-exec = menu-open-0
-#menu-1-1 = reboot
-#menu-1-1-exec = sudo reboot
-#
-#menu-2-0 = power off
-#menu-2-0-exec = sudo poweroff
-#menu-2-1 = cancel
-#menu-2-1-exec = menu-open-0
-#
-#; vim:ft=dosini
-
-[module/ewmh]
-type = internal/xworkspaces
-
-; Only show workspaces defined on the same output as the bar
-;
-; Useful if you want to show monitor specific workspaces
-; on different bars
-;
-; Default: false
-pin-workspaces = true
-
-; Create click handler used to focus desktop
-; Default: true
-enable-click = false
-
-; Create scroll handlers used to cycle desktops
-; Default: true
-enable-scroll = false
-
-;label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
-
-;label-occupied = %index%
-label-occupied-padding = 2
-
-;label-urgent = %index%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-;label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
-
-#[module/menu-apps]
-#type = custom/menu
-#
-#; If true, <label-toggle> will be to the left of the menu items (default).
-#; If false, it will be on the right of all the items.
-#expand-right = true
-#label-open = ☰
-#label-close = x
-#
-#label-separator = |
-#
-#; "menu-LEVEL-N" has the same properties as "label-NAME" with
-#; the additional "exec" property
-#;
-#; Available exec commands:
-#;   menu-open-LEVEL
-#;   menu-close
-#; Other commands will be executed using "/usr/bin/env sh -c $COMMAND"
-#
-#menu-0-0 = Browsers
-#menu-0-0-exec = menu-open-1
-#menu-0-1 = Multimedia
-#menu-0-1-exec = menu-open-2
-#menu-0-2 = Keyboard
-#menu-0-2-exec = menu-open-3
-#
-#menu-1-0 = Firefox
-#menu-1-0-exec = firefox &
-#menu-1-1 = Chromium
-#menu-1-1-exec = chromium &
-#
-#menu-2-0 = Gimp
-#menu-2-0-exec = gimp &
-#menu-2-1 = Scrot
-#menu-2-1-exec = scrot &
-#
-#menu-3-0 = qwerty int.
-#menu-3-0-exec = setxkbmap us -variant intl
-#menu-3-1 = bépo
-#menu-3-1-exec = setxkbmap fr bepo

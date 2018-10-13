@@ -431,8 +431,9 @@ bindsym XF86Display exec --no-startup-id "bash $HOME/scripts/display_config.sh"
 bindsym XF86MonBrightnessUp exec light -A 5%
 bindsym XF86MonBrightnessDown exec light -U 5%
 
-# Restart i3
-bindsym Pause exec --no-startup-id "wal -gi $HOME/Nextcloud/5.\ Fonds\ d\'écran/wal -o $HOME/.config/polybar/launch.sh & systemctl --user restart emacs"
+# i3/polybar commands
+bindsym Pause  exec polybar-msg cmd toggle
+bindsym Shift+Pause exec --no-startup-id "wal -gi $HOME/Nextcloud/5.\ Fonds\ d\'écran/wal -o $HOME/.config/polybar/launch.sh & systemctl --user restart emacs"
 bindsym $mod+n exec --no-startup-id "wal -gi $HOME/Nextcloud/5.\ Fonds\ d\'écran/wal -o $HOME/.config/polybar/launch.sh & systemctl --user restart emacs"
 
 # Pulse Audio Controls
