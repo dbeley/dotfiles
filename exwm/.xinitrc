@@ -13,12 +13,15 @@ xset r rate 200 60
 # Start emacs
 #exec dbus-launch --exit-with-session emacs
 
-wal -i $HOME/Nextcloud/5. Fonds d'écran/wal
+wal -gi $HOME/Nextcloud/5. Fonds d'écran/wal
 setxkbmap us -variant intl
+unclutter --timeout 3 --ignore scrolling
+~/scripts/touchpad_toggle.sh
 xset -dpms
 xset s off
 xset -b
 urxvtd -q -o -f
+#compton --config ~/.config/compton/compton.conf
 redshift-gtk &
 nm-applet &
 dunst &
