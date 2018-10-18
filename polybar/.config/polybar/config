@@ -77,7 +77,7 @@ font-2 = "Overpassmono:style=Regular:size=18;2"
 
 modules-left = i3 bspwm xwindow
 modules-center = date 
-modules-right = alsa battery
+modules-right = cpu alsa battery
 
 #wm-restack = i3
 
@@ -231,3 +231,65 @@ animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-framerate = 750
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+label = CPU
+format = <label> <ramp-coreload>
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+;ramp-coreload-0-foreground = #55aa55
+;ramp-coreload-1-foreground = #55aa55
+;ramp-coreload-2-foreground = #55aa55
+;ramp-coreload-3-foreground = #557755
+;ramp-coreload-4-foreground = #557755
+;ramp-coreload-5-foreground = #f5a70a
+;ramp-coreload-6-foreground = #f5a70a
+;ramp-coreload-7-foreground = #ff5555
+ramp-coreload-0-foreground = ${colors.primary}
+ramp-coreload-1-foreground = ${colors.primary}
+ramp-coreload-2-foreground = ${colors.primary}
+ramp-coreload-3-foreground = ${colors.primary}
+ramp-coreload-4-foreground = ${colors.primary}
+ramp-coreload-5-foreground = ${colors.primary}
+ramp-coreload-6-foreground = ${colors.primary}
+ramp-coreload-7-foreground = ${colors.primary}
+
+[module/memory]
+type = internal/memory
+interval = 2
+; Available tags:
+;   <label> (default)
+;   <bar-used>
+;   <bar-free>
+format = <label>
+
+; Available tokens:
+;   %percentage_used% (default)
+;   %percentage_free%
+;   %gb_used%
+;   %gb_free%
+;   %gb_total%
+;   %mb_used%
+;   %mb_free%
+;   %mb_total%
+label = RAM %percentage_used%% 
+
+; Only applies if <bar-used> is used
+bar-used-indicator =
+bar-used-width = 10
+bar-used-foreground-0 = ${colors.primary}
+bar-used-foreground-1 = ${colors.primary}
+bar-used-foreground-2 = ${colors.primary}
+bar-used-foreground-3 = ${colors.primary}
+bar-used-gradient = false
+bar-used-fill = ◾
+bar-used-empty = ◾
+bar-used-empty-foreground = ${colors.background}
