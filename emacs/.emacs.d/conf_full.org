@@ -29,7 +29,7 @@
     (setq scroll-conservatively 10000)
     (setq auto-window-vscroll nil)
 
-    ;;(global-prettify-symbols-mode +1)
+    (global-prettify-symbols-mode +1)
 
     ;;(add-hook 'emacs-lisp-mode-hook
     ;;          (lambda ()
@@ -115,8 +115,8 @@
         :config
         (global-evil-leader-mode)
         (evil-leader/set-key
-          "e" 'helm-find-files
-          "b" 'helm-mini
+          ;;"e" 'helm-find-files
+          ;;"b" 'helm-mini
           "k" 'kill-buffer
           ;;"t" 'treemacs
           "r" 'ranger)
@@ -160,6 +160,111 @@
         )
     #+END_SRC
     
+*** treemacs
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package treemacs
+      ;;  :ensure t
+      ;;  :defer t
+      ;;  :config
+      ;;  (progn
+      ;;    (setq treemacs-width 25
+      ;;          treemacs-show-hidden-files t
+      ;;          )
+      ;;    (treemacs-follow-mode t)
+      ;;    (treemacs-filewatch-mode t)
+      ;;    )
+      ;;  (add-hook 'after-init-hook #'treemacs)
+      ;;  :bind
+      ;;  (:map global-map
+      ;;        ("M-0"        . treemacs-select-window)
+      ;;        ("C-c 1"      . treemacs-delete-other-windows)
+      ;;        ("C-c t"     . treemacs)
+      ;;        ("C-c g"     . treemacs-bookmark)
+      ;;        ("C-c f"  . treemacs-find-file)
+      ;;        )
+      ;;  )
+
+      ;;(use-package treemacs-evil
+      ;;  :after treemacs
+      ;;  :ensure t)
+
+      ;;(use-package treemacs-projectile
+      ;;  :after treemacs
+      ;;  :ensure t)
+    #+END_SRC
+    
+*** dumb-jump
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package dumb-jump
+      ;;  :bind (("M-g o" . dumb-jump-go-other-window)
+      ;;         ("M-g j" . dumb-jump-go)
+      ;;         ("M-g i" . dumb-jump-go-prompt)
+      ;;         ("M-g x" . dumb-jump-go-prefer-external)
+      ;;         ("M-g z" . dumb-jump-go-prefer-external-other-window))
+      ;;  :config (setq dumb-jump-selector 'helm)
+      ;;  :ensure t
+      ;;  )
+    #+END_SRC
+  
+*** minimap
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package minimap
+      ;;:ensure t
+      ;;:config
+      ;;(add-to-list 'minimap-major-modes 'org-mode)
+      ;;(setq minimap-highlight-line nil)
+      ;;(setq minimap-window-location 'right)
+      ;;(setq minimap-recreate-window t)
+      ;;(minimap-mode t)
+      ;;)
+    #+END_SRC
+    
+*** sublimity
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package sublimity
+      ;;:ensure t
+      ;;:config 
+      ;;(require 'sublimity)
+      ;;;;(require 'sublimity-scroll)
+      ;;(require 'sublimity-map)
+      ;;(sublimity-mode 1)
+      ;;(sublimity-map-set-delay nil)
+      ;;)
+    #+END_SRC    
+  
+*** undo-tree
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package undo-tree
+      ;;:ensure t
+      ;;:config
+      ;;(global-undo-tree-mode)
+      ;;;; make ctrl-z undo
+      ;;(global-set-key (kbd "C-z") 'undo)
+      ;;;; make ctrl-Z redo
+      ;;(defalias 'redo 'undo-tree-redo)
+      ;;(global-set-key (kbd "C-S-z") 'redo)
+      ;;)
+    #+END_SRC
+    
+*** perspective-el
+    #+BEGIN_SRC emacs-lisp
+      ;; Conflit avec company-mode
+      ;;(use-package perspective
+      ;;:ensure t
+      ;;:config
+      ;;(persp-mode)
+      ;;)
+    #+END_SRC
+
+***  eyebrowse
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package eyebrowse
+      ;;:ensure t
+      ;;:config
+      ;;(eyebrowse-mode t)
+      ;;)
+    #+END_SRC
+   
 *** fzf
     #+BEGIN_SRC emacs-lisp
       (use-package fzf
@@ -181,66 +286,94 @@
 
 *** base16-theme
     #+BEGIN_SRC emacs-lisp
-      (use-package base16-theme
-      :ensure t
-      )          
+      ;;(use-package base16-theme
+      ;;:ensure t
+      ;;)          
     #+END_SRC
 
 *** xresources-theme
     #+BEGIN_SRC emacs-lisp
-      ;;(use-package xresources-theme
-      ;;  :ensure t
-      ;;  :config
-      ;;  (let ((line (face-attribute 'mode-line :underline)))
-      ;;  (set-face-attribute 'mode-line          nil :overline   line)
-      ;;  (set-face-attribute 'mode-line-inactive nil :overline   line)
-      ;;  (set-face-attribute 'mode-line-inactive nil :underline  line)
-      ;;  (set-face-attribute 'mode-line          nil :box        nil)
-      ;;  (set-face-attribute 'mode-line-inactive nil :box        nil))
-      ;;  )
-      ;;;;        (set-face-attribute 'mode-line-inactive nil :background "#f9f2d9")))
+      (use-package xresources-theme
+        :ensure t
+        :config
+        ;;(let ((line (face-attribute 'mode-line :underline)))
+        ;;(set-face-attribute 'mode-line          nil :overline   line)
+        ;;(set-face-attribute 'mode-line-inactive nil :overline   line)
+        ;;(set-face-attribute 'mode-line-inactive nil :underline  line)
+        ;;(set-face-attribute 'mode-line          nil :box        nil)
+        ;;(set-face-attribute 'mode-line-inactive nil :box        nil))
+        )
+      ;;        (set-face-attribute 'mode-line-inactive nil :background "#f9f2d9")))
     #+END_SRC
     
 *** Chargement des thèmes
     #+BEGIN_SRC emacs-lisp
-      ;;(load-theme 'base16-darktooth t)
-      ;;(load-theme 'base16-default-dark t)
       ;;(load-theme 'base16-gruvbox-dark-hard t)
-      ;;(load-theme 'base16-materia t)
-      (load-theme 'base16-nord t)
-      ;;(load-theme 'base16-oceanicnext t)
-      ;;(load-theme 'base16-onedark t)
-      ;;(load-theme 'base16-phd t)
       ;;(load-theme 'airline-ubaryd)
 
-      ;;(defun my-frame-tweaks (&optional frame)
-      ;;  "My personal frame tweaks."
-      ;;  (unless frame
-      ;;    (setq frame (selected-frame)))
-      ;;  (when frame
-      ;;    (with-selected-frame frame
-      ;;      (when (display-graphic-p)
-      ;;        (load-theme 'xresources t)))))
-      ;;;; For the case that the init file runs after the frame has been created.
-      ;;;; Call of emacs without --daemon option.
-      ;;;;(my-frame-tweaks) 
-      ;;;; For the case that the init file runs before the frame is created.
-      ;;;; Call of emacs with --daemon option.
-      ;;(add-hook 'after-make-frame-functions #'my-frame-tweaks t)    
+      (defun my-frame-tweaks (&optional frame)
+        "My personal frame tweaks."
+        (unless frame
+          (setq frame (selected-frame)))
+        (when frame
+          (with-selected-frame frame
+            (when (display-graphic-p)
+              (load-theme 'xresources t)))))
+      ;; For the case that the init file runs after the frame has been created.
+      ;; Call of emacs without --daemon option.
+      ;;(my-frame-tweaks) 
+      ;; For the case that the init file runs before the frame is created.
+      ;; Call of emacs with --daemon option.
+      (add-hook 'after-make-frame-functions #'my-frame-tweaks t)    
     #+END_SRC
-   
-*** moody
+    
+*** Spaceline
     #+BEGIN_SRC emacs-lisp
-      (use-package moody
+      (use-package spaceline
         :ensure t
         :config
-        (setq x-underline-at-descent-line t)
-        (moody-replace-mode-line-buffer-identification)
-        (moody-replace-vc-mode))
+        (spaceline-spacemacs-theme)
+        ;;(spaceline-emacs-theme)
+        (setq powerline-default-separator 'wave)
+        ;;(setq powerline-default-separator 'wave)
+        ;; choix : alternate, arrow, arrow-fade, bar, box, brace,
+        ;; butt, chamfer, contour, curve, rounded, roundstub, slant, wave, zigzag,
+        ;; utf-8.
+        (setq spaceline-workspace-numbers-unicode t)
+        (setq spaceline-window-numbers-unicode t)
+        ;;(spaceline-toggle-workspace-number-off)
+        ;;(spaceline-helm-mode 1)
+        (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+        (spaceline-compile)
+        )
 
-      (use-package minions
-        :ensure t
-        :config (minions-mode 1))
+      ;;(use-package all-the-icons
+      ;;  :ensure t
+      ;;  )
+
+      ;;(use-package spaceline-all-the-icons
+      ;;  :ensure t
+      ;;  :after spaceline
+      ;;  :config (spaceline-all-the-icons-theme)
+      ;;  (setq spaceline-all-the-icons-flycheck-alternate t)
+      ;;  (setq spaceline-all-the-icons-separator-type 'arrow)
+      ;;  ;; slant arrow cup wave none
+      ;;  (setq spaceline-all-the-icons-separators-invert-direction t)
+      ;;  (setq spaceline-all-the-icons-primary-separator "")
+      ;;  (setq spaceline-all-the-icons-secondary-separator "")
+      ;;  (setq powerline-text-scale-factor 1.1)
+      ;;  (spaceline-toggle-all-the-icons-buffer-position-on)
+      ;;  )
+    #+END_SRC
+
+*** moody
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package moody
+      ;;:ensure t
+      ;;:config
+      ;;(setq x-underline-at-descent-line t)
+      ;;(moody-replace-mode-line-buffer-identification)
+      ;;(moody-replace-vc-mode))
     #+END_SRC
     
 *** page-break-lines
@@ -277,25 +410,92 @@
 
     #+END_SRC
 ** Recherche, complétion, Syntaxe, …
+*** swiper
+    #+BEGIN_SRC emacs-lisp
+      (use-package ivy
+        :ensure t
+        :config
+        (ivy-mode 1)
+        (setq ivy-display-style 'fancy)
+        (setq ivy-use-virtual-buffers t)
+        (setq enable-recursive-minibuffers t)
+        (global-set-key "\C-s" 'swiper)
+        (global-set-key (kbd "C-c C-r") 'ivy-resume)
+        (global-set-key (kbd "<f6>") 'ivy-resume)
+        (global-set-key (kbd "M-x") 'counsel-M-x)
+        (global-set-key (kbd "C-x C-f") 'counsel-find-file)
+        (global-set-key (kbd "C-x f") 'counsel-recentf)
+        (global-set-key (kbd "C-x C-b") 'counsel-ibuffer)
+        (global-set-key (kbd "<f1> f") 'counsel-describe-function)
+        (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+        (global-set-key (kbd "<f1> l") 'counsel-find-library)
+        (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+        (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+        (global-set-key (kbd "C-c g") 'counsel-git)
+        (global-set-key (kbd "C-c j") 'counsel-git-grep)
+        (global-set-key (kbd "C-c k") 'counsel-ag)
+        (global-set-key (kbd "C-x l") 'counsel-locate)
+        (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
+        (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
+        )
+      
+      (use-package ivy-rich
+        :ensure t
+        :config
+        :custom
+        (ivy-virtual-abbreviate 'full
+        ivy-rich-switch-buffer-align-virtual-buffer t
+        ivy-rich-path-style 'abbrev)
+        :config
+        (ivy-set-display-transformer 'ivy-switch-buffer
+        'ivy-rich-switch-buffer-transformer))
+
+      (use-package counsel
+        :ensure t
+        )
+
+      (use-package swiper
+        :ensure t
+        )
+      
+      (use-package all-the-icons-ivy
+        :ensure t
+        :config
+        (all-the-icons-ivy-setup))
+
+    #+END_SRC
+    
+*** avy
+    #+BEGIN_SRC emacs-lisp
+      (use-package avy
+        :ensure t
+        :config (avy-setup-default)
+        (global-set-key (kbd "C-;") 'avy-goto-line)
+        (global-set-key (kbd "M-s") 'avy-goto-char)
+        (global-set-key (kbd "M-e") 'avy-goto-word-or-subword-0)
+        (global-set-key (kbd "C-c j") 'avy-goto-word-or-subword-0)
+        )
+    #+END_SRC
+    
 *** Helm
     #+BEGIN_SRC emacs-lisp
-      (use-package helm
-        :ensure t
-        :config (helm-mode 1)
-        (setq helm-mini-default-sources '(helm-source-buffers-list
-                                          helm-source-recentf
-                                          helm-source-bookmarks
-                                          helm-source-buffer-not-found)
-              ;;helm-always-two-windows t
-              helm-split-window-inside-p t
-              )
-        (global-set-key (kbd "M-x") #'helm-M-x)
-        (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
-        (global-set-key (kbd "C-x C-f") #'helm-find-files)
-        (global-set-key (kbd "C-x f") #'helm-recentf)
-        (global-set-key (kbd "C-x C-b") #'helm-mini)
-        (global-set-key (kbd "C-x b") #'helm-mini)
-        )
+      ;;(use-package helm
+      ;;  :ensure t
+      ;;  :config (helm-mode 1)
+      ;;  (setq helm-mini-default-sources '(helm-source-buffers-list
+      ;;                                    helm-source-recentf
+      ;;                                    helm-source-bookmarks
+      ;;                                    helm-source-buffer-not-found)
+      ;;        ;;helm-always-two-windows t
+      ;;        helm-split-window-inside-p t
+      ;;        )
+      ;;  (global-set-key (kbd "M-x") #'helm-M-x)
+      ;;  (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+      ;;  (global-set-key (kbd "C-x C-f") #'helm-find-files)
+      ;;  (global-set-key (kbd "C-x f") #'helm-recentf)
+      ;;  (global-set-key (kbd "C-x C-b") #'helm-mini)
+      ;;  (global-set-key (kbd "C-x b") #'helm-mini)
+      ;;  )
     #+END_SRC
 
 *** Yasnippet
@@ -335,7 +535,7 @@
     
 *** Company-box
     #+BEGIN_SRC emacs-lisp
-      rendering problem
+      ;;rendering problem
       (use-package company-box
         :ensure t
         :after company
@@ -351,6 +551,13 @@
         (add-to-list 'company-backends '(company-shell company-shell-env company-fish-shell)
                      )
         )
+    #+END_SRC
+
+*** company-anaconda
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package company-anaconda
+      ;;:after (anaconda-mode company)
+      ;;:config (add-to-list 'company-backends 'company-anaconda))
     #+END_SRC
 
 *** smartparens
@@ -404,12 +611,21 @@
     
 *** helm-projectile
     #+BEGIN_SRC emacs-lisp
-      (use-package helm-projectile
-        :ensure t
-        :config (helm-projectile-on)
-        )
+      ;;(use-package helm-projectile
+      ;;  :ensure t
+      ;;  :config (helm-projectile-on)
+      ;;  )
     #+END_SRC
    
+*** counsel-projectile
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package counsel-projectile
+      ;;:ensure t
+      ;;:config
+      ;;(counsel-projectile-mode)
+      ;;)
+    #+END_SRC
+    
 ** Org-mode
 *** Org-mode
     #+BEGIN_SRC emacs-lisp
@@ -512,12 +728,53 @@
               ))
     #+END_SRC
 
+*** org-brain
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package org-brain
+      ;;  :ensure t
+      ;;  :init
+      ;;  (setq org-brain-path "/home/david/Nextcloud/3. org/org-brain/")
+      ;;  ;; For Evil users
+      ;;  (with-eval-after-load 'evil
+      ;;    (evil-set-initial-state 'org-brain-visualize-mode 'emacs))
+      ;;  :config
+      ;;  (setq org-id-track-globally t)
+      ;;  (setq org-id-locations-file "~/.emacs.d/.org-id-locations")
+      ;;  (push '("b" "Brain" plain (function org-brain-goto-end)
+      ;;          "* %i%?" :empty-lines 1)
+      ;;        org-capture-templates)
+      ;;  (setq org-brain-visualize-default-choices 'all)
+      ;;  (setq org-brain-title-max-length 12))
+    #+END_SRC
+
 *** ox-hugo
     #+BEGIN_SRC emacs-lisp
       (use-package ox-hugo
         :ensure t
         :after ox)
     #+END_SRC
+** Latex
+*** auctex
+    #+BEGIN_SRC emacs-lisp
+      (use-package latex 
+        :ensure auctex
+        )
+
+      (load "auctex.el" nil t t)
+
+      ;;(load "preview-latex.el" nil t t)
+
+      (setq TeX-auto-save t
+            TeX-parse-self t)
+
+      (use-package magic-latex-buffer
+        :ensure t
+        :config
+        (add-hook 'latex-mode-hook 'magic-latex-buffer)
+        )
+
+    #+END_SRC
+    
 ** Programmation
 *** ess
     #+BEGIN_SRC emacs-lisp
@@ -527,6 +784,21 @@
         (setq ess-use-company t))
     #+END_SRC
 
+*** web-mode
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package web-mode
+      ;;  :ensure t
+      ;;  :config
+      ;;  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+      ;;  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+      ;;  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+      ;;  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+      ;;  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+      ;;  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+      ;;  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+      ;;  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+      ;;  )
+    #+END_SRC
 *** org-prewview-html
     #+BEGIN_SRC emacs-lisp
       (use-package org-preview-html
@@ -550,6 +822,68 @@
          )
      #+END_SRC
     
+****  anaconda-mode
+     #+BEGIN_SRC emacs-lisp
+       ;;(use-package anaconda-mode
+       ;;:ensure t
+       ;;:config
+       ;;(add-hook 'python-mode-hook 'anaconda-mode))
+     #+END_SRC
+*** Markdown
+**** markdown-mode
+     #+BEGIN_SRC emacs-lisp
+       ;;(use-package markdown-mode
+       ;;  :ensure t
+       ;;  :commands (markdown-mode gfm-mode)
+       ;;  :mode (("README\\.md\\'" . gfm-mode)
+       ;;         ("\\.md\\'" . markdown-mode)
+       ;;         ("\\.markdown\\'" . markdown-mode))
+       ;;  :init (setq markdown-command "markdown"))
+     #+END_SRC
+*** Clojure
+**** clojure-mode
+     #+BEGIN_SRC emacs-lisp
+       ;;(use-package clojure-mode
+       ;;  :ensure t)
+     #+END_SRC
+**** cider
+     #+BEGIN_SRC emacs-lisp
+       ;;(use-package cider
+       ;;  :ensure t)
+     #+END_SRC
+*** Go
+**** go-mode
+     #+BEGIN_SRC emacs-lisp
+       ;;(use-package go-mode
+       ;;  :ensure t)
+     #+END_SRC
+**** company-go
+     #+BEGIN_SRC emacs-lisp
+       ;;(use-package company-go
+       ;;  :ensure t
+       ;;  :config
+       ;;  (add-hook 'go-mode-hook (lambda ()
+       ;;                            (set (make-local-variable 'company-backends) '(company-go))
+       ;;                            (company-mode)
+       ;;                            )
+       ;;            )
+       ;;  )
+     #+END_SRC
+
+*** Haskell
+**** haskell-mode
+     #+BEGIN_SRC emacs-lisp
+       ;;(use-package haskell-mode
+       ;;  :ensure t
+       ;;  )
+     #+END_SRC
+*** Rust
+**** rust-mode
+     #+BEGIN_SRC emacs-lisp
+       ;;(use-package rust-mode
+       ;;  :ensure t
+       ;;  )
+     #+END_SRC
 ** Documentation
 *** helpful
     #+BEGIN_SRC emacs-lisp
@@ -607,6 +941,24 @@
         )
     #+END_SRC
     
+*** simple-mpc
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package simple-mpc
+      ;;  :ensure t
+      ;;  :config
+      ;;  (add-to-list 'evil-emacs-state-modes 'simple-mpc-mode)
+      ;;  )
+    #+END_SRC
+    
+*** engine-mode
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package engine-mode
+      ;;:ensure t
+      ;;:config
+      ;;(engine-mode t)
+      ;;)
+    #+END_SRC
+    
 *** elfeed
     #+BEGIN_SRC emacs-lisp
       (use-package elfeed
@@ -628,6 +980,29 @@
         :config
         (elfeed-goodies/setup)
         )
+    #+END_SRC
+*** circe (ou erc)
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package circe
+      ;;  :ensure t
+      ;;  )
+    #+END_SRC
+    
+*** twittering-mode
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package twittering-mode
+      ;;:ensure t
+      ;;:config
+      ;;(setq twittering-icon-mode t)
+      ;;(global-set-key (kbd "C-c w") #'twittering-mode)
+      ;;)
+    #+END_SRC
+    
+*** md4rd
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package md4rd
+      ;;  :ensure t
+      ;;  )
     #+END_SRC
   
 *** notmuch
@@ -776,8 +1151,8 @@
    #+BEGIN_SRC emacs-lisp
      (custom-set-faces
       '(eshell-git-prompt-powerline-dir-face ((t (:background "gray18"))))
-      '(helm-M-x-key ((t (:foreground "white" :underline t))))
-      '(helm-match ((t (:foreground "white"))))
+      ;;'(helm-M-x-key ((t (:foreground "white" :underline t))))
+      ;;'(helm-match ((t (:foreground "white"))))
       '(hl-line ((t (:background "gray30"))))
       ;;'(minimap-active-region-background ((((background dark)) (:background "#2A2A2A222222")) (t (:background "#D3D3D3222222"))) nil :group)
       '(spaceline-evil-normal ((t (:background "dim grey" :foreground "black"))))

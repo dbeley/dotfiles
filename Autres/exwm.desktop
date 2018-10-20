@@ -1,0 +1,9 @@
+# /usr/share/xsessions/exwm.desktop
+[Desktop Entry]
+Name=EXWM
+Comment=Emacs Window Manager
+Exec=env INSIDE_EMACS=1 dbus-launch --exit-with-session emacs
+Type=Application
+X-LightDM-DesktopName=exwm
+DesktopNames=exwm
+Keywords=tiling;wm;windowmanager;window;manager;emacs;
