@@ -293,17 +293,17 @@
 
 *** xresources-theme
     #+BEGIN_SRC emacs-lisp
-      ;;(use-package xresources-theme
-      ;;  :ensure t
-      ;;  :config
-      ;;  (let ((line (face-attribute 'mode-line :underline)))
-      ;;  (set-face-attribute 'mode-line          nil :overline   line)
-      ;;  (set-face-attribute 'mode-line-inactive nil :overline   line)
-      ;;  (set-face-attribute 'mode-line-inactive nil :underline  line)
-      ;;  (set-face-attribute 'mode-line          nil :box        nil)
-      ;;  (set-face-attribute 'mode-line-inactive nil :box        nil))
-      ;;  )
-      ;;;;        (set-face-attribute 'mode-line-inactive nil :background "#f9f2d9")))
+      (use-package xresources-theme
+        :ensure t
+        :config
+        ;;(let ((line (face-attribute 'mode-line :underline)))
+        ;;(set-face-attribute 'mode-line          nil :overline   line)
+        ;;(set-face-attribute 'mode-line-inactive nil :overline   line)
+        ;;(set-face-attribute 'mode-line-inactive nil :underline  line)
+        ;;(set-face-attribute 'mode-line          nil :box        nil)
+        ;;(set-face-attribute 'mode-line-inactive nil :box        nil))
+        )
+      ;;        (set-face-attribute 'mode-line-inactive nil :background "#f9f2d9")))
     #+END_SRC
     
 *** Chargement des thèmes
@@ -315,36 +315,86 @@
       ;;(load-theme 'base16-nord t)
       ;;(load-theme 'base16-oceanicnext t)
       ;;(load-theme 'base16-onedark t)
-      (load-theme 'base16-phd t)
+      ;;(load-theme 'base16-phd t)
 
-      ;;(defun my-frame-tweaks (&optional frame)
-      ;;  "My personal frame tweaks."
-      ;;  (unless frame
-      ;;    (setq frame (selected-frame)))
-      ;;  (when frame
-      ;;    (with-selected-frame frame
-      ;;      (when (display-graphic-p)
-      ;;        (load-theme 'xresources t)))))
-      ;;;; For the case that the init file runs after the frame has been created.
-      ;;;; Call of emacs without --daemon option.
-      ;;;;(my-frame-tweaks) 
-      ;;;; For the case that the init file runs before the frame is created.
-      ;;;; Call of emacs with --daemon option.
-      ;;(add-hook 'after-make-frame-functions #'my-frame-tweaks t)    
+      (defun my-frame-tweaks (&optional frame)
+        "My personal frame tweaks."
+        (unless frame
+          (setq frame (selected-frame)))
+        (when frame
+          (with-selected-frame frame
+            (when (display-graphic-p)
+              (load-theme 'xresources t)))))
+      ;; For the case that the init file runs after the frame has been created.
+      ;; Call of emacs without --daemon option.
+      ;;(my-frame-tweaks) 
+      ;; For the case that the init file runs before the frame is created.
+      ;; Call of emacs with --daemon option.
+      (add-hook 'after-make-frame-functions #'my-frame-tweaks t)    
     #+END_SRC
-   
-*** moody
+
+*** spaceline
     #+BEGIN_SRC emacs-lisp
-      (use-package moody
+      ;;(use-package spaceline
+      ;;  :ensure t
+      ;;  :config
+      ;;  (spaceline-spacemacs-theme)
+      ;;  ;;(spaceline-emacs-theme)
+      ;;  (setq powerline-default-separator 'wave)
+      ;;  ;;(setq powerline-default-separator 'wave)
+      ;;  ;; choix : alternate, arrow, arrow-fade, bar, box, brace,
+      ;;  ;; butt, chamfer, contour, curve, rounded, roundstub, slant, wave, zigzag,
+      ;;  ;; utf-8.
+      ;;  (setq spaceline-workspace-numbers-unicode t)
+      ;;  (setq spaceline-window-numbers-unicode t)
+      ;;  ;;(spaceline-toggle-workspace-number-off)
+      ;;  ;;(spaceline-helm-mode 1)
+      ;;  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+      ;;  (spaceline-compile)
+      ;;  )
+
+      ;;(use-package all-the-icons
+      ;;  :ensure t
+      ;;  )
+
+      ;;(use-package spaceline-all-the-icons
+      ;;  :ensure t
+      ;;  :after spaceline
+      ;;  :config (spaceline-all-the-icons-theme)
+      ;;  (setq spaceline-all-the-icons-flycheck-alternate t)
+      ;;  (setq spaceline-all-the-icons-separator-type 'arrow)
+      ;;  ;; slant arrow cup wave none
+      ;;  (setq spaceline-all-the-icons-separators-invert-direction t)
+      ;;  (setq spaceline-all-the-icons-primary-separator "")
+      ;;  (setq spaceline-all-the-icons-secondary-separator "")
+      ;;  (setq powerline-text-scale-factor 1.1)
+      ;;  (spaceline-toggle-all-the-icons-buffer-position-on)
+      ;;  )
+    #+END_SRC
+*** telephone-line
+    #+BEGIN_SRC emacs-lisp
+      (use-package telephone-line
         :ensure t
         :config
-        (setq x-underline-at-descent-line t)
-        (moody-replace-mode-line-buffer-identification)
-        (moody-replace-vc-mode))
+        (setq telephone-line-primary-left-separator 'telephone-line-cubed-left
+              telephone-line-secondary-left-separator 'telephone-line-cubed-hollow-left
+              telephone-line-primary-right-separator 'telephone-line-cubed-right
+              telephone-line-secondary-right-separator 'telephone-line-cubed-hollow-right)
+        (setq telephone-line-height 20)
+        (telephone-line-mode 1))
+    #+END_SRC
+*** moody
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package moody
+      ;;  :ensure t
+      ;;  :config
+      ;;  (setq x-underline-at-descent-line t)
+      ;;  (moody-replace-mode-line-buffer-identification)
+      ;;  (moody-replace-vc-mode))
 
-      (use-package minions
-        :ensure t
-        :config (minions-mode 1))
+      ;;(use-package minions
+      ;;  :ensure t
+      ;;  :config (minions-mode 1))
     #+END_SRC
     
 *** page-break-lines
@@ -751,89 +801,96 @@
     #+END_SRC
 * EXWM
   #+BEGIN_SRC emacs-lisp
-    ;;(use-package exwm
-    ;;  :ensure t
-    ;;  :config
-    ;;  (require 'exwm)
-    ;;  (require 'exwm-config)
-    ;;  (exwm-config-default)
-    ;;  (require 'exwm-systemtray)
-    ;;  (exwm-systemtray-enable)
-    ;;  (display-time-mode 1)
-    ;;  (display-battery-mode 1)
-    ;;  (setq exwm-input-global-keys
-    ;;        `(
-    ;;          ;; Bind "s-r" to exit char-mode and fullscreen mode.
-    ;;          ([?\s-r] . exwm-reset)
-    ;;          ;; Bind "s-w" to switch workspace interactively.
-    ;;          ([?\s-w] . exwm-workspace-switch)
-    ;;          ;; Bind "s-0" to "s-9" to switch to a workspace by its index.
-    ;;          ,@(mapcar (lambda (i)
-    ;;                      `(,(kbd (format "s-%d" i)) .
-    ;;                        (lambda ()
-    ;;                          (interactive)
-    ;;                          (exwm-workspace-switch-create ,i))))
-    ;;                    (number-sequence 0 9))
-    ;;          ;; Bind "s-&" to launch applications ('M-&' also works if the output
-    ;;          ;; buffer does not bother you).
-    ;;          ([?\s-&] . (lambda (command)
-    ;;                       (interactive (list (read-shell-command "$ ")))
-    ;;                       (start-process-shell-command command nil command)))
-    ;;          ;; Bind "s-<f2>" to "slock", a simple X display locker.
-    ;;          ([s-f2] . (lambda ()
-    ;;                      (interactive)
-    ;;                      (start-process "" nil "slock")))
-    ;;          ([XF86MonBrightnessDown] . (lambda ()
-    ;;                                       (interactive)
-    ;;                                       (start-process "" nil "light -U 5%")))
-    ;;          ([XF86MonBrightnessUp] . (lambda ()
-    ;;                                     (interactive)
-    ;;                                     (start-process "" nil "light -A 5%")))
-    ;;          ([Print] . (lambda ()
-    ;;                       (interactive)
-    ;;                       (start-process "" nil "maim ~/Nextcloud/Images/Captures d'écran/$(date +%s).png")))
-    ;;          ([Pause] . (lambda ()
-    ;;                       (interactive)
-    ;;                       (start-process "" nil "wal -gi ~/Nextcloud/5. Fonds d'écran/wal")))
-    ;;          ([XF86AudioRaiseVolume] . (lambda ()
-    ;;                                      (interactive)
-    ;;                                      (start-process "" nil "amixer -q sset Master 1%+")))
-    ;;          ([XF86audioLowerVolume] . (lambda ()
-    ;;                                      (interactive)
-    ;;                                      (start-process "" nil "amixer -q sset Master 1%-")))
-    ;;          ([XF86AudioMute] . (lambda ()
-    ;;                               (interactive)
-    ;;                               (start-process "" nil "amixer -q sset Master toggle")))
-    ;;          ([XF86AudioPlay] . (lambda ()
-    ;;                               (interactive)
-    ;;                               (start-process "" nil "mpc toggle")))
-    ;;          ([XF86AudioPause] . (lambda ()
-    ;;                                (interactive)
-    ;;                                (start-process "" nil "mpc toggle")))
-    ;;          ([XF86AudioNext] . (lambda ()
-    ;;                               (interactive)
-    ;;                               (start-process "" nil "mpc next")))
-    ;;          ([XF86AudioPrev] . (lambda ()
-    ;;                               (interactive)
-    ;;                               (start-process "" nil "mpc prev")))
-    ;;          ([XF86TouchpadToggle] . (lambda ()
-    ;;                                    (interactive)
-    ;;                                    (start-process "" nil "~/scripts/touchpad_toggle.sh")))
-    ;;          ([XF86Display] . (lambda ()
-    ;;                             (interactive)
-    ;;                             (start-process "" nil "~/scripts/display_config.sh")))
-    ;;          ([XF86Launch1] . (lambda ()
-    ;;                             (interactive)
-    ;;                             (start-process "" nil "~/scripts/search.sh")))
-    ;;          ([s-XF86Launch1] . (lambda ()
-    ;;                               (interactive)
-    ;;                               (start-process "" nil "~/scripts/launch.sh")))
-    ;;          ([?\s-d] . (lambda ()
-    ;;                      (interactive)
-    ;;                      (start-process "" nil " rofi -show run")))
-    ;;          )
-    ;;        )
-    ;;  )
+    (use-package exwm
+     :ensure t
+     :config
+     (require 'exwm)
+     (require 'exwm-config)
+     (exwm-config-default)
+     (require 'exwm-systemtray)
+     (exwm-systemtray-enable)
+     (display-time-mode 1)
+     (display-battery-mode 1)
+     (setq exwm-input-global-keys
+           `(
+             ;; Bind "s-r" to exit char-mode and fullscreen mode.
+             ([?\s-r] . exwm-reset)
+             ;; Bind "s-w" to switch workspace interactively.
+             ([?\s-w] . exwm-workspace-switch)
+             ;; Bind "s-0" to "s-9" to switch to a workspace by its index.
+             ,@(mapcar (lambda (i)
+                         `(,(kbd (format "s-%d" i)) .
+                           (lambda ()
+                             (interactive)
+                             (exwm-workspace-switch-create ,i))))
+                       (number-sequence 0 9))
+             ;; Bind "s-&" to launch applications ('M-&' also works if the output
+             ;; buffer does not bother you).
+             ([?\s-&] . (lambda (command)
+                          (interactive (list (read-shell-command "$ ")))
+                          (start-process-shell-command command nil command)))
+             ;; Bind "s-<f2>" to "slock", a simple X display locker.
+             ([s-f2] . (lambda ()
+                         (interactive)
+                         (start-process-shell-command "" nil "slock")))
+             ([XF86MonBrightnessDown] . (lambda ()
+                                          (interactive)
+                                          (start-process-shell-command "" nil "light -U 5%")))
+             ([XF86MonBrightnessUp] . (lambda ()
+                                        (interactive)
+                                        (start-process-shell-command "" nil "light -A 5%")))
+             ([Print] . (lambda ()
+                          (interactive)
+                          (start-process-shell-command "" nil "maim ~/Nextcloud/Images/Captures d'écran/$(date +%s).png")))
+             ([Pause] . (lambda ()
+                          (interactive)
+                          (start-process-shell-command "" nil "wal -gi ~/Nextcloud/5. Fonds d'écran/wal")))
+             ([XF86AudioRaiseVolume] . (lambda ()
+                                         (interactive)
+                                         (start-process-shell-command "" nil "amixer -q sset Master 1%+")))
+             ([XF86AudioLowerVolume] . (lambda ()
+                                         (interactive)
+                                         (start-process-shell-command "" nil "amixer -q sset Master 1%-")))
+             ([XF86AudioMute] . (lambda ()
+                                  (interactive)
+                                  (start-process-shell-command "" nil "amixer -q sset Master toggle")))
+             ([XF86AudioPlay] . (lambda ()
+                                  (interactive)
+                                  (start-process-shell-command "" nil "mpc toggle")))
+             ([XF86AudioPause] . (lambda ()
+                                   (interactive)
+                                   (start-process-shell-command "" nil "mpc toggle")))
+             ([XF86AudioNext] . (lambda ()
+                                  (interactive)
+                                  (start-process-shell-command "" nil "mpc next")))
+             ([XF86AudioPrev] . (lambda ()
+                                  (interactive)
+                                  (start-process-shell-command "" nil "mpc prev")))
+             ([XF86TouchpadToggle] . (lambda ()
+                                       (interactive)
+                                       (start-process "" nil "~/scripts/touchpad_toggle.sh")))
+             ([XF86Display] . (lambda ()
+                                (interactive)
+                                (start-process "" nil "~/scripts/display_config.sh")))
+             ([XF86Launch1] . (lambda ()
+                                (interactive)
+                                (start-process "" nil "~/scripts/search.sh")))
+             ([s-XF86Launch1] . (lambda ()
+                                  (interactive)
+                                  (start-process "" nil "~/scripts/launch.sh")))
+             ([?\s-d] . (lambda ()
+                         (interactive)
+                         (start-process-shell-command "" nil "rofi -show run")))
+             ([?\s-q] . (lambda ()
+                         (interactive)
+                         (start-process-shell-command "" nil "setxkbmap us -variant intl")))
+             ([?\s-b] . (lambda ()
+                         (interactive)
+                         (start-process-shell-command "" nil "setxkbmap fr bepo")))
+             )
+           )
+     (shell-command "setxkbmap us -variant intl")
+     )
   #+END_SRC
 * Autres
 ** Fonctions

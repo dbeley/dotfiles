@@ -32,11 +32,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '(default))
+ '(custom-safe-themes '(default))
  '(inhibit-startup-screen t)
  '(package-selected-packages
-   '()))
+   '(telephone-line yasnippet-snippets xresources-theme which-key use-package symon spaceline smartparens smart-mode-line-atom-one-dark-theme simple-mpc ranger rainbow-mode ox-twbs ox-reveal ox-hugo org-preview-html org-plus-contrib org-bullets notmuch no-littering moody minions magic-latex-buffer ivy-rich htmlize helpful helm-projectile fzf flycheck exwm evil-surround evil-org evil-magit evil-leader evil-collection ess eshell-git-prompt elpy elfeed-org elfeed-goodies dumb-jump dashboard counsel company-shell company-quickhelp company-box better-defaults base16-theme auctex all-the-icons-ivy ace-window)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
