@@ -29,11 +29,11 @@
     (setq scroll-conservatively 10000)
     (setq auto-window-vscroll nil)
 
-    ;;(global-prettify-symbols-mode +1)
+    (global-prettify-symbols-mode +1)
 
-    ;;(add-hook 'emacs-lisp-mode-hook
-    ;;          (lambda ()
-    ;;            (push '("<=" . ?≤) prettify-symbols-alist))) 
+    (add-hook 'emacs-lisp-mode-hook
+              (lambda ()
+                (push '("<=" . ?≤) prettify-symbols-alist))) 
 
     ;; Wrap line
     (global-visual-line-mode)
@@ -160,6 +160,111 @@
         )
     #+END_SRC
     
+*** treemacs
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package treemacs
+      ;;  :ensure t
+      ;;  :defer t
+      ;;  :config
+      ;;  (progn
+      ;;    (setq treemacs-width 25
+      ;;          treemacs-show-hidden-files t
+      ;;          )
+      ;;    (treemacs-follow-mode t)
+      ;;    (treemacs-filewatch-mode t)
+      ;;    )
+      ;;  (add-hook 'after-init-hook #'treemacs)
+      ;;  :bind
+      ;;  (:map global-map
+      ;;        ("M-0"        . treemacs-select-window)
+      ;;        ("C-c 1"      . treemacs-delete-other-windows)
+      ;;        ("C-c t"     . treemacs)
+      ;;        ("C-c g"     . treemacs-bookmark)
+      ;;        ("C-c f"  . treemacs-find-file)
+      ;;        )
+      ;;  )
+
+      ;;(use-package treemacs-evil
+      ;;  :after treemacs
+      ;;  :ensure t)
+
+      ;;(use-package treemacs-projectile
+      ;;  :after treemacs
+      ;;  :ensure t)
+    #+END_SRC
+    
+*** dumb-jump
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package dumb-jump
+      ;;  :bind (("M-g o" . dumb-jump-go-other-window)
+      ;;         ("M-g j" . dumb-jump-go)
+      ;;         ("M-g i" . dumb-jump-go-prompt)
+      ;;         ("M-g x" . dumb-jump-go-prefer-external)
+      ;;         ("M-g z" . dumb-jump-go-prefer-external-other-window))
+      ;;  :config (setq dumb-jump-selector 'helm)
+      ;;  :ensure t
+      ;;  )
+    #+END_SRC
+  
+*** minimap
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package minimap
+      ;;:ensure t
+      ;;:config
+      ;;(add-to-list 'minimap-major-modes 'org-mode)
+      ;;(setq minimap-highlight-line nil)
+      ;;(setq minimap-window-location 'right)
+      ;;(setq minimap-recreate-window t)
+      ;;(minimap-mode t)
+      ;;)
+    #+END_SRC
+    
+*** sublimity
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package sublimity
+      ;;:ensure t
+      ;;:config 
+      ;;(require 'sublimity)
+      ;;;;(require 'sublimity-scroll)
+      ;;(require 'sublimity-map)
+      ;;(sublimity-mode 1)
+      ;;(sublimity-map-set-delay nil)
+      ;;)
+    #+END_SRC    
+  
+*** undo-tree
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package undo-tree
+      ;;:ensure t
+      ;;:config
+      ;;(global-undo-tree-mode)
+      ;;;; make ctrl-z undo
+      ;;(global-set-key (kbd "C-z") 'undo)
+      ;;;; make ctrl-Z redo
+      ;;(defalias 'redo 'undo-tree-redo)
+      ;;(global-set-key (kbd "C-S-z") 'redo)
+      ;;)
+    #+END_SRC
+    
+*** perspective-el
+    #+BEGIN_SRC emacs-lisp
+      ;; Conflit avec company-mode
+      ;;(use-package perspective
+      ;;:ensure t
+      ;;:config
+      ;;(persp-mode)
+      ;;)
+    #+END_SRC
+
+***  eyebrowse
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package eyebrowse
+      ;;:ensure t
+      ;;:config
+      ;;(eyebrowse-mode t)
+      ;;)
+    #+END_SRC
+   
 *** fzf
     #+BEGIN_SRC emacs-lisp
       (use-package fzf
@@ -207,11 +312,10 @@
       ;;(load-theme 'base16-default-dark t)
       ;;(load-theme 'base16-gruvbox-dark-hard t)
       ;;(load-theme 'base16-materia t)
-      (load-theme 'base16-nord t)
+      ;;(load-theme 'base16-nord t)
       ;;(load-theme 'base16-oceanicnext t)
       ;;(load-theme 'base16-onedark t)
-      ;;(load-theme 'base16-phd t)
-      ;;(load-theme 'airline-ubaryd)
+      (load-theme 'base16-phd t)
 
       ;;(defun my-frame-tweaks (&optional frame)
       ;;  "My personal frame tweaks."
@@ -335,7 +439,7 @@
     
 *** Company-box
     #+BEGIN_SRC emacs-lisp
-      rendering problem
+      ;;rendering problem
       (use-package company-box
         :ensure t
         :after company
@@ -607,6 +711,15 @@
         )
     #+END_SRC
     
+*** simple-mpc
+    #+BEGIN_SRC emacs-lisp
+      (use-package simple-mpc
+        :ensure t
+        :config
+        (add-to-list 'evil-emacs-state-modes 'simple-mpc-mode)
+        )
+    #+END_SRC
+    
 *** elfeed
     #+BEGIN_SRC emacs-lisp
       (use-package elfeed
@@ -638,89 +751,89 @@
     #+END_SRC
 * EXWM
   #+BEGIN_SRC emacs-lisp
-    (use-package exwm
-      :ensure t
-      :config
-      (require 'exwm)
-      (require 'exwm-config)
-      (exwm-config-default)
-      (require 'exwm-systemtray)
-      (exwm-systemtray-enable)
-      (display-time-mode 1)
-      (display-battery-mode 1)
-      (setq exwm-input-global-keys
-            `(
-              ;; Bind "s-r" to exit char-mode and fullscreen mode.
-              ([?\s-r] . exwm-reset)
-              ;; Bind "s-w" to switch workspace interactively.
-              ([?\s-w] . exwm-workspace-switch)
-              ;; Bind "s-0" to "s-9" to switch to a workspace by its index.
-              ,@(mapcar (lambda (i)
-                          `(,(kbd (format "s-%d" i)) .
-                            (lambda ()
-                              (interactive)
-                              (exwm-workspace-switch-create ,i))))
-                        (number-sequence 0 9))
-              ;; Bind "s-&" to launch applications ('M-&' also works if the output
-              ;; buffer does not bother you).
-              ([?\s-&] . (lambda (command)
-                           (interactive (list (read-shell-command "$ ")))
-                           (start-process-shell-command command nil command)))
-              ;; Bind "s-<f2>" to "slock", a simple X display locker.
-              ([s-f2] . (lambda ()
-                          (interactive)
-                          (start-process "" nil "slock")))
-              ([XF86MonBrightnessDown] . (lambda ()
-                                           (interactive)
-                                           (start-process "" nil "light -U 5%")))
-              ([XF86MonBrightnessUp] . (lambda ()
-                                         (interactive)
-                                         (start-process "" nil "light -A 5%")))
-              ([Print] . (lambda ()
-                           (interactive)
-                           (start-process "" nil "maim ~/Nextcloud/Images/Captures d'écran/$(date +%s).png")))
-              ([Pause] . (lambda ()
-                           (interactive)
-                           (start-process "" nil "wal -gi ~/Nextcloud/5. Fonds d'écran/wal")))
-              ([XF86AudioRaiseVolume] . (lambda ()
-                                          (interactive)
-                                          (start-process "" nil "amixer -q sset Master 1%+")))
-              ([XF86audioLowerVolume] . (lambda ()
-                                          (interactive)
-                                          (start-process "" nil "amixer -q sset Master 1%-")))
-              ([XF86AudioMute] . (lambda ()
-                                   (interactive)
-                                   (start-process "" nil "amixer -q sset Master toggle")))
-              ([XF86AudioPlay] . (lambda ()
-                                   (interactive)
-                                   (start-process "" nil "mpc toggle")))
-              ([XF86AudioPause] . (lambda ()
-                                    (interactive)
-                                    (start-process "" nil "mpc toggle")))
-              ([XF86AudioNext] . (lambda ()
-                                   (interactive)
-                                   (start-process "" nil "mpc next")))
-              ([XF86AudioPrev] . (lambda ()
-                                   (interactive)
-                                   (start-process "" nil "mpc prev")))
-              ([XF86TouchpadToggle] . (lambda ()
-                                        (interactive)
-                                        (start-process "" nil "~/scripts/touchpad_toggle.sh")))
-              ([XF86Display] . (lambda ()
-                                 (interactive)
-                                 (start-process "" nil "~/scripts/display_config.sh")))
-              ([XF86Launch1] . (lambda ()
-                                 (interactive)
-                                 (start-process "" nil "~/scripts/search.sh")))
-              ([s-XF86Launch1] . (lambda ()
-                                   (interactive)
-                                   (start-process "" nil "~/scripts/launch.sh")))
-              ([?\s-d] . (lambda ()
-                          (interactive)
-                          (start-process "" nil " rofi -show run")))
-              )
-            )
-      )
+    ;;(use-package exwm
+    ;;  :ensure t
+    ;;  :config
+    ;;  (require 'exwm)
+    ;;  (require 'exwm-config)
+    ;;  (exwm-config-default)
+    ;;  (require 'exwm-systemtray)
+    ;;  (exwm-systemtray-enable)
+    ;;  (display-time-mode 1)
+    ;;  (display-battery-mode 1)
+    ;;  (setq exwm-input-global-keys
+    ;;        `(
+    ;;          ;; Bind "s-r" to exit char-mode and fullscreen mode.
+    ;;          ([?\s-r] . exwm-reset)
+    ;;          ;; Bind "s-w" to switch workspace interactively.
+    ;;          ([?\s-w] . exwm-workspace-switch)
+    ;;          ;; Bind "s-0" to "s-9" to switch to a workspace by its index.
+    ;;          ,@(mapcar (lambda (i)
+    ;;                      `(,(kbd (format "s-%d" i)) .
+    ;;                        (lambda ()
+    ;;                          (interactive)
+    ;;                          (exwm-workspace-switch-create ,i))))
+    ;;                    (number-sequence 0 9))
+    ;;          ;; Bind "s-&" to launch applications ('M-&' also works if the output
+    ;;          ;; buffer does not bother you).
+    ;;          ([?\s-&] . (lambda (command)
+    ;;                       (interactive (list (read-shell-command "$ ")))
+    ;;                       (start-process-shell-command command nil command)))
+    ;;          ;; Bind "s-<f2>" to "slock", a simple X display locker.
+    ;;          ([s-f2] . (lambda ()
+    ;;                      (interactive)
+    ;;                      (start-process "" nil "slock")))
+    ;;          ([XF86MonBrightnessDown] . (lambda ()
+    ;;                                       (interactive)
+    ;;                                       (start-process "" nil "light -U 5%")))
+    ;;          ([XF86MonBrightnessUp] . (lambda ()
+    ;;                                     (interactive)
+    ;;                                     (start-process "" nil "light -A 5%")))
+    ;;          ([Print] . (lambda ()
+    ;;                       (interactive)
+    ;;                       (start-process "" nil "maim ~/Nextcloud/Images/Captures d'écran/$(date +%s).png")))
+    ;;          ([Pause] . (lambda ()
+    ;;                       (interactive)
+    ;;                       (start-process "" nil "wal -gi ~/Nextcloud/5. Fonds d'écran/wal")))
+    ;;          ([XF86AudioRaiseVolume] . (lambda ()
+    ;;                                      (interactive)
+    ;;                                      (start-process "" nil "amixer -q sset Master 1%+")))
+    ;;          ([XF86audioLowerVolume] . (lambda ()
+    ;;                                      (interactive)
+    ;;                                      (start-process "" nil "amixer -q sset Master 1%-")))
+    ;;          ([XF86AudioMute] . (lambda ()
+    ;;                               (interactive)
+    ;;                               (start-process "" nil "amixer -q sset Master toggle")))
+    ;;          ([XF86AudioPlay] . (lambda ()
+    ;;                               (interactive)
+    ;;                               (start-process "" nil "mpc toggle")))
+    ;;          ([XF86AudioPause] . (lambda ()
+    ;;                                (interactive)
+    ;;                                (start-process "" nil "mpc toggle")))
+    ;;          ([XF86AudioNext] . (lambda ()
+    ;;                               (interactive)
+    ;;                               (start-process "" nil "mpc next")))
+    ;;          ([XF86AudioPrev] . (lambda ()
+    ;;                               (interactive)
+    ;;                               (start-process "" nil "mpc prev")))
+    ;;          ([XF86TouchpadToggle] . (lambda ()
+    ;;                                    (interactive)
+    ;;                                    (start-process "" nil "~/scripts/touchpad_toggle.sh")))
+    ;;          ([XF86Display] . (lambda ()
+    ;;                             (interactive)
+    ;;                             (start-process "" nil "~/scripts/display_config.sh")))
+    ;;          ([XF86Launch1] . (lambda ()
+    ;;                             (interactive)
+    ;;                             (start-process "" nil "~/scripts/search.sh")))
+    ;;          ([s-XF86Launch1] . (lambda ()
+    ;;                               (interactive)
+    ;;                               (start-process "" nil "~/scripts/launch.sh")))
+    ;;          ([?\s-d] . (lambda ()
+    ;;                      (interactive)
+    ;;                      (start-process "" nil " rofi -show run")))
+    ;;          )
+    ;;        )
+    ;;  )
   #+END_SRC
 * Autres
 ** Fonctions

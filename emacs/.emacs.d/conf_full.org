@@ -31,9 +31,9 @@
 
     (global-prettify-symbols-mode +1)
 
-    ;;(add-hook 'emacs-lisp-mode-hook
-    ;;          (lambda ()
-    ;;            (push '("<=" . ?≤) prettify-symbols-alist))) 
+    (add-hook 'emacs-lisp-mode-hook
+              (lambda ()
+                (push '("<=" . ?≤) prettify-symbols-alist))) 
 
     ;; Wrap line
     (global-visual-line-mode)
@@ -115,8 +115,8 @@
         :config
         (global-evil-leader-mode)
         (evil-leader/set-key
-          ;;"e" 'helm-find-files
-          ;;"b" 'helm-mini
+          "e" 'helm-find-files
+          "b" 'helm-mini
           "k" 'kill-buffer
           ;;"t" 'treemacs
           "r" 'ranger)
