@@ -303,9 +303,8 @@
         ;;(set-face-attribute 'mode-line          nil :box        nil)
         ;;(set-face-attribute 'mode-line-inactive nil :box        nil))
         )
-      ;;        (set-face-attribute 'mode-line-inactive nil :background "#f9f2d9")))
+        ;;      (set-face-attribute 'mode-line-inactive nil :background "#f9f2d9")))
     #+END_SRC
-    
 *** Chargement des thèmes
     #+BEGIN_SRC emacs-lisp
       ;;(load-theme 'base16-darktooth t)
@@ -581,13 +580,16 @@
         (setq org-log-done t)
         (setq org-confirm-babel-evaluate nil)
         (setq org-startup-with-inline-images t)
+        (setq org-image-actual-width (/ (display-pixel-width) 3))
         (org-babel-do-load-languages
          'org-babel-load-languages
          '((python . t)
            (emacs-lisp . t)
            (R . t)
            (org . t)
+           (latex . t)
            ))
+        (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.4))
         (require 'ox-latex)
         (require 'ox-html)
         (require 'ox-beamer)
@@ -776,7 +778,7 @@
         :ensure t
         :config
         (global-set-key (kbd "C-x w") 'elfeed)
-        (setf url-queue-timeout 1)
+        (setf url-queue-timeout 4)
         )
 
       (use-package elfeed-org
@@ -786,11 +788,11 @@
         (setq rmh-elfeed-org-files (list "~/Nextcloud/3. org/Listes/rss.org"))
         )
 
-      (use-package elfeed-goodies
-        :ensure t
-        :config
-        (elfeed-goodies/setup)
-        )
+      ;;(use-package elfeed-goodies
+      ;;  :ensure t
+      ;;  :config
+      ;;  (elfeed-goodies/setup)
+      ;;  )
     #+END_SRC
   
 *** notmuch
@@ -801,96 +803,96 @@
     #+END_SRC
 * EXWM
   #+BEGIN_SRC emacs-lisp
-    (use-package exwm
-     :ensure t
-     :config
-     (require 'exwm)
-     (require 'exwm-config)
-     (exwm-config-default)
-     (require 'exwm-systemtray)
-     (exwm-systemtray-enable)
-     (display-time-mode 1)
-     (display-battery-mode 1)
-     (setq exwm-input-global-keys
-           `(
-             ;; Bind "s-r" to exit char-mode and fullscreen mode.
-             ([?\s-r] . exwm-reset)
-             ;; Bind "s-w" to switch workspace interactively.
-             ([?\s-w] . exwm-workspace-switch)
-             ;; Bind "s-0" to "s-9" to switch to a workspace by its index.
-             ,@(mapcar (lambda (i)
-                         `(,(kbd (format "s-%d" i)) .
-                           (lambda ()
-                             (interactive)
-                             (exwm-workspace-switch-create ,i))))
-                       (number-sequence 0 9))
-             ;; Bind "s-&" to launch applications ('M-&' also works if the output
-             ;; buffer does not bother you).
-             ([?\s-&] . (lambda (command)
-                          (interactive (list (read-shell-command "$ ")))
-                          (start-process-shell-command command nil command)))
-             ;; Bind "s-<f2>" to "slock", a simple X display locker.
-             ([s-f2] . (lambda ()
-                         (interactive)
-                         (start-process-shell-command "" nil "slock")))
-             ([XF86MonBrightnessDown] . (lambda ()
-                                          (interactive)
-                                          (start-process-shell-command "" nil "light -U 5%")))
-             ([XF86MonBrightnessUp] . (lambda ()
-                                        (interactive)
-                                        (start-process-shell-command "" nil "light -A 5%")))
-             ([Print] . (lambda ()
-                          (interactive)
-                          (start-process-shell-command "" nil "maim ~/Nextcloud/Images/Captures d'écran/$(date +%s).png")))
-             ([Pause] . (lambda ()
-                          (interactive)
-                          (start-process-shell-command "" nil "wal -gi ~/Nextcloud/5. Fonds d'écran/wal")))
-             ([XF86AudioRaiseVolume] . (lambda ()
-                                         (interactive)
-                                         (start-process-shell-command "" nil "amixer -q sset Master 1%+")))
-             ([XF86AudioLowerVolume] . (lambda ()
-                                         (interactive)
-                                         (start-process-shell-command "" nil "amixer -q sset Master 1%-")))
-             ([XF86AudioMute] . (lambda ()
-                                  (interactive)
-                                  (start-process-shell-command "" nil "amixer -q sset Master toggle")))
-             ([XF86AudioPlay] . (lambda ()
-                                  (interactive)
-                                  (start-process-shell-command "" nil "mpc toggle")))
-             ([XF86AudioPause] . (lambda ()
-                                   (interactive)
-                                   (start-process-shell-command "" nil "mpc toggle")))
-             ([XF86AudioNext] . (lambda ()
-                                  (interactive)
-                                  (start-process-shell-command "" nil "mpc next")))
-             ([XF86AudioPrev] . (lambda ()
-                                  (interactive)
-                                  (start-process-shell-command "" nil "mpc prev")))
-             ([XF86TouchpadToggle] . (lambda ()
-                                       (interactive)
-                                       (start-process "" nil "~/scripts/touchpad_toggle.sh")))
-             ([XF86Display] . (lambda ()
-                                (interactive)
-                                (start-process "" nil "~/scripts/display_config.sh")))
-             ([XF86Launch1] . (lambda ()
-                                (interactive)
-                                (start-process "" nil "~/scripts/search.sh")))
-             ([s-XF86Launch1] . (lambda ()
-                                  (interactive)
-                                  (start-process "" nil "~/scripts/launch.sh")))
-             ([?\s-d] . (lambda ()
-                         (interactive)
-                         (start-process-shell-command "" nil "rofi -show run")))
-             ([?\s-q] . (lambda ()
-                         (interactive)
-                         (start-process-shell-command "" nil "setxkbmap us -variant intl")))
-             ([?\s-b] . (lambda ()
-                         (interactive)
-                         (start-process-shell-command "" nil "setxkbmap fr bepo")))
-             )
-           )
-     (shell-command "setxkbmap us -variant intl")
-     )
+    ;;(use-package exwm
+    ;; :ensure t
+    ;; :config
+    ;; (require 'exwm)
+    ;; (require 'exwm-config)
+    ;; (exwm-config-default)
+    ;; (require 'exwm-systemtray)
+    ;; (exwm-systemtray-enable)
+    ;; (display-time-mode 1)
+    ;; (display-battery-mode 1)
+    ;; (setq exwm-input-global-keys
+    ;;       `(
+    ;;         ;; Bind "s-r" to exit char-mode and fullscreen mode.
+    ;;         ([?\s-r] . exwm-reset)
+    ;;         ;; Bind "s-w" to switch workspace interactively.
+    ;;         ([?\s-w] . exwm-workspace-switch)
+    ;;         ;; Bind "s-0" to "s-9" to switch to a workspace by its index.
+    ;;         ,@(mapcar (lambda (i)
+    ;;                     `(,(kbd (format "s-%d" i)) .
+    ;;                       (lambda ()
+    ;;                         (interactive)
+    ;;                         (exwm-workspace-switch-create ,i))))
+    ;;                   (number-sequence 0 9))
+    ;;         ;; Bind "s-&" to launch applications ('M-&' also works if the output
+    ;;         ;; buffer does not bother you).
+    ;;         ([?\s-&] . (lambda (command)
+    ;;                      (interactive (list (read-shell-command "$ ")))
+    ;;                      (start-process-shell-command command nil command)))
+    ;;         ;; Bind "s-<f2>" to "slock", a simple X display locker.
+    ;;         ([s-f2] . (lambda ()
+    ;;                     (interactive)
+    ;;                     (start-process-shell-command "" nil "slock")))
+    ;;         ([XF86MonBrightnessDown] . (lambda ()
+    ;;                                      (interactive)
+    ;;                                      (start-process-shell-command "" nil "light -U 5%")))
+    ;;         ([XF86MonBrightnessUp] . (lambda ()
+    ;;                                    (interactive)
+    ;;                                    (start-process-shell-command "" nil "light -A 5%")))
+    ;;         ([Print] . (lambda ()
+    ;;                      (interactive)
+    ;;                      (start-process-shell-command "" nil "maim ~/Nextcloud/Images/Captures d'écran/$(date +%s).png")))
+    ;;         ([Pause] . (lambda ()
+    ;;                      (interactive)
+    ;;                      (start-process-shell-command "" nil "wal -gi ~/Nextcloud/5. Fonds d'écran/wal")))
+    ;;         ([XF86AudioRaiseVolume] . (lambda ()
+    ;;                                     (interactive)
+    ;;                                     (start-process-shell-command "" nil "amixer -q sset Master 1%+")))
+    ;;         ([XF86AudioLowerVolume] . (lambda ()
+    ;;                                     (interactive)
+    ;;                                     (start-process-shell-command "" nil "amixer -q sset Master 1%-")))
+    ;;         ([XF86AudioMute] . (lambda ()
+    ;;                              (interactive)
+    ;;                              (start-process-shell-command "" nil "amixer -q sset Master toggle")))
+    ;;         ([XF86AudioPlay] . (lambda ()
+    ;;                              (interactive)
+    ;;                              (start-process-shell-command "" nil "mpc toggle")))
+    ;;         ([XF86AudioPause] . (lambda ()
+    ;;                               (interactive)
+    ;;                               (start-process-shell-command "" nil "mpc toggle")))
+    ;;         ([XF86AudioNext] . (lambda ()
+    ;;                              (interactive)
+    ;;                              (start-process-shell-command "" nil "mpc next")))
+    ;;         ([XF86AudioPrev] . (lambda ()
+    ;;                              (interactive)
+    ;;                              (start-process-shell-command "" nil "mpc prev")))
+    ;;         ([XF86TouchpadToggle] . (lambda ()
+    ;;                                   (interactive)
+    ;;                                   (start-process "" nil "~/scripts/touchpad_toggle.sh")))
+    ;;         ([XF86Display] . (lambda ()
+    ;;                            (interactive)
+    ;;                            (start-process "" nil "~/scripts/display_config.sh")))
+    ;;         ([XF86Launch1] . (lambda ()
+    ;;                            (interactive)
+    ;;                            (start-process "" nil "~/scripts/search.sh")))
+    ;;         ([s-XF86Launch1] . (lambda ()
+    ;;                              (interactive)
+    ;;                              (start-process "" nil "~/scripts/launch.sh")))
+    ;;         ([?\s-d] . (lambda ()
+    ;;                     (interactive)
+    ;;                     (start-process-shell-command "" nil "rofi -show run")))
+    ;;         ([?\s-q] . (lambda ()
+    ;;                     (interactive)
+    ;;                     (start-process-shell-command "" nil "setxkbmap us -variant intl")))
+    ;;         ([?\s-b] . (lambda ()
+    ;;                     (interactive)
+    ;;                     (start-process-shell-command "" nil "setxkbmap fr bepo")))
+    ;;         )
+    ;;       )
+    ;; (shell-command "setxkbmap us -variant intl")
+    ;; )
   #+END_SRC
 * Autres
 ** Fonctions
