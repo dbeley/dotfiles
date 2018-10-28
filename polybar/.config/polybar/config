@@ -296,4 +296,17 @@ bar-used-empty-foreground = ${colors.background}
 
 [module/temperature]
 type = internal/temperature
-label = CPU %temperature-c%
+label =  %temperature-c%
+
+[module/wired-network]
+type = internal/network
+interface = enp0s25
+label-connected = %downspeed:9%
+[module/wireless-network]
+type = internal/network
+interface = wlp3s0
+label-connected = %downspeed:9%
+[module/wwan-network]
+type = internal/network
+interface = wwp0s29u1u4i6
+label-connected = %downspeed:9%

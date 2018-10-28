@@ -566,35 +566,37 @@
 ** Org-mode
 *** Org-mode
     #+BEGIN_SRC emacs-lisp
-      (use-package org
-        :ensure org-plus-contrib
-        :config
-        (setq org-agenda-files '("~/Nextcloud/3. org/"))
-        (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-        (global-set-key (kbd "C-c l") 'org-store-link)
-        (global-set-key (kbd "C-c a") 'org-agenda)
-        (global-set-key (kbd "C-c b") 'org-iswitchb)
-        (setq org-replace-disputed-keys t)
-        (setq org-src-fontify-natively t)
-        (setq org-src-tab-acts-natively t)
-        (setq org-log-done t)
-        (setq org-confirm-babel-evaluate nil)
-        (setq org-startup-with-inline-images t)
-        (setq org-image-actual-width (/ (display-pixel-width) 3))
-        (org-babel-do-load-languages
-         'org-babel-load-languages
-         '((python . t)
-           (emacs-lisp . t)
-           (R . t)
-           (org . t)
-           (latex . t)
-           ))
-        (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.4))
-        (require 'ox-latex)
-        (require 'ox-html)
-        (require 'ox-beamer)
-        (require 'ox-odt)
-        )
+            (use-package org
+              :ensure org-plus-contrib
+              :config
+              (setq org-agenda-files (list "~/Nextcloud/3. org/Listes/"
+                                           "~/Nextcloud/3. org/Culture/"
+                                           "~/Nextcloud/3. org/Informatique/"))
+              (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+              (global-set-key (kbd "C-c l") 'org-store-link)
+              (global-set-key (kbd "C-c a") 'org-agenda)
+              (global-set-key (kbd "C-c b") 'org-iswitchb)
+              (setq org-replace-disputed-keys t)
+              (setq org-src-fontify-natively t)
+              (setq org-src-tab-acts-natively t)
+              (setq org-log-done t)
+              (setq org-confirm-babel-evaluate nil)
+              (org-babel-do-load-languages
+               'org-babel-load-languages
+               '((python . t)
+                 (emacs-lisp . t)
+                 (R . t)
+                 (org . t)
+                 (latex . t)
+                 ))
+              (setq org-startup-with-inline-images t)
+              (setq org-image-actual-width (/ (display-pixel-width) 3))
+              (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.4))
+              (require 'ox-latex)
+              (require 'ox-html)
+              (require 'ox-beamer)
+              (require 'ox-odt)
+              )
     #+END_SRC
     
 *** Evil-org
