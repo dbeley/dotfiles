@@ -981,6 +981,3 @@
      (global-set-key (kbd "S-C-l") 'enlarge-window-horizontally)
      (global-set-key (kbd "S-C-k") 'enlarge-window)
    #+END_SRC
-** Test rice
-   #+BEGIN_SRC emacs-lisp
-   #+END_SRC

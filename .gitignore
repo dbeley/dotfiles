@@ -3,6 +3,7 @@ mpd/.config/mpd/*
 emacs/.emacs.d/*
 !emacs/.emacs.d/*.org
 !emacs/.emacs.d/init.el
+!emacs/.emacs.d/etc/yasnippet/*
 tmux/.tmux/plugins
 fish/.config/fish/fishd*
 nvim/.config/nvim/.netrwhist
