@@ -292,7 +292,7 @@ execute_on_song_change = "bash ~/scripts/mpdnotify.sh"
 #
 #playlist_shorten_total_times = no
 #
-#playlist_separate_albums = no
+playlist_separate_albums = yes
 #
 ##
 ## Note: Possible display modes: classic, columns.
@@ -331,7 +331,7 @@ execute_on_song_change = "bash ~/scripts/mpdnotify.sh"
 #
 ## Available values: classic, alternative.
 ##
-#user_interface = classic
+user_interface = alternative
 #
 #data_fetching_delay = yes
 #

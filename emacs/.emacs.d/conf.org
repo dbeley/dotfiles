@@ -22,6 +22,10 @@
                         :slant 'italic
                         )
 
+    ;; Margins
+    (setq-default left-margin-width 2 right-margin-width 2)
+    (set-window-buffer nil (current-buffer))
+
     ;; Smooth scrolling
     (setq scroll-margin 5)
     (setq smooth-scroll-margin 1)
@@ -118,8 +122,23 @@
           "e" 'helm-find-files
           "b" 'helm-mini
           "k" 'kill-buffer
-          ;;"t" 'treemacs
-          "r" 'ranger)
+          "m" 'simple-mpc
+          "p" 'simple-mpc-toggle
+          "r" 'ranger
+          "t" 'treemacs
+          "1" 'eyebrowse-switch-to-window-config-1
+          "2" 'eyebrowse-switch-to-window-config-2
+          "3" 'eyebrowse-switch-to-window-config-3
+          "4" 'eyebrowse-switch-to-window-config-4
+          "5" 'eyebrowse-switch-to-window-config-5
+          "6" 'eyebrowse-switch-to-window-config-6
+          "7" 'eyebrowse-switch-to-window-config-7
+          "8" 'eyebrowse-switch-to-window-config-8
+          "9" 'eyebrowse-switch-to-window-config-9
+          "0" 'eyebrowse-switch-to-window-config-0
+          "-" 'eyebrowse-prev-window-config
+          "=" 'eyebrowse-next-window-config
+          )
         )
 
       (use-package evil-surround
@@ -246,23 +265,13 @@
       ;;)
     #+END_SRC
     
-*** perspective-el
-    #+BEGIN_SRC emacs-lisp
-      ;; Conflit avec company-mode
-      ;;(use-package perspective
-      ;;:ensure t
-      ;;:config
-      ;;(persp-mode)
-      ;;)
-    #+END_SRC
-
-***  eyebrowse
+*** eyebrowse
     #+BEGIN_SRC emacs-lisp
       (use-package eyebrowse
-      :ensure t
-      :config
-      (eyebrowse-mode t)
-      )
+        :ensure t
+        :config
+        (eyebrowse-mode t)
+        )
     #+END_SRC
    
 *** fzf
@@ -287,8 +296,8 @@
 *** base16-theme
     #+BEGIN_SRC emacs-lisp
       (use-package base16-theme
-      :ensure t
-      )          
+        :ensure t
+        )          
     #+END_SRC
 
 *** xresources-theme
@@ -303,7 +312,7 @@
         ;;(set-face-attribute 'mode-line          nil :box        nil)
         ;;(set-face-attribute 'mode-line-inactive nil :box        nil))
         )
-        ;;      (set-face-attribute 'mode-line-inactive nil :background "#f9f2d9")))
+      ;;      (set-face-attribute 'mode-line-inactive nil :background "#f9f2d9")))
     #+END_SRC
 *** Chargement des thèmes
     #+BEGIN_SRC emacs-lisp
@@ -566,37 +575,37 @@
 ** Org-mode
 *** Org-mode
     #+BEGIN_SRC emacs-lisp
-            (use-package org
-              :ensure org-plus-contrib
-              :config
-              (setq org-agenda-files (list "~/Nextcloud/3. org/Listes/"
-                                           "~/Nextcloud/3. org/Culture/"
-                                           "~/Nextcloud/3. org/Informatique/"))
-              (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
-              (global-set-key (kbd "C-c l") 'org-store-link)
-              (global-set-key (kbd "C-c a") 'org-agenda)
-              (global-set-key (kbd "C-c b") 'org-iswitchb)
-              (setq org-replace-disputed-keys t)
-              (setq org-src-fontify-natively t)
-              (setq org-src-tab-acts-natively t)
-              (setq org-log-done t)
-              (setq org-confirm-babel-evaluate nil)
-              (org-babel-do-load-languages
-               'org-babel-load-languages
-               '((python . t)
-                 (emacs-lisp . t)
-                 (R . t)
-                 (org . t)
-                 (latex . t)
-                 ))
-              (setq org-startup-with-inline-images t)
-              (setq org-image-actual-width (/ (display-pixel-width) 3))
-              (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.4))
-              (require 'ox-latex)
-              (require 'ox-html)
-              (require 'ox-beamer)
-              (require 'ox-odt)
-              )
+      (use-package org
+        :ensure org-plus-contrib
+        :config
+        (setq org-agenda-files (list "~/Nextcloud/3. org/Listes/"
+                                     "~/Nextcloud/3. org/Culture/"
+                                     "~/Nextcloud/3. org/Informatique/"))
+        (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+        (global-set-key (kbd "C-c l") 'org-store-link)
+        (global-set-key (kbd "C-c a") 'org-agenda)
+        (global-set-key (kbd "C-c b") 'org-iswitchb)
+        (setq org-replace-disputed-keys t)
+        (setq org-src-fontify-natively t)
+        (setq org-src-tab-acts-natively t)
+        (setq org-log-done t)
+        (setq org-confirm-babel-evaluate nil)
+        (org-babel-do-load-languages
+         'org-babel-load-languages
+         '((python . t)
+           (emacs-lisp . t)
+           (R . t)
+           (org . t)
+           (latex . t)
+           ))
+        (setq org-startup-with-inline-images t)
+        (setq org-image-actual-width (/ (display-pixel-width) 3))
+        (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.4))
+        (require 'ox-latex)
+        (require 'ox-html)
+        (require 'ox-beamer)
+        (require 'ox-odt)
+        )
     #+END_SRC
     
 *** Evil-org
@@ -755,7 +764,7 @@
         (setq symon-sparkline-type 'boxed)
         (symon-mode)
         )
-        #+END_SRC
+    #+END_SRC
 
 ** Programmes
 *** eww
@@ -972,4 +981,6 @@
      (global-set-key (kbd "S-C-l") 'enlarge-window-horizontally)
      (global-set-key (kbd "S-C-k") 'enlarge-window)
    #+END_SRC
-    
+** Test rice
+   #+BEGIN_SRC emacs-lisp
+   #+END_SRC
