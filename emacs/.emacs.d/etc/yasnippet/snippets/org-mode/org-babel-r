@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: org-babel-r
+# key: <r
+# --
+#+BEGIN_SRC R :results output
+$0
+#+END_SRC

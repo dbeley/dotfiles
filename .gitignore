@@ -1,8 +1,16 @@
 mpd/.config/mpd/*
 !mpd/.config/mpd/mpd.conf
+
+# emacs
+
 emacs/.emacs.d/*
 !emacs/.emacs.d/*.org
 !emacs/.emacs.d/init.el
+!emacs/.emacs.d/etc/
+emacs/.emacs.d/etc/*
+!emacs/.emacs.d/etc/yasnippet/
+.yas-compiled-snippets.el
+
 tmux/.tmux/plugins
 fish/.config/fish/fishd*
 nvim/.config/nvim/.netrwhist
