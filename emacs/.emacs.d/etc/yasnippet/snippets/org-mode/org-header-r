@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: org-header-r
+# key: org-header-r
+# --
+#+TITLE: $1
+#+AUTHOR: $2
+#+LANGUAGE: $3
+#+OPTIONS: toc:2 num:2
+#+PROPERTY: header-args:R :session *R* :exports both :tangle yes
+#+ATTR_LATEX: :width 1000px
+#+LATEX_HEADER: \usepackage[AUTO]{babel}
+
+* $0

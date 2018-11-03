@@ -18,8 +18,6 @@ alias emc='emacsclient -nw'
 alias enw='emacs -nw'
 alias merde='fuck'
 
-
-
 PS1='[\u@\h \W]\$ '
 
 export EDITOR=nvim

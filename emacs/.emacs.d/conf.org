@@ -37,7 +37,10 @@
 
     (add-hook 'emacs-lisp-mode-hook
               (lambda ()
-                (push '("<=" . ?≤) prettify-symbols-alist))) 
+                (push '("<=" . ?≤) prettify-symbols-alist)
+                (push '(">=" . ?≥) prettify-symbols-alist)
+                (push '("!=" . ?≠) prettify-symbols-alist)
+                ))
 
     ;; Wrap line
     (global-visual-line-mode)
@@ -82,6 +85,11 @@
     (setq browse-url-browser-function 'browse-url-xdg-open)
 
     (setq load-prefer-newer t)
+
+    (setq tramp-default-method "ssh")
+
+    (setq-default explicit-shell-file-name "/bin/bash")
+
   #+END_SRC
 * Plug-ins
 ** better-defaults
@@ -748,11 +756,11 @@
 ** Système
 *** pdf-tools
     #+BEGIN_SRC emacs-lisp
-      ;;(use-package pdf-tools
-      ;;  :ensure t
-      ;;  :config
-      ;;  (pdf-tools-install)
-      ;;  )
+      (use-package pdf-tools
+        :ensure t
+        :config
+        (pdf-tools-install)
+        )
     #+END_SRC
 
 *** symon
