@@ -297,7 +297,7 @@
       (use-package rainbow-mode
         :ensure t
         :config
-        (rainbow-mode)
+        (add-hook 'prog-mode-hook #'rainbow-mode)
         )
     #+END_SRC
 
@@ -543,6 +543,14 @@
         )
     #+END_SRC
     
+*** ggtags 
+    #+BEGIN_SRC emacs-lisp
+      (use-package ggtags
+        :ensure t
+        :config (add-hook 'prog-mode-hook 'ggtags-mode)
+        )
+    #+END_SRC
+    
 ** Projets
 *** Magit
     #+BEGIN_SRC emacs-lisp
@@ -593,6 +601,7 @@
         (global-set-key (kbd "C-c l") 'org-store-link)
         (global-set-key (kbd "C-c a") 'org-agenda)
         (global-set-key (kbd "C-c b") 'org-iswitchb)
+        (setq org-agenda-start-on-weekday nil)
         (setq org-replace-disputed-keys t)
         (setq org-src-fontify-natively t)
         (setq org-src-tab-acts-natively t)
@@ -659,7 +668,7 @@
        (use-package ox-reveal
          :ensure t
          :config
-         (setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js@3.6.0/")
+         (setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/")
          (setq org-reveal-mathjax t)
          )
 

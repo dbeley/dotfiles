@@ -63,6 +63,7 @@ user_pref("browser.search.suggest.enabled", false);
 //user_pref("browser.search.useDBForOrder", true);
 user_pref("browser.send_pings", false);
 user_pref("browser.sessionstore.privacy_level", 2);
+user_pref("browser.sessionstore.interval", 120000);
 //user_pref("browser.sessionstore.restore_on_demand", false);
 user_pref("browser.shell.checkDefaultBrowser", true);
 //user_pref("browser.slowStartup.averageTime", 0);
