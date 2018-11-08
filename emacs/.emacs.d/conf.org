@@ -91,12 +91,14 @@
     (setq-default explicit-shell-file-name "/bin/bash")
 
   #+END_SRC
+  
 * Plug-ins
 ** better-defaults
    #+BEGIN_SRC emacs-lisp
      (use-package better-defaults
        :ensure t)
    #+END_SRC
+   
 ** Nettoyage
    #+BEGIN_SRC emacs-lisp
      (use-package no-littering
@@ -107,6 +109,7 @@
        (add-to-list 'recentf-exclude no-littering-etc-directory)
        )
    #+END_SRC
+   
 ** Navigation
 *** Evil-mode 
     #+BEGIN_SRC emacs-lisp
@@ -134,6 +137,7 @@
           "p" 'simple-mpc-toggle
           "r" 'ranger
           "t" 'treemacs
+          "w" 'elfeed
           "1" 'eyebrowse-switch-to-window-config-1
           "2" 'eyebrowse-switch-to-window-config-2
           "3" 'eyebrowse-switch-to-window-config-3
@@ -161,7 +165,6 @@
         (evil-collection-init)
         (setq evil-collection-setup-minibuffer t)
         )
-
     #+END_SRC   
     
 *** ranger
@@ -291,6 +294,7 @@
         (global-set-key (kbd "C-c x") 'fzf-directory)
         )
     #+END_SRC
+    
 ** Apparence
 *** rainbow-mode
     #+BEGIN_SRC emacs-lisp
@@ -322,6 +326,7 @@
         )
       ;;      (set-face-attribute 'mode-line-inactive nil :background "#f9f2d9")))
     #+END_SRC
+    
 *** Chargement des thèmes
     #+BEGIN_SRC emacs-lisp
       ;;(load-theme 'base16-darktooth t)
@@ -351,54 +356,59 @@
 
 *** spaceline
     #+BEGIN_SRC emacs-lisp
-      ;;(use-package spaceline
-      ;;  :ensure t
-      ;;  :config
-      ;;  (spaceline-spacemacs-theme)
-      ;;  ;;(spaceline-emacs-theme)
-      ;;  (setq powerline-default-separator 'wave)
-      ;;  ;;(setq powerline-default-separator 'wave)
-      ;;  ;; choix : alternate, arrow, arrow-fade, bar, box, brace,
-      ;;  ;; butt, chamfer, contour, curve, rounded, roundstub, slant, wave, zigzag,
-      ;;  ;; utf-8.
-      ;;  (setq spaceline-workspace-numbers-unicode t)
-      ;;  (setq spaceline-window-numbers-unicode t)
-      ;;  ;;(spaceline-toggle-workspace-number-off)
-      ;;  ;;(spaceline-helm-mode 1)
-      ;;  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
-      ;;  (spaceline-compile)
-      ;;  )
-
-      ;;(use-package all-the-icons
-      ;;  :ensure t
-      ;;  )
-
-      ;;(use-package spaceline-all-the-icons
-      ;;  :ensure t
-      ;;  :after spaceline
-      ;;  :config (spaceline-all-the-icons-theme)
-      ;;  (setq spaceline-all-the-icons-flycheck-alternate t)
-      ;;  (setq spaceline-all-the-icons-separator-type 'arrow)
-      ;;  ;; slant arrow cup wave none
-      ;;  (setq spaceline-all-the-icons-separators-invert-direction t)
-      ;;  (setq spaceline-all-the-icons-primary-separator "")
-      ;;  (setq spaceline-all-the-icons-secondary-separator "")
-      ;;  (setq powerline-text-scale-factor 1.1)
-      ;;  (spaceline-toggle-all-the-icons-buffer-position-on)
-      ;;  )
-    #+END_SRC
-*** telephone-line
-    #+BEGIN_SRC emacs-lisp
-      (use-package telephone-line
+      (use-package spaceline
         :ensure t
         :config
-        (setq telephone-line-primary-left-separator 'telephone-line-cubed-left
-              telephone-line-secondary-left-separator 'telephone-line-cubed-hollow-left
-              telephone-line-primary-right-separator 'telephone-line-cubed-right
-              telephone-line-secondary-right-separator 'telephone-line-cubed-hollow-right)
-        (setq telephone-line-height 20)
-        (telephone-line-mode 1))
+        (spaceline-spacemacs-theme)
+        ;;(spaceline-emacs-theme)
+        (setq powerline-default-separator 'wave)
+        ;;(setq powerline-default-separator 'wave)
+        ;; choix : alternate, arrow, arrow-fade, bar, box, brace,
+        ;; butt, chamfer, contour, curve, rounded, roundstub, slant, wave, zigzag,
+        ;; utf-8.
+        (setq spaceline-workspace-numbers-unicode t)
+        (setq spaceline-window-numbers-unicode t)
+        ;;(spaceline-toggle-workspace-number-off)
+        (spaceline-helm-mode +1)
+        (spaceline-info-mode +1)
+        (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+        (spaceline-compile)
+        )
+
+      (use-package all-the-icons
+        :ensure t
+        )
+
+      (use-package spaceline-all-the-icons
+        :ensure t
+        :after spaceline
+        :config (spaceline-all-the-icons-theme)
+        (setq spaceline-all-the-icons-flycheck-alternate t)
+        (setq spaceline-all-the-icons-separator-type 'slant)
+        ;; slant arrow cup wave none
+        ;;(setq spaceline-all-the-icons-separators-invert-direction t)
+        (setq spaceline-all-the-icons-primary-separator "")
+        (setq spaceline-all-the-icons-secondary-separator "")
+        ;;(setq powerline-text-scale-factor 1.1)
+        (spaceline-toggle-all-the-icons-buffer-position-on)
+        (spaceline-toggle-all-the-icons-eyebrowse-workspace-off)
+        (spaceline-toggle-all-the-icons-projectile-on)
+        )
     #+END_SRC
+    
+*** telephone-line
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package telephone-line
+      ;;  :ensure t
+      ;;  :config
+      ;;  (setq telephone-line-primary-left-separator 'telephone-line-cubed-left
+      ;;        telephone-line-secondary-left-separator 'telephone-line-cubed-hollow-left
+      ;;        telephone-line-primary-right-separator 'telephone-line-cubed-right
+      ;;        telephone-line-secondary-right-separator 'telephone-line-cubed-hollow-right)
+      ;;  (setq telephone-line-height 20)
+      ;;  (telephone-line-mode 1))
+    #+END_SRC
+    
 *** moody
     #+BEGIN_SRC emacs-lisp
       ;;(use-package moody
@@ -601,6 +611,7 @@
         (global-set-key (kbd "C-c l") 'org-store-link)
         (global-set-key (kbd "C-c a") 'org-agenda)
         (global-set-key (kbd "C-c b") 'org-iswitchb)
+        (global-set-key (kbd "C-c v") 'org-show-todo-tree)
         (setq org-agenda-start-on-weekday nil)
         (setq org-replace-disputed-keys t)
         (setq org-src-fontify-natively t)
@@ -655,7 +666,6 @@
     #+END_SRC
     
 *** Exports
-**** Exports intégrés à org-mode
 **** Twitter Bootstrap
      #+BEGIN_SRC emacs-lisp
        (use-package ox-twbs
@@ -702,6 +712,13 @@
         :ensure t
         :after ox)
     #+END_SRC
+    
+*** org-noter
+    #+BEGIN_SRC emacs-lisp
+      (use-package org-noter
+        :ensure t)
+    #+END_SRC
+    
 ** Programmation
 *** ess
     #+BEGIN_SRC emacs-lisp
@@ -720,6 +737,7 @@
         (global-set-key (kbd "C-c p") #'org-preview-html-mode)
         )
     #+END_SRC
+    
 *** Python
 **** elpy
      #+BEGIN_SRC emacs-lisp
@@ -753,6 +771,7 @@
         (global-set-key (kbd "C-h C") #'helpful-command)
         )
     #+END_SRC
+    
 *** which-key
     #+BEGIN_SRC emacs-lisp
       (use-package which-key
@@ -802,18 +821,18 @@
     
 *** elfeed
     #+BEGIN_SRC emacs-lisp
-      (use-package elfeed
-        :ensure t
-        :config
-        (global-set-key (kbd "C-x w") 'elfeed)
-        (setf url-queue-timeout 4)
-        )
-
       (use-package elfeed-org
         :ensure t
         :config
         (elfeed-org)
         (setq rmh-elfeed-org-files (list "~/Nextcloud/3. org/Listes/rss.org"))
+        )
+
+      (use-package elfeed
+        :ensure t
+        :config
+        (global-set-key (kbd "C-x w") 'elfeed)
+        ;;(setf url-queue-timeout 4)
         )
 
       ;;(use-package elfeed-goodies
@@ -829,6 +848,7 @@
         :ensure t
         )
     #+END_SRC
+    
 * EXWM
   #+BEGIN_SRC emacs-lisp
     ;;(use-package exwm
@@ -922,6 +942,7 @@
     ;; (shell-command "setxkbmap us -variant intl")
     ;; )
   #+END_SRC
+  
 * Autres
 ** Fonctions
 *** elfeed-play-with-mpv
@@ -972,6 +993,7 @@
 
       (evil-define-key 'normal elfeed-search-mode-map (kbd "<S-return>") #'ambrevar/elfeed-visit-maybe-external)
     #+END_SRC
+    
 ** Personnalisation
    #+BEGIN_SRC emacs-lisp
      (custom-set-faces
@@ -984,9 +1006,9 @@
       '(spaceline-evil-insert ((t (:background "dark slate grey" :foreground "black"))))
       '(spaceline-evil-visual ((t (:background "indian red" :foreground "black"))))
       '(spaceline-evil-replace ((t (:background "dark gray" :foreground "black"))))
-      ;;'(spaceline-highlight-face ((t (:background "dark gray" :foreground "#3E3D31" :inherit 'mode-line))))
       )
    #+END_SRC
+   
 ** Raccourcis clavier
    #+BEGIN_SRC emacs-lisp
      (global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
