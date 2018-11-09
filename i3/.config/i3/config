@@ -354,12 +354,12 @@ mode "Move" {
 set $mode_keyboard Keyboard | 1/q : qwerty | 2/b : bépo | 3/a : azerty
 
 mode "$mode_keyboard" {
-    bindsym q exec --no-startup-id setxkbmap us -variant intl -option ctrl:nocaps; xmodmap -e 'keycode 135 = Escape'
-    bindsym 1 exec --no-startup-id setxkbmap us -variant intl -option ctrl:nocaps; xmodmap -e 'keycode 135 = Escape'
-    bindsym b exec --no-startup-id setxkbmap fr bepo -option ctrl:nocaps; xmodmap -e 'keycode 135 = Escape'
-    bindsym 2 exec --no-startup-id setxkbmap fr bepo -option ctrl:nocaps; xmodmap -e 'keycode 135 = Escape'
-    bindsym a exec --no-startup-id setxkbmap fr azerty -option ctrl:nocaps; xmodmap -e 'keycode 135 = Escape'
-    bindsym 3 exec --no-startup-id setxkbmap fr azerty -option ctrl:nocaps; xmodmap -e 'keycode 135 = Escape'
+    bindsym q exec --no-startup-id setxkbmap us -variant intl -option ctrl:nocaps && xmodmap -e 'keycode 135 = Escape'
+    bindsym 1 exec --no-startup-id setxkbmap us -variant intl -option ctrl:nocaps && xmodmap -e 'keycode 135 = Escape'
+    bindsym b exec --no-startup-id setxkbmap fr bepo -option ctrl:nocaps && xmodmap -e 'keycode 135 = Escape'
+    bindsym 2 exec --no-startup-id setxkbmap fr bepo -option ctrl:nocaps && xmodmap -e 'keycode 135 = Escape'
+    bindsym a exec --no-startup-id setxkbmap fr azerty -option ctrl:nocaps && xmodmap -e 'keycode 135 = Escape'
+    bindsym 3 exec --no-startup-id setxkbmap fr azerty -option ctrl:nocaps && xmodmap -e 'keycode 135 = Escape'
 
     bindsym Return mode "default" 
     bindsym Escape mode "default" 

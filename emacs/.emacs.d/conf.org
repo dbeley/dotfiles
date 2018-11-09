@@ -107,6 +107,8 @@
        (require 'recentf)
        (add-to-list 'recentf-exclude no-littering-var-directory)
        (add-to-list 'recentf-exclude no-littering-etc-directory)
+       (setq auto-save-file-name-transforms
+             `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
        )
    #+END_SRC
    
@@ -628,7 +630,7 @@
            ))
         (setq org-startup-with-inline-images t)
         (setq org-image-actual-width (/ (display-pixel-width) 3))
-        (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.4))
+        (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.8))
         (require 'ox-latex)
         (require 'ox-html)
         (require 'ox-beamer)
