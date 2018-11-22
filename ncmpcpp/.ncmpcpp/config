@@ -33,7 +33,7 @@
 #
 ## Needed for tag editor and file operations to work.
 ##
-mpd_music_dir = /mnt/Seagate4To/Nextcloud/Musique
+mpd_music_dir = /run/media/david/Seagate\ Backup\ Plus/Nextcloud/Musique/
 #
 #mpd_crossfade_time = 5
 #

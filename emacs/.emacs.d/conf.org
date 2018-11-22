@@ -134,10 +134,12 @@
         (evil-leader/set-key
           "e" 'helm-find-files
           "b" 'helm-mini
+          "c" 'eyebrowse-close-window-config
           "k" 'kill-buffer
           "m" 'simple-mpc
           "p" 'simple-mpc-toggle
           "r" 'ranger
+          "s" 'eyebrowse-switch-to-window-config
           "t" 'treemacs
           "w" 'elfeed
           "1" 'eyebrowse-switch-to-window-config-1
@@ -423,6 +425,14 @@
       ;;(use-package minions
       ;;  :ensure t
       ;;  :config (minions-mode 1))
+    #+END_SRC
+   
+*** doom-modeline 
+    #+BEGIN_SRC emacs-lisp
+      ;;(use-package doom-modeline
+      ;;  :ensure t
+      ;;  :defer t
+      ;;  :hook (after-init . doom-modeline-init))
     #+END_SRC
     
 *** page-break-lines
