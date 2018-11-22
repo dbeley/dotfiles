@@ -1,10 +1,13 @@
-
+"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+"
 "  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
 "  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
 "  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
 "  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
 "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
 "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
+"
+"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -14,6 +17,8 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'dylanaraps/wal'
 Plug 'mhinz/vim-startify'
+
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -63,11 +68,19 @@ set encoding=utf8
 set linespace=0
 
 " Text Wraping
-set textwidth=79
+"set textwidth=79
 set colorcolumn=80
 set wrap
 
 set scrolloff=5
+
+" Lightline
+set laststatus=2
+set noshowmode
+
+let g:lightline = {
+    \ 'colorscheme': 'jellybeans',
+    \ }
 
 "Split navigations
 nnoremap <C-J> <C-W><C-J>
