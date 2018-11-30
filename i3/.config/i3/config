@@ -285,7 +285,7 @@ mode "resize" {
 set $mode_gaps Gaps: (p) presets, (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (1px), Shift + +|-|0 (5px)
 set $mode_gaps_inner Inner Gaps: +|-|0 (1px), Shift + +|-|0 (5px)
-set $mode_presets (1 | 0,0) (2 | 8,0) (3 | 8,2) (4 | 8,4) (5 | 8,8) (6 | 8,16) (7 | 16,8) (8 | 16,16) (9 | 16,24) (0 | 16,36)
+set $mode_presets (1 | 0,0) (2 | 8,0) (3 | 8,2) (4 | 8,4) (5 | 12,0) (6 | 12,2) (7 | 16,4) (8 | 16,8) (9 | 16,16) (0 | 16,24)
 
 mode "$mode_gaps" {
 	bindsym p      mode "$mode_presets"
@@ -299,12 +299,12 @@ mode "$mode_presets" {
 	bindsym 2 gaps inner all set 8, gaps outer all set 0
 	bindsym 3 gaps inner all set 8, gaps outer all set 2
 	bindsym 4 gaps inner all set 8, gaps outer all set 4
-	bindsym 5 gaps inner all set 8, gaps outer all set 8
-	bindsym 6 gaps inner all set 8, gaps outer all set 16
-	bindsym 7 gaps inner all set 16, gaps outer all set 8
-	bindsym 8 gaps inner all set 16, gaps outer all set 16
-	bindsym 9 gaps inner all set 16, gaps outer all set 24
-	bindsym 0 gaps inner all set 16, gaps outer all set 36
+	bindsym 5 gaps inner all set 12, gaps outer all set 0
+	bindsym 6 gaps inner all set 12, gaps outer all set 2
+	bindsym 7 gaps inner all set 16, gaps outer all set 4
+	bindsym 8 gaps inner all set 16, gaps outer all set 8
+	bindsym 9 gaps inner all set 16, gaps outer all set 16
+	bindsym 0 gaps inner all set 16, gaps outer all set 24
 
 	bindsym Return mode "$mode_gaps" 
 	bindsym Escape mode "$mode_gaps"

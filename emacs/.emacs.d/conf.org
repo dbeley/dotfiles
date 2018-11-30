@@ -1,11 +1,7 @@
 #+TITLE: Emacs
-* Identité
-  #+BEGIN_SRC emacs-lisp
-    (setq user-full-name "dbeley")
-  #+END_SRC
-  
 * Paramètres basiques
   #+BEGIN_SRC emacs-lisp
+    (setq user-full-name "dbeley")
     ;; Hide GUI elements
     (tool-bar-mode -1)
     (menu-bar-mode -1)
@@ -135,10 +131,11 @@
           "e" 'helm-find-files
           "b" 'helm-mini
           "c" 'eyebrowse-close-window-config
+          "d" 'dired
           "k" 'kill-buffer
           "m" 'simple-mpc
           "p" 'simple-mpc-toggle
-          "r" 'ranger
+          ;; "r" 'ranger
           "s" 'eyebrowse-switch-to-window-config
           "t" 'treemacs
           "w" 'elfeed
@@ -173,14 +170,14 @@
     
 *** ranger
     #+BEGIN_SRC emacs-lisp
-      (use-package ranger
-        :ensure t
-        :config
-        (setq ranger-override-dired 'ranger)
-        (ranger-override-dired-mode t)
-        (global-set-key (kbd "C-c r") #'ranger)
-        (setq ranger-preview-file t)
-        )
+      ;; (use-package ranger
+      ;;   :ensure t
+      ;;   :config
+      ;;   ;; (setq ranger-override-dired 'ranger)
+      ;;   ;; (ranger-override-dired-mode t)
+      ;;   (global-set-key (kbd "C-c r") #'ranger)
+      ;;   (setq ranger-preview-file t)
+      ;;   )
     #+END_SRC   
    
 *** ace-window
@@ -299,6 +296,18 @@
         )
     #+END_SRC
     
+*** avy
+    #+BEGIN_SRC emacs-lisp
+      (use-package avy
+        :ensure t
+        :config
+        (global-set-key (kbd "C-;") 'avy-goto-char)
+        (global-set-key (kbd "C-:") 'avy-goto-char-timer)
+        (global-set-key (kbd "M-g f") 'avy-goto-line)
+        (global-set-key (kbd "M-g e") 'avy-goto-word-0)
+        )
+    #+END_SRC
+
 ** Apparence
 *** rainbow-mode
     #+BEGIN_SRC emacs-lisp
@@ -741,7 +750,10 @@
 *** org-noter
     #+BEGIN_SRC emacs-lisp
       (use-package org-noter
-        :ensure t)
+        :ensure t
+        :config (setq org-noter-default-notes-file-names '("Notes.org")
+                      org-noter-notes-search-path '("/~/Nextcloud/3. org/Notes/")
+                      org-noter-separate-notes-from-heading t))
     #+END_SRC
     
 ** Programmation
@@ -833,6 +845,11 @@
       (use-package eww
         :ensure t
         )
+
+      (use-package ace-link
+        :ensure t
+        :config
+        (ace-link-setup-default))
     #+END_SRC
     
 *** simple-mpc
