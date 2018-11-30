@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+# name: org-header-beamer
+# key: org-header-beamer
+# --
+
+#+TITLE:     $1
+#+AUTHOR:    $2
+#+DATE:      $3
+#+DESCRIPTION: 
+#+KEYWORDS: 
+#+LANGUAGE:  $4
+#+OPTIONS:   H:3 num:t toc:t
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LATEX_CLASS: beamer
+#+COLUMNS: %45ITEM %10BEAMER_env(Env) %10BEAMER_act(Act) %4BEAMER_col(Col) %8BEAMER_opt(Opt)
+#+BEAMER_THEME: madrid
+
+* $5

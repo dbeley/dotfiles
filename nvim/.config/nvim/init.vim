@@ -47,7 +47,7 @@ Plug 'lervag/vimtex'
 "Plug 'rhysd/vim-grammarous'
 
 Plug 'w0rp/ale'
-Plug 'sheerun/vim-polyglot'
+"Plug 'sheerun/vim-polyglot'
 Plug 'majutsushi/tagbar'
 
 Plug 'jceb/vim-orgmode'
