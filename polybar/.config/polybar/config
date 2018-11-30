@@ -20,17 +20,10 @@
 foreground = #dfdfdf
 foreground-alt = #888
 background = ${xrdb:color0:#222}
-background-alt = ${xrdb:color0:#222}
-primary = ${xrdb:color3:#222}
+primary = ${xrdb:color2:#222}
 secondary = ${xrdb:color3:#222}
+border = ${xrdb:color1:#222}
 alert = #bd2c40
-
-;foreground = #cc000000
-;foreground-alt = #cc000000
-;background = #00000000
-;background-alt = #444
-;primary = #444444
-;secondary = #444444
 
 [bar/bar]
 enable-ipc = true
@@ -42,7 +35,8 @@ offset-x = 0
 offset-y = 0
 
 border-bottom-size = 2
-border-bottom-color = #444
+;border-bottom-color = #444
+border-bottom-color = ${colors.border}
 ;border-top-size = 5
 ;border-right-size = 10
 ;border-left-size = 10
@@ -100,8 +94,6 @@ pin-workspaces = true
 ;label-focused = ◈♦●
 ;label-occupied =  ◇·○
 label-focused = ●
-;label-focused-background = ${colors.background-alt}
-;label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 label-occupied = ·

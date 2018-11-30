@@ -217,26 +217,28 @@ exec_always --no-startup-id compton --config "$HOME/.config/compton.conf"
 # Colors set from ~/.Xresources
 set_from_resource $fg i3wm.color0 #f0f0f0
 set_from_resource $bg i3wm.color3 #f0f0f0
-set_from_resource $bd i3wm.color1 #ffffff
+set_from_resource $bd i3wm.color4 #ffffff
+set_from_resource $active i3wm.color3 #f0f0f0
+set_from_resource $inactive i3wm.color1 #f0f0f0
+
 set $tx	#ffffff 
+# set $red #ff0000
+# set $blue #0000ff
+# set $green #00ff00
 
-# Theme colors
-# class                 	border  backgr. text  	indic. 	child_border
-# My colors
-#client.background		$bg
+# #                               border          background      text            indicator       child-border
+# client.focused         		$green		$green		$blue		$blue             $blue
+# client.unfocused       		$blue		$blue		$green		$green             $green
+# client.focused_inactive		$red		$red		$red		$red             $red
+# client.urgent	        	$red		$red		$red		$red             $red
+# client.placeholder      	$red		$red		$red		$red             $red
 
-client.focused         		$bg		$bg		$tx		$bd		$bg	#444444
-client.unfocused       		$bd		$bd		$tx		$bd
-client.focused_inactive		$bd		$bd		$tx		$bd
-client.urgent	        	$tx		$tx		$tx		$tx
-client.placeholder      	$tx		$tx		$tx		$tx
-
-##                       border              background         text                     indicator     child-border
-#client.focused          $bg-color           $bg-color          $text-color              $bg-color      #444444
-#client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color 	$inactive-bg-color
-#client.focused_inactive $urgent-bg-color    $inactive-bg-color $inactive-text-color	$inactive-bg-color
-#client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color              $urgent-bg-color
-
+#                               border          background      text            indicator       child-border
+client.focused         		$bg		$bg		$tx		$active         $active
+client.unfocused       		$bd		$bd		$tx		$inactive       $inactive
+client.focused_inactive		$bd		$bd		$tx		$inactive       $inactive
+client.urgent	        	$tx		$tx		$tx		$tx             $tx
+client.placeholder      	$tx		$tx		$tx		$tx             $tx
 
 ###########################################
 ########## 4. User-defined modes ##########
