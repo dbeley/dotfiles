@@ -1,6 +1,6 @@
 set selection-clipboard clipboard
 
-set font "iosevka italic 10"
+set font "iosevka nerd font italic 10"
 
 set default-bg                  "#262626" #00
 set default-fg                  "#ebdbb2" #01

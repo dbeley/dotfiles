@@ -12,7 +12,6 @@ Xcursor.size: 16
 !URxvt.font: xft:Iosevka\ Nerd\ Font:style=Regular:size=11:antialias=true:hinting=true
 URxvt.font: xft:Iosevka\ Nerd\ Font\ Mono:style=Italic:size=11:antialias=true:hinting=true
 !URxvt.font: xft:Fixed:size=11:antialias=true:hinting=true
-!Emacs.font: xft:Iosevka\ Nerd\ Font:style=Italic:size=11:antialias=true:hinting=true
 
 rofi.font: iosevka nerd font italic 14
 !rofi.font: fixed 16
