@@ -23,6 +23,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 
 "Plug 'morhetz/gruvbox'
 Plug 'dylanaraps/wal'
@@ -133,6 +134,9 @@ nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>t :Files<CR>
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>k :bdelete<CR>
+nnoremap <leader>g :Goyo<CR>
+nnoremap <leader>w :w<CR>
+inoremap <leader>w <C-c>:w<CR>
 
 " nnoremap <BS> <PageUp>
 " nnoremap <Space> <PageDown>
