@@ -132,15 +132,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
 
-#set $ws1 "I"
-#set $ws2 "II"
-#set $ws3 "III"
-#set $ws4 "IV"
-#set $ws5 "V"
-#set $ws6 "VI"
-#set $ws7 "VII"
-#set $ws8 "VIII"
-
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -353,20 +344,6 @@ mode "Move" {
 	bindsym Escape mode "default" 
 }
 
-#set $mode_keyboard Keyboard | 1/q : qwerty | 2/b : bépo | 3/a : azerty
-#
-#mode "$mode_keyboard" {
-#    bindsym q exec --no-startup-id setxkbmap us -variant intl -option ctrl:nocaps && xmodmap -e 'keycode 135 = Escape'
-#    bindsym 1 exec --no-startup-id setxkbmap us -variant intl -option ctrl:nocaps && xmodmap -e 'keycode 135 = Escape'
-#    bindsym b exec --no-startup-id setxkbmap fr bepo -option ctrl:nocaps && xmodmap -e 'keycode 135 = Escape'
-#    bindsym 2 exec --no-startup-id setxkbmap fr bepo -option ctrl:nocaps && xmodmap -e 'keycode 135 = Escape'
-#    bindsym a exec --no-startup-id setxkbmap fr azerty -option ctrl:nocaps && xmodmap -e 'keycode 135 = Escape'
-#    bindsym 3 exec --no-startup-id setxkbmap fr azerty -option ctrl:nocaps && xmodmap -e 'keycode 135 = Escape'
-#
-#    bindsym Return mode "default" 
-#    bindsym Escape mode "default" 
-#}
-
 ##############################################
 ########## 5. User-defined commands ##########
 ##############################################
@@ -377,7 +354,6 @@ mode "Move" {
 
 # Keyboard / Mouse
 #exec --no-startup-id xmodmap -e "pointer = 3 2 1"
-#exec --no-startup-id setxkbmap -layout us,fr -variant intl,bepo -option ctrl:nocaps,shift:both_capslock,grp:sclk_toggle
 exec --no-startup-id setxkbmap -layout us -variant intl -option ctrl:nocaps,shift:both_capslock
 exec_always --no-startup-id xmodmap -e 'keycode 135 = Escape'
 exec --no-startup-id unclutter --timeout 3 --ignore-scrolling &
@@ -414,8 +390,6 @@ bindsym $mod+r mode "resize"
 bindsym $mod+g mode "$mode_gaps"
 # Move mode
 bindsym $mod+m mode "Move"
-# Keyboard configuration
-#bindsym XF86WebCam mode "$mode_keyboard"
 
 # Screenshot
 bindsym --release Print exec --no-startup-id "maim ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s).png"
@@ -429,11 +403,16 @@ bindsym XF86Suspend exec --no-startup-id "slock"
 bindsym XF86TouchpadToggle exec --no-startup-id "bash $HOME/scripts/touchpad_toggle.sh"
 
 # Keyboard
-#bindsym Scroll_Lock exec --no-startup-id "notify-send Clavier (setxkbmap -query | grep layout)"
-bindsym Scroll_Lock exec --no-startup-id "bash $HOME/scripts/layout_change.sh"
+bindsym Scroll_Lock exec --no-startup-id "bash $HOME/scripts/change_layout.sh"
 
 # Display settings
 bindsym XF86Display exec --no-startup-id "bash $HOME/scripts/display_config.sh"
+
+# Scripts
+bindsym Shift+F1 exec --no-startup-id "bash $HOME/scripts/buku.sh"
+bindsym XF86Launch1 exec --no-startup-id "bash $HOME/scripts/search.sh"
+bindsym Shift+XF86Launch1 exec --no-startup-id "bash $HOME/scripts/launch.sh"
+bindsym --release $mod+Shift+v exec --no-startup-id "bash $HOME/scripts/draw_urxvt.sh"
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 5%
@@ -452,16 +431,8 @@ bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioPause exec mpc toggle
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
-#bindsym XF86AudioPlay exec rhythmbox-client --play-pause
-#bindsym XF86AudioPause exec rhythmbox-client --play-pause
-#bindsym XF86AudioNext exec rhythmbox-client --next
-#bindsym XF86AudioPrev exec rhythmbox-client --previous
 
 # Other
-#bindsym XF86Launch1 exec urxvtc
-bindsym XF86Launch1 exec --no-startup-id "bash $HOME/scripts/search.sh"
-bindsym Shift+XF86Launch1 exec --no-startup-id "bash $HOME/scripts/launch.sh"
 bindsym XF86Back workspace prev
 bindsym XF86Forward workspace next
-bindsym --release $mod+Shift+v exec --no-startup-id "bash $HOME/scripts/draw_urxvt.sh"
 bindsym $mod+z exec --no-startup-id emacsclient -c
