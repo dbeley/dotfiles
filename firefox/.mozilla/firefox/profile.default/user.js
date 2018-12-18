@@ -235,6 +235,7 @@ user_pref("browser.helperApps.deleteTempFileOnExit",		true);
 user_pref("browser.pagethumbnails.capturing_disabled",		true);
 user_pref("browser.shell.shortcutFavicons",					false);
 user_pref("browser.bookmarks.max_backups", 0);
+user_pref("network.auth.subresource-http-auth-allow", 1)
 
 /*******************************************************************************
  * SECTION: UI related                                                         *
@@ -341,6 +342,7 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
 user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 user_pref("browser.newtabpage.activity-stream.prerender", false);
+user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfs", false);
 user_pref("browser.onboarding.tour.onboarding-tour-addons.completed", true);
 user_pref("browser.onboarding.tour.onboarding-tour-customize.completed", true);
 user_pref("browser.onboarding.tour.onboarding-tour-default-browser.completed", true);

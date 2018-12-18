@@ -92,10 +92,10 @@ ws-icon-default = x
 pin-workspaces = true
 
 ;label-focused = ◈♦●
-;label-occupied =  ◇·○
 label-focused = ●
 label-focused-padding = 2
 
+;label-occupied =  ◇·○
 label-occupied = ·
 label-occupied-foreground = ${colors.foreground-alt}
 label-occupied-padding = 2
@@ -104,19 +104,19 @@ label-urgent = ${self.label-occupied}
 label-urgent-foreground = ${colors.alert}
 label-urgent-padding = 2
 
-label-empty =
+label-empty = ·
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
-#format-padding = 8
-#format-margin = 4
-#format-spacing = 8
+# format-padding = 4
+# format-margin = 4
 index-sort = true
 wrapping-scroll = false
 
+label-mode = %mode%
 label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}

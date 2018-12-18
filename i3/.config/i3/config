@@ -393,7 +393,7 @@ bindsym $mod+m mode "Move"
 
 # Screenshot
 bindsym --release Print exec --no-startup-id "maim ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s).png"
-bindsym Shift+Print exec --no-startup-id "maim -s ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s)_cropped.png | xclip" 
+bindsym Shift+Print exec --no-startup-id "maim -s ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s)_cropped.png" 
 
 # Lockscreen
 bindsym XF86ScreenSaver exec --no-startup-id "slock"
