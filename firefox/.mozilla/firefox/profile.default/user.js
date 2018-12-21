@@ -25,12 +25,22 @@ user_pref("dom.webnotifications.enabled",			false);
 user_pref("dom.enable_performance",				false);
 user_pref("dom.enable_user_timing",				false);
 user_pref("dom.webaudio.enabled",				false);
-user_pref("geo.enabled",					false);
-user_pref("geo.wifi.uri", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
-user_pref("geo.wifi.logging.enabled", false);
 user_pref("dom.mozTCPSocket.enabled",				false);
 user_pref("dom.netinfo.enabled",				false);
 user_pref("dom.network.enabled",				false);
+user_pref("dom.battery.enabled",				false);
+user_pref("dom.telephony.enabled",				false);
+user_pref("dom.gamepad.enabled",				false);
+user_pref("dom.vr.enabled",					false);
+user_pref("dom.vibrator.enabled",           false);
+user_pref("dom.enable_resource_timing",				false);
+user_pref("dom.archivereader.enabled",				false);
+user_pref("dom.maxHardwareConcurrency",				32);
+//user_pref("dom.event.clipboardevents.enabled",			false);
+//user_pref("dom.allow_cut_copy", false);
+user_pref("geo.enabled",					false);
+user_pref("geo.wifi.uri", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
+user_pref("geo.wifi.logging.enabled", false);
 user_pref("media.peerconnection.enabled",			false);
 user_pref("media.peerconnection.ice.default_address_only",	true); // Firefox 42-51
 user_pref("media.peerconnection.ice.no_host",			true); // Firefox >= 52
@@ -38,27 +48,17 @@ user_pref("media.navigator.enabled",				false);
 user_pref("media.navigator.video.enabled",			false);
 user_pref("media.getusermedia.screensharing.enabled",		false);
 user_pref("media.getusermedia.audiocapture.enabled",		false);
-user_pref("dom.battery.enabled",				false);
-user_pref("dom.telephony.enabled",				false);
 user_pref("beacon.enabled",					false);
-//user_pref("dom.event.clipboardevents.enabled",			false);
-//user_pref("dom.allow_cut_copy", false);
 user_pref("media.webspeech.recognition.enable",			false);
 user_pref("media.webspeech.synth.enabled",			false);
 user_pref("device.sensors.enabled",				false);
 user_pref("browser.send_pings",					false);
 user_pref("browser.send_pings.require_same_host",		true);
-user_pref("dom.gamepad.enabled",				false);
-user_pref("dom.vr.enabled",					false);
-user_pref("dom.vibrator.enabled",           false);
-user_pref("dom.enable_resource_timing",				false);
-user_pref("dom.archivereader.enabled",				false);
 user_pref("webgl.disabled",					true);
 user_pref("webgl.min_capability_mode",				true);
 user_pref("webgl.disable-extensions",				true);
 user_pref("webgl.disable-fail-if-major-performance-caveat",	true);
 user_pref("webgl.enable-debug-renderer-info",			false);
-user_pref("dom.maxHardwareConcurrency",				32);
 user_pref("javascript.options.wasm",				false);
 
 /******************************************************************************
@@ -196,6 +196,7 @@ user_pref("network.cookie.cookieBehavior",			1);
 user_pref("privacy.firstparty.isolate",				true);
 user_pref("privacy.firstparty.isolate.restrict_opener_access", true);
 user_pref("network.cookie.thirdparty.sessionOnly",		true);
+user_pref("network.cookie.thirdparty.nonsecureSessionOnly",     true);
 
 /*******************************************************************************
  * SECTION: Caching                                                            *
