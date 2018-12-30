@@ -1,3 +1,4 @@
+
 # Table of contents
 # ------------------------
 # 1. Standard options
@@ -352,17 +353,17 @@ mode "Move" {
 ### PROGRAMS ###
 ################
 
-# Keyboard / Mouse
-#exec --no-startup-id xmodmap -e "pointer = 3 2 1"
-exec --no-startup-id setxkbmap -layout us -variant intl -option ctrl:nocaps,shift:both_capslock
-exec_always --no-startup-id xmodmap -e 'keycode 135 = Escape'
-exec --no-startup-id unclutter --timeout 3 --ignore-scrolling &
-exec --no-startup-id "bash $HOME/scripts/touchpad_toggle.sh"
+# Keyboard
+# exec --no-startup-id setxkbmap -layout us -variant intl -option ctrl:nocaps,shift:both_capslock
+# exec --no-startup-id "xmodmap ~/.Xmodmap && xcape -e 'Shift_L=Escape;Shift_R=Escape;Hyper_L=Tab;Hyper_R=backslash'"
+# exec --no-startup-id xset r rate 200 45
+# exec --no-startup-id unclutter --timeout 3 --ignore-scrolling &
+# exec --no-startup-id "bash $HOME/scripts/touchpad_toggle.sh"
 
 # Power management
-exec --no-startup-id xset -dpms
-exec --no-startup-id xset s off
-exec --no-startup-id xset -b
+# exec --no-startup-id xset -dpms
+# exec --no-startup-id xset s off
+# exec --no-startup-id xset -b
 
 # Urxvt
 exec --no-startup-id urxvtd -q -o -f

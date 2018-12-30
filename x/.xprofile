@@ -1,2 +1,14 @@
+#!/bin/sh
+
+setxkbmap -layout us -variant intl -option ctrl:nocaps,shift:both_capslock
+xmodmap $HOME/.Xmodmap || true
+xcape -t 300 -e "Shift_L=Escape;Shift_R=Escape;Hyper_L=Tab;Hyper_R=backslash"
+xset r rate 250 55
+unclutter --timeout 3 --ignore-scrolling &
+$HOME/scripts/touchpad_toggle.sh
+xset -dpms
+xset s off
+xset -b
+
 [ "$XDG_CURRENT_DESKTOP" = "KDE" ] || export QT_QPA_PLATFORMTHEME="qt5ct"
 wal -R
