@@ -90,7 +90,7 @@ user_pref("gfx.font_rendering.opentype_svg.enabled",		false);
 user_pref("media.video_stats.enabled",				false);
 user_pref("general.buildID.override",				"20100101");
 user_pref("browser.startup.homepage_override.buildID",		"20100101");
-user_pref("browser.display.use_document_fonts",			0);
+//user_pref("browser.display.use_document_fonts",			0);
 user_pref("network.protocol-handler.warn-external-default",	true);
 user_pref("network.protocol-handler.external.http",		false);
 user_pref("network.protocol-handler.external.https",		false);

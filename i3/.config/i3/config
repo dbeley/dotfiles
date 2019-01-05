@@ -51,10 +51,10 @@ bindsym $mod+Tab exec --no-startup-id rofi -show window
 # focus_follows_mouse no
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -63,10 +63,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -80,7 +80,7 @@ bindsym $mod+Shift+Right move right
 #bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+h split h
+bindsym $mod+semicolon split h
 bindsym $mod+v split v
 bindsym $mod+q split toggle
 
@@ -187,10 +187,9 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 #for_window [class="URxvt"] floating enable
 for_window [class="URxvt" instance="float"] floating enable
 for_window [window_role="float"] floating enable
-for_window [class="mpv"] floating enable
+for_window [class="mpv"] floating enable sticky enable resize set 384 216
 for_window [instance="feh"] floating enable
 for_window [instance="mupdf"] floating enable
-
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -237,7 +236,6 @@ client.placeholder      	$tx		$tx		$tx		$tx             $tx
 ###########################################
 
 set $mode_system (r)eboot, (s)hutdown
-#, (l)ock
 mode "$mode_system" {
     bindsym r exec --no-startup-id reboot, mode "default"
     bindsym s exec --no-startup-id poweroff, mode "default"
@@ -247,39 +245,10 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-mode "resize" {
-        bindsym h resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 5 px or 5 ppt
-
-        bindsym Shift+h resize shrink width 1 px or 1 ppt
-        bindsym Shift+j resize grow height 1 px or 1 ppt
-        bindsym Shift+k resize shrink height 1 px or 1 ppt
-        bindsym Shift+l resize grow width 1 px or 1 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 8 px or 8 ppt
-        bindsym Down resize grow height 8 px or 8 ppt
-        bindsym Up resize shrink height 8 px or 8 ppt
-        bindsym Right resize grow width 8 px or 8 ppt
-
-	bindsym Shift+Left resize shrink width 1 px or 1 ppt
-        bindsym Shift+Down resize grow height 1 px or 1 ppt
-        bindsym Shift+Up resize shrink height 1 px or 1 ppt
-        bindsym Shift+Right resize grow width 1 px or 1 ppt
-
-	bindsym c move position center
-
-        # exit resize mode: Enter or Escape
-	bindsym Return mode "default"
-	bindsym Escape mode "default"
-}
-
 set $mode_gaps Gaps: (p) presets, (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (1px), Shift + +|-|0 (5px)
 set $mode_gaps_inner Inner Gaps: +|-|0 (1px), Shift + +|-|0 (5px)
-set $mode_presets (1 | 0,0) (2 | 8,0) (3 | 8,2) (4 | 8,4) (5 | 12,0) (6 | 12,2) (7 | 16,4) (8 | 16,8) (9 | 16,16) (0 | 16,24)
+set $mode_presets (1 | 0,0) (2 | 4,0) (3 | 6,0) (4 | 8,0) (5 | 8,2) (6 | 8,4) (7 | 12,0) (8 | 12,4) (9 | 16,4) (0 | 16,16)
 
 mode "$mode_gaps" {
 	bindsym p      mode "$mode_presets"
@@ -290,15 +259,15 @@ mode "$mode_gaps" {
 }
 mode "$mode_presets" {
 	bindsym 1 gaps inner all set 0, gaps outer all set 0
-	bindsym 2 gaps inner all set 8, gaps outer all set 0
-	bindsym 3 gaps inner all set 8, gaps outer all set 2
-	bindsym 4 gaps inner all set 8, gaps outer all set 4
-	bindsym 5 gaps inner all set 12, gaps outer all set 0
-	bindsym 6 gaps inner all set 12, gaps outer all set 2
-	bindsym 7 gaps inner all set 16, gaps outer all set 4
-	bindsym 8 gaps inner all set 16, gaps outer all set 8
-	bindsym 9 gaps inner all set 16, gaps outer all set 16
-	bindsym 0 gaps inner all set 16, gaps outer all set 24
+	bindsym 2 gaps inner all set 4, gaps outer all set 0
+	bindsym 3 gaps inner all set 6, gaps outer all set 0
+	bindsym 4 gaps inner all set 8, gaps outer all set 0
+	bindsym 5 gaps inner all set 8, gaps outer all set 2
+	bindsym 6 gaps inner all set 8, gaps outer all set 4
+	bindsym 7 gaps inner all set 12, gaps outer all set 0
+	bindsym 8 gaps inner all set 12, gaps outer all set 4
+	bindsym 9 gaps inner all set 16, gaps outer all set 4
+	bindsym 0 gaps inner all set 16, gaps outer all set 16
 
 	bindsym Return mode "$mode_gaps" 
 	bindsym Escape mode "$mode_gaps"
@@ -328,21 +297,52 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "$mode_gaps"
 }
 
+set $mode_move_resize Move/resize: ({shift} hjkl) resize, ({shift} m,./) move, (c) center, (0-9) size presets, (shift + 0-9) position presets
+mode "$mode_move_resize" {
 
-mode "Move" {
-	bindsym h move left
-	bindsym j move up
-	bindsym k move down
-	bindsym l move right
-	bindsym c move position center
+        bindsym h resize shrink width 1 px or 1 ppt
+        bindsym j resize grow height 1 px or 1 ppt
+        bindsym k resize shrink height 1 px or 1 ppt
+        bindsym l resize grow width 1 px or 1 ppt
 
-	bindsym Left move left
-	bindsym Up move up
-	bindsym Down move down
-	bindsym Right move right
+        bindsym Shift+h resize shrink width 10 px or 10 ppt
+        bindsym Shift+j resize grow height 10 px or 10 ppt
+        bindsym Shift+k resize shrink height 10 px or 10 ppt
+        bindsym Shift+l resize grow width 10 px or 10 ppt
 
-	bindsym Return mode "default" 
-	bindsym Escape mode "default" 
+	bindsym 1 resize set 64 38
+	bindsym 2 resize set 128 72
+	bindsym 3 resize set 256 144
+	bindsym 4 resize set 384 216
+	bindsym 5 resize set 512 288
+	bindsym 6 resize set 640 360
+	bindsym 7 resize set 640 480
+	bindsym 8 resize set 1024 576
+	bindsym 9 resize set 1280 1024
+
+	bindsym m move left
+	bindsym comma move up
+	bindsym period move down
+	bindsym slash move right
+        bindsym c move position center
+
+        bindsym Shift+m move position 100 100
+        bindsym Shift+comma move position 100 600
+        bindsym Shift+period move position 1200 100
+        bindsym Shift+slash move position 1200 600
+
+        bindsym Shift+1 move position 15 15
+        bindsym Shift+2 move position 15 540
+        bindsym Shift+3 move position 970 10
+        bindsym Shift+4 move position 970 20
+        bindsym Shift+5 move position 970 30
+        bindsym Shift+6 move position 970 40
+        bindsym Shift+7 move position 970 530
+        bindsym Shift+8 move position 970 540
+        bindsym Shift+9 move position 970 550
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
 }
 
 ##############################################
@@ -352,18 +352,6 @@ mode "Move" {
 ################
 ### PROGRAMS ###
 ################
-
-# Keyboard
-# exec --no-startup-id setxkbmap -layout us -variant intl -option ctrl:nocaps,shift:both_capslock
-# exec --no-startup-id "xmodmap ~/.Xmodmap && xcape -e 'Shift_L=Escape;Shift_R=Escape;Hyper_L=Tab;Hyper_R=backslash'"
-# exec --no-startup-id xset r rate 200 45
-# exec --no-startup-id unclutter --timeout 3 --ignore-scrolling &
-# exec --no-startup-id "bash $HOME/scripts/touchpad_toggle.sh"
-
-# Power management
-# exec --no-startup-id xset -dpms
-# exec --no-startup-id xset s off
-# exec --no-startup-id xset -b
 
 # Urxvt
 exec --no-startup-id urxvtd -q -o -f
@@ -385,12 +373,11 @@ exec --no-startup-id nextcloud
 # i3 Modes
 # System mode, reboot/poweroff/lock
 bindsym $mod+0 mode "$mode_system"
-# Resizing mode
-bindsym $mod+r mode "resize"
 # Gap mode
 bindsym $mod+g mode "$mode_gaps"
-# Move mode
-bindsym $mod+m mode "Move"
+# Move/resize mode
+bindsym $mod+r mode "$mode_move_resize"
+bindsym $mod+m mode "$mode_move_resize"
 
 # Screenshot
 bindsym --release Print exec --no-startup-id "maim ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s).png"
@@ -426,7 +413,9 @@ bindsym $mod+n exec --no-startup-id "wal -gi $HOME/Nextcloud/5.\ Fonds\ d\'écra
 
 # Pulse Audio Controls
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 1%+
+bindsym Shift+XF86AudioRaiseVolume exec amixer -q sset Master 10%+
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 1%-
+bindsym Shift+XF86AudioLowerVolume exec amixer -q sset Master 10%-
 bindsym XF86AudioMute exec amixer -q sset Master toggle
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioPause exec mpc toggle
