@@ -882,6 +882,9 @@
         :config
         (global-set-key (kbd "C-x w") 'elfeed)
         ;;(setf url-queue-timeout 4)
+        ;;(setq elfeed-feeds
+        ;;      '("http://nullprogram.com/feed/"
+        ;;        "http://planet.emacsen.org/atom.xml"))
         )
 
       ;;(use-package elfeed-goodies
