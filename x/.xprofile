@@ -1,14 +1,15 @@
 #!/bin/sh
 
 setxkbmap -layout us -variant intl -option ctrl:nocaps,shift:both_capslock
-xmodmap $HOME/.Xmodmap || true
+xmodmap ~/.Xmodmap || true
 xcape -t 200 -e "Shift_L=Escape;Shift_R=Escape;Hyper_L=Tab;Hyper_R=backslash;Control_L=Escape"
 xset r rate 250 55
 unclutter --timeout 3 --ignore-scrolling &
-$HOME/scripts/touchpad_toggle.sh
+~/scripts/touchpad_toggle.sh
 xset -dpms
 xset s off
 xset -b
 
 [ "$XDG_CURRENT_DESKTOP" = "KDE" ] || export QT_QPA_PLATFORMTHEME="qt5ct"
-wal -R
+#wal -R
+~/.config/wpg/wp_init.sh

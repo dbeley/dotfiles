@@ -73,8 +73,7 @@ modules-left = i3 bspwm xwindow
 modules-center = date 
 modules-right = temperature cpu alsa battery
 
-#wm-restack = i3
-
+wm-restack = i3
 #override-redirect = true
 
 [global/wm]
