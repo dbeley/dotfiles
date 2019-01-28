@@ -10,6 +10,7 @@ xset -dpms
 xset s off
 xset -b
 
-[ "$XDG_CURRENT_DESKTOP" = "KDE" ] || export QT_QPA_PLATFORMTHEME="qt5ct"
+[ "$XDG_CURRENT_DESKTOP" = "KDE" ] || export QT_QPA_PLATFORMTHEME="gtk2"
+
 #wal -R
 ~/.config/wpg/wp_init.sh

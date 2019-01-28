@@ -33,6 +33,6 @@ export FZF_ALT_C_COMMAND="fd --ignore-case --hidden -t d"
 export FZF_TMUX=1
 
 #wal -R
-(cat /home/david/.cache/wal/sequences &)
+(cat /home/david/.config/wpg/sequences &)
 
 [ -f /usr/bin/fish ] && exec fish
