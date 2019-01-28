@@ -236,7 +236,7 @@ user_pref("browser.helperApps.deleteTempFileOnExit",		true);
 user_pref("browser.pagethumbnails.capturing_disabled",		true);
 user_pref("browser.shell.shortcutFavicons",					false);
 user_pref("browser.bookmarks.max_backups", 0);
-user_pref("network.auth.subresource-http-auth-allow", 1)
+user_pref("network.auth.subresource-http-auth-allow", 1);
 
 /*******************************************************************************
  * SECTION: UI related                                                         *
@@ -409,3 +409,5 @@ user_pref("network.trr.mode", 3);
 user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
 user_pref("network.trr.bootstrapAddress", "1.1.1.1");
 user_pref("network.security.esni.enabled", true);
+
+user_pref("browser.tabs.insertAfterCurrent", true);

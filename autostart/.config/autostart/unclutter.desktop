@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=unclutter
+GenericName=unclutter
+TryExec=/usr/bin/unclutter
+Exec=/usr/bin/unclutter --timeout 3 --ignore-scrolling
+Terminal=false
+Categories=X11
+Type=Application
+StartupNotify=true
+X-GNOME-Autostart-enabled=true
+#Hidden=true

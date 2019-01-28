@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=xset
+GenericName=xset
+TryExec=/usr/bin/xset
+Exec=/usr/bin/xset r rate 250 55
+Terminal=false
+Categories=X11
+Type=Application
+StartupNotify=true
+X-GNOME-Autostart-enabled=true
+#Hidden=true

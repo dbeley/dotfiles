@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=xcape
+GenericName=xcape
+TryExec=/usr/bin/xcape
+Exec=/usr/bin/xcape -t 200 -e "Shift_L=Escape;Shift_R=Escape;Hyper_L=Tab;Hyper_R=backslash;Control_L=Escape"
+Terminal=false
+Categories=X11
+Type=Application
+StartupNotify=true
+X-GNOME-Autostart-enabled=true
+#Hidden=true

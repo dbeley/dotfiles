@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=setxkbmap
+GenericName=Clavier
+TryExec=/usr/bin/setxkbmap
+Exec=/usr/bin/setxkbmap -layout us -variant intl -option ctrl:nocaps,shift:both_capslock
+Terminal=false
+Categories=X11
+Type=Application
+StartupNotify=true
+X-GNOME-Autostart-enabled=true
+#Hidden=true

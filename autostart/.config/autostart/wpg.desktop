@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=wpgtk
+GenericName=wpgtk
+Exec=~/.config/wpg/wp_init.sh
+Terminal=true
+Categories=X11
+Type=Application
+StartupNotify=true
+X-GNOME-Autostart-enabled=true
+#Hidden=true
