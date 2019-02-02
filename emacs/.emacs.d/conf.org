@@ -539,6 +539,11 @@
         :config
         (company-quickhelp-mode)
         )
+
+      (use-package company-auctex
+        :ensure t
+        :config
+        (company-auctex-init))
     #+END_SRC
     
 *** Company-box
@@ -795,7 +800,80 @@
                       "jupyter")
          )
      #+END_SRC
-    
+*** LateX
+**** Reftex
+     #+BEGIN_SRC emacs-lisp
+       (use-package reftex
+         :commands turn-on-reftex
+         :config (setq reftex-plug-into-AUCTeX t)
+         (add-hook 'LaTex-mode-hook 'reftex-mode)
+         )
+     #+END_SRC
+
+**** AucTex
+     #+BEGIN_SRC emacs-lisp
+       (use-package tex
+         :defer t
+         :ensure auctex
+         :config
+         (setq Tex-auto-save t)
+         (setq-default TeX-PDF-mode t)
+         (setq TeX-show-compilation nil)
+         )
+
+     #+END_SRC
+**** Latexmk
+     #+BEGIN_SRC emacs-lisp
+       (use-package auctex-latexmk
+         :ensure t)
+
+       ;; Setup Latexmk
+
+       (eval-after-load "tex"
+         '(progn
+            (add-to-list 'TeX-expand-list
+                 '("%(-PDF)"
+                   (lambda ()
+                     (cond ((string-match "TeX-engine: pdftex" (buffer-string)) "-pdf")
+                       ((string-match "TeX-engine: luatex" (buffer-string)) "-pdflatex=lualatex -pdf")
+                       ((string-match "TeX-engine: xetex" (buffer-string)) "-pdflatex=xelatex -pdf")
+                       (t "-dvi -pdfps")))))
+
+            (add-to-list 'TeX-command-list
+                 '("Latexmk" "latexmk %(-PDF) -synctex=1 %s"
+                   TeX-run-TeX nil t
+                   :help "Run Latexmk on file to build everything."))
+
+            (setq TeX-command-default "Latexmk")
+            )
+         )
+
+       ;; org-latex
+       (setq org-latex-to-pdf-process (list "latexmk -f -pdf %t"))
+     #+END_SRC
+**** pdf auto-update
+     #+BEGIN_SRC emacs-lisp
+       (defun th/pdf-view-revert-buffer-maybe (file)
+         (let ((buf (find-buffer-visiting file)))
+           (when buf 
+         (with-current-buffer buf
+           (when (derived-mode-p 'pdf-view-mode)
+             (pdf-view-revert-buffer nil t))))))
+
+       (add-hook 'TeX-after-TeX-LaTeX-command-finished-hook
+           #'th/pdf-view-revert-buffer-maybe)
+       (add-hook 'TeX-after-compilation-finished-functions  ;; wasn't working after Latexmk command 
+             #'th/pdf-view-revert-buffer-maybe)
+     #+END_SRC
+**** magic-latex-buffer
+     #+BEGIN_SRC emacs-lisp
+       (use-package magic-latex-buffer
+         :ensure t
+         :config
+         (add-hook 'latex-mode-hook 'magic-latex-buffer)
+         )
+     #+END_SRC
+
 ** Documentation
 *** helpful
     #+BEGIN_SRC emacs-lisp
