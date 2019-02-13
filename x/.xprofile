@@ -1,5 +1,8 @@
 #!/bin/sh
 
+#wal -R
+#~/.config/wpg/wp_init.sh
+wpg -m
 setxkbmap -layout us -variant intl -option ctrl:nocaps,shift:both_capslock
 xmodmap ~/.Xmodmap || true
 xcape -t 200 -e "Shift_L=Escape;Shift_R=Escape;Hyper_L=Tab;Hyper_R=backslash;Control_L=Escape"
@@ -12,5 +15,5 @@ xset -b
 
 [ "$XDG_CURRENT_DESKTOP" = "KDE" ] || export QT_QPA_PLATFORMTHEME="gtk2"
 
-#wal -R
-~/.config/wpg/wp_init.sh
+#xrdb ~/.Xresources
+#~/.config/polybar/launch.sh

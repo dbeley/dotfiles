@@ -69,7 +69,8 @@ font-2 = "Overpassmono:style=Regular:size=18;2"
 
 #modules-margin = 4
 
-modules-left = i3 bspwm xwindow
+#modules-left = i3 bspwm xwindow
+modules-left = i3 xwindow
 modules-center = date 
 modules-right = temperature cpu alsa battery
 

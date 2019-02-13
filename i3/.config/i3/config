@@ -12,7 +12,7 @@
 #########################################
 
 # Set inner/outer gaps
-gaps inner 8
+gaps inner 4
 
 gaps outer 0
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
@@ -190,7 +190,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 #for_window [class="URxvt"] floating enable
 for_window [class="URxvt" instance="float"] floating enable
 for_window [window_role="float"] floating enable
-for_window [class="mpv"] floating enable sticky enable resize set 384 216
+for_window [class="mpv"] move window to scratchpad, scratchpad show, floating enable, sticky enable, resize set 518 294, move position 838 464
 for_window [instance="feh"] floating enable
 for_window [instance="mupdf"] floating enable
 
@@ -308,36 +308,36 @@ mode "$mode_move_resize" {
         bindsym Shift+k resize shrink height 10 px or 10 ppt
         bindsym Shift+l resize grow width 10 px or 10 ppt
 
-	bindsym 1 resize set 64 38
-	bindsym 2 resize set 128 72
-	bindsym 3 resize set 256 144
-	bindsym 4 resize set 384 216
-	bindsym 5 resize set 512 288
-	bindsym 6 resize set 640 360
-	bindsym 7 resize set 640 480
-	bindsym 8 resize set 1024 576
+	bindsym 1 resize set 388 221
+	bindsym 2 resize set 388 221
+	bindsym 3 resize set 388 221
+	bindsym 4 resize set 388 221
+	bindsym 5 resize set 518 294
+	bindsym 6 resize set 518 294
+	bindsym 7 resize set 518 294
+	bindsym 8 resize set 518 294
 	bindsym 9 resize set 1280 1024
 
 	bindsym m move left
-	bindsym comma move up
-	bindsym period move down
+	bindsym comma move down
+	bindsym period move up
 	bindsym slash move right
         bindsym c move position center
 
         bindsym Shift+m move position 100 100
-        bindsym Shift+comma move position 100 600
-        bindsym Shift+period move position 1200 100
-        bindsym Shift+slash move position 1200 600
+        bindsym Shift+comma move position 100 500
+        bindsym Shift+period move position 1000 100
+        bindsym Shift+slash move position 1000 500
 
-        bindsym Shift+1 move position 15 15
-        bindsym Shift+2 move position 15 540
-        bindsym Shift+3 move position 970 10
-        bindsym Shift+4 move position 970 20
-        bindsym Shift+5 move position 970 30
-        bindsym Shift+6 move position 970 40
-        bindsym Shift+7 move position 970 530
-        bindsym Shift+8 move position 970 540
-        bindsym Shift+9 move position 970 550
+        bindsym Shift+1 move position 10 35
+        bindsym Shift+2 move position 10 537
+        bindsym Shift+3 move position 968 35
+        bindsym Shift+4 move position 968 537
+        bindsym Shift+5 move position 10 35
+        bindsym Shift+6 move position 10 464
+        bindsym Shift+7 move position 838 35
+        bindsym Shift+8 move position 838 464
+        bindsym Shift+9 move position center
 
 	bindsym Return mode "default"
 	bindsym Escape mode "default"
