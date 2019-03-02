@@ -7,21 +7,6 @@
 c = c  # noqa: F821 pylint: disable=E0602,C0103
 config = config  # noqa: F821 pylint: disable=E0602,C0103
 
-# Uncomment this to still load settings configured via autoconfig.yml
-# config.load_autoconfig()
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'file://*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'chrome://*/*')
-
-# Enable JavaScript.
-# Type: Bool
-config.set('content.javascript.enabled', True, 'qute://*/*')
-
 # Position of the tab bar.
 # Type: Position
 # Valid values:
@@ -31,10 +16,13 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 #   - right
 c.tabs.position = 'top'
 
-# Bindings for normal mode
-config.bind(',M', 'spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?1080]+bestaudio/best {url}')
-config.bind(',m', 'hint links spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?1080]+bestaudio/best {hint-url}')
-config.bind(';m', 'hint --rapid links spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?1080]+bestaudio/best {hint-url}')
+c.editor.command = ["urxvt", "-e", "nvim", '{}'] 
+
+# c.window.hide_decoration = True
+
+# c.content.user_stylesheets = "~/.config/qutebrowser/css/apprentice-all-sites.css"
+
+c.downloads.location.directory = "~/Téléchargements"
 
 c.url.searchengines = \
     {
@@ -76,9 +64,42 @@ c.url.searchengines = \
             'fdroid': 'https://search.f-droid.org/?q={}'
     }
 
+c.bindings.commands = {
+    'insert': {
+        '<Ctrl-f>'        : 'fake-key <Right>',
+        '<Ctrl-b>'        : 'fake-key <Left>',
+        '<Ctrl-a>'        : 'fake-key <Home>',
+        '<Ctrl-e>'        : 'fake-key <End>',
+        '<Ctrl-n>'        : 'fake-key <Down>',
+        '<Ctrl-p>'        : 'fake-key <Up>',
+        '<Alt-v>'         : 'fake-key <PgUp>',
+        '<Ctrl-v>'        : 'fake-key <PgDown>',
+        '<Alt-f>'         : 'fake-key <Ctrl-Right>',
+        '<Alt-b>'         : 'fake-key <Ctrl-Left>',
+        '<Ctrl-d>'        : 'fake-key <Delete>',
+        '<Alt-d>'         : 'fake-key <Ctrl-Delete>',
+        '<Alt-Backspace>' : 'fake-key <Ctrl-Backspace>',
+        '<Ctrl-y>'        : 'insert-text {primary}',
+    }
+}
 
-c.editor.command = ["urxvt", "-e", "nvim", '{}'] 
 
-c.window.hide_decoration = True
+# Uncomment this to still load settings configured via autoconfig.yml
+# config.load_autoconfig()
 
-c.content.user_stylesheets = "~/.config/qutebrowser/css/apprentice-all-sites.css"
+# Enable JavaScript.
+# Type: Bool
+config.set('content.javascript.enabled', True, 'file://*')
+
+# Enable JavaScript.
+# Type: Bool
+config.set('content.javascript.enabled', True, 'chrome://*/*')
+
+# Enable JavaScript.
+# Type: Bool
+config.set('content.javascript.enabled', True, 'qute://*/*')
+
+# Bindings for normal mode
+config.bind(',M', 'spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?1080]+bestaudio/best {url}')
+config.bind(',m', 'hint links spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?1080]+bestaudio/best {hint-url}')
+config.bind(';m', 'hint --rapid links spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?1080]+bestaudio/best {hint-url}')
