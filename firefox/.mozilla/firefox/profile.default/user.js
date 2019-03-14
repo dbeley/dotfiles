@@ -406,9 +406,11 @@ user_pref("accessibility.typeaheadfind.flashBar", 0);
 user_pref("browser.ctrlTab.recentlyUsedOrder", false);
 
 // DNS over HTTPS
-user_pref("network.trr.mode", 3);
+user_pref("network.trr.mode", 2);
 user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
 user_pref("network.trr.bootstrapAddress", "1.1.1.1");
 user_pref("network.security.esni.enabled", true);
 
 user_pref("browser.tabs.insertAfterCurrent", true);
+
+user_pref("layout.spellcheckDefault", 0);

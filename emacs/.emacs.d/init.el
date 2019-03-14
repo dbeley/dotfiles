@@ -35,6 +35,17 @@
  '(custom-safe-themes
    '("cbd8e65d2452dfaed789f79c92d230aa8bdf413601b261dbb1291fb88605110c" default))
  '(inhibit-startup-screen t)
+ '(org-structure-template-alist
+   '(("a" . "export ascii")
+     ("c" . "center")
+     ("C" . "comment")
+     ("e" . "example")
+     ("E" . "export")
+     ("h" . "export html")
+     ("l" . "export latex")
+     ("q" . "quote")
+     ("s" . "src")
+     ("v" . "verse")))
  '(package-selected-packages
    '(pdf-tools ace-link org-noter ggtags eyebrowse telephone-line yasnippet-snippets xresources-theme which-key use-package symon spaceline smartparens smart-mode-line-atom-one-dark-theme simple-mpc ranger rainbow-mode ox-twbs ox-reveal ox-hugo org-preview-html org-plus-contrib org-bullets notmuch no-littering moody minions magic-latex-buffer ivy-rich htmlize helpful helm-projectile fzf flycheck exwm evil-surround evil-org evil-magit evil-leader evil-collection ess eshell-git-prompt elpy elfeed-org elfeed-goodies dumb-jump dashboard counsel company-shell company-quickhelp company-box better-defaults base16-theme auctex all-the-icons-ivy ace-window)))
 (custom-set-faces

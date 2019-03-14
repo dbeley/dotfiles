@@ -59,8 +59,8 @@ c.url.searchengines = \
             'idealo': 'https://www.idealo.fr/prechcat.html?q={}',
             'gsmarena': 'https://www.gsmarena.com/res.php3?sSearch={}',
             'xda': 'https://forum.xda-developers.com/search/?query={}',
-            'reddit': 'https://old.reddit.com/search?q={}&sort=relevance&t=all',
-            'subreddit': 'https://old.reddit.com/r/{}',
+            'reddit': 'https://www.reddit.com/search?q={}&sort=relevance&t=all',
+            'subreddit': 'https://www.reddit.com/r/{}',
             'fdroid': 'https://search.f-droid.org/?q={}'
     }
 
@@ -85,7 +85,7 @@ c.bindings.commands = {
 
 
 # Uncomment this to still load settings configured via autoconfig.yml
-# config.load_autoconfig()
+config.load_autoconfig()
 
 # Enable JavaScript.
 # Type: Bool
@@ -103,3 +103,6 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 config.bind(',M', 'spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?1080]+bestaudio/best {url}')
 config.bind(',m', 'hint links spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?1080]+bestaudio/best {hint-url}')
 config.bind(';m', 'hint --rapid links spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?1080]+bestaudio/best {hint-url}')
+
+c.content.javascript.enabled = False
+c.content.cookies.accept = "no-3rdparty"

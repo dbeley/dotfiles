@@ -679,6 +679,7 @@
         (require 'ox-html)
         (require 'ox-beamer)
         (require 'ox-odt)
+        (require 'org-tempo)
         )
     #+END_SRC
     
