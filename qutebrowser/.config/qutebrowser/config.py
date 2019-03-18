@@ -16,7 +16,7 @@ config = config  # noqa: F821 pylint: disable=E0602,C0103
 #   - right
 c.tabs.position = 'top'
 
-c.editor.command = ["urxvt", "-e", "nvim", '{}'] 
+c.editor.command = ["urxvt", "-e", "nvim", '{}']
 
 # c.window.hide_decoration = True
 
@@ -98,6 +98,8 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Enable JavaScript.
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
+
+config.set('content.headers.user_agent', "Mozilla/5.0 (X11; Linux x86_64; rv:65.0) Gecko/20100101 Firefox/65.0")
 
 # Bindings for normal mode
 config.bind(',M', 'spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?1080]+bestaudio/best {url}')
