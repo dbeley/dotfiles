@@ -27,6 +27,7 @@ c.downloads.location.directory = "~/Téléchargements"
 c.url.searchengines = \
     {
             'DEFAULT': 'https://duckduckgo.com/?q={}',
+            'd': 'https://duckduckgo.com/?q={}',
             'gi': 'https://www.google.fr/search?q={}&tbm=isch',
             'g': 'https://www.google.fr/search?q={}',
             'lfm': 'https://www.last.fm/fr/search?q={}',

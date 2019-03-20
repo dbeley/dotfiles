@@ -111,7 +111,8 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+F9 scratchpad show
 bindsym $mod+F10 [class="keepassxc"] scratchpad show
 bindsym $mod+F11 [class="mpv"] scratchpad show
-bindsym $mod+F12 [class="Firefox"] scratchpad show
+# bindsym $mod+F12 [class="Firefox"] scratchpad show
+bindsym $mod+F12 [class="qutebrowser"] scratchpad show
 
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next

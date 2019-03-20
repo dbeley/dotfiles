@@ -33,7 +33,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("cbd8e65d2452dfaed789f79c92d230aa8bdf413601b261dbb1291fb88605110c" default))
+   '("86704574d397606ee1433af037c46611fb0a2787e8b6fd1d6c96361575be72d2" "196df8815910c1a3422b5f7c1f45a72edfa851f6a1d672b7b727d9551bb7c7ba" "cbd8e65d2452dfaed789f79c92d230aa8bdf413601b261dbb1291fb88605110c" default))
  '(inhibit-startup-screen t)
  '(org-structure-template-alist
    '(("a" . "export ascii")
