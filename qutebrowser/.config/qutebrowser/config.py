@@ -62,7 +62,8 @@ c.url.searchengines = \
             'xda': 'https://forum.xda-developers.com/search/?query={}',
             'reddit': 'https://www.reddit.com/search?q={}&sort=relevance&t=all',
             'subreddit': 'https://www.reddit.com/r/{}',
-            'fdroid': 'https://search.f-droid.org/?q={}'
+            'fdroid': 'https://search.f-droid.org/?q={}',
+            'ug': 'https://www.ultimate-guitar.com/search.php?search_type=title&value={}'
     }
 
 c.bindings.commands = {

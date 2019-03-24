@@ -35,7 +35,7 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-Plug 'ervandew/supertab'
+"Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
 Plug 'terryma/vim-multiple-cursors'
@@ -64,7 +64,12 @@ Plug 'tpope/vim-fireplace'
 
 Plug 'rust-lang/rust.vim'
 
+Plug 'ludovicchabant/vim-gutentags'
+
 call plug#end()
+
+set nocompatible
+filetype plugin on
 
 " Performances 
 set synmaxcol=200
@@ -103,6 +108,7 @@ set softtabstop=4
 set expandtab
 
 " Compléter avec <Tab> en mode commande
+set path+=**
 set wildmenu
 set wildmode=longest,full
 
@@ -110,6 +116,7 @@ set clipboard+=unnamedplus
 set t_Co=256
 set encoding=utf8
 set linespace=0
+set hidden
 
 " Text Wraping
 "set textwidth=79
@@ -117,6 +124,13 @@ set colorcolumn=80
 set wrap
 
 set scrolloff=5
+
+" netrw
+let g:netrw_banner=0
+let g:netrw_browse_split=4
+let g:netrw_altv=1
+let g:netrw_liststyle=3
+
 
 "Split navigations
 nnoremap <C-J> <C-W><C-J>
