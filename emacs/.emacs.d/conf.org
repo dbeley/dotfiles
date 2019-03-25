@@ -768,7 +768,30 @@
                       org-noter-notes-search-path '("/~/Nextcloud/3. org/Notes/")
                       org-noter-separate-notes-from-heading t))
     #+END_SRC
-    
+   
+*** org-ref
+    #+begin_src emacs-lisp
+      (use-package org-ref
+        :ensure t
+        :config
+        (setq reftex-default-bibliography '("~/Nextcloud/3. org/Stage/Articles.bib"))
+
+        ;; see org-ref for use of these variables
+        (setq org-ref-bibliography-notes "~/Nextcloud/3. org/Stage/Notes_articles.org"
+              org-ref-default-bibliography '("~/Nextcloud/3. org/Stage/Articles.bib")
+              org-ref-pdf-directory "~/Nextcloud/6. Cours/Stage/Articles/")
+
+        (setq bibtex-completion-notes-path "~/Nextcloud/3. org/Stage/Articles.org"
+              bibtex-completion-bibliography "~/Nextcloud/3. org/Stage/Articles.bib"
+              bibtex-completion-library-path "~/Nextcloud/6. Cours/Stage/Articles/")
+
+        (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
+      )
+
+      (use-package helm-bibtex
+        :ensure t
+      )
+    #+end_src
 ** Programmation
 *** ess
     #+BEGIN_SRC emacs-lisp
@@ -921,9 +944,13 @@
         :config
         (setq symon-refresh-rate 4)
         (setq symon-sparkline-type 'boxed)
+        (setq symon-delay 6)
         (symon-mode)
         )
     #+END_SRC
+
+    #+RESULTS:
+    : t
 
 ** Programmes
 *** eww
