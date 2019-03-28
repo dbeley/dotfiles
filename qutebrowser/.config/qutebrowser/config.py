@@ -101,7 +101,7 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
-config.set('content.headers.user_agent', "Mozilla/5.0 (X11; Linux x86_64; rv:65.0) Gecko/20100101 Firefox/65.0")
+config.set('content.headers.user_agent', "Mozilla/5.0 (X11; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0")
 
 # Bindings for normal mode
 config.bind(',M', 'spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?1080]+bestaudio/best {url}')

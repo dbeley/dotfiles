@@ -17,9 +17,9 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-vinegar'
 
 Plug 'scrooloose/syntastic'
-Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdtree'
 "Plug 'scrooloose/nerdcommenter'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -30,7 +30,6 @@ Plug 'dylanaraps/wal'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
 Plug 'edkolev/tmuxline.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -50,6 +49,7 @@ Plug 'lervag/vimtex'
 Plug 'w0rp/ale'
 "Plug 'sheerun/vim-polyglot'
 Plug 'majutsushi/tagbar'
+Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'jceb/vim-orgmode'
 "Plug 'joshhartigan/vim-reddit'
@@ -57,14 +57,11 @@ Plug 'jceb/vim-orgmode'
 
 "Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 "Plug 'nsf/gocode', {'rtp':'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh'}
-
 Plug 'neovimhaskell/haskell-vim'
-
 Plug 'tpope/vim-fireplace'
-
 Plug 'rust-lang/rust.vim'
 
-Plug 'ludovicchabant/vim-gutentags'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -131,6 +128,9 @@ let g:netrw_browse_split=4
 let g:netrw_altv=1
 let g:netrw_liststyle=3
 
+"let NERDTreeIgnore = ['\.DAT$', '\.LOG1$', '\.LOG1$']
+"autocmd vimenter * NERDTree
+"map <C-n> :NERDTreeToggle<CR>
 
 "Split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -232,9 +232,9 @@ if !exists('g:airline_symbols')
 "highlight NonText ctermbg=none
 "highlight Normal guibg=NONE ctermbg=NONE
 
-if exists("g:loaded_webdevicons")
-	call webdevicons#refresh()
-endif
+"if exists("g:loaded_webdevicons")
+"	call webdevicons#refresh()
+"endif
 
 
 " Vim-markdown preferences

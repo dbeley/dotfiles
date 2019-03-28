@@ -1007,6 +1007,24 @@
         )
     #+END_SRC
     
+*** ledger
+    #+begin_src emacs-lisp
+      (use-package ledger-mode
+        :ensure t
+        :config
+        (require 'ledger-mode))
+
+      (use-package evil-ledger
+        :ensure t
+        :after ledger-mode
+        :config
+        (setq evil-ledger-sort-key "S")
+        (add-hook 'ledger-mode-hook #'evil-ledger-mode))
+
+      (use-package flycheck-ledger
+        :ensure t)
+    #+end_src
+
 * EXWM
   #+BEGIN_SRC emacs-lisp
     ;;(use-package exwm
