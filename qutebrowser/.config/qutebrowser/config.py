@@ -44,7 +44,7 @@ c.url.searchengines = \
             'ali': 'https://fr.aliexpress.com/wholesale?SearchText={}',
             'wiki': 'https://fr.wikipedia.org/w/index.php?search={}',
             'ldlc': 'https://www.ldlc.com/navigation/{}',
-            'ama': 'https://www.amazon.fr/s/field-keywords={}',
+            'ama': 'https://www.amazon.fr/s?k={}',
             'wikien': 'https://en.wikipedia.org/w/index.php?search={}',
             'git': 'https://github.com/search?q={}',
             'rut': 'https://rutracker.org/forum/tracker.php?nm={}',
@@ -63,7 +63,10 @@ c.url.searchengines = \
             'reddit': 'https://www.reddit.com/search?q={}&sort=relevance&t=all',
             'subreddit': 'https://www.reddit.com/r/{}',
             'fdroid': 'https://search.f-droid.org/?q={}',
-            'ug': 'https://www.ultimate-guitar.com/search.php?search_type=title&value={}'
+            'ug': 'https://www.ultimate-guitar.com/search.php?search_type=title&value={}',
+            'scholar': 'https://scholar.google.fr/scholar?hl=fr&q={}',
+            'libgen': 'http://www.libgen.is/search.php?req={}',
+            'scihub': 'https://sci-hub.tw/{}'
     }
 
 c.bindings.commands = {
@@ -101,7 +104,9 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
-config.set('content.headers.user_agent', "Mozilla/5.0 (X11; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0")
+c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0"
+c.content.headers.accept_language = "fr-FR,en-US"
+c.content.headers.do_not_track = True
 
 # Bindings for normal mode
 config.bind(',M', 'spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?1080]+bestaudio/best {url}')
