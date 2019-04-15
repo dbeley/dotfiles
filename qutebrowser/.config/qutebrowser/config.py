@@ -66,7 +66,9 @@ c.url.searchengines = \
             'ug': 'https://www.ultimate-guitar.com/search.php?search_type=title&value={}',
             'scholar': 'https://scholar.google.fr/scholar?hl=fr&q={}',
             'libgen': 'http://www.libgen.is/search.php?req={}',
-            'scihub': 'https://sci-hub.tw/{}'
+            'scihub': 'https://sci-hub.tw/{}',
+            'trend': 'https://trends.google.fr/trends/explore?q={}',
+            'stack': 'https://stackoverflow.com/search?q={}'
     }
 
 c.bindings.commands = {

@@ -147,6 +147,8 @@ nnoremap <leader>p :History<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>t :Files<CR>
 nnoremap <leader>f :Files<CR>
+nnoremap <leader>r :Rg<CR>
+nnoremap <leader>c :Commands<CR>
 nnoremap <leader>k :bdelete<CR>
 nnoremap <leader>g :Goyo<CR>
 nnoremap <leader>w :w<CR>

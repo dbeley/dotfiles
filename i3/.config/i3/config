@@ -75,8 +75,8 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # workspace back and forth (with/without active container)
-#workspace_auto_back_and_forth yes
-#bindsym $mod+b workspace back_and_forth
+workspace_auto_back_and_forth yes
+bindsym $mod+b workspace back_and_forth
 #bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
@@ -402,6 +402,8 @@ bindsym XF86Display exec --no-startup-id "$HOME/scripts/display_config.sh"
 bindsym Shift+F1 exec --no-startup-id "$HOME/scripts/buku.sh"
 bindsym XF86Launch1 exec --no-startup-id "$HOME/scripts/search.sh"
 bindsym Shift+XF86Launch1 exec --no-startup-id "$HOME/scripts/launch.sh"
+bindsym $mod+t exec --no-startup-id "$HOME/scripts/search.sh"
+bindsym $mod+Shift+t exec --no-startup-id "$HOME/scripts/launch.sh"
 bindsym --release $mod+Shift+v exec --no-startup-id "$HOME/scripts/draw_urxvt.sh"
 
 # Screen brightness controls
