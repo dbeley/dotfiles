@@ -68,7 +68,8 @@ c.url.searchengines = \
             'libgen': 'http://www.libgen.is/search.php?req={}',
             'scihub': 'https://sci-hub.tw/{}',
             'trend': 'https://trends.google.fr/trends/explore?q={}',
-            'stack': 'https://stackoverflow.com/search?q={}'
+            'stack': 'https://stackoverflow.com/search?q={}',
+            'osm': 'https://www.openstreetmap.org/search?query={}'
     }
 
 c.bindings.commands = {
