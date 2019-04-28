@@ -3,10 +3,10 @@
 #wal -R
 #~/.config/wpg/wp_init.sh
 wpg -m
-setxkbmap -layout us -variant intl
-# setxkbmap -layout us -variant intl -option ctrl:nocaps,shift:both_capslock
-# xmodmap ~/.Xmodmap || true
-# xcape -t 200 -e "Shift_L=Escape;Shift_R=Escape;Hyper_L=Tab;Hyper_R=backslash;Control_L=Escape"
+# setxkbmap -layout us -variant intl
+setxkbmap -layout us -variant intl -option ctrl:nocaps,shift:both_capslock
+xmodmap ~/.Xmodmap || true
+xcape -t 200 -e "Shift_L=Escape;Shift_R=Escape;Hyper_L=Tab;Hyper_R=backslash;Control_L=Escape"
 xset r rate 250 55
 unclutter --timeout 3 --ignore-scrolling &
 ~/scripts/touchpad_toggle.sh
