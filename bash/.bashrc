@@ -36,4 +36,3 @@ export FZF_TMUX=1
 (cat /home/david/.config/wpg/sequences &)
 
 [ -f /usr/bin/fish ] && exec fish
-[ -f /etc/profile.d/conda.sh] && . /etc/profile.d/conda.sh
