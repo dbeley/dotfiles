@@ -118,4 +118,4 @@ config.bind(';m', 'hint --rapid links spawn ~/scripts/umpv.py --ytdl-format=best
 
 c.content.javascript.enabled = False
 c.content.cookies.accept = "no-3rdparty"
-c.qt.force_software_rendering = "qt-quick"
+# c.qt.force_software_rendering = "qt-quick"
