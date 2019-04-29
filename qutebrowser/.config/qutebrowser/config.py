@@ -69,7 +69,8 @@ c.url.searchengines = \
             'scihub': 'https://sci-hub.tw/{}',
             'trend': 'https://trends.google.fr/trends/explore?q={}',
             'stack': 'https://stackoverflow.com/search?q={}',
-            'osm': 'https://www.openstreetmap.org/search?query={}'
+            'osm': 'https://www.openstreetmap.org/search?query={}',
+            'goodreads': 'https://www.goodreads.com/search?q={}'
     }
 
 c.bindings.commands = {
