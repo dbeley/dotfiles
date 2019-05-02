@@ -70,7 +70,8 @@ c.url.searchengines = \
             'trend': 'https://trends.google.fr/trends/explore?q={}',
             'stack': 'https://stackoverflow.com/search?q={}',
             'osm': 'https://www.openstreetmap.org/search?query={}',
-            'goodreads': 'https://www.goodreads.com/search?q={}'
+            'goodreads': 'https://www.goodreads.com/search?q={}',
+            'firefoxadd': 'https://addons.mozilla.org/fr/firefox/search/?q={}'
     }
 
 c.bindings.commands = {

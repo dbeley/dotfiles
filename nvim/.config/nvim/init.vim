@@ -55,8 +55,8 @@ Plug 'jceb/vim-orgmode'
 "Plug 'joshhartigan/vim-reddit'
 "Plug 'itchyny/calendar.vim'
 
-"Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
-"Plug 'nsf/gocode', {'rtp':'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh'}
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+Plug 'nsf/gocode', {'rtp':'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh'}
 Plug 'neovimhaskell/haskell-vim'
 Plug 'tpope/vim-fireplace'
 Plug 'rust-lang/rust.vim'
