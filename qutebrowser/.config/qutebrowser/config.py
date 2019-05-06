@@ -121,3 +121,17 @@ config.bind(';m', 'hint --rapid links spawn ~/scripts/umpv.py --ytdl-format=best
 c.content.javascript.enabled = False
 c.content.cookies.accept = "no-3rdparty"
 # c.qt.force_software_rendering = "qt-quick"
+c.downloads.position = 'bottom'
+# c.tabs.background = True
+
+# Reddit bindings
+config.bind(',rn', 'open {url}/new')
+config.bind(',rh', 'open {url}/hot')
+config.bind(',rth', 'open {url}/top/?sort=top&t=hour')
+config.bind(',rtd', 'open {url}/top/?sort=top&t=day')
+config.bind(',rtw', 'open {url}/top/?sort=top&t=week')
+config.bind(',rtm', 'open {url}/top/?sort=top&t=month')
+config.bind(',rty', 'open {url}/top/?sort=top&t=year')
+config.bind(',rta', 'open {url}/top/?sort=top&t=all')
+
+config.bind(',ce', 'config-edit')
