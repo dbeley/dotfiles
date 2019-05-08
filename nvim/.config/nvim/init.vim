@@ -65,6 +65,10 @@ Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
+" Change Leader and LocalLeader keys:
+let maplocalleader = ','
+let mapleader = ';'
+
 set nocompatible
 filetype plugin on
 
@@ -153,7 +157,6 @@ nnoremap <leader>k :bdelete<CR>
 nnoremap <leader>g :Goyo<CR>
 nnoremap <leader>w :w<CR>
 inoremap <leader>w <C-c>:w<CR>
-
 " nnoremap <BS> <PageUp>
 " nnoremap <Space> <PageDown>
 
@@ -178,10 +181,6 @@ let g:rout_follow_colorscheme = 1
 
 " R commands in R output are highlighted
 let g:Rout_more_colors = 1
-
-" Change Leader and LocalLeader keys:
-let maplocalleader = ','
-let mapleader = ';'
 
 " Use Ctrl+Space to do omnicompletion:
 if has('nvim') || has('gui_running')
