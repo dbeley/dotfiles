@@ -99,7 +99,6 @@ if has ('nvim')
 endif
 nnoremap <esc> :noh<return><esc>
 
-" Auto-indentation à 2 espaces
 set autoindent
 filetype plugin indent on
 
@@ -107,8 +106,8 @@ set tabstop=8
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+set smarttab
 
-" Compléter avec <Tab> en mode commande
 set path+=**
 set wildmenu
 set wildmode=longest,full
@@ -123,7 +122,6 @@ set hidden
 "set textwidth=79
 set colorcolumn=80
 set wrap
-
 set scrolloff=5
 
 " netrw
