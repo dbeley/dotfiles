@@ -69,6 +69,8 @@ call plug#end()
 let maplocalleader = ','
 let mapleader = ';'
 
+set backupdir=/tmp
+
 set nocompatible
 filetype plugin on
 
@@ -90,7 +92,7 @@ set showcmd
 set number relativenumber
 
 " Recherche incrémentale
-set hlsearch
+" set hlsearch
 set incsearch
 set ignorecase
 set smartcase
@@ -155,6 +157,8 @@ nnoremap <leader>k :bdelete<CR>
 nnoremap <leader>g :Goyo<CR>
 nnoremap <leader>w :w<CR>
 inoremap <leader>w <C-c>:w<CR>
+nmap <leader>l :TagbarToggle<CR>
+nmap <F8> :TagbarToggle<CR>
 " nnoremap <BS> <PageUp>
 " nnoremap <Space> <PageDown>
 
@@ -190,8 +194,6 @@ endif
 " Press the space bar to send lines and selection to R:
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
-
-nmap <F8> :TagbarToggle<CR>
 
 " Airline
 
