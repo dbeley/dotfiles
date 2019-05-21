@@ -75,7 +75,8 @@ c.url.searchengines = \
             'stack': 'https://stackoverflow.com/search?q={}',
             'osm': 'https://www.openstreetmap.org/search?query={}',
             'goodreads': 'https://www.goodreads.com/search?q={}',
-            'firefoxadd': 'https://addons.mozilla.org/fr/firefox/search/?q={}'
+            'firefoxadd': 'https://addons.mozilla.org/fr/firefox/search/?q={}',
+            'thomann': 'https://www.thomann.de/fr/search_dir.html?sw={}'
     }
 
 c.bindings.commands = {
