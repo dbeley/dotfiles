@@ -16,7 +16,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-vinegar'
 
-Plug 'scrooloose/syntastic'
+"Plug 'vim-syntastic/syntastic'
 "Plug 'scrooloose/nerdtree'
 "Plug 'scrooloose/nerdcommenter'
 "Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -63,16 +63,19 @@ Plug 'rust-lang/rust.vim'
 
 Plug 'ryanoasis/vim-devicons'
 
+Plug 'python/black'
+
 call plug#end()
 
 " Change Leader and LocalLeader keys:
 let maplocalleader = ','
 let mapleader = ';'
 
-set backupdir=/tmp
+filetype plugin indent on
+set autoindent
 
+set backupdir=/tmp
 set nocompatible
-filetype plugin on
 
 " Performances 
 set synmaxcol=200
@@ -88,7 +91,6 @@ colorscheme wal
 " Aides visuelles
 set ruler
 set showcmd
-"set relativenumber
 set number relativenumber
 
 " Recherche incrémentale
@@ -96,19 +98,17 @@ set number relativenumber
 set incsearch
 set ignorecase
 set smartcase
+
 if has ('nvim')
     set inccommand=nosplit
 endif
-nnoremap <esc> :noh<return><esc>
-
-set autoindent
-filetype plugin indent on
 
 set tabstop=8
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 set smarttab
+set fileformat=unix
 
 set path+=**
 set wildmenu
@@ -119,6 +119,10 @@ set t_Co=256
 set encoding=utf8
 set linespace=0
 set hidden
+
+" Folding
+set foldmethod=indent
+set foldlevel=99
 
 " Text Wraping
 "set textwidth=79
@@ -136,12 +140,22 @@ let g:netrw_liststyle=3
 "autocmd vimenter * NERDTree
 "map <C-n> :NERDTreeToggle<CR>
 
+" ale
+"nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+"nmap <silent> <C-j> <Plug>(ale_next_wrap)
+let g:ale_list_window_size = 5
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+
 "Split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+nnoremap <esc> :noh<return><esc>
 nnoremap gf :e <cfile><cr>
 nnoremap <c-w> :sp <cfile><cr>
 nnoremap g<CR> g<C-]>
@@ -166,7 +180,6 @@ let g:livepreview_previewer = 'zathura'
 let python_hightlight_all=1
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python'
-
 let g:deoplete#enable_at_startup=1
 
 " Source fichiers de conf à la modification
@@ -177,7 +190,6 @@ augroup configurationFiles
 augroup END
 
 " Nvim-R
-
 " R output is highlighted with current colorscheme
 let g:rout_follow_colorscheme = 1
 
@@ -195,10 +207,26 @@ endif
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
 
-" Airline
+" Python
+augroup blackFormatter
+autocmd BufWritePre *.py execute ':Black'
+augroup END
+let g:black_linelength=79
 
+"Syntastic
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+" Airline
 "set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='minimalist'
 
