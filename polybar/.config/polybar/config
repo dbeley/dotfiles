@@ -289,6 +289,8 @@ bar-used-empty-foreground = ${colors.background}
 [module/temperature]
 type = internal/temperature
 label =  %temperature-c%
+label-warn =  %temperature-c%
+warn-temperature = 120
 
 [module/wired-network]
 type = internal/network
