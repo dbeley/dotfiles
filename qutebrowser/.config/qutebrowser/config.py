@@ -76,7 +76,9 @@ c.url.searchengines = \
             'osm': 'https://www.openstreetmap.org/search?query={}',
             'goodreads': 'https://www.goodreads.com/search?q={}',
             'firefoxadd': 'https://addons.mozilla.org/fr/firefox/search/?q={}',
-            'thomann': 'https://www.thomann.de/fr/search_dir.html?sw={}'
+            'thomann': 'https://www.thomann.de/fr/search_dir.html?sw={}',
+            'linguee': 'https://www.linguee.fr/francais-anglais/search?source=auto&query={}',
+            'lingueeen': 'https://www.linguee.fr/francais-anglais/search?source=anglais&query={}',
     }
 
 c.bindings.commands = {
@@ -114,7 +116,7 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 # Type: Bool
 config.set('content.javascript.enabled', True, 'qute://*/*')
 
-c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0"
+c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64; rv:67.0) Gecko/20100101 Firefox/67.0"
 c.content.headers.accept_language = "fr-FR,en-US"
 c.content.headers.do_not_track = True
 
