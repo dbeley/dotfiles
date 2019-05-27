@@ -12,11 +12,17 @@
 #########################################
 
 # Set inner/outer gaps
-gaps inner 4
+gaps inner 16
 
-gaps outer 0
+gaps outer 4
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
+
+smart_gaps on
+# smart_gaps inverse_outer
+
+smart_borders on
+# smart_borders no_gaps
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
@@ -247,7 +253,7 @@ mode "$mode_system" {
 set $mode_gaps Gaps: (p) presets, (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (1px), Shift + +|-|0 (5px)
 set $mode_gaps_inner Inner Gaps: +|-|0 (1px), Shift + +|-|0 (5px)
-set $mode_presets (1 | 0,0) (2 | 4,0) (3 | 6,0) (4 | 8,0) (5 | 8,2) (6 | 8,4) (7 | 12,0) (8 | 12,4) (9 | 16,4) (0 | 16,16)
+set $mode_presets (1 | 0,0) (2 | 4,0) (3 | 6,0) (4 | 8,0) (5 | 12,0) (6 | 16,4) (7 | 16,16) (8 | 16,24) (9 | 16,32) (0 | 16,64)
 
 mode "$mode_gaps" {
 	bindsym p      mode "$mode_presets"
@@ -261,12 +267,12 @@ mode "$mode_presets" {
 	bindsym 2 gaps inner all set 4, gaps outer all set 0
 	bindsym 3 gaps inner all set 6, gaps outer all set 0
 	bindsym 4 gaps inner all set 8, gaps outer all set 0
-	bindsym 5 gaps inner all set 8, gaps outer all set 2
-	bindsym 6 gaps inner all set 8, gaps outer all set 4
-	bindsym 7 gaps inner all set 12, gaps outer all set 0
-	bindsym 8 gaps inner all set 12, gaps outer all set 4
-	bindsym 9 gaps inner all set 16, gaps outer all set 4
-	bindsym 0 gaps inner all set 16, gaps outer all set 16
+	bindsym 5 gaps inner all set 12, gaps outer all set 0
+	bindsym 6 gaps inner all set 16, gaps outer all set 4
+	bindsym 7 gaps inner all set 16, gaps outer all set 16
+	bindsym 8 gaps inner all set 16, gaps outer all set 24
+	bindsym 9 gaps inner all set 16, gaps outer all set 32
+	bindsym 0 gaps inner all set 16, gaps outer all set 64
 
 	bindsym Return mode "$mode_gaps" 
 	bindsym Escape mode "$mode_gaps"
