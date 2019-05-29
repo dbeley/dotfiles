@@ -33,7 +33,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
+"Plug 'Valloric/YouCompleteMe'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+Plug 'deoplete-plugins/deoplete-jedi'
 "Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
@@ -46,10 +48,16 @@ Plug 'lervag/vimtex'
 "Plug 'vim-latex/vim-latex'
 "Plug 'rhysd/vim-grammarous'
 
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 "Plug 'sheerun/vim-polyglot'
 Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'ryanolsonx/vim-lsp-python'
+"Plug 'prabirshrestha/asyncomplete.vim'
+"Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'jceb/vim-orgmode'
 "Plug 'joshhartigan/vim-reddit'
@@ -64,6 +72,9 @@ Plug 'rust-lang/rust.vim'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'python/black'
+
+Plug 'metakirby5/codi.vim'
+Plug 'jpalardy/vim-slime'
 
 call plug#end()
 
@@ -141,8 +152,8 @@ let g:netrw_liststyle=3
 "map <C-n> :NERDTreeToggle<CR>
 
 " ale
-"nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-"nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_list_window_size = 5
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
@@ -212,6 +223,19 @@ augroup blackFormatter
 autocmd BufWritePre *.py execute ':Black'
 augroup END
 let g:black_linelength=79
+
+" Vim-slime
+let g:slime_target = "tmux"
+let g:slime_python_ipython = 1
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
+
+" lsp
+let g:lsp_signs_enabled = 1
+
+"asyncomplete
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
 "Syntastic
 "set statusline+=%#warningmsg#
