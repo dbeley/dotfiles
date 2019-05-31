@@ -27,12 +27,15 @@ c.downloads.location.directory = "~/Téléchargements"
 
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
+    "s": "https://www.startpage.com/do/dsearch?query={}",
+    "sp": "https://www.startpage.com/do/dsearch?query={}",
+    "g": "https://www.startpage.com/do/dsearch?query={}",
+    # "g": "https://www.google.fr/search?q={}",
     "d": "https://duckduckgo.com/?q={}",
     "di": "https://duckduckgo.com/?ia=images&iax=images&q={}",
     "qw": "https://lite.qwant.com/?q={}&t=web",
     "qwi": "https://lite.qwant.com/?q={}&t=images",
     "gi": "https://www.google.fr/search?q={}&tbm=isch",
-    "g": "https://www.google.fr/search?q={}",
     "lfm": "https://www.last.fm/fr/search?q={}",
     "ryms": "https://rateyourmusic.com/search?searchtype=a&searchterm={}",
     "rym": "https://rateyourmusic.com/artist/{}",
