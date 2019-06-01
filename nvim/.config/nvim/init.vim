@@ -180,6 +180,9 @@ nnoremap <leader>r :Rg<CR>
 nnoremap <leader>c :Commands<CR>
 nnoremap <leader>k :bdelete<CR>
 nnoremap <leader>g :Goyo<CR>
+nnoremap <leader>d :Codi<CR>
+nnoremap <leader>x :Lines<CR>
+nnoremap <leader>v :BLines<CR>
 nnoremap <leader>w :w<CR>
 inoremap <leader>w <C-c>:w<CR>
 nmap <leader>l :TagbarToggle<CR>
