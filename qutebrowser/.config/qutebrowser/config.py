@@ -145,6 +145,8 @@ c.content.cookies.accept = "no-3rdparty"
 c.downloads.position = "bottom"
 # c.tabs.background = True
 
+config.bind(",ce", "config-edit")
+
 # Reddit bindings
 config.bind(",rn", "open {url}/new")
 config.bind(",rh", "open {url}/hot")
@@ -155,4 +157,7 @@ config.bind(",rtm", "open {url}/top/?sort=top&t=month")
 config.bind(",rty", "open {url}/top/?sort=top&t=year")
 config.bind(",rta", "open {url}/top/?sort=top&t=all")
 
-config.bind(",ce", "config-edit")
+# Last.fm bindings
+config.bind(",lfw", "spawn --userscript lastfm-week.sh")
+config.bind(",lfm", "spawn --userscript lastfm-month.sh")
+config.bind(",lfy", "spawn --userscript lastfm-year.sh")
