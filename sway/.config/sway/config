@@ -42,11 +42,11 @@ output * bg ~/.config/wpg/.current fill
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' \
-#               resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 300 'swaylock -f -c 000000' \
+         timeout 600 'swaymsg "output * dpms off"' \
+              resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -142,6 +142,7 @@ output * bg ~/.config/wpg/.current fill
     bindsym $mod+Shift+0 move container to workspace 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+    workspace back_and_forth
 #
 # Layout stuff:
 #
@@ -182,7 +183,7 @@ output * bg ~/.config/wpg/.current fill
 #
 # Resizing containers:
 #
-mode "resize" {
+mode "  resize  " {
     # left will shrink the containers width
     # right will grow the containers width
     # up will shrink the containers height
@@ -202,7 +203,18 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "  resize  "
+
+# mode "poweroff/restart"
+mode "  (r)eboot, (s)hutdown  " {
+    bindsym r exec reboot, mode "default"
+    bindsym s exec poweroff, mode "default"
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+p mode "  (r)eboot, (s)hutdown  "
 
 #
 # Status Bar:
@@ -235,6 +247,7 @@ default_border pixel 3
 gaps inner 8
 gaps outer 8
 
+# Colors using pywal / wpgtk
 include "$HOME/.cache/wal/colors-sway"
 set $tx	#ffffff 
 
@@ -247,21 +260,27 @@ client.placeholder      	$tx		$tx		$tx		$tx             $tx
 
 # User-defined shortcuts
 bindsym $mod+z exec $browser
-#bindsym $mod+d exec termite --name=launcher -e ~/scripts/launcher-wayland.sh
-bindsym $mod+d exec j4-dmenu-desktop --dmenu='bemenu -i --nb "#3f3f3f" --nf "#dcdccc" --fn "pango:DejaVu Sans Mono 12"' --term='termite'
-for_window [app_id="^launcher$"] floating enable, border none
+# Launcher using j4-dmenu-desktop and bemenu (black and white)
+bindsym $mod+d exec j4-dmenu-desktop --dmenu='bemenu -i -p "" -b --fn "pango:Iosevka Nerd Font Italic 9" --nb "#282a36" --hf "#f8f8f2"' --term='termite' --display-binary
+
 bindsym XF86AudioRaiseVolume exec "amixer -q set Master 2%+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer -q set Master 2%- unmute"
 bindsym XF86AudioMute exec "amixer -q set Master toggle"
+bindsym XF86ScreenSaver exec "swaylock -f -c 000000"
+bindsym XF86Suspend exec "swaylock -f -c 000000"
+bindsym XF86TouchpadToggle exec "$HOME/scripts/touchpad_toggle.sh"
+bindsym XF86Back workspace prev
+bindsym XF86Forward workspace next
+
 bindsym Pause exec "killall -SIGUSR1 waybar"
+bindsym $mod+n exec wpg -m
 
-include /etc/sway/config.d/*
-
+# gtk theme
 set $gnome-schema org.gnome.desktop.interface
-
 exec_always {
     gsettings set $gnome-schema gtk-theme 'FlatColor'
     gsettings set $gnome-schema icon-theme 'Numix-Square'
     #gsettings set $gnome-schema cursor-theme 'Your cursor Theme'
 }
-exec wpg -m
+
+include /etc/sway/config.d/*

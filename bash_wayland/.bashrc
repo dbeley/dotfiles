@@ -32,6 +32,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --ignore-case --hidden -t d"
 export FZF_TMUX=1
 
+export QT_QPA_PLATFORMTHEME="gtk2"
 #export QT_QPA_PLATFORM=wayland
 export QT_QPA_PLATFORM=wayland-egl
 #export QT_WAYLAND_FORCE_DPI=physical

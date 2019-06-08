@@ -38,6 +38,15 @@ window#waybar.PCSX2 #window {
     background: #282a36;
 }
 
+#mode {
+	margin-top: 8px;
+	margin-left: 12px;
+	margin-bottom: 0;
+	border-radius: 6px;
+	background: #282a36;
+	transition: none;
+}
+
 #workspaces {
 	margin-top: 8px;
 	margin-left: 12px;

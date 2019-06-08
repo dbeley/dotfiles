@@ -9,9 +9,13 @@
 "pulseaudio": {
             "tooltip": false,
             "scroll-step": 5,
-            "format": "{icon} {volume}%",
+            //"format": "{icon} {volume}%",
+            "format": "VOL {volume}%",
+            //"format-muted": "{icon} mute",
+            "format-muted": "VOL mute",
             "format-icons": {
-                    "default": ["奄", "奔", "墳"]
+                    //"default": ["奄", "奔", "墳"]
+                    "default": ["奄"]
             }
     },
     "battery": {
@@ -28,12 +32,12 @@
     //},
     "cpu": {
         //"format": "{usage}% ",
-        "format": "{usage}% CPU",
+        "format": "CPU {usage}%",
         "tooltip": false
     },
     "memory": {
         //"format": "{}% "
-        "format": "{}% RAM"
+        "format": "RAM {}%"
     },
     "temperature": {
         // "thermal-zone": 2,
