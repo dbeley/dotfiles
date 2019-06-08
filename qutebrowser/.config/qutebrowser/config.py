@@ -16,6 +16,7 @@ config = config  # noqa: F821 pylint: disable=E0602,C0103
 #   - left
 #   - right
 c.tabs.position = "top"
+c.tabs.show = "multiple"
 
 c.editor.command = ["urxvt", "-e", "nvim", "{}"]
 
@@ -161,3 +162,26 @@ config.bind(",rta", "open {url}/top/?sort=top&t=all")
 config.bind(",lfw", "spawn --userscript lastfm-week.sh")
 config.bind(",lfm", "spawn --userscript lastfm-month.sh")
 config.bind(",lfy", "spawn --userscript lastfm-year.sh")
+
+# # Font config qutebrowser
+# monospace = "10pt monospace"
+# c.fonts.completion.category = monospace
+# c.fonts.completion.entry = monospace
+# c.fonts.debug_console = monospace
+# c.fonts.downloads = monospace
+# c.fonts.hints = monospace
+# c.fonts.keyhint = monospace
+# c.fonts.messages.error = monospace
+# c.fonts.messages.info = monospace
+# c.fonts.messages.warning = monospace
+# c.fonts.monospace = '"Iosevka Nerd Font Italic", Fura, Monospace'
+# c.fonts.prompts = monospace
+# c.fonts.statusbar = monospace
+# c.fonts.tabs = monospace
+# overpass_family = "Overpass Nerd Font"
+# # c.fonts.web.family.cursive = overpass_family
+# # c.fonts.web.family.fantasy = overpass_family
+# # c.fonts.web.family.fixed = overpass_family
+# # c.fonts.web.family.sans_serif = "iosevka italic"
+# # c.fonts.web.family.serif = overpass_family
+# # c.fonts.web.family.standard = overpass_family
