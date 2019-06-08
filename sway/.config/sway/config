@@ -66,6 +66,19 @@ exec swayidle -w \
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
+# Keymap sway-input
+input "1:1:AT_Translated_Set_2_keyboard" {
+    xkb_layout "us"
+    xkb_variant "intl"
+    xkb_options "ctrl:nocaps,shift:both_capslock"
+    repeat_delay 200
+    repeat_rate 55
+    }
+
+input "2:10:TPPS/2_IBM_TrackPoint" {
+    left_handed enabled
+    }
+
 ### Key bindings
 #
 # Basics:
@@ -118,28 +131,39 @@ exec swayidle -w \
 #
 # Workspaces:
 #
+
+    set $ws1 " 1 "
+    set $ws2 " 2 "
+    set $ws3 " 3 "
+    set $ws4 " 4 "
+    set $ws5 " 5 "
+    set $ws6 " 6 "
+    set $ws7 " 7 "
+    set $ws8 " 8 "
+    set $ws9 " 9 "
+    set $ws10 " 10 "
     # switch to workspace
-    bindsym $mod+1 workspace 1
-    bindsym $mod+2 workspace 2
-    bindsym $mod+3 workspace 3
-    bindsym $mod+4 workspace 4
-    bindsym $mod+5 workspace 5
-    bindsym $mod+6 workspace 6
-    bindsym $mod+7 workspace 7
-    bindsym $mod+8 workspace 8
-    bindsym $mod+9 workspace 9
-    bindsym $mod+0 workspace 10
+    bindsym $mod+1 workspace $ws1
+    bindsym $mod+2 workspace $ws2
+    bindsym $mod+3 workspace $ws3
+    bindsym $mod+4 workspace $ws4
+    bindsym $mod+5 workspace $ws5
+    bindsym $mod+6 workspace $ws6
+    bindsym $mod+7 workspace $ws7
+    bindsym $mod+8 workspace $ws8
+    bindsym $mod+9 workspace $ws9
+    bindsym $mod+0 workspace $ws10
     # move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace 1
-    bindsym $mod+Shift+2 move container to workspace 2
-    bindsym $mod+Shift+3 move container to workspace 3
-    bindsym $mod+Shift+4 move container to workspace 4
-    bindsym $mod+Shift+5 move container to workspace 5
-    bindsym $mod+Shift+6 move container to workspace 6
-    bindsym $mod+Shift+7 move container to workspace 7
-    bindsym $mod+Shift+8 move container to workspace 8
-    bindsym $mod+Shift+9 move container to workspace 9
-    bindsym $mod+Shift+0 move container to workspace 10
+    bindsym $mod+Shift+1 move container to workspace $ws1
+    bindsym $mod+Shift+2 move container to workspace $ws2
+    bindsym $mod+Shift+3 move container to workspace $ws3
+    bindsym $mod+Shift+4 move container to workspace $ws4
+    bindsym $mod+Shift+5 move container to workspace $ws5
+    bindsym $mod+Shift+6 move container to workspace $ws6
+    bindsym $mod+Shift+7 move container to workspace $ws7
+    bindsym $mod+Shift+8 move container to workspace $ws8
+    bindsym $mod+Shift+9 move container to workspace $ws9
+    bindsym $mod+Shift+0 move container to workspace $ws10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
     workspace back_and_forth
@@ -237,15 +261,10 @@ bar {
 swaybar_command waybar
 }
 
-# Keymap
- input * xkb_layout "us"
- input * xkb_variant "intl"
- input * xkb_options "ctrl:nocaps,shift:both_capslock"
-
 # default_border none
 default_border pixel 3
-gaps inner 8
-gaps outer 8
+gaps inner 4
+gaps outer 4
 
 # Colors using pywal / wpgtk
 include "$HOME/.cache/wal/colors-sway"
@@ -261,7 +280,7 @@ client.placeholder      	$tx		$tx		$tx		$tx             $tx
 # User-defined shortcuts
 bindsym $mod+z exec $browser
 # Launcher using j4-dmenu-desktop and bemenu (black and white)
-bindsym $mod+d exec j4-dmenu-desktop --dmenu='bemenu -i -p "" -b --fn "pango:Iosevka Nerd Font Italic 9" --nb "#282a36" --hf "#f8f8f2"' --term='termite' --display-binary
+bindsym $mod+d exec j4-dmenu-desktop --dmenu='bemenu -i -p "" -b --fn "pango:Iosevka Italic 9" --nb "#282a36" --hf "#f8f8f2"' --term='termite' --display-binary
 
 bindsym XF86AudioRaiseVolume exec "amixer -q set Master 2%+ unmute"
 bindsym XF86AudioLowerVolume exec "amixer -q set Master 2%- unmute"
