@@ -51,6 +51,8 @@ window#waybar.PCSX2 #window {
 	margin-top: 8px;
 	margin-left: 12px;
 	margin-bottom: 0;
+        padding-left: 8px;
+        padding-right: 8px;
 	border-radius: 6px;
 	background: #282a36;
 	transition: none;
@@ -58,6 +60,8 @@ window#waybar.PCSX2 #window {
 
 #workspaces button {
 	transition: none;
+        padding-left: 8px;
+        padding-right: 8px;
 	color: #828282;
 	background: transparent;
 	font-size: 12px;
@@ -71,7 +75,7 @@ window#waybar.PCSX2 #window {
 	transition: none;
 	box-shadow: inherit;
 	text-shadow: inherit;
-	color: #ff79c6;
+	color: #cccccc;
 }
 
 #mpd {

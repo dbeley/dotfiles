@@ -132,16 +132,26 @@ input "2:10:TPPS/2_IBM_TrackPoint" {
 # Workspaces:
 #
 
-    set $ws1 " 1 "
-    set $ws2 " 2 "
-    set $ws3 " 3 "
-    set $ws4 " 4 "
-    set $ws5 " 5 "
-    set $ws6 " 6 "
-    set $ws7 " 7 "
-    set $ws8 " 8 "
-    set $ws9 " 9 "
-    set $ws10 " 10 "
+    set $ws1 1
+    set $ws2 2
+    set $ws3 3
+    set $ws4 4
+    set $ws5 5
+    set $ws6 6
+    set $ws7 7
+    set $ws8 8
+    set $ws9 9
+    set $ws10 10
+    # set $ws1 " 1 "
+    # set $ws2 " 2 "
+    # set $ws3 " 3 "
+    # set $ws4 " 4 "
+    # set $ws5 " 5 "
+    # set $ws6 " 6 "
+    # set $ws7 " 7 "
+    # set $ws8 " 8 "
+    # set $ws9 " 9 "
+    # set $ws10 " 10 "
     # switch to workspace
     bindsym $mod+1 workspace $ws1
     bindsym $mod+2 workspace $ws2
@@ -166,7 +176,7 @@ input "2:10:TPPS/2_IBM_TrackPoint" {
     bindsym $mod+Shift+0 move container to workspace $ws10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
-    workspace back_and_forth
+    workspace_auto_back_and_forth yes
 #
 # Layout stuff:
 #
@@ -261,12 +271,15 @@ bar {
 swaybar_command waybar
 }
 
+include /etc/sway/config.d/*
+
+############### Borders
 # default_border none
 default_border pixel 3
 gaps inner 4
 gaps outer 4
 
-# Colors using pywal / wpgtk
+############### Colors using pywal / wpgtk
 include "$HOME/.cache/wal/colors-sway"
 set $tx	#ffffff 
 
@@ -277,24 +290,8 @@ client.focused_inactive		$color4		$color4		$tx		$color1       $color1
 client.urgent	        	$tx		$tx		$tx		$tx             $tx
 client.placeholder      	$tx		$tx		$tx		$tx             $tx
 
-# User-defined shortcuts
-bindsym $mod+z exec $browser
-# Launcher using j4-dmenu-desktop and bemenu (black and white)
-bindsym $mod+d exec j4-dmenu-desktop --dmenu='bemenu -i -p "" -b --fn "pango:Iosevka Italic 9" --nb "#282a36" --hf "#f8f8f2"' --term='termite' --display-binary
-
-bindsym XF86AudioRaiseVolume exec "amixer -q set Master 2%+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer -q set Master 2%- unmute"
-bindsym XF86AudioMute exec "amixer -q set Master toggle"
-bindsym XF86ScreenSaver exec "swaylock -f -c 000000"
-bindsym XF86Suspend exec "swaylock -f -c 000000"
-bindsym XF86TouchpadToggle exec "$HOME/scripts/touchpad_toggle.sh"
-bindsym XF86Back workspace prev
-bindsym XF86Forward workspace next
-
-bindsym Pause exec "killall -SIGUSR1 waybar"
-bindsym $mod+n exec wpg -m
-
-# gtk theme
+############### Autostarting commands
+# Gtk theme
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
     gsettings set $gnome-schema gtk-theme 'FlatColor'
@@ -302,4 +299,31 @@ exec_always {
     #gsettings set $gnome-schema cursor-theme 'Your cursor Theme'
 }
 
-include /etc/sway/config.d/*
+# Notification daemon
+exec mako
+
+############### User-defined shortcuts
+bindsym $mod+z exec $browser
+
+# Launcher using j4-dmenu-desktop and bemenu (black and white)
+bindsym $mod+d exec j4-dmenu-desktop --dmenu='bemenu -i -p "" -b --fn "pango:Iosevka Italic 9" --nb "#282a36" --hf "#f8f8f2"' --term='termite' --display-binary
+
+# Audio volume keys
+bindsym XF86AudioRaiseVolume exec "amixer -q set Master 2%+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -q set Master 2%- unmute"
+bindsym XF86AudioMute exec "amixer -q set Master toggle"
+
+# Lock screen
+bindsym XF86ScreenSaver exec "swaylock -f -c 000000"
+bindsym XF86Suspend exec "swaylock -f -c 000000"
+
+# Workspace navigation
+bindsym XF86Back workspace prev
+bindsym XF86Forward workspace next
+
+# Screenshot
+bindsym --release Print exec "grim ~/Nextcloud/Images/Screenshots/$(date +%s).png"
+bindsym --release Shift+Print exec 'grim -g "$(slurp -d)" ~/Nextcloud/Images/Screenshots/$(date +%s)_cropped.png'
+
+bindsym Pause exec "killall -SIGUSR1 waybar"
+bindsym $mod+n exec wpg -m
