@@ -1,7 +1,9 @@
 {
     "layer": "bottom",
-    "modules-left": ["sway/workspaces", "sway/mode", "pulseaudio", "clock"],
-    "modules-center": ["sway/window"],
+    "modules-left": ["sway/workspaces", "sway/mode", "pulseaudio"],
+    //"modules-center": ["sway/window"],
+    "modules-center": ["clock"],
+    //"modules-right": ["clock"],
     "modules-right": ["cpu", "memory", "temperature", "battery"],
     "sway/window": {
         "max-length": 50
@@ -24,6 +26,7 @@
         //"format-icons": ["", "", "", "", ""]
     },
     "clock": {
+        "format": "{:%H:%M}",
         "format-alt": "{:%a, %d. %b  %H:%M}"
     },
     "cpu": {

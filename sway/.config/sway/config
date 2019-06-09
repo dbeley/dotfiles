@@ -79,6 +79,8 @@ input "2:10:TPPS/2_IBM_TrackPoint" {
     left_handed enabled
     }
 
+seat * hide_cursor 3000
+
 ### Key bindings
 #
 # Basics:
