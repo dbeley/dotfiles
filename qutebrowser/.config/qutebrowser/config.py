@@ -83,6 +83,7 @@ c.url.searchengines = {
     "thomann": "https://www.thomann.de/fr/search_dir.html?sw={}",
     "linguee": "https://www.linguee.fr/francais-anglais/search?source=auto&query={}",
     "lingueeen": "https://www.linguee.fr/francais-anglais/search?source=anglais&query={}",
+    "pypi": "https://pypi.org/search/?q={}",
 }
 
 c.bindings.commands = {
