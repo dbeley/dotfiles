@@ -43,7 +43,8 @@ font xft:Hack 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvtc
+# bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec termite
 #bindsym $mod+Return exec st
 
 # kill focused window
@@ -195,7 +196,8 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 #for_window [class="Calamares"] floating enable border normal
 
 #for_window [class="URxvt"] floating enable
-for_window [class="URxvt" instance="float"] floating enable
+# for_window [class="URxvt" instance="float"] floating enable
+for_window [class="termite" instance="float"] floating enable
 for_window [window_role="float"] floating enable
 for_window [class="mpv"] move window to scratchpad, scratchpad show, floating enable, sticky enable, resize set 518 294, move position 838 464
 for_window [instance="feh"] floating enable
@@ -362,7 +364,7 @@ exec --no-startup-id "$HOME/.config/polybar/launch.sh"
 exec --no-startup-id compton --config "$HOME/.config/compton.conf"
 
 # Urxvt
-exec --no-startup-id urxvtd -q -o -f
+# exec --no-startup-id urxvtd -q -o -f
 
 # Other
 exec --no-startup-id redshift-gtk
@@ -410,7 +412,7 @@ bindsym XF86Launch1 exec --no-startup-id "$HOME/scripts/search.sh"
 bindsym Shift+XF86Launch1 exec --no-startup-id "$HOME/scripts/launch.sh"
 bindsym $mod+t exec --no-startup-id "$HOME/scripts/search.sh"
 bindsym $mod+Shift+t exec --no-startup-id "$HOME/scripts/launch.sh"
-bindsym --release $mod+Shift+v exec --no-startup-id "$HOME/scripts/draw_urxvt.sh"
+# bindsym --release $mod+Shift+v exec --no-startup-id "$HOME/scripts/draw_urxvt.sh"
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 5%
