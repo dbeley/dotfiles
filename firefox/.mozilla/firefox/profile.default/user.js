@@ -415,3 +415,4 @@ user_pref("browser.tabs.insertAfterCurrent", true);
 
 user_pref("layout.spellcheckDefault", 0);
 user_pref("accessibility.blockautorefresh", true);
+user_pref("gfx.webrender.enabled", true);

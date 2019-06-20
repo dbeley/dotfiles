@@ -160,9 +160,15 @@ config.bind(",rty", "open {url}/top/?sort=top&t=year")
 config.bind(",rta", "open {url}/top/?sort=top&t=all")
 
 # Last.fm bindings
-config.bind(",lfw", "spawn --userscript lastfm-week.sh")
-config.bind(",lfm", "spawn --userscript lastfm-month.sh")
-config.bind(",lfy", "spawn --userscript lastfm-year.sh")
+config.bind(",lfw", "spawn --userscript lastfm-album-week.sh")
+config.bind(",lfm", "spawn --userscript lastfm-album-month.sh")
+config.bind(",lfy", "spawn --userscript lastfm-album-year.sh")
+config.bind(",ltw", "spawn --userscript lastfm-track-week.sh")
+config.bind(",ltm", "spawn --userscript lastfm-track-month.sh")
+config.bind(",lty", "spawn --userscript lastfm-track-year.sh")
+config.bind(",law", "spawn --userscript lastfm-artist-week.sh")
+config.bind(",lam", "spawn --userscript lastfm-artist-month.sh")
+config.bind(",lay", "spawn --userscript lastfm-artist-year.sh")
 
 # # Font config qutebrowser
 # monospace = "10pt monospace"
