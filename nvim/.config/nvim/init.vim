@@ -48,14 +48,14 @@ Plug 'lervag/vimtex'
 "Plug 'vim-latex/vim-latex'
 "Plug 'rhysd/vim-grammarous'
 
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
 "Plug 'sheerun/vim-polyglot'
 Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 
-"Plug 'prabirshrestha/async.vim'
-"Plug 'prabirshrestha/vim-lsp'
-"Plug 'ryanolsonx/vim-lsp-python'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'ryanolsonx/vim-lsp-python'
 "Plug 'prabirshrestha/asyncomplete.vim'
 "Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
@@ -152,13 +152,13 @@ let g:netrw_liststyle=3
 "map <C-n> :NERDTreeToggle<CR>
 
 " ale
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-let g:ale_list_window_size = 5
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_linters = {'python': ['bandit', 'pylint', 'flake8']}
+"nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+"nmap <silent> <C-j> <Plug>(ale_next_wrap)
+"let g:ale_list_window_size = 5
+"let g:ale_echo_msg_error_str = 'E'
+"let g:ale_echo_msg_warning_str = 'W'
+"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+"let g:ale_linters = {'python': ['bandit', 'flake8']}
 "slower than python-black official plugin
 "let g:ale_fixers = {'python': ['black']}
 "let g:ale_fix_on_save = 1
