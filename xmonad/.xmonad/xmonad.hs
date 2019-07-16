@@ -1,5 +1,6 @@
 -- Xmonad configuration
 -- this is a comment
+import System.IO
 import XMonad
 import Graphics.X11.ExtraTypes.XF86
 import XMonad.Config.Desktop
@@ -11,7 +12,7 @@ import XMonad.StackSet as W
 import XMonad.ManageHook
 import XMonad.Util.NamedScratchpad
 import XMonad.Layout.Hidden
-import System.IO
+import XMonad.Actions.CycleWS (moveTo, WSType(NonEmptyWS), Direction1D(Next,Prev))
 
 main = do
     xmproc <- spawnPipe "xmobar"
@@ -46,18 +47,19 @@ main = do
         , ((0, xF86XK_Display), spawn "~/scripts/display_config.sh")
         , ((0, xF86XK_Launch1), spawn "~/scripts/search.sh")
         , ((shiftMask, xF86XK_Launch1), spawn "~/scripts/launch.sh")
-        , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q sset Master 1%+")
-        , ((shiftMask, xF86XK_AudioRaiseVolume), spawn "amixer -q sset Master 10%+")
-        , ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 1%-")
-        , ((shiftMask, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 10%-")
-        , ((0, xF86XK_AudioMute), spawn "amixer -q sset Master toggle")
+        , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -D pulse -q sset Master 1%+")
+        , ((shiftMask, xF86XK_AudioRaiseVolume), spawn "amixer -D pulse -q sset Master 10%+")
+        , ((0, xF86XK_AudioLowerVolume), spawn "amixer -D pulse -q sset Master 1%-")
+        , ((shiftMask, xF86XK_AudioLowerVolume), spawn "amixer -D pulse -q sset Master 10%-")
+        , ((0, xF86XK_AudioMute), spawn "amixer -D pulse -q sset Master toggle")
         , ((myModMask, xK_backslash), withFocused hideWindow)
         -- Named scratchpads
         , ((myModMask, xK_F9), namedScratchpadAction scratchpads "keepassxc")
         , ((myModMask, xK_F10), namedScratchpadAction scratchpads "nextcloud")
         , ((myModMask, xK_F11), namedScratchpadAction scratchpads "gnome-system-monitor")
+		, ((0, xF86XK_Back) , moveTo Prev NonEmptyWS)
+		, ((0, xF86XK_Forward) , moveTo Next NonEmptyWS)
         ]
-
 
 myTerminal = "termite"
 myModMask = mod4Mask
@@ -70,5 +72,5 @@ scratchpads = [
     -- fullscreen scratchpads
     NS "keepassxc" "keepassxc" (className =? "keepassxc") (customFloating $ W.RationalRect 0 0 1 1),
     NS "nextcloud" "nextcloud" (className =? "Nextcloud") (customFloating $ W.RationalRect 0 0 1 1),
-    NS "gnome-system-monitor" "gnome-system-monitor" (className =? "gnome-system-monitor") (customFloating $ W.RationalRect 0 0 1 1)
+    NS "gnome-system-monitor" "gnome-system-monitor" (className =? "Gnome-system-monitor") (customFloating $ W.RationalRect 0 0 1 1)
     		  ] where role = stringProperty "WM_WINDOW_ROLE"
