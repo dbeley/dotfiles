@@ -1,5 +1,5 @@
 Config { font = "xft:Iosevka Nerd Font Mono:style=Italic:size=9:antialias=true:hinting=true,xft:Deja Vu:size=9"
-       , additionalFonts = []
+       , additionalFonts = ["xft:FontAwesome:size=10:antialias=true:hinting=true"]
        , borderColor = "black"
        , border = TopB
        , bgColor = "black"
@@ -17,6 +17,10 @@ Config { font = "xft:Iosevka Nerd Font Mono:style=Italic:size=9:antialias=true:h
        , overrideRedirect = True
        , commands = [ Run Network "eth1" ["-L","0","-H","32",
                                           "--normal","green","--high","red"] 10
+                    -- , Run Volume "default" "Master" ["-t", "<fn=1></fn> <volume>% <status>", "--",
+                    -- 			"-O", "", "-o", "mute"] 50
+                    -- , Run Alsa "default" "Master" ["-t", " <volume>% <status>"]
+                    -- 			"-O", "", "-o", "mute"] 50
                     , Run CoreTemp ["-t", " <core0>°C",
                     				"-L", "50", "-H", "80",
                     				"-l", "lightblue", "-n", "gray90", "-h", "red"] 50
@@ -42,5 +46,5 @@ Config { font = "xft:Iosevka Nerd Font Mono:style=Italic:size=9:antialias=true:h
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% } <fc=#ffffff>%date%</fc> { %coretemp% | %cpu% | %memory% | %dynnetwork% "
+       , template = " %StdinReader% } <fc=#ffffff>%date%</fc> { %coretemp% | %cpu% | %memory% | %dynnetwork% "
        }

@@ -7,18 +7,27 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.StackSet as W
+import XMonad.ManageHook
+import XMonad.Util.NamedScratchpad
+import XMonad.Layout.Hidden
 import System.IO
 
 main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ defaultConfig
-        { manageHook = manageDocks <+> myManageHook
+        { manageHook = manageDocks <+> myManageHook <+> namedScratchpadManageHook scratchpads
+
         , layoutHook = avoidStruts $ layoutHook defaultConfig
         , handleEventHook = handleEventHook defaultConfig <+> docksEventHook
         , logHook = dynamicLogWithPP xmobarPP
-                        { ppOutput = hPutStrLn xmproc
-                        , ppTitle = xmobarColor "white" "" . shorten 50
-                        }
+            { ppOutput    = hPutStrLn xmproc
+            , ppTitle     = xmobarColor "gray" "" . shorten 50
+            , ppCurrent   = xmobarColor "white" ""
+            , ppVisible   = xmobarColor "white" "" . wrap "<" ">"
+            , ppWsSep     = " | "
+            , ppSort      = fmap (namedScratchpadFilterOutWorkspace.) (ppSort xmobarPP)
+            }
         , terminal = myTerminal
         , modMask = myModMask
         , borderWidth = myBorderWidth
@@ -43,11 +52,22 @@ main = do
         , ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 1%-")
         , ((shiftMask, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 10%-")
         , ((0, xF86XK_AudioMute), spawn "amixer -q sset Master toggle")
+        , ((myModMask, xK_backslash), withFocused hideWindow)
+        -- , ((myModMask, xK_F9), scratchpadSpawnActionTerminal myTerminal)
+        , ((myModMask, xK_F9), namedScratchpadAction scratchpads "keepassxc")
+        , ((myModMask, xK_F10), namedScratchpadAction scratchpads "nextcloud")
         ]
+
 
 myTerminal = "termite"
 myModMask = mod4Mask
 myBorderWidth = 3
 myManageHook = composeAll
-	[ className =? "Gimp"		--> doFloat
-	]
+    [ className =? "Gimp" --> doFloat
+    ]
+
+scratchpads = [
+    -- fullscreen scratchpads
+    NS "keepassxc" "keepassxc" (className =? "keepassxc") (customFloating $ W.RationalRect 0 0 1 1),
+    NS "nextcloud" "nextcloud" (className =? "Nextcloud") (customFloating $ W.RationalRect 0 0 1 1)
+    		  ] where role = stringProperty "WM_WINDOW_ROLE"
