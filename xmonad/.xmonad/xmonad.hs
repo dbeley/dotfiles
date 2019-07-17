@@ -1,30 +1,41 @@
 -- Xmonad configuration
 -- this is a comment
 import System.IO
-import XMonad
 import Graphics.X11.ExtraTypes.XF86
+import XMonad
 import XMonad.Actions.CopyWindow
 import XMonad.Actions.CycleWS (moveTo, WSType(NonEmptyWS), Direction1D(Next,Prev))
 import XMonad.Actions.FloatKeys
 import XMonad.Actions.GridSelect
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
-import XMonad.Layout.Fullscreen
+-- import XMonad.Layout.Fullscreen
+import XMonad.Layout.Gaps
 import XMonad.Layout.Grid
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Spacing
 import XMonad.Layout.ThreeColumns
 import XMonad.ManageHook
 import XMonad.StackSet as W
 import XMonad.Util.EZConfig(additionalKeys)
+import XMonad.Util.Loggers
 import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run(spawnPipe)
 
 main = do
     xmproc <- spawnPipe "xmobar"
-    xmonad $ fullscreenSupport $ defaultConfig
-        { manageHook = manageDocks <+> myManageHook <+> namedScratchpadManageHook scratchpads
-        , layoutHook = avoidStruts $ layoutHook defaultConfig ||| ThreeColMid 1 (3/100) (1/2) ||| Grid
-        , handleEventHook = handleEventHook defaultConfig <+> docksEventHook
+    xmonad $ ewmh $ defaultConfig
+    -- xmonad $ defaultConfig
+        { manageHook = manageDocks <+> manageHook defaultConfig <+> myManageHook <+> namedScratchpadManageHook scratchpads
+        , layoutHook = avoidStruts $ spacingRaw True (Border 10 10 10 10) True (Border 4 4 4 4) True $ 
+                       layoutHook defaultConfig ||| 
+                       noBorders Full |||
+                       ThreeColMid 1 (3/100) (1/2) |||
+                       Grid
+        , handleEventHook = handleEventHook defaultConfig <+> docksEventHook <+> fullscreenEventHook
+        -- , handleEventHook = handleEventHook defaultConfig <+> docksEventHook
         , logHook = dynamicLogWithPP xmobarPP
             { ppOutput    = hPutStrLn xmproc
             , ppTitle     = xmobarColor "gray" "" . shorten 50
@@ -32,6 +43,8 @@ main = do
             , ppVisible   = xmobarColor "white" "" . wrap "<" ">"
             , ppWsSep     = " | "
             , ppSort      = fmap (namedScratchpadFilterOutWorkspace.) (ppSort xmobarPP)
+            , ppLayout    = const ""
+            -- , ppExtras = [ padL battery ]
             }
         , terminal = myTerminal
         , modMask = myModMask
@@ -60,19 +73,21 @@ main = do
         , ((myModMask, xK_F9), namedScratchpadAction scratchpads "keepassxc")
         , ((myModMask, xK_F10), namedScratchpadAction scratchpads "nextcloud")
         , ((myModMask, xK_F11), namedScratchpadAction scratchpads "gnome-system-monitor")
-		, ((0, xF86XK_Back) , moveTo Prev NonEmptyWS)
-		, ((0, xF86XK_Forward) , moveTo Next NonEmptyWS)
-		, ((myModMask, xK_v ), windows copyToAll) -- @@ Make focused window always visible
- 	 	, ((myModMask .|. shiftMask, xK_v ),  killAllOtherCopies) -- @@ Toggle window state back
-   	   	, ((myModMask, xK_g), goToSelected defaultGSConfig)
-   	   	, ((0, xK_Pause), sendMessage ToggleStruts)
+        , ((0, xF86XK_Back) , moveTo Prev NonEmptyWS)
+        , ((0, xF86XK_Forward) , moveTo Next NonEmptyWS)
+        , ((myModMask, xK_v ), windows copyToAll) -- @@ Make focused window always visible
+        , ((myModMask .|. shiftMask, xK_v ),  killAllOtherCopies) -- @@ Toggle window state back
+		, ((myModMask, xK_g), goToSelected defaultGSConfig)
+		, ((0, xK_Pause), sendMessage ToggleStruts)
         ]
 
 myTerminal = "termite"
 myModMask = mod4Mask
 myBorderWidth = 3
 myManageHook = composeAll
-    [ className =? "Gimp" --> doFloat
+    -- [ ifFullscreen --> doFullFloat
+    [
+    className =? "Gimp" --> doFloat
     ]
 
 scratchpads = [
@@ -80,4 +95,4 @@ scratchpads = [
     NS "keepassxc" "keepassxc" (className =? "keepassxc") (customFloating $ W.RationalRect 0 0 1 1),
     NS "nextcloud" "nextcloud" (className =? "Nextcloud") (customFloating $ W.RationalRect 0 0 1 1),
     NS "gnome-system-monitor" "gnome-system-monitor" (className =? "Gnome-system-monitor") (customFloating $ W.RationalRect 0 0 1 1)
-    		  ] where role = stringProperty "WM_WINDOW_ROLE"
+			  ] where role = stringProperty "WM_WINDOW_ROLE"
