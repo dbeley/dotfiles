@@ -3,17 +3,52 @@
 ![screenshot](https://raw.githubusercontent.com/dbeley/dotfiles/master/screenshot.png)
 
 # Some software I use :
-* [i3-gaps](https://github.com/Airblader/i3)
-* [polybar](https://github.com/jaagr/polybar)
-* [emacs](https://www.gnu.org/software/emacs/)
-* [rofi](https://github.com/DaveDavenport/rofi)
-* [urxvt](https://github.com/exg/rxvt-unicode)
-* [tmux](https://github.com/tmux/tmux)
-* [fish](https://github.com/lericson/fish)
-* [neovim](https://github.com/neovim/neovim) (with [vim-plug](https://github.com/junegunn/vim-plug))
-* [wal](https://github.com/dylanaraps/wal)
-* [neofetch](https://github.com/dylanaraps/neofetch)
-* [mpd](https://github.com/MusicPlayerDaemon/MPD) + [ncmpcpp](https://github.com/arybczak/ncmpcpp)
-* [ranger](https://github.com/ranger/ranger)
-* [weechat](https://github.com/weechat/weechat)
-* [maim](https://github.com/naelstrof/maim)
+
+## WM
+
+* i3/i3-gaps (with polybar) : Extensive configuration. Several modes for gaps presets or resizing/moving containers.
+* sway (with waybar) : Extensive configuration without XWayland. Mostly the same as i3 configuration.
+* xmonad (with xmobar) : Extensive configuration. Named scratchpads, several layouts.
+* bspwm (with polybar) : Simpe configuration.
+* dwm : Simple configuration.
+* exwm : Simple configuration.
+
+## Editors
+
+* emacs : Extensive configuration, including exwm (needs to uncomment stuff).
+* neovim (with vim-plug) : Extensive configuration, mainly for python and go.
+* vim : Very simple configuration.
+
+## Web browsers
+
+* qutebrowser : Extensive configuration, with some userscripts.
+* firefox : Extensive user.js configuration, aimed for privacy.
+
+## Terminal emulators
+
+* termite
+* urxvt
+* terminator
+* st
+
+## Utilities
+
+* fish
+* oh-my-fish
+* tmux : Keybindings, powerline theme.
+* pywal / wpgtk : GTK/QT theme, colors for i3, sway, bspwm, dwm.
+* yay
+* compton
+* dunst
+* feh
+* ledger
+* ranger
+* redshift
+* rofi
+
+## Media players
+
+* mpv
+* mpd
+* ncmpcpp
+* beets
