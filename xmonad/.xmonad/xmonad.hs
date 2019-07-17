@@ -3,23 +3,27 @@
 import System.IO
 import XMonad
 import Graphics.X11.ExtraTypes.XF86
+import XMonad.Actions.CopyWindow
+import XMonad.Actions.CycleWS (moveTo, WSType(NonEmptyWS), Direction1D(Next,Prev))
+import XMonad.Actions.FloatKeys
+import XMonad.Actions.GridSelect
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-import XMonad.Util.Run(spawnPipe)
-import XMonad.Util.EZConfig(additionalKeys)
-import XMonad.StackSet as W
+import XMonad.Layout.Fullscreen
+import XMonad.Layout.Grid
+import XMonad.Layout.ThreeColumns
 import XMonad.ManageHook
+import XMonad.StackSet as W
+import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Util.NamedScratchpad
-import XMonad.Layout.Hidden
-import XMonad.Actions.CycleWS (moveTo, WSType(NonEmptyWS), Direction1D(Next,Prev))
+import XMonad.Util.Run(spawnPipe)
 
 main = do
     xmproc <- spawnPipe "xmobar"
-    xmonad $ defaultConfig
+    xmonad $ fullscreenSupport $ defaultConfig
         { manageHook = manageDocks <+> myManageHook <+> namedScratchpadManageHook scratchpads
-
-        , layoutHook = avoidStruts $ layoutHook defaultConfig
+        , layoutHook = avoidStruts $ layoutHook defaultConfig ||| ThreeColMid 1 (3/100) (1/2) ||| Grid
         , handleEventHook = handleEventHook defaultConfig <+> docksEventHook
         , logHook = dynamicLogWithPP xmobarPP
             { ppOutput    = hPutStrLn xmproc
@@ -52,13 +56,16 @@ main = do
         , ((0, xF86XK_AudioLowerVolume), spawn "amixer -D pulse -q sset Master 1%-")
         , ((shiftMask, xF86XK_AudioLowerVolume), spawn "amixer -D pulse -q sset Master 10%-")
         , ((0, xF86XK_AudioMute), spawn "amixer -D pulse -q sset Master toggle")
-        , ((myModMask, xK_backslash), withFocused hideWindow)
         -- Named scratchpads
         , ((myModMask, xK_F9), namedScratchpadAction scratchpads "keepassxc")
         , ((myModMask, xK_F10), namedScratchpadAction scratchpads "nextcloud")
         , ((myModMask, xK_F11), namedScratchpadAction scratchpads "gnome-system-monitor")
 		, ((0, xF86XK_Back) , moveTo Prev NonEmptyWS)
 		, ((0, xF86XK_Forward) , moveTo Next NonEmptyWS)
+		, ((myModMask, xK_v ), windows copyToAll) -- @@ Make focused window always visible
+ 	 	, ((myModMask .|. shiftMask, xK_v ),  killAllOtherCopies) -- @@ Toggle window state back
+   	   	, ((myModMask, xK_g), goToSelected defaultGSConfig)
+   	   	, ((0, xK_Pause), sendMessage ToggleStruts)
         ]
 
 myTerminal = "termite"
