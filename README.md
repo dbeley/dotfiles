@@ -4,7 +4,9 @@
 
 # Some software I use :
 
-## WM
+Some config files might need the [scripts](https://github.com/dbeley/scripts) repo in the home directory.
+
+## WMs
 
 * i3/i3-gaps (with polybar) : Extensive configuration. Several modes for gaps presets or resizing/moving containers.
 * sway (with waybar) : Extensive configuration without XWayland. Mostly the same as i3 configuration.
@@ -19,12 +21,12 @@
 * neovim (with vim-plug) : Extensive configuration, mainly for python and go.
 * vim : Very simple configuration.
 
-## Web browsers
+## Web Browsers
 
 * qutebrowser : Extensive configuration, with some userscripts.
 * firefox : Extensive user.js configuration, aimed for privacy.
 
-## Terminal emulators
+## Terminal Emulators
 
 * termite
 * urxvt
@@ -46,7 +48,7 @@
 * redshift
 * rofi
 
-## Media players
+## Media Players
 
 * mpv
 * mpd
