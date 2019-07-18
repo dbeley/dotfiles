@@ -130,15 +130,15 @@ c.content.headers.do_not_track = True
 # Bindings for normal mode
 config.bind(
     ",M",
-    "spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?1080]+bestaudio/best {url}",
+    "spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?720]+bestaudio/best {url}",
 )
 config.bind(
     ",m",
-    "hint links spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?1080]+bestaudio/best {hint-url}",
+    "hint links spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?720]+bestaudio/best {hint-url}",
 )
 config.bind(
     ";m",
-    "hint --rapid links spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?1080]+bestaudio/best {hint-url}",
+    "hint --rapid links spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?720]+bestaudio/best {hint-url}",
 )
 
 c.content.javascript.enabled = False
