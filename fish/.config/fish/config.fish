@@ -26,4 +26,4 @@ set FZF_TMUX 1
 
 set -x -g PIPENV_VENV_IN_PROJECT 1
 
-eval (pipenv --completion)
+#eval (pipenv --completion)
