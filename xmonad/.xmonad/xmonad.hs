@@ -22,11 +22,11 @@ import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
-import XMonad.Layout.Gaps
-import XMonad.Layout.Grid
-import XMonad.Layout.NoBorders
+-- import XMonad.Layout.Gaps
+-- import XMonad.Layout.Grid
+-- import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
-import XMonad.Layout.ThreeColumns
+-- import XMonad.Layout.ThreeColumns
 import XMonad.ManageHook
 import XMonad.StackSet as W
 import XMonad.Util.EZConfig(additionalKeysP)
@@ -175,7 +175,7 @@ myKeys =
         , ("M-w", switchProjectPrompt myPromptTheme)
     	, ("M-S-w", shiftToProjectPrompt myPromptTheme)
         -- XMonad Prompt
-        -- , ("M-x", xmonadPrompt def)
+        , ("M-x", xmonadPrompt myPromptTheme)
         -- Layout Management
         , ("M-<Tab>", sendMessage NextLayout)
         ]

@@ -50,5 +50,5 @@ Config { font = "xft:Iosevka Nerd Font Mono:style=Italic:size=9:antialias=true:h
        , sepChar = "%"
        , alignSep = "}{"
        -- , template = " %StdinReader% | %volume% } %date% { %cpufreq% | %coretemp% | %cpu% | %memory% | %dynnetwork% | %date2% "
-       , template = " %StdinReader% | %dynnetwork% } %date% { %cpufreq% | %coretemp% | %cpu% | %memory% | %volume% | %date2% "
+       , template = " %StdinReader% | %dynnetwork% } %date% { %coretemp% | %cpu% | %memory% | %volume% | %date2% "
        }
