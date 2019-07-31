@@ -22,19 +22,10 @@ Config { font = "xft:Iosevka Nerd Font Mono:style=Italic:size=9:antialias=true:h
                     				"-L", "50", "-H", "80",
                     				"-l", "lightblue", "-n", "gray70", "-h", "red"] 50
    	   	   	   	    , Run BatteryP ["BAT0"]
-                				["-t", "<acstatus><watts> (<left>%)",
-                 	 	 	 	 "-L", "10", "-H", "80", "-p", "3",
-                 	 	 	 	 "--", "-O", "<fc=green>On</fc> - ", "-i", "",
-                 	 	 	 	 "-L", "-15", "-H", "-5",
-                 	 	 	 	 "-l", "red", "-m", "blue", "-h", "green"]	600
+                				["-t", "BAT <left>% (<timeleft>)"] 600
                     , Run Cpu ["-L","3","-H","50",
                                "--normal", "gray70", "--high", "red",
                                "-t", "CPU <total>%"] 50
-                    -- , Run CpuFreq ["-t", "Freq:<cpu0>|<cpu1>GHz", "-L", "0", "-H", "1.2",
-                    --    "-l", "lightblue", "-n","white", "-h", "red"] 50
-                    -- , Run MultiCpu ["-L","3","-H","50",
-                    -- 				"--normal", "green", "--high", "red",
-                    -- 				"-t", "CPU <total0>% | <total1>%"] 50
                     -- , Run Memory ["-t","RAM <usedratio>% <used>/<total> |"] 50
                     , Run Memory ["-t","RAM <usedratio>%",
                     			  "-L", "10", "-H", "60",
@@ -42,13 +33,12 @@ Config { font = "xft:Iosevka Nerd Font Mono:style=Italic:size=9:antialias=true:h
                     , Run Brightness ["-t", "<bar>"] 50
                     , Run DynNetwork ["-t", "<dev> <rx>KB|<tx>KB"] 50
                     , Run Date "%H:%M:%S" "date" 10
-                    , Run Date "%_d-%m-%Y" "date2" 60
-                    , Run Com "uname" ["-s","-r"] "" 36000
+                    , Run Date "%d-%m-%Y" "date2" 60
                     , Run Com "./scripts/get_volume.sh" [] "volume" 10
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       -- , template = " %StdinReader% | %volume% } %date% { %cpufreq% | %coretemp% | %cpu% | %memory% | %dynnetwork% | %date2% "
-       , template = " %StdinReader% | %dynnetwork% } %date% { %coretemp% | %cpu% | %memory% | %volume% | %date2% "
+       , template = " %StdinReader% | %coretemp% | %cpu% | %memory% } %date% {  %dynnetwork% | %volume% | %battery% | %date2% "
+       -- , template = " %StdinReader% | %dynnetwork% } %date% { %coretemp% | %cpu% | %memory% | %volume% | %battery% | %date2% "
        }
