@@ -18,10 +18,14 @@ Config { font = "xft:Iosevka Nerd Font Mono:style=Italic:size=9:antialias=true:h
        , commands = [
                     -- , Run CoreTemp ["-t", " <core0>°C",
                     Run CoreTemp ["-t", "TEMP <core0>°C",
-                    				"-L", "50", "-H", "80",
-                    				"-l", "lightblue", "-n", "gray70", "-h", "red"] 50
+                    			  "-L", "50", "-H", "80",
+                    			  "-l", "lightblue", "-n", "gray70", "-h", "red"] 50
                     , Run BatteryP ["BAT0"]
-                    			["-t", "BAT <left>% (<timeleft>)"] 600
+                    			["-t", "<acstatus>",
+                    			 "--",
+                    			 "-O", "BAT <left>% (<timeleft>)",
+                    			 "-i", "BAT <left>%",
+                    			 "-o", "BAT <left>% (<timeleft>)"] 600
                     , Run Cpu ["-L","3","-H","50",
                                "--normal", "gray70", "--high", "red",
                                "-t", "CPU <total>%"] 50
