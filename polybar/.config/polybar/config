@@ -72,7 +72,7 @@ font-2 = "Overpassmono:style=Regular:size=18;2"
 #modules-left = i3 bspwm xwindow
 modules-left = i3 xwindow
 modules-center = date 
-modules-right = wired-network wireless-network wwan-network temperature cpu alsa battery
+modules-right = wired-network wireless-network2 wireless-network wwan-network temperature cpu alsa battery
 
 wm-restack = i3
 #override-redirect = true
@@ -304,6 +304,11 @@ interval=3.0
 [module/wireless-network]
 type = internal/network
 interface = wls1
+label-connected = %downspeed:9%
+interval=3.0
+[module/wireless-network2]
+type = internal/network
+interface = wlp3s0
 label-connected = %downspeed:9%
 interval=3.0
 [module/wwan-network]
