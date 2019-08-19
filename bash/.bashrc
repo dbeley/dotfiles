@@ -35,4 +35,6 @@ export FZF_TMUX=1
 #wal -R
 (cat /home/david/.config/wpg/sequences &)
 
+# eval "$(pipenv --completion)"
+
 [ -f /usr/bin/fish ] && exec fish

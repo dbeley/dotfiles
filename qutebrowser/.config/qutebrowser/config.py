@@ -22,19 +22,25 @@ c.editor.command = ["urxvt", "-e", "nvim", "{}"]
 
 # c.window.hide_decoration = True
 
-# c.content.user_stylesheets = "~/.config/qutebrowser/css/apprentice-all-sites.css"
+# c.content.user_stylesheets = "~/.config/qutebrowser/css/dracula-all-sites.css"
 
 c.downloads.location.directory = "~/Téléchargements"
 
+c.url.default_page = "https://start.duckduckgo.com"
+# c.url.default_page = "https://qwant.com"
+# c.url.default_page = "https://startpage.com"
+
 c.url.searchengines = {
     "DEFAULT": "https://duckduckgo.com/?q={}",
-    "s": "https://www.startpage.com/do/dsearch?query={}",
-    "sp": "https://www.startpage.com/do/dsearch?query={}",
+    # "DEFAULT": "https://qwant.com/?q={}&t=web",
+    # "DEFAULT": "https://www.startpage.com/do/search?query={}",
+    "s": "https://www.startpage.com/do/search?query={}",
+    "sp": "https://www.startpage.com/do/search?query={}",
     "g": "https://www.google.fr/search?q={}",
     "d": "https://duckduckgo.com/?q={}",
     "di": "https://duckduckgo.com/?ia=images&iax=images&q={}",
-    "qw": "https://lite.qwant.com/?q={}&t=web",
-    "qwi": "https://lite.qwant.com/?q={}&t=images",
+    "qw": "https://qwant.com/?q={}&t=web",
+    "qwi": "https://qwant.com/?q={}&t=images",
     "gi": "https://www.google.fr/search?q={}&tbm=isch",
     "lfm": "https://www.last.fm/fr/search?q={}",
     "lfmd": "https://www.last.fm/fr/music/{}",
@@ -84,6 +90,8 @@ c.url.searchengines = {
     "linguee": "https://www.linguee.fr/francais-anglais/search?source=auto&query={}",
     "lingueeen": "https://www.linguee.fr/francais-anglais/search?source=anglais&query={}",
     "pypi": "https://pypi.org/search/?q={}",
+    "openrepos": "https://openrepos.net/search/node/{}",
+    "extratorrent": "https://extratorrent.cm/search/?search={}",
 }
 
 c.bindings.commands = {
@@ -127,7 +135,13 @@ c.content.headers.user_agent = (
 c.content.headers.accept_language = "fr-FR,en-US"
 c.content.headers.do_not_track = True
 
-# Bindings for normal mode
+c.content.javascript.enabled = False
+c.content.cookies.accept = "no-3rdparty"
+# c.qt.force_software_rendering = "qt-quick"
+c.downloads.position = "bottom"
+# c.tabs.background = True
+
+# umpv bindigs
 config.bind(
     ",M",
     "spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?720]+bestaudio/best {url}",
@@ -141,11 +155,23 @@ config.bind(
     "hint --rapid links spawn ~/scripts/umpv.py --ytdl-format=bestvideo[height<=?720]+bestaudio/best {hint-url}",
 )
 
-c.content.javascript.enabled = False
-c.content.cookies.accept = "no-3rdparty"
-# c.qt.force_software_rendering = "qt-quick"
-c.downloads.position = "bottom"
-# c.tabs.background = True
+# CSS bindings
+config.bind(
+    ",ca",
+    'config-cycle content.user_stylesheets ~/.config/qutebrowser/css/apprentice-all-sites.css ""',
+)
+config.bind(
+    ",cd",
+    'config-cycle content.user_stylesheets ~/.config/qutebrowser/css/draculized-all-sites.css ""',
+)
+config.bind(
+    ",cg",
+    'config-cycle content.user_stylesheets ~/.config/qutebrowser/css/gruvbox-all-sites.css ""',
+)
+config.bind(
+    ",cs",
+    'config-cycle content.user_stylesheets ~/.config/qutebrowser/css/solarized-dark-all-sites.css ""',
+)
 
 config.bind(",ce", "config-edit")
 
