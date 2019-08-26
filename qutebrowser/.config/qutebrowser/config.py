@@ -92,6 +92,11 @@ c.url.searchengines = {
     "pypi": "https://pypi.org/search/?q={}",
     "openrepos": "https://openrepos.net/search/node/{}",
     "extratorrent": "https://extratorrent.cm/search/?search={}",
+    "rymv": "https://rateyourmusic.com/search?searchtype=F&searchterm={}",
+    "unsplash": "https://unsplash.com/search/photos/{}",
+    "alternativeto": "https://alternativeto.net/software/{}",
+    "gitlab": "https://gitlab.com/search?search={}",
+    "framagit": "https://framagit.org/search?search={}",
 }
 
 c.bindings.commands = {
