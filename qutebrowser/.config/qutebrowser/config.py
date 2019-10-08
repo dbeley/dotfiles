@@ -97,6 +97,7 @@ c.url.searchengines = {
     "alternativeto": "https://alternativeto.net/software/{}",
     "gitlab": "https://gitlab.com/search?search={}",
     "framagit": "https://framagit.org/search?search={}",
+    "imdb": "https://www.imdb.com/find?ref_=nv_sr_fn&q={}&s=all",
 }
 
 c.bindings.commands = {
