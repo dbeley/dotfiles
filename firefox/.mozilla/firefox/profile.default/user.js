@@ -53,7 +53,7 @@ user_pref("media.webspeech.recognition.enable",			false);
 user_pref("media.webspeech.synth.enabled",			false);
 user_pref("device.sensors.enabled",				false);
 user_pref("browser.send_pings",					false);
-//user_pref("browser.send_pings.require_same_host",		true);
+user_pref("browser.send_pings.require_same_host",		true);
 //user_pref("webgl.disabled",					true);
 //user_pref("webgl.min_capability_mode",				true);
 //user_pref("webgl.disable-extensions",				true);
@@ -163,30 +163,30 @@ user_pref("extensions.pocket.enabled",				false);
 ////user_pref("app.shield.optoutstudies.enabled",			false);
 //user_pref("browser.newtabpage.activity-stream.feeds.section.topstories",	false);
 //
-///******************************************************************************
-// * SECTION: Automatic connections                                             *
-// ******************************************************************************/
-//user_pref("network.prefetch-next",				false);
-//user_pref("network.dns.disablePrefetch",			true);
-//user_pref("network.dns.disablePrefetchFromHTTPS",		true);
-//user_pref("network.predictor.enabled",				false);
-//user_pref("network.dns.blockDotOnion",				true);
-//user_pref("browser.search.suggest.enabled",			false);
-//user_pref("browser.urlbar.suggest.bookmark", false);
-//user_pref("browser.urlbar.suggest.history", false);
-//user_pref("browser.urlbar.suggest.openpage", false);
-//user_pref("browser.urlbar.suggest.searches", false);
-//user_pref("browser.casting.enabled",				false);
-//user_pref("media.gmp-gmpopenh264.enabled",			false);
-//user_pref("media.gmp-manager.url",				"");
-//user_pref("network.http.speculative-parallel-limit",		0);
-//user_pref("browser.aboutHomeSnippets.updateUrl",		"");
-//user_pref("browser.search.update",				false);
-//user_pref("network.captive-portal-service.enabled",		false);
-//
-///******************************************************************************
-// * SECTION: HTTP                                                              *
-// ******************************************************************************/
+/******************************************************************************
+ * SECTION: Automatic connections                                             *
+ ******************************************************************************/
+user_pref("network.prefetch-next",				false);
+user_pref("network.dns.disablePrefetch",			true);
+user_pref("network.dns.disablePrefetchFromHTTPS",		true);
+user_pref("network.predictor.enabled",				false);
+user_pref("network.dns.blockDotOnion",				true);
+user_pref("browser.search.suggest.enabled",			false);
+user_pref("browser.urlbar.suggest.bookmark", false);
+user_pref("browser.urlbar.suggest.history", false);
+user_pref("browser.urlbar.suggest.openpage", false);
+user_pref("browser.urlbar.suggest.searches", false);
+user_pref("browser.casting.enabled",				false);
+user_pref("media.gmp-gmpopenh264.enabled",			false);
+user_pref("media.gmp-manager.url",				"");
+user_pref("network.http.speculative-parallel-limit",		0);
+user_pref("browser.aboutHomeSnippets.updateUrl",		"");
+user_pref("browser.search.update",				false);
+user_pref("network.captive-portal-service.enabled",		false);
+
+/******************************************************************************
+ * SECTION: HTTP                                                              *
+ ******************************************************************************/
 user_pref("network.negotiate-auth.allow-insecure-ntlm-v1",	false);
 user_pref("security.csp.experimentalEnabled",			true);
 user_pref("security.csp.enable",				true);
@@ -263,83 +263,83 @@ user_pref("network.IDN_show_punycode",				true);
 //user_pref("security.password_lifetime",				1);
 //user_pref("browser.offline-apps.notify",			true);
 //
-///******************************************************************************
-// * SECTION: Cryptography                                                      *
-// ******************************************************************************/
-//user_pref("network.stricttransportsecurity.preloadlist",	true);
-//user_pref("security.OCSP.enabled",				1);
-//user_pref("security.ssl.enable_ocsp_stapling",			true);
-//user_pref("security.ssl.enable_ocsp_must_staple",		true);
-//user_pref("security.OCSP.require",				true);
-//user_pref("security.ssl.disable_session_identifiers",		true);
-//user_pref("security.tls.version.min",				1);
-//user_pref("security.tls.version.max",				4);
-//user_pref("security.tls.version.fallback-limit",		3);
-//user_pref("security.cert_pinning.enforcement_level",		2);
-//user_pref("security.pki.sha1_enforcement_level",		1);
-//user_pref("security.ssl.treat_unsafe_negotiation_as_broken",	true);
-//user_pref("security.ssl.errorReporting.automatic",		false);
-//user_pref("browser.ssl_override_behavior",			1);
-//
-///******************************************************************************
-// * SECTION: Cipher suites                                                     *
-// ******************************************************************************/
-//user_pref("security.ssl3.rsa_null_sha",				false);
-//user_pref("security.ssl3.rsa_null_md5",				false);
-//user_pref("security.ssl3.ecdhe_rsa_null_sha",			false);
-//user_pref("security.ssl3.ecdhe_ecdsa_null_sha",			false);
-//user_pref("security.ssl3.ecdh_rsa_null_sha",			false);
-//user_pref("security.ssl3.ecdh_ecdsa_null_sha",			false);
-//user_pref("security.ssl3.rsa_seed_sha",				false);
-//user_pref("security.ssl3.rsa_rc4_40_md5",			false);
-//user_pref("security.ssl3.rsa_rc2_40_md5",			false);
-//user_pref("security.ssl3.rsa_1024_rc4_56_sha",			false);
-//user_pref("security.ssl3.rsa_camellia_128_sha",			false);
-//user_pref("security.ssl3.ecdhe_rsa_aes_128_sha",		false);
-//user_pref("security.ssl3.ecdhe_ecdsa_aes_128_sha",		false);
-//user_pref("security.ssl3.ecdh_rsa_aes_128_sha",			false);
-//user_pref("security.ssl3.ecdh_ecdsa_aes_128_sha",		false);
-//user_pref("security.ssl3.dhe_rsa_camellia_128_sha",		false);
-//user_pref("security.ssl3.dhe_rsa_aes_128_sha",			false);
-//user_pref("security.ssl3.ecdh_ecdsa_rc4_128_sha",		false);
-//user_pref("security.ssl3.ecdh_rsa_rc4_128_sha",			false);
-//user_pref("security.ssl3.ecdhe_ecdsa_rc4_128_sha",		false);
-//user_pref("security.ssl3.ecdhe_rsa_rc4_128_sha",		false);
-//user_pref("security.ssl3.rsa_rc4_128_md5",			false);
-//user_pref("security.ssl3.rsa_rc4_128_sha",			false);
-//user_pref("security.tls.unrestricted_rc4_fallback",		false);
-//user_pref("security.ssl3.dhe_dss_des_ede3_sha",			false);
-//user_pref("security.ssl3.dhe_rsa_des_ede3_sha",			false);
-//user_pref("security.ssl3.ecdh_ecdsa_des_ede3_sha",		false);
-//user_pref("security.ssl3.ecdh_rsa_des_ede3_sha",		false);
-//user_pref("security.ssl3.ecdhe_ecdsa_des_ede3_sha",		false);
-//user_pref("security.ssl3.ecdhe_rsa_des_ede3_sha",		false);
-//user_pref("security.ssl3.rsa_des_ede3_sha",			false);
-//user_pref("security.ssl3.rsa_fips_des_ede3_sha",		false);
-//user_pref("security.ssl3.ecdh_rsa_aes_256_sha",			false);
-//user_pref("security.ssl3.ecdh_ecdsa_aes_256_sha",		false);
-//user_pref("security.ssl3.rsa_camellia_256_sha",			false);
-//user_pref("security.ssl3.ecdhe_rsa_aes_256_sha",		true); // 0xc014
-//user_pref("security.ssl3.ecdhe_ecdsa_aes_256_sha",		true); // 0xc00a
-//user_pref("security.ssl3.ecdhe_ecdsa_aes_128_gcm_sha256",	true); // 0xc02b
-//user_pref("security.ssl3.ecdhe_rsa_aes_128_gcm_sha256",		true); // 0xc02f
-//user_pref("security.ssl3.ecdhe_ecdsa_chacha20_poly1305_sha256",	true);
-//user_pref("security.ssl3.ecdhe_rsa_chacha20_poly1305_sha256",	true);
-//user_pref("security.ssl3.dhe_rsa_camellia_256_sha",		false);
-//user_pref("security.ssl3.dhe_rsa_aes_256_sha",			false);
-//user_pref("security.ssl3.dhe_dss_aes_128_sha",			false);
-//user_pref("security.ssl3.dhe_dss_aes_256_sha",			false);
-//user_pref("security.ssl3.dhe_dss_camellia_128_sha",		false);
-//user_pref("security.ssl3.dhe_dss_camellia_256_sha",		false);
-//user_pref("security.ssl3.rsa_aes_256_sha",			true); // 0x35
-//user_pref("security.ssl3.rsa_aes_128_sha",			true); // 0x2f
-//
-//
-//
+/******************************************************************************
+ * SECTION: Cryptography                                                      *
+ ******************************************************************************/
+user_pref("network.stricttransportsecurity.preloadlist",	true);
+user_pref("security.OCSP.enabled",				1);
+user_pref("security.ssl.enable_ocsp_stapling",			true);
+user_pref("security.ssl.enable_ocsp_must_staple",		true);
+user_pref("security.OCSP.require",				true);
+user_pref("security.ssl.disable_session_identifiers",		true);
+user_pref("security.tls.version.min",				1);
+user_pref("security.tls.version.max",				4);
+user_pref("security.tls.version.fallback-limit",		3);
+user_pref("security.cert_pinning.enforcement_level",		2);
+user_pref("security.pki.sha1_enforcement_level",		1);
+user_pref("security.ssl.treat_unsafe_negotiation_as_broken",	true);
+user_pref("security.ssl.errorReporting.automatic",		false);
+user_pref("browser.ssl_override_behavior",			1);
+
+/******************************************************************************
+ * SECTION: Cipher suites                                                     *
+ ******************************************************************************/
+user_pref("security.ssl3.rsa_null_sha",				false);
+user_pref("security.ssl3.rsa_null_md5",				false);
+user_pref("security.ssl3.ecdhe_rsa_null_sha",			false);
+user_pref("security.ssl3.ecdhe_ecdsa_null_sha",			false);
+user_pref("security.ssl3.ecdh_rsa_null_sha",			false);
+user_pref("security.ssl3.ecdh_ecdsa_null_sha",			false);
+user_pref("security.ssl3.rsa_seed_sha",				false);
+user_pref("security.ssl3.rsa_rc4_40_md5",			false);
+user_pref("security.ssl3.rsa_rc2_40_md5",			false);
+user_pref("security.ssl3.rsa_1024_rc4_56_sha",			false);
+user_pref("security.ssl3.rsa_camellia_128_sha",			false);
+user_pref("security.ssl3.ecdhe_rsa_aes_128_sha",		false);
+user_pref("security.ssl3.ecdhe_ecdsa_aes_128_sha",		false);
+user_pref("security.ssl3.ecdh_rsa_aes_128_sha",			false);
+user_pref("security.ssl3.ecdh_ecdsa_aes_128_sha",		false);
+user_pref("security.ssl3.dhe_rsa_camellia_128_sha",		false);
+user_pref("security.ssl3.dhe_rsa_aes_128_sha",			false);
+user_pref("security.ssl3.ecdh_ecdsa_rc4_128_sha",		false);
+user_pref("security.ssl3.ecdh_rsa_rc4_128_sha",			false);
+user_pref("security.ssl3.ecdhe_ecdsa_rc4_128_sha",		false);
+user_pref("security.ssl3.ecdhe_rsa_rc4_128_sha",		false);
+user_pref("security.ssl3.rsa_rc4_128_md5",			false);
+user_pref("security.ssl3.rsa_rc4_128_sha",			false);
+user_pref("security.tls.unrestricted_rc4_fallback",		false);
+user_pref("security.ssl3.dhe_dss_des_ede3_sha",			false);
+user_pref("security.ssl3.dhe_rsa_des_ede3_sha",			false);
+user_pref("security.ssl3.ecdh_ecdsa_des_ede3_sha",		false);
+user_pref("security.ssl3.ecdh_rsa_des_ede3_sha",		false);
+user_pref("security.ssl3.ecdhe_ecdsa_des_ede3_sha",		false);
+user_pref("security.ssl3.ecdhe_rsa_des_ede3_sha",		false);
+user_pref("security.ssl3.rsa_des_ede3_sha",			false);
+user_pref("security.ssl3.rsa_fips_des_ede3_sha",		false);
+user_pref("security.ssl3.ecdh_rsa_aes_256_sha",			false);
+user_pref("security.ssl3.ecdh_ecdsa_aes_256_sha",		false);
+user_pref("security.ssl3.rsa_camellia_256_sha",			false);
+user_pref("security.ssl3.ecdhe_rsa_aes_256_sha",		true); // 0xc014
+user_pref("security.ssl3.ecdhe_ecdsa_aes_256_sha",		true); // 0xc00a
+user_pref("security.ssl3.ecdhe_ecdsa_aes_128_gcm_sha256",	true); // 0xc02b
+user_pref("security.ssl3.ecdhe_rsa_aes_128_gcm_sha256",		true); // 0xc02f
+user_pref("security.ssl3.ecdhe_ecdsa_chacha20_poly1305_sha256",	true);
+user_pref("security.ssl3.ecdhe_rsa_chacha20_poly1305_sha256",	true);
+user_pref("security.ssl3.dhe_rsa_camellia_256_sha",		false);
+user_pref("security.ssl3.dhe_rsa_aes_256_sha",			false);
+user_pref("security.ssl3.dhe_dss_aes_128_sha",			false);
+user_pref("security.ssl3.dhe_dss_aes_256_sha",			false);
+user_pref("security.ssl3.dhe_dss_camellia_128_sha",		false);
+user_pref("security.ssl3.dhe_dss_camellia_256_sha",		false);
+user_pref("security.ssl3.rsa_aes_256_sha",			true); // 0x35
+user_pref("security.ssl3.rsa_aes_128_sha",			true); // 0x2f
+
+
+
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
-//user_pref("browser.cache.offline.insecure.enable", false);
-//user_pref("browser.display.background_color", "#666666");
-//user_pref("browser.fullscreen.autohide", false);
+user_pref("browser.cache.offline.insecure.enable", false);
+user_pref("browser.display.background_color", "#666666");
+user_pref("browser.fullscreen.autohide", false);
 //user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
 //user_pref("browser.newtabpage.activity-stream.feeds.snippets", false);
 //user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
@@ -373,10 +373,10 @@ user_pref("extensions.formautofill.section.enabled", false);
 user_pref("extensions.formautofill.supportRTL", true);
 user_pref("findbar.highlightAll", true);
 user_pref("findbar.modalHighlight", true);
-//user_pref("font.internaluseonly.changed", false);
-//user_pref("font.name.monospace.x-western", "Iosevka");
-//user_pref("font.name.sans-serif.x-western", "Overpass Nerd Font mono");
-//user_pref("font.name.serif.x-western", "Overpass Nerd Font Mono");
+user_pref("font.internaluseonly.changed", false);
+user_pref("font.name.monospace.x-western", "Iosevka");
+user_pref("font.name.sans-serif.x-western", "Overpass Nerd Font mono");
+user_pref("font.name.serif.x-western", "Overpass Nerd Font Mono");
 //user_pref("full-screen-api.warning.timeout", 0);
 //user_pref("general.autoScroll", true);
 //user_pref("general.smoothScroll", false);
@@ -385,12 +385,12 @@ user_pref("general.warnOnAboutConfig", false);
 //user_pref("layout.css.prefixes.webkit", false);
 //user_pref("lightweightThemes.selectedThemeID", "firefox-compact-dark@mozilla.org");
 user_pref("middlemouse.paste", false);
-//user_pref("network.http.referer.XOriginPolicy", 2);
-//user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
-//user_pref("network.http.referer.trimmingPolicy", 2);
-//user_pref("privacy.donottrackheader.enabled", true);
-//user_pref("privacy.donottrackheader.value", 1);
-//user_pref("privacy.spoof_english", 2);
+user_pref("network.http.referer.XOriginPolicy", 2);
+user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
+user_pref("network.http.referer.trimmingPolicy", 2);
+user_pref("privacy.donottrackheader.enabled", true);
+user_pref("privacy.donottrackheader.value", 1);
+user_pref("privacy.spoof_english", 2);
 //user_pref("services.sync.prefs.sync.browser.search.selectedEngine", true);
 //user_pref("services.sync.prefs.sync.browser.tabs.closeButtons", true);
 //user_pref("services.sync.prefs.sync.browser.urlbar.default.behavior", true);
@@ -403,16 +403,16 @@ user_pref("middlemouse.paste", false);
 //
 //user_pref("accessibility.typeaheadfind", true);
 //user_pref("accessibility.typeaheadfind.flashBar", 0);
-//user_pref("browser.ctrlTab.recentlyUsedOrder", false);
-//
-//// DNS over HTTPS
+user_pref("browser.ctrlTab.recentlyUsedOrder", false);
+
+// DNS over HTTPS
 user_pref("network.trr.mode", 2);
 user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
 user_pref("network.trr.bootstrapAddress", "1.1.1.1");
 user_pref("network.security.esni.enabled", true);
 
 user_pref("browser.tabs.insertAfterCurrent", true);
-//
-//user_pref("layout.spellcheckDefault", 0);
-//user_pref("accessibility.blockautorefresh", true);
-//user_pref("gfx.webrender.enabled", true);
+user_pref("layout.spellcheckDefault", 0);
+user_pref("accessibility.blockautorefresh", true);
+user_pref("gfx.webrender.enabled", true);
+user_pref("general.useragent.override", "Mozilla/5.0 (X11; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0");

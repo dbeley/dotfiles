@@ -19,7 +19,9 @@ alias emc "emacsclient -nw"
 alias enw "emacs -nw"
 alias merde "fuck"
 
-alias cpr "rsync -azvhP --size-only --inplace --stats"
+# alias cpr "rsync -azvhP --size-only --inplace --stats"
+# alias cpr "rsync -avhP --size-only --inplace --stats"
+alias cpr "rsync -avhP --stats"
 
 set FZF_DEFAULT_COMMAND "fd --type file --ignore-case --hidden --follow --exclude .git"
 set FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"

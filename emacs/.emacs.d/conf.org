@@ -947,7 +947,7 @@
       (use-package symon
         :ensure t
         :config
-        (setq symon-refresh-rate 4)
+        (setq symon-refresh-rate 10)
         (setq symon-sparkline-type 'boxed)
         (setq symon-delay 6)
         (symon-mode)
