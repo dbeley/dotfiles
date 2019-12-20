@@ -21,3 +21,10 @@ xset -b
 
 dunst &
 udiskie --use-udisks2 -a &
+
+# HUD in DXVK games (work with steam games)
+#export DXVK_HUD=1
+#export DXVK_HUD="devinfo,fps,frametimes,submissions,drawcalls,memory,gpuload,version,api,compiler"
+#export DXVK_HUD="full"
+# ACO backend for mesa
+export RADV_PERFTEST="aco"

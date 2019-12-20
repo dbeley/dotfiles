@@ -1,1 +1,1 @@
-options(Ncpus=4)
+options(Ncpus=8)
