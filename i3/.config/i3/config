@@ -1,4 +1,3 @@
-
 # Table of contents
 # ------------------------
 # 1. Standard options
@@ -367,7 +366,7 @@ mode "$mode_move_resize" {
 ################
 
 exec --no-startup-id "$HOME/.config/polybar/launch.sh"
-exec --no-startup-id compton --config "$HOME/.config/compton.conf"
+exec --no-startup-id picom --config "$HOME/.config/picom.conf"
 
 # Urxvt
 # exec --no-startup-id urxvtd -q -o -f
