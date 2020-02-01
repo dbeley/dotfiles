@@ -406,13 +406,13 @@ user_pref("privacy.spoof_english", 2);
 user_pref("browser.ctrlTab.recentlyUsedOrder", false);
 
 // DNS over HTTPS
-user_pref("network.trr.mode", 2);
-user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
-user_pref("network.trr.bootstrapAddress", "1.1.1.1");
-user_pref("network.security.esni.enabled", true);
+//user_pref("network.trr.mode", 2);
+//user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
+//user_pref("network.trr.bootstrapAddress", "1.1.1.1");
+//user_pref("network.security.esni.enabled", true);
 
 user_pref("browser.tabs.insertAfterCurrent", true);
 user_pref("layout.spellcheckDefault", 0);
 user_pref("accessibility.blockautorefresh", true);
 user_pref("gfx.webrender.enabled", true);
-user_pref("general.useragent.override", "Mozilla/5.0 (X11; Linux x86_64; rv:71.0) Gecko/20100101 Firefox/71.0");
+//user_pref("general.useragent.override", "Mozilla/5.0 (X11; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0");

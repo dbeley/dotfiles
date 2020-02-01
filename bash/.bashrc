@@ -5,10 +5,10 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-#alias ls='ls --color=auto'
-#alias l='ls --color=auto'
-#alias ll='ls -l'
-#alias la='ls -la'
+# alias ls='ls --color=auto'
+# alias l='ls --color=auto'
+# alias ll='ls -l'
+# alias la='ls -la'
 alias ls='exa'
 alias l='exa'
 alias ll='exa -lh'
@@ -32,9 +32,11 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --ignore-case --hidden -t d"
 export FZF_TMUX=1
 
-#wal -R
-(cat /home/david/.config/wpg/sequences &)
+# wal -R
+[ -f /home/david/.config/wpg/sequences ] && (cat /home/david/.config/wpg/sequences &)
 
 # eval "$(pipenv --completion)"
 
 [ -f /usr/bin/fish ] && exec fish
+
+source /home/david/.config/broot/launcher/bash/br
