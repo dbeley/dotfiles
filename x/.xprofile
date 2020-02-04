@@ -1,8 +1,11 @@
 #!/bin/sh
 
+[ "$XDG_CURRENT_DESKTOP" = "KDE" ] || export QT_QPA_PLATFORMTHEME="gtk2"
+
 #wal -R
 #~/.config/wpg/wp_init.sh
 wpg -m
+
 # [ -f /usr/bin/setxkbmap ] && setxkbmap -layout us -variant intl
 [ -f /usr/bin/setxkbmap ] && setxkbmap -layout us -variant intl -option ctrl:nocaps,shift:both_capslock
 xmodmap ~/.Xmodmap || true
@@ -13,13 +16,10 @@ xcape -t 200 -e "Shift_L=Escape;Shift_R=Escape;Hyper_L=Tab;Hyper_R=backslash;Con
 [ -f /usr/bin/xset ] && xset -dpms
 [ -f /usr/bin/xset ] && xset s off
 [ -f /usr/bin/xset ] && xset -b
-
-[ "$XDG_CURRENT_DESKTOP" = "KDE" ] || export QT_QPA_PLATFORMTHEME="gtk2"
-
-[ -f /usr/bin/xrdb ] && xrdb ~/.Xresources
-# ~/.config/polybar/launch.sh
-
-[ -f /usr/bin/dunst] && dunst &
+#[ -f /usr/bin/xrdb ] && xrdb ~/.Xresources
+#[ -f /usr/bin/polybar ] && ~/.config/polybar/launch.sh
+#[ -f /usr/bin/picom ] && picom --config "~/.config/picom.conf"
+[ -f /usr/bin/dunst ] && dunst &
 [ -f /usr/bin/udiskie ] && udiskie --use-udisks2 -a &
 
 # HUD in DXVK games (work with steam games)
