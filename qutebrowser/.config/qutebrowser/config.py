@@ -146,6 +146,7 @@ c.content.cookies.accept = "no-3rdparty"
 # c.qt.force_software_rendering = "qt-quick"
 c.downloads.position = "bottom"
 # c.tabs.background = True
+c.colors.webpage.prefers_color_scheme_dark = True
 
 # umpv bindigs
 config.bind(
