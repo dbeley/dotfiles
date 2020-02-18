@@ -6,6 +6,12 @@
 "  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
 "  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
 
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 "Plug 'tpope/vim-sensible'
@@ -39,7 +45,7 @@ Plug 'deoplete-plugins/deoplete-jedi'
 "Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
-Plug 'terryma/vim-multiple-cursors'
+"Plug 'terryma/vim-multiple-cursors'
 
 Plug 'jalvesaq/Nvim-R'
 Plug 'plasticboy/vim-markdown'
@@ -59,22 +65,22 @@ Plug 'ryanolsonx/vim-lsp-python'
 "Plug 'prabirshrestha/asyncomplete.vim'
 "Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
-Plug 'jceb/vim-orgmode'
+"Plug 'jceb/vim-orgmode'
 "Plug 'joshhartigan/vim-reddit'
 "Plug 'itchyny/calendar.vim'
 
-Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
-Plug 'nsf/gocode', {'rtp':'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh'}
-Plug 'neovimhaskell/haskell-vim'
-Plug 'tpope/vim-fireplace'
-Plug 'rust-lang/rust.vim'
+"Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+"Plug 'nsf/gocode', {'rtp':'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh'}
+"Plug 'neovimhaskell/haskell-vim'
+"Plug 'tpope/vim-fireplace'
+"Plug 'rust-lang/rust.vim'
 
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'python/black'
 
-Plug 'metakirby5/codi.vim'
-Plug 'jpalardy/vim-slime'
+"Plug 'metakirby5/codi.vim'
+"Plug 'jpalardy/vim-slime'
 
 call plug#end()
 
