@@ -181,7 +181,7 @@ nnoremap <C-H> <C-W><C-H>
 
 nnoremap <esc> :noh<return><esc>
 nnoremap gf :e <cfile><cr>
-nnoremap <c-w> :sp <cfile><cr>
+"nnoremap <c-w> :sp <cfile><cr>
 nnoremap g<CR> g<C-]>
 nnoremap <C-]> g<C-]>
 
