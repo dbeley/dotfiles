@@ -10,6 +10,9 @@
 ########## 1. Standard options ##########
 #########################################
 
+# Rounded corners
+# border_radius 5
+
 # Set inner/outer gaps
 gaps inner 16
 

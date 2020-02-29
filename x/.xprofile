@@ -8,7 +8,7 @@ wpg -m
 
 # [ -f /usr/bin/setxkbmap ] && setxkbmap -layout us -variant intl
 [ -f /usr/bin/setxkbmap ] && setxkbmap -layout us -variant intl -option ctrl:nocaps,shift:both_capslock
-[-f /usr/bin/xmodmap ] && xmodmap ~/.Xmodmap || true
+[ -f /usr/bin/xmodmap ] && xmodmap ~/.Xmodmap || true
 [ -f /usr/bin/xcape ] && xcape -t 200 -e "Shift_L=Escape;Shift_R=Escape;Hyper_L=Tab;Hyper_R=backslash;Control_L=Escape"
 [ -f /usr/bin/xset ] && xset r rate 250 55
 [ -f /usr/bin/unclutter ] && unclutter --timeout 3 --ignore-scrolling &
