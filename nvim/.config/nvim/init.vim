@@ -40,8 +40,8 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
 "Plug 'Valloric/YouCompleteMe'
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-Plug 'deoplete-plugins/deoplete-jedi'
+"Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+"Plug 'deoplete-plugins/deoplete-jedi'
 "Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
@@ -77,10 +77,9 @@ Plug 'ryanolsonx/vim-lsp-python'
 
 Plug 'ryanoasis/vim-devicons'
 
-Plug 'python/black'
-
-"Plug 'metakirby5/codi.vim'
-"Plug 'jpalardy/vim-slime'
+Plug 'psf/black', { 'commit': 'ce14fa8b497bae2b50ec48b3bd7022573a59cdb1' }
+Plug 'metakirby5/codi.vim'
+Plug 'jpalardy/vim-slime'
 
 call plug#end()
 

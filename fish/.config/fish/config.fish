@@ -6,9 +6,9 @@ set -g theme_display_date no
 set -g theme_nerd_fonts yes
 set -g theme_color_scheme dark
 
-#alias l "ls"
-#alias ll "ls -l"
-#alias la "ls -la"
+# alias l "ls"
+# alias ll "ls -l"
+# alias la "ls -la"
 
 alias ls "exa"
 alias l "exa"
