@@ -86,7 +86,7 @@ myStartupHook = do
 
 myScratchpads = [
     -- fullscreen scratchpads
-    NS "keepassxc" "keepassxc" (className =? "keepassxc") (customFloating $ W.RationalRect 0 0 1 1),
+    NS "keepassxc" "keepassxc" (className =? "KeePassXC") (customFloating $ W.RationalRect 0 0 1 1),
     NS "nextcloud" "nextcloud" (className =? "Nextcloud") (customFloating $ W.RationalRect 0 0 1 1),
     NS "gnome-system-monitor" "gnome-system-monitor" (className =? "Gnome-system-monitor") (customFloating $ W.RationalRect 0 0 1 1)
 			  ] where role = stringProperty "WM_WINDOW_ROLE"
