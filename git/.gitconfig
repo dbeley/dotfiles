@@ -1,0 +1,29 @@
+[user]
+	email = 6568955+dbeley@users.noreply.github.com
+	name = dbeley
+[filesystem "N/A|13|/dev/mapper/SSD-root"]
+	timestampResolution = 8000 nanoseconds
+	minRacyThreshold = 6477 microseconds
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[diff]
+	algorithm = patience
+[color]
+	ui = auto
+	branch = auto
+	diff = auto
+	status = auto
+    showbranch = auto
+
+# define command which will be used when "nvim" is set as a merge tool
+[mergetool "nvim"]
+    cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+# set "nvim" as tool for merging
+[merge]
+    tool = nvim
+# automatically launch merge tool without displaying a prompt
+[mergetool]
+    prompt = false

@@ -40,8 +40,8 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
 "Plug 'Valloric/YouCompleteMe'
-"Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-"Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+Plug 'deoplete-plugins/deoplete-jedi'
 "Plug 'ervandew/supertab'
 Plug 'godlygeek/tabular'
 Plug 'easymotion/vim-easymotion'
@@ -54,14 +54,14 @@ Plug 'lervag/vimtex'
 "Plug 'vim-latex/vim-latex'
 "Plug 'rhysd/vim-grammarous'
 
-"Plug 'w0rp/ale'
 "Plug 'sheerun/vim-polyglot'
 Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'ryanolsonx/vim-lsp-python'
+Plug 'w0rp/ale'
+"Plug 'prabirshrestha/async.vim'
+"Plug 'prabirshrestha/vim-lsp'
+"Plug 'ryanolsonx/vim-lsp-python'
 "Plug 'prabirshrestha/asyncomplete.vim'
 "Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
@@ -69,8 +69,7 @@ Plug 'ryanolsonx/vim-lsp-python'
 "Plug 'joshhartigan/vim-reddit'
 "Plug 'itchyny/calendar.vim'
 
-"Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
-"Plug 'nsf/gocode', {'rtp':'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh'}
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 "Plug 'neovimhaskell/haskell-vim'
 "Plug 'tpope/vim-fireplace'
 "Plug 'rust-lang/rust.vim'
@@ -78,8 +77,8 @@ Plug 'ryanolsonx/vim-lsp-python'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'psf/black', { 'commit': 'ce14fa8b497bae2b50ec48b3bd7022573a59cdb1' }
-Plug 'metakirby5/codi.vim'
-Plug 'jpalardy/vim-slime'
+"Plug 'metakirby5/codi.vim'
+"Plug 'jpalardy/vim-slime'
 
 call plug#end()
 
@@ -331,6 +330,10 @@ if !exists('g:airline_symbols')
 
 " Vim-markdown preferences
 let g:vim_markdown_folding_disabled = 1
+
+"Vim-go
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 
 " Press \R to start rotating lines and <C-c> (Control+c) to stop.
 
