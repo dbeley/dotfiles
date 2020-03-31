@@ -58,7 +58,7 @@ Plug 'lervag/vimtex'
 Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 "Plug 'prabirshrestha/async.vim'
 "Plug 'prabirshrestha/vim-lsp'
 "Plug 'ryanolsonx/vim-lsp-python'
@@ -76,7 +76,8 @@ Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 
 Plug 'ryanoasis/vim-devicons'
 
-Plug 'psf/black', { 'commit': 'ce14fa8b497bae2b50ec48b3bd7022573a59cdb1' }
+"Plug 'psf/black', { 'commit': 'ce14fa8b497bae2b50ec48b3bd7022573a59cdb1' }
+"Plug 'psf/black', { 'tag': '19.10b0' }
 "Plug 'metakirby5/codi.vim'
 "Plug 'jpalardy/vim-slime'
 
@@ -92,7 +93,7 @@ set autoindent
 set backupdir=/tmp
 set nocompatible
 
-" Performances 
+" Performances
 set synmaxcol=200
 let did_install_default_menus=1
 set lazyredraw
@@ -144,7 +145,7 @@ set foldlevel=99
 
 " Text Wraping
 "set textwidth=79
-set colorcolumn=80
+set colorcolumn=90
 set wrap
 set scrolloff=5
 
@@ -159,17 +160,21 @@ let g:netrw_liststyle=3
 "map <C-n> :NERDTreeToggle<CR>
 
 " ale
-"nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-"nmap <silent> <C-j> <Plug>(ale_next_wrap)
-"let g:ale_list_window_size = 5
-"let g:ale_echo_msg_error_str = 'E'
-"let g:ale_echo_msg_warning_str = 'W'
-"let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+nmap <silent> <leader>aj <Plug>(ale_previous_wrap)
+nmap <silent> <leader>ak <Plug>(ale_next_wrap)
+let g:ale_list_window_size = 5
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 "let g:ale_linters = {'python': ['bandit', 'flake8']}
-"slower than python-black official plugin
-"let g:ale_fixers = {'python': ['black']}
-"let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['black'],
+\}
 
+"jk to escape
+inoremap jk <esc>:noh<return><esc>
 
 "Split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -235,10 +240,10 @@ vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
 
 " Python
-augroup blackFormatter
-autocmd BufWritePre *.py execute ':Black'
-augroup END
-let g:black_linelength=79
+"augroup blackFormatter
+"autocmd BufWritePre *.py execute ':Black'
+"augroup END
+"let g:black_linelength=79
 
 augroup PythonStuff
 autocmd FileType python setlocal completeopt-=preview
