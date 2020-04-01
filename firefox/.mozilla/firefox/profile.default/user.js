@@ -2,11 +2,11 @@
 //
 //███████╗██╗██████╗ ███████╗███████╗ ██████╗ ██╗  ██╗
 //██╔════╝██║██╔══██╗██╔════╝██╔════╝██╔═══██╗╚██╗██╔╝
-//█████╗  ██║██████╔╝█████╗  █████╗  ██║   ██║ ╚███╔╝ 
-//██╔══╝  ██║██╔══██╗██╔══╝  ██╔══╝  ██║   ██║ ██╔██╗ 
+//█████╗  ██║██████╔╝█████╗  █████╗  ██║   ██║ ╚███╔╝
+//██╔══╝  ██║██╔══██╗██╔══╝  ██╔══╝  ██║   ██║ ██╔██╗
 //██║     ██║██║  ██║███████╗██║     ╚██████╔╝██╔╝ ██╗
 //╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝      ╚═════╝ ╚═╝  ╚═╝
-//                                                    
+//
 // Mozilla User Preferences
 //
 // If you make changes to this file while the application is running,
@@ -375,8 +375,8 @@ user_pref("findbar.highlightAll", true);
 user_pref("findbar.modalHighlight", true);
 user_pref("font.internaluseonly.changed", false);
 user_pref("font.name.monospace.x-western", "Iosevka");
-user_pref("font.name.sans-serif.x-western", "Overpass Nerd Font mono");
-user_pref("font.name.serif.x-western", "Overpass Nerd Font Mono");
+user_pref("font.name.sans-serif.x-western", "Segoe UI");
+user_pref("font.name.serif.x-western", "Segoe UI");
 //user_pref("full-screen-api.warning.timeout", 0);
 //user_pref("general.autoScroll", true);
 //user_pref("general.smoothScroll", false);
@@ -406,13 +406,15 @@ user_pref("privacy.spoof_english", 2);
 user_pref("browser.ctrlTab.recentlyUsedOrder", false);
 
 // DNS over HTTPS
-//user_pref("network.trr.mode", 2);
-//user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
-//user_pref("network.trr.bootstrapAddress", "1.1.1.1");
-//user_pref("network.security.esni.enabled", true);
+//user_pref("network.trr.mode", 3);
+//user_pref("network.trr.uri", "https://dns.nextdns.io/b6742e");
+//user_pref("network.trr.bootstrapAddress", "45.90.28.0");
+user_pref("network.security.esni.enabled", true);
 
 user_pref("browser.tabs.insertAfterCurrent", true);
 user_pref("layout.spellcheckDefault", 0);
 user_pref("accessibility.blockautorefresh", true);
 user_pref("gfx.webrender.enabled", true);
 //user_pref("general.useragent.override", "Mozilla/5.0 (X11; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0");
+user_pref("browser.urlbar.megabar", false);
+user_pref("browser.urlbar.update1", false);
