@@ -120,7 +120,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+F7 [class="qutebrowser"] scratchpad show
 bindsym $mod+F8 [class="mpv"] scratchpad show
 bindsym $mod+F9 scratchpad show
-bindsym $mod+F10 [class="keepassxc"] scratchpad show
+bindsym $mod+F10 [class="KeePassXC"] scratchpad show
 bindsym $mod+F11 [class="Nextcloud"] scratchpad show
 # bindsym $mod+F12 [class="Firefox"] scratchpad show
 bindsym $mod+F12 [class="Gnome-system-monitor"] scratchpad show
@@ -227,7 +227,7 @@ set_from_resource $bd i3wm.color4 #ffffff
 set_from_resource $active i3wm.color3 #f0f0f0
 set_from_resource $inactive i3wm.color1 #f0f0f0
 
-set $tx	#ffffff 
+set $tx	#ffffff
 # set $red #ff0000
 # set $blue #0000ff
 # set $green #00ff00
@@ -250,14 +250,16 @@ client.placeholder      	$tx		$tx		$tx		$tx             $tx
 ########## 4. User-defined modes ##########
 ###########################################
 
-set $mode_system (r)eboot, (s)hutdown
+set $mode_system (r)eboot, (p)oweroff, (l)ock, (s)uspend
 mode "$mode_system" {
-    bindsym r exec --no-startup-id reboot, mode "default"
-    bindsym s exec --no-startup-id poweroff, mode "default"
+    	bindsym r exec --no-startup-id reboot, mode "default"
+    	bindsym p exec --no-startup-id poweroff, mode "default"
+    	bindsym l exec --no-startup-id slock, mode "default"
+    	bindsym s exec --no-startup-id slock; systemctl suspend, mode "default"
 
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+    	# exit system mode: "Enter" or "Escape"
+    	bindsym Return mode "default"
+    	bindsym Escape mode "default"
 }
 
 set $mode_gaps Gaps: (p) presets, (o) outer, (i) inner
@@ -266,26 +268,26 @@ set $mode_gaps_inner Inner Gaps: +|-|0 (1px), Shift + +|-|0 (5px)
 set $mode_presets (1 | 0,0) (2 | 4,0) (3 | 6,0) (4 | 8,0) (5 | 12,0) (6 | 16,4) (7 | 16,16) (8 | 16,24) (9 | 16,32) (0 | 16,64)
 
 mode "$mode_gaps" {
-	bindsym p      mode "$mode_presets"
+		bindsym p      mode "$mode_presets"
         bindsym o      mode "$mode_gaps_outer"
         bindsym i      mode "$mode_gaps_inner"
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
 mode "$mode_presets" {
-	bindsym 1 gaps inner all set 0, gaps outer all set 0
-	bindsym 2 gaps inner all set 4, gaps outer all set 0
-	bindsym 3 gaps inner all set 6, gaps outer all set 0
-	bindsym 4 gaps inner all set 8, gaps outer all set 0
-	bindsym 5 gaps inner all set 12, gaps outer all set 0
-	bindsym 6 gaps inner all set 16, gaps outer all set 4
-	bindsym 7 gaps inner all set 16, gaps outer all set 16
-	bindsym 8 gaps inner all set 16, gaps outer all set 24
-	bindsym 9 gaps inner all set 16, gaps outer all set 32
-	bindsym 0 gaps inner all set 16, gaps outer all set 64
+		bindsym 1 gaps inner all set 0, gaps outer all set 0
+		bindsym 2 gaps inner all set 4, gaps outer all set 0
+		bindsym 3 gaps inner all set 6, gaps outer all set 0
+		bindsym 4 gaps inner all set 8, gaps outer all set 0
+		bindsym 5 gaps inner all set 12, gaps outer all set 0
+		bindsym 6 gaps inner all set 16, gaps outer all set 4
+		bindsym 7 gaps inner all set 16, gaps outer all set 16
+		bindsym 8 gaps inner all set 16, gaps outer all set 24
+		bindsym 9 gaps inner all set 16, gaps outer all set 32
+		bindsym 0 gaps inner all set 16, gaps outer all set 64
 
-	bindsym Return mode "$mode_gaps" 
-	bindsym Escape mode "$mode_gaps"
+		bindsym Return mode "$mode_gaps"
+		bindsym Escape mode "$mode_gaps"
 }
 mode "$mode_gaps_inner" {
         bindsym plus  gaps inner current plus 1
@@ -325,20 +327,20 @@ mode "$mode_move_resize" {
         bindsym Shift+k resize shrink height 10 px or 10 ppt
         bindsym Shift+l resize grow width 10 px or 10 ppt
 
-	bindsym 1 resize set 388 221
-	bindsym 2 resize set 388 221
-	bindsym 3 resize set 388 221
-	bindsym 4 resize set 388 221
-	bindsym 5 resize set 518 294
-	bindsym 6 resize set 518 294
-	bindsym 7 resize set 518 294
-	bindsym 8 resize set 518 294
-	bindsym 9 resize set 1280 1024
+		bindsym 1 resize set 388 221
+		bindsym 2 resize set 388 221
+		bindsym 3 resize set 388 221
+		bindsym 4 resize set 388 221
+		bindsym 5 resize set 518 294
+		bindsym 6 resize set 518 294
+		bindsym 7 resize set 518 294
+		bindsym 8 resize set 518 294
+		bindsym 9 resize set 1280 1024
 
-	bindsym m move left
-	bindsym comma move down
-	bindsym period move up
-	bindsym slash move right
+		bindsym m move left
+		bindsym comma move down
+		bindsym period move up
+		bindsym slash move right
         bindsym c move position center
 
         bindsym Shift+m move position 100 100
@@ -399,7 +401,7 @@ bindsym $mod+m mode "$mode_move_resize"
 
 # Screenshot
 bindsym --release Print exec --no-startup-id "maim ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s).png"
-bindsym Shift+Print exec --no-startup-id "maim -s -o ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s)_cropped.png" 
+bindsym Shift+Print exec --no-startup-id "maim -s -o ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s)_cropped.png"
 
 # Lockscreen
 bindsym XF86ScreenSaver exec --no-startup-id "slock"
