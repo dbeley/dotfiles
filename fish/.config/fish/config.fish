@@ -29,13 +29,13 @@ set FZF_TMUX 1
 
 set -x -g PIPENV_VENV_IN_PROJECT 1
 
-# if test -n "$DESKTOP_SESSION"
-#     set (gnome-keyring-daemon --start | string split "=")
-# end
-
-if test -z (pgrep ssh-agent)
-  eval (ssh-agent -c)
-  set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
-  set -Ux SSH_AGENT_PID $SSH_AGENT_PID
-  set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
+if test -n "$DESKTOP_SESSION"
+    set (gnome-keyring-daemon --start | string split "=")
 end
+
+# if test -z (pgrep ssh-agent)
+#   eval (ssh-agent -c)
+#   set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
+#   set -Ux SSH_AGENT_PID $SSH_AGENT_PID
+#   set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
+# end
