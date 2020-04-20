@@ -128,6 +128,8 @@ bindsym $mod+F12 [class="Gnome-system-monitor"] scratchpad show
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
+bindsym XF86Back workspace prev
+bindsym XF86Forward workspace next
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -254,8 +256,8 @@ set $mode_system (r)eboot, (p)oweroff, (l)ock, (s)uspend
 mode "$mode_system" {
     	bindsym r exec --no-startup-id reboot, mode "default"
     	bindsym p exec --no-startup-id poweroff, mode "default"
-    	bindsym l exec --no-startup-id slock, mode "default"
-    	bindsym s exec --no-startup-id slock; systemctl suspend, mode "default"
+		bindsym --release l exec --no-startup-id "slock", mode "default"
+    	bindsym --release s exec --no-startup-id "slock; systemctl suspend", mode "default"
 
     	# exit system mode: "Enter" or "Escape"
     	bindsym Return mode "default"
@@ -445,6 +447,4 @@ bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
 
 # Other
-bindsym XF86Back workspace prev
-bindsym XF86Forward workspace next
 bindsym $mod+z exec --no-startup-id emacsclient -c
