@@ -41,7 +41,7 @@ border-bottom-color = ${colors.border}
 ;border-right-size = 10
 ;border-left-size = 10
 
-tray-position = right 
+tray-position = right
 tray-padding = 2
 tray-detached = false
 #tray-transparent = true
@@ -71,7 +71,7 @@ font-2 = "Overpassmono:style=Regular:size=18;2"
 
 #modules-left = i3 bspwm xwindow
 modules-left = i3 xwindow
-modules-center = date 
+modules-center = date
 modules-right = wired-network wireless-network2 wireless-network wwan-network temperature cpu alsa battery
 
 wm-restack = i3
@@ -83,7 +83,7 @@ margin-bottom = 5
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title:0:100:...%
 
 [module/bspwm]
 type = internal/bspwm
@@ -151,7 +151,7 @@ date-alt = " %d-%m-%Y"
 time = %H:%M:%S
 time-alt = %H:%M:%S
 
-format-prefix = " " 
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 #format-underline = #444
 #format-underline = #0a6cf5
@@ -276,7 +276,7 @@ format = <label>
 ;   %mb_used%
 ;   %mb_free%
 ;   %mb_total%
-label = RAM %percentage_used%% 
+label = RAM %percentage_used%%
 
 ; Only applies if <bar-used> is used
 bar-used-indicator =

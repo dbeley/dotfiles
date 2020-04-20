@@ -1,5 +1,5 @@
 ! Invert mouse buttons
-!pointer = 3 2 1
+pointer = 3 2 1
 
 ! Clear all modifiers
 !clear shift
@@ -24,7 +24,7 @@ add mod4    = Super_L Super_R Hyper_L Hyper_R
 ! Set Tab to Hyper_L
 keycode 23 = Hyper_L
 ! Set Backslash to Hyper_L
-keycode 51 = Hyper_R
+!keycode 51 = Hyper_R
 
 ! Set Win keys to Super
 !keycode 133 = Super_L
@@ -33,5 +33,7 @@ keycode 51 = Hyper_R
 keycode 135 = Escape
 
 ! Rebind Tab and Backslash
-keycode any = Tab
-keycode any = backslash
+!keycode any = Tab
+keycode 23 = Tab
+!keycode any = backslash
+!keycode 51 = backslash
