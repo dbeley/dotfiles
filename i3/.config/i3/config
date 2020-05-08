@@ -436,10 +436,14 @@ bindsym Shift+Pause exec --no-startup-id "wpg -m; systemctl --user restart emacs
 bindsym $mod+n exec --no-startup-id "wpg -m; systemctl --user restart emacs"
 
 # Pulse Audio Controls
-bindsym XF86AudioRaiseVolume exec amixer -q sset Master 1%+
-bindsym Shift+XF86AudioRaiseVolume exec amixer -q sset Master 10%+
-bindsym XF86AudioLowerVolume exec amixer -q sset Master 1%-
-bindsym Shift+XF86AudioLowerVolume exec amixer -q sset Master 10%-
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%
+bindsym Shift+XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%
+bindsym Shift+XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
+# bindsym XF86AudioRaiseVolume exec amixer -q sset Master 1%+
+# bindsym Shift+XF86AudioRaiseVolume exec amixer -q sset Master 10%+
+# bindsym XF86AudioLowerVolume exec amixer -q sset Master 1%-
+# bindsym Shift+XF86AudioLowerVolume exec amixer -q sset Master 10%-
 bindsym XF86AudioMute exec amixer -q sset Master toggle
 bindsym XF86AudioPlay exec mpc toggle
 bindsym XF86AudioPause exec mpc toggle

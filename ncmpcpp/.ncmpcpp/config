@@ -33,7 +33,7 @@
 #
 ## Needed for tag editor and file operations to work.
 ##
-mpd_music_dir = /run/media/david/Seagate\ Backup\ Plus/Nextcloud/Musique/
+mpd_music_dir = /home/david/nfs/Toshiba/Musique
 #
 #mpd_crossfade_time = 5
 #
@@ -93,7 +93,7 @@ visualizer_sync_interval = 30
 #
 ## Available values: spectrum, wave, wave_filled, ellipse.
 ##
-visualizer_type = ellipse 
+visualizer_type = ellipse
 #
 #visualizer_look = ●▮
 #
