@@ -418,3 +418,5 @@ user_pref("gfx.webrender.enabled", true);
 //user_pref("general.useragent.override", "Mozilla/5.0 (X11; Linux x86_64; rv:72.0) Gecko/20100101 Firefox/72.0");
 user_pref("browser.urlbar.megabar", false);
 user_pref("browser.urlbar.update1", false);
+user_pref("media.videocontrols.picture-in-picture.keyboard-controls.enabled", true)
+user_pref("media.videocontrols.picture-in-picture.audio-toggle.enabled", true)

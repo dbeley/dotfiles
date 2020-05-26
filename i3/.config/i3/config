@@ -257,7 +257,7 @@ mode "$mode_system" {
     	bindsym r exec --no-startup-id reboot, mode "default"
     	bindsym p exec --no-startup-id poweroff, mode "default"
 		bindsym --release l exec --no-startup-id "slock", mode "default"
-    	bindsym --release s exec --no-startup-id "slock; systemctl suspend", mode "default"
+    	bindsym --release s exec --no-startup-id "systemctl suspend", mode "default"
 
     	# exit system mode: "Enter" or "Escape"
     	bindsym Return mode "default"
@@ -402,8 +402,8 @@ bindsym $mod+r mode "$mode_move_resize"
 bindsym $mod+m mode "$mode_move_resize"
 
 # Screenshot
-bindsym --release Print exec --no-startup-id "maim ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s).png"
-bindsym Shift+Print exec --no-startup-id "maim -s -o ~/Nextcloud/Images/Captures\ d\'écran/$(date +%s)_cropped.png"
+bindsym --release Print exec --no-startup-id "maim ~/Nextcloud/7.\ Images/Captures\ d\'écran/$(date +%s).png"
+bindsym Shift+Print exec --no-startup-id "maim -s -o ~/Nextcloud/7.\ Images/Captures\ d\'écran/$(date +%s)_cropped.png"
 
 # Lockscreen
 bindsym XF86ScreenSaver exec --no-startup-id "slock"
