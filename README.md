@@ -2,7 +2,7 @@
 
 ![screenshot](https://raw.githubusercontent.com/dbeley/dotfiles/master/screenshot.png)
 
-# Some software I use :
+# Software :
 
 Some config files might need the [scripts](https://github.com/dbeley/scripts) repo in the home directory.
 
@@ -11,7 +11,7 @@ Some config files might need the [scripts](https://github.com/dbeley/scripts) re
 * i3/i3-gaps (with polybar) : Extensive configuration. Several modes for gaps presets or resizing/moving containers.
 * sway (with waybar) : Extensive configuration without XWayland. Mostly the same as i3 configuration.
 * xmonad (with xmobar) : Extensive configuration. Named scratchpads, several layouts.
-* bspwm (with polybar) : Simpe configuration.
+* bspwm (with polybar) : Simple configuration.
 * dwm : Simple configuration.
 * exwm : Simple configuration.
 
@@ -23,8 +23,8 @@ Some config files might need the [scripts](https://github.com/dbeley/scripts) re
 
 ## Web Browsers
 
+* firefox : Extensive user.js configuration, privacy-focused.
 * qutebrowser : Extensive configuration, with some userscripts.
-* firefox : Extensive user.js configuration, aimed for privacy.
 
 ## Terminal Emulators
 
