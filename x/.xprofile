@@ -2,8 +2,7 @@
 
 # ~/dotfiles/Autres/Écrans/SG13-home.sh
 
-[ "$XDG_CURRENT_DESKTOP" = "KDE" ] || export QT_QPA_PLATFORMTHEME="qt5ct"
-[ "$XDG_CURRENT_DESKTOP" = "KDE" ] || export QT_STYLE_OVERRIDE="qt5ct"
+[ "$XDG_CURRENT_DESKTOP" = "KDE" ] || export QT_QPA_PLATFORMTHEME="gtk2"
 
 #wal -R
 #~/.config/wpg/wp_init.sh
