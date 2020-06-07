@@ -1,1 +1,5 @@
-feh -B black
+feh -B black \
+--scale-down \
+--auto-zoom \
+-d \
+--geometry 1333x1000
