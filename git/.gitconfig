@@ -28,4 +28,4 @@
 [mergetool]
     prompt = false
 [pull]
-	rebase = true
+	rebase = false
