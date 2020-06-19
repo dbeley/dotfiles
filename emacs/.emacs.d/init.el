@@ -7,7 +7,7 @@
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
- 
+
 (setq package-archive-priorities
       '(("org"          . 200)
         ("melpa"        . 150)
@@ -27,27 +27,6 @@
 
 (org-babel-load-file (expand-file-name "~/.emacs.d/conf.org"))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("86704574d397606ee1433af037c46611fb0a2787e8b6fd1d6c96361575be72d2" "196df8815910c1a3422b5f7c1f45a72edfa851f6a1d672b7b727d9551bb7c7ba" "cbd8e65d2452dfaed789f79c92d230aa8bdf413601b261dbb1291fb88605110c" default))
- '(inhibit-startup-screen t)
- '(org-structure-template-alist
-   '(("a" . "export ascii")
-     ("c" . "center")
-     ("C" . "comment")
-     ("e" . "example")
-     ("E" . "export")
-     ("h" . "export html")
-     ("l" . "export latex")
-     ("q" . "quote")
-     ("s" . "src")
-     ("v" . "verse")))
- '(package-selected-packages
-   '(helm-rg flycheck-ledger ledger pdf-tools ace-link org-noter ggtags eyebrowse telephone-line yasnippet-snippets xresources-theme which-key use-package symon spaceline smartparens smart-mode-line-atom-one-dark-theme simple-mpc ranger rainbow-mode ox-twbs ox-reveal ox-hugo org-preview-html org-plus-contrib org-bullets notmuch no-littering moody minions magic-latex-buffer ivy-rich htmlize helpful helm-projectile fzf flycheck exwm evil-surround evil-org evil-magit evil-leader evil-collection ess eshell-git-prompt elpy elfeed-org elfeed-goodies dumb-jump dashboard counsel company-shell company-quickhelp company-box better-defaults base16-theme auctex all-the-icons-ivy ace-window)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -72,3 +51,10 @@
                      gcs-done))
            (setq gc-cons-threshold 16777216
                  gc-cons-percentage 0.1))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(flycheck-ledger evil-ledger ledger-mode notmuch elfeed-org simple-mpc ace-link symon which-key helpful magic-latex-buffer auctex-latexmk elpy org-preview-html ess org-ref org-noter ox-hugo htmlize ox-reveal ox-twbs org-bullets evil-org org-plus-contrib helm-projectile projectile evil-magit magit ggtags flycheck smartparens company-box company-auctex company-quickhelp company yasnippet-snippets yasnippet helm eshell-git-prompt dashboard page-break-lines spaceline-all-the-icons all-the-icons spaceline xresources-theme base16-theme rainbow-mode fzf eyebrowse ace-window evil-collection evil-surround evil-leader evil no-littering better-defaults use-package)))

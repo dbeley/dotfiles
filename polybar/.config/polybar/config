@@ -69,10 +69,10 @@ font-2 = "Overpassmono:style=Regular:size=18;2"
 
 #modules-margin = 4
 
-#modules-left = i3 bspwm xwindow
 modules-left = i3 xwindow
 modules-center = date
-modules-right = wired-network wireless-network2 wireless-network wwan-network temperature cpu alsa battery
+# modules-right = wired-network wireless-network2 wireless-network wwan-network temperature cpu alsa battery
+modules-right = temperature cpu pulseaudio battery
 
 wm-restack = i3
 #override-redirect = true
@@ -85,28 +85,28 @@ margin-bottom = 5
 type = internal/xwindow
 label = %title:0:100:...%
 
-[module/bspwm]
-type = internal/bspwm
-ws-icon-default = x
-
-pin-workspaces = true
-
-;label-focused = ◈♦●
-label-focused = ●
-label-focused-padding = 2
-
-;label-occupied =  ◇·○
-label-occupied = ·
-label-occupied-foreground = ${colors.foreground-alt}
-label-occupied-padding = 2
-
-label-urgent = ${self.label-occupied}
-label-urgent-foreground = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = ·
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
+# [module/bspwm]
+# type = internal/bspwm
+# ws-icon-default = x
+#
+# pin-workspaces = true
+#
+# ;label-focused = ◈♦●
+# label-focused = ●
+# label-focused-padding = 2
+#
+# ;label-occupied =  ◇·○
+# label-occupied = ·
+# label-occupied-foreground = ${colors.foreground-alt}
+# label-occupied-padding = 2
+#
+# label-urgent = ${self.label-occupied}
+# label-urgent-foreground = ${colors.alert}
+# label-urgent-padding = 2
+#
+# label-empty = ·
+# label-empty-foreground = ${colors.foreground-alt}
+# label-empty-padding = 2
 
 [module/i3]
 type = internal/i3
@@ -121,22 +121,26 @@ label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
-label-focused = ${module/bspwm.label-focused}
-label-focused-padding = ${module/bspwm.label-focused-padding}
-;label-focused-background = ${module/bspwm.label-focused-background}
+;label-focused = ●
+label-focused = %index%
+label-focused-padding = 2
+label-focused-background = ${colors.primary}
 ;label-focused-underline = ${module/bspwm.label-focused-underline}
 
-label-unfocused = ${module/bspwm.label-occupied}
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
-label-unfocused-foreground = ${module/bspwm.label-occupied-foreground}
+label-unfocused = %index%
+;label-unfocused = ·
+label-unfocused-padding = 2
+label-unfocused-foreground = ${colors.foreground-alt}
 
-label-urgent = ${module/bspwm.label-urgent}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
+;label-urgent = ·
+label-urgent = %index%
+label-urgent-padding = 2
 ;label-urgent-background = ${module/bspwm.label-urgent-background}
-;label-urgent-foreground = ${module/bspwm.label-urgent-foreground}
+label-urgent-foreground = ${colors.alert}
 
-label-visible = ${module/bspwm.label-empty}
-label-visible-padding = ${module/bspwm.label-empty-padding}
+;label-visible = ·
+label-visible = %index%
+label-visible-padding = 2
 ;label-visible-underline = ${module/bspwm.label-empty-underline}
 ;label-visible-background = ${module/bspwm.label-empty-background}
 ;label-visible-foreground = ${module/bspwm.label-empty-foreground}
@@ -160,6 +164,38 @@ label = %date% %time%
 
 [module/alsa]
 type = internal/alsa
+
+format-volume = <label-volume>
+label-volume-foreground = ${root.foreground}
+label-volume =  %{F-}%percentage:1%%
+label-muted =  %{F-}mute
+
+format-muted-prefix = " "
+format-muted-foreground = ${colors.foreground-alt}
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #888
+bar-volume-foreground-1 = #888
+bar-volume-foreground-2 = #888
+bar-volume-foreground-3 = #888
+bar-volume-foreground-4 = #888
+bar-volume-foreground-5 = #888
+bar-volume-foreground-6 = #888
+
+bar-volume-gradient = false
+bar-volume-indicator = │
+bar-volume-indicator-font = 2
+bar-volume-indicator-foreground = #ff
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+use-ui-max=false
+interval=5
 
 format-volume = <label-volume>
 label-volume-foreground = ${root.foreground}

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# ~/dotfiles/Autres/Écrans/SG13-home.sh
+
 [ "$XDG_CURRENT_DESKTOP" = "KDE" ] || export QT_QPA_PLATFORMTHEME="gtk2"
 
 #wal -R
@@ -10,8 +12,8 @@ wpg -m
 [ -f /usr/bin/setxkbmap ] && setxkbmap -layout us -variant intl -option ctrl:nocaps,shift:both_capslock
 [ -f /usr/bin/xmodmap ] && xmodmap ~/.Xmodmap || true
 [ -f /usr/bin/xcape ] && xcape -t 200 -e "Shift_L=Escape;Shift_R=Escape;Hyper_L=Tab;Hyper_R=backslash;Control_L=Escape"
-#[ -f /usr/bin/xcape ] && xcape -t 200 -e "Shift_L=Escape;Shift_R=Escape;Hyper_L=Tab"
-[ -f /usr/bin/xset ] && xset r rate 250 55
+# [ -f /usr/bin/xcape ] && xcape -t 200 -e "Shift_L=Escape;Shift_R=Escape;Hyper_L=Tab"
+[ -f /usr/bin/xset ] && xset r rate 250 70
 [ -f /usr/bin/unclutter ] && unclutter --timeout 3 --ignore-scrolling &
 [ -f ~/scripts/touchpad_toggle.sh ] && ~/scripts/touchpad_toggle.sh
 [ -f /usr/bin/xset ] && xset -dpms
