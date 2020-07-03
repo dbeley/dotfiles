@@ -76,8 +76,7 @@ Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 
 Plug 'ryanoasis/vim-devicons'
 
-"Plug 'psf/black', { 'commit': 'ce14fa8b497bae2b50ec48b3bd7022573a59cdb1' }
-"Plug 'psf/black', { 'tag': '19.10b0' }
+Plug 'psf/black'
 "Plug 'metakirby5/codi.vim'
 "Plug 'jpalardy/vim-slime'
 
