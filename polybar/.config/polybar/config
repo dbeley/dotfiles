@@ -72,7 +72,7 @@ font-2 = "Overpassmono:style=Regular:size=18;2"
 modules-left = i3 xwindow
 modules-center = date
 # modules-right = wired-network wireless-network2 wireless-network wwan-network temperature cpu alsa battery
-modules-right = temperature cpu pulseaudio battery
+modules-right = wired-network wireless-network temperature cpu pulseaudio battery
 
 wm-restack = i3
 #override-redirect = true

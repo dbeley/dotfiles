@@ -22,6 +22,9 @@ alias merde "fuck"
 # alias cpr "rsync -azvhP --size-only --inplace --stats"
 alias cpr "rsync -avhP --stats --inplace"
 
+alias expacsize "expac -H M '%m\t%n' | sort -h"
+alias expaclist "expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort -h"
+
 set FZF_DEFAULT_COMMAND "fd --type file --ignore-case --hidden --follow --exclude .git"
 set FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 set FZF_ALT_C_COMMAND "fd --ignore-case --hidden -t d"
