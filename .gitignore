@@ -19,5 +19,7 @@ ranger/.config/ranger/__pycache__/
 qutebrowser/.config/qutebrowser/bookmarks
 qutebrowser/.config/qutebrowser/autoconfig.yml
 qutebrowser/.config/qutebrowser/quickmarks
+termite/.config/gtk-3.0/bookmarks
+termite/.config/gtk-3.0/settings.ini
 
 tags

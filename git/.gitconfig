@@ -29,3 +29,5 @@
     prompt = false
 [pull]
 	rebase = false
+[core]
+	autocrlf = input

@@ -26,3 +26,6 @@ user_pref("network.IDN_show_punycode",				true);
 user_pref("browser.fullscreen.autohide", false);
 user_pref("browser.urlbar.doubleClickSelectsAll", false);
 user_pref("dom.ipc.processCount", -1);
+user_pref("dom.event.clipboardevents.enabled", false);
+user_pref("browser.urlbar.trimURLS", false);
+user_pref("browser.formfill.enable", false);
