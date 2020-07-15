@@ -52,7 +52,7 @@ main = do
         -- 	[(mod4Mask,               windowGo  ),
         --  	 (mod4Mask .|. shiftMask, windowSwap)]
         -- 	False
-        $ defaultConfig
+        $ def
         	{ manageHook = myManageHook
          -- , { workspaces = ["1:web","2:term","3:steam","4:dev","5:office","6","7","8","9","0","-","="]
         	, startupHook = myStartupHook
@@ -88,26 +88,27 @@ myScratchpads = [
     -- fullscreen scratchpads
     NS "keepassxc" "keepassxc" (className =? "KeePassXC") (customFloating $ W.RationalRect 0 0 1 1),
     NS "nextcloud" "nextcloud" (className =? "Nextcloud") (customFloating $ W.RationalRect 0 0 1 1),
-    NS "gnome-system-monitor" "gnome-system-monitor" (className =? "Gnome-system-monitor") (customFloating $ W.RationalRect 0 0 1 1)
+    NS "gnome-system-monitor" "gnome-system-monitor" (className =? "Gnome-system-monitor") (customFloating $ W.RationalRect 0 0 1 1),
+    NS "psensor" "psensor" (className =? "psensor") (customFloating $ W.RationalRect 0 0 1 1)
 			  ] where role = stringProperty "WM_WINDOW_ROLE"
 
-myManageHook = manageDocks <+> 
-			   manageHook defaultConfig <+> 
+myManageHook = manageDocks <+>
+			   manageHook def <+>
 			   composeAll
     	       [
     	       className =? "Gimp" --> doFloat
     	       ] <+>
-    		   namedScratchpadManageHook myScratchpads 
+    		   namedScratchpadManageHook myScratchpads
 
 myLayoutHook = avoidStruts
              . spacingRaw True (Border 10 10 10 10) True (Border 4 4 4 4) True
              . mkToggle (NBFULL ?? EOT)
              -- $ tiled ||| Mirror tiled
              -- $ Grid ||| noBorders Full
-             $ layoutHook defaultConfig
+             $ layoutHook def
              -- $ ThreeColMid 1 (3/100) (1/2)
 
-myHandleEventHook = handleEventHook defaultConfig <+> docksEventHook
+myHandleEventHook = handleEventHook def <+> docksEventHook
 
 -- Workspaces
 
@@ -128,8 +129,8 @@ projects =
               }
  ]
 
-myKeys = 
-		[ 
+myKeys =
+		[
         -- Launch Program
         ("M-d", spawn "rofi -show run")
 	    , ("M-<Return>", spawn myTerminal)
@@ -141,27 +142,32 @@ myKeys =
         , ("<XF86Launch1>", spawn "~/scripts/search.sh")
         , ("S-<XF86Launch1>", spawn "~/scripts/launch.sh")
         -- Screenshot
-        , ("<Print>", spawn "maim ~/Nextcloud/Images/Screenshots/$(date +%s).png")
-        , ("S-<Print>", spawn "maim -s -o ~/Nextcloud/Images/Screenshots/$(date +%s)_cropped.png")
+        , ("<Print>", spawn "maim ~/Nextcloud/7.\\ Images/Screenshots/$(date +%s).png")
+        , ("S-<Print>", spawn "maim -s -o ~/Nextcloud/7.\\ Images/Screenshots/$(date +%s)_cropped.png")
         -- Lock
         , ("<XF86ScreenSaver>", spawn "slock")
         , ("<XF86Suspend>", spawn "slock")
         -- Volume
-        , ("<XF86AudioRaiseVolume>", spawn "amixer -D pulse -q sset Master 1%+")
-        , ("S-<XF86AudioRaiseVolume>", spawn "amixer -D pulse -q sset Master 10%+")
-        , ("<XF86AudioLowerVolume>", spawn "amixer -D pulse -q sset Master 1%-")
-        , ("S-<XF86AudioLowerVolume>", spawn "amixer -D pulse -q sset Master 10%-")
+        -- , ("<XF86AudioRaiseVolume>", spawn "amixer -D pulse -q sset Master 1%+")
+        -- , ("S-<XF86AudioRaiseVolume>", spawn "amixer -D pulse -q sset Master 10%+")
+        -- , ("<XF86AudioLowerVolume>", spawn "amixer -D pulse -q sset Master 1%-")
+        -- , ("S-<XF86AudioLowerVolume>", spawn "amixer -D pulse -q sset Master 10%-")
+        , ("<XF86AudioRaiseVolume>", spawn "~/scripts/pulseaudiocontrol.sh up")
+        , ("S-<XF86AudioRaiseVolume>", spawn "~/scripts/pulseaudiocontrol.sh bigup")
+        , ("<XF86AudioLowerVolume>", spawn "~/scripts/pulseaudiocontrol.sh down")
+        , ("S-<XF86AudioLowerVolume>", spawn "~/scripts/pulseaudiocontrol.sh bigdown")
         , ("<XF86AudioMute>", spawn "amixer -D pulse -q sset Master toggle")
         -- Named Scratchpads
         , ("M-<F9>", namedScratchpadAction myScratchpads "keepassxc")
         , ("M-<F10>", namedScratchpadAction myScratchpads "nextcloud")
         , ("M-<F11>", namedScratchpadAction myScratchpads "gnome-system-monitor")
+        , ("M-<F12>", namedScratchpadAction myScratchpads "psensor")
         -- Workspace/Window Navigation
         , ("<XF86Back>", moveTo Prev NonEmptyWS)
         , ("<XF86Forward>", moveTo Next NonEmptyWS)
         , ("M-<Escape>", moveTo Next NonEmptyWS)
     	, ("M-S-<Escape>", moveTo Prev NonEmptyWS)
-		, ("M-g", goToSelected defaultGSConfig)
+		, ("M-g", goToSelected def)
         -- Persistent Window
         , ("M-v", windows copyToAll) -- @@ Make focused window always visible
         , ("M-S-v",  killAllOtherCopies) -- @@ Toggle window state back
