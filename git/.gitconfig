@@ -29,5 +29,8 @@
     prompt = false
 [pull]
 	rebase = false
+	# rebase = true
+[rebase]
+	autoStash = true
 [core]
 	autocrlf = input
