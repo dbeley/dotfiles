@@ -48,9 +48,9 @@ Plug 'easymotion/vim-easymotion'
 "Plug 'terryma/vim-multiple-cursors'
 
 Plug 'jalvesaq/Nvim-R'
-Plug 'plasticboy/vim-markdown'
-Plug 'xuhdev/vim-latex-live-preview'
-Plug 'lervag/vimtex'
+"Plug 'plasticboy/vim-markdown'
+"Plug 'xuhdev/vim-latex-live-preview'
+"Plug 'lervag/vimtex'
 "Plug 'vim-latex/vim-latex'
 "Plug 'rhysd/vim-grammarous'
 
@@ -76,7 +76,8 @@ Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 
 Plug 'ryanoasis/vim-devicons'
 
-Plug 'psf/black'
+"Plug 'psf/black'
+Plug 'psf/black', { 'tag': '19.10b0' }
 "Plug 'metakirby5/codi.vim'
 "Plug 'jpalardy/vim-slime'
 

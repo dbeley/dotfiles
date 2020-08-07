@@ -34,6 +34,7 @@ set FZF_ALT_C_COMMAND "fd --ignore-case --hidden -t d"
 set FZF_TMUX 1
 
 set -x -g PIPENV_VENV_IN_PROJECT 1
+set -x -g PIPENV_TIMEOUT 3600
 
 if test -n "$DESKTOP_SESSION"
     set (gnome-keyring-daemon --start | string split "=")
