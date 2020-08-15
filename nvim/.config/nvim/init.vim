@@ -58,7 +58,7 @@ Plug 'jalvesaq/Nvim-R'
 Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 
-Plug 'dense-analysis/ale'
+"Plug 'dense-analysis/ale'
 "Plug 'prabirshrestha/async.vim'
 "Plug 'prabirshrestha/vim-lsp'
 "Plug 'ryanolsonx/vim-lsp-python'
@@ -166,11 +166,11 @@ let g:ale_list_window_size = 5
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-"let g:ale_linters = {'python': ['bandit', 'flake8']}
+let g:ale_linters = {'python': ['bandit', 'flake8']}
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['black'],
+"\   'python': ['black'],
 \}
 
 "jk to escape
@@ -240,10 +240,10 @@ vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
 
 " Python
-"augroup blackFormatter
-"autocmd BufWritePre *.py execute ':Black'
-"augroup END
-"let g:black_linelength=79
+augroup blackFormatter
+autocmd BufWritePre *.py execute ':Black'
+augroup END
+let g:black_linelength=79
 
 augroup PythonStuff
 autocmd FileType python setlocal completeopt-=preview

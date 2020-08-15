@@ -29,3 +29,8 @@ user_pref("dom.ipc.processCount", -1);
 user_pref("dom.event.clipboardevents.enabled", false);
 user_pref("browser.urlbar.trimURLS", false);
 user_pref("browser.formfill.enable", false);
+user_pref("browser.sessionstore.interval", 60000);
+user_pref("full-screen-api.warning.timeout", 0);
+user_pref("ui.systemUsesDarkTheme", 1);
+user_pref("accessibility.blockautorefresh", true);
+user_pref("accessibility.focus", 3);
