@@ -240,10 +240,8 @@ vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
 
 " Python
-"augroup blackFormatter
 "autocmd BufWritePre *.py execute ':Black'
-"augroup END
-"let g:black_linelength=79
+let g:black_linelength=79
 
 augroup PythonStuff
 autocmd FileType python setlocal completeopt-=preview
