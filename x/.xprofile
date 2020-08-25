@@ -31,3 +31,5 @@ wpg -m
 # export DXVK_HUD="full"
 # ACO backend for mesa
 export RADV_PERFTEST="aco"
+
+export MOZ_X11_EGL=1
