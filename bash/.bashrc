@@ -40,3 +40,5 @@ export FZF_TMUX=1
 [ -f /usr/bin/fish ] && exec fish
 
 source /home/david/.config/broot/launcher/bash/br
+
+complete -C /usr/bin/terraform terraform
