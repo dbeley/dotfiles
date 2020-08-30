@@ -43,3 +43,5 @@ user_pref("network.cookie.cookieBehavior",			1);
 user_pref("browser.display.background_color", "#666666");
 user_pref("media.videocontrols.picture-in-picture.keyboard-controls.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.audio-toggle.enabled", true);
+user_pref("findbar.highlightAll", true);
+user_pref("browser.download.useDownloadDir",			false);
