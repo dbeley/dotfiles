@@ -1,0 +1,10 @@
+configuration {
+	modi: "run";
+	font: "iosevka nerd font italic 14";
+	location: 0;
+	padding: 5;
+	show-icons: true;
+	separator-style: "solid";
+	hide-scrollbar: true;
+	theme: "~/.cache/wal/colors-rofi-dark.rasi";
+}
