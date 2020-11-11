@@ -70,15 +70,15 @@ Plug 'dense-analysis/ale'
 ""Plug 'joshhartigan/vim-reddit'
 ""Plug 'itchyny/calendar.vim'
 "
-"Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 ""Plug 'neovimhaskell/haskell-vim'
 ""Plug 'tpope/vim-fireplace'
 ""Plug 'rust-lang/rust.vim'
 "
 "Plug 'ryanoasis/vim-devicons'
 "
-""Plug 'psf/black'
-Plug 'psf/black', { 'tag': '19.10b0' }
+Plug 'psf/black'
+"Plug 'psf/black', { 'tag': '19.10b0' }
 ""Plug 'metakirby5/codi.vim'
 ""Plug 'jpalardy/vim-slime'
 

@@ -20,6 +20,7 @@ Some config files might need the [scripts](https://github.com/dbeley/scripts) re
 * emacs : Extensive configuration, including exwm (needs to uncomment stuff).
 * neovim (with vim-plug) : Extensive configuration, mainly for python and go.
 * vim : Very simple configuration.
+* doom-emacs
 
 ## Web Browsers
 
