@@ -66,3 +66,7 @@
 (after! counsel
   (setq counsel-rg-base-command
         "rg -M 240 --hidden --with-filename --no-heading --line-number --color never %s"))
+
+(use-package! ox-hugo
+  :ensure t
+  :after ox)
