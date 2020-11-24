@@ -70,3 +70,19 @@
 (use-package! ox-hugo
   :ensure t
   :after ox)
+
+(after! org (setq org-capture-templates
+                  '(
+                    ;; idées : sport, calendrier, achats, journal
+                    ;;
+                    ("t" "TODO          (t) Todo" entry (file+olp "Journal.org" "Tâches")
+                     "* [ ] [%t] %?")
+                    ("n" "NOTES         (n) Notes" entry (file+olp+datetree "Journal.org" "Notes")
+                     "* [%t] %?")
+                    ("s" "SPORT         (s) Sport" entry (file+olp+datetree "Journal.org" "Sport")
+                     "* [%t] %?")
+                    ("b" "BEETS         (b) Beets (music to download)" entry (file+olp "Musique.org" "Beets")
+                     "* [ ] [%t] %?")
+                    )
+                  )
+  )
