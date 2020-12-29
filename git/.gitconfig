@@ -34,3 +34,5 @@
 	autoStash = true
 [core]
 	autocrlf = input
+[credential]
+	helper = cache
