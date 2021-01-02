@@ -71,6 +71,16 @@
   :ensure t
   :after ox)
 
+(use-package! ox-reveal
+  :ensure t
+  :after ox)
+
+(use-package! ox-twbs
+  :ensure t
+  :after ox)
+
+(setq org-html-indent 'nil)
+
 (after! org (setq org-capture-templates
                   '(
                     ;; idées : sport, calendrier, achats, journal

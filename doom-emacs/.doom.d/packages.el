@@ -50,3 +50,5 @@
 ;(unpin! t)
 
 (package! ox-hugo)
+(package! ox-reveal)
+(package! ox-twbs)
