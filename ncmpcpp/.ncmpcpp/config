@@ -53,7 +53,7 @@ mpd_music_dir = /home/david/nfs/Toshiba/Musique
 ## }
 ##
 #
-visualizer_fifo_path = /tmp/mpd.fifo
+visualizer_data_source = /tmp/mpd.fifo
 #
 ##
 ## Note: Below parameter is needed for ncmpcpp
@@ -84,7 +84,7 @@ visualizer_in_stereo = yes
 ## Keep in mind that sane values start with >=10.
 ##
 #
-visualizer_sync_interval = 30
+# visualizer_sync_interval = 30
 #
 ##
 ## Note: To enable spectrum frequency visualization

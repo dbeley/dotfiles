@@ -21,7 +21,7 @@ alias merde "fuck"
 
 # alias cpr "rsync -azvhP --size-only --inplace --stats"
 # alias cpr "rsync -avhP --stats --inplace"
-alias cpr "rsync -azvhP --stats --inplace --zc=zstd ==zl=3"
+alias cpr "rsync -azvhP --stats --inplace --zc=zstd --zl=3"
 
 alias expacsize "expac -H M '%m\t%n' | sort -h"
 alias expaclist "expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort -h"
