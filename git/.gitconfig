@@ -4,11 +4,6 @@
 [filesystem "N/A|13|/dev/mapper/SSD-root"]
 	timestampResolution = 8000 nanoseconds
 	minRacyThreshold = 6477 microseconds
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
 [diff]
 	algorithm = patience
 [color]
@@ -36,3 +31,8 @@
 	autocrlf = input
 [credential]
 	helper = cache
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f

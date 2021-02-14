@@ -14,74 +14,75 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-""Plug 'tpope/vim-sensible'
+"Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 "Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 "Plug 'tpope/vim-unimpaired'
 "Plug 'tpope/vim-speeddating'
 "Plug 'tpope/vim-vinegar'
-"
-""Plug 'vim-syntastic/syntastic'
-""Plug 'scrooloose/nerdtree'
-""Plug 'scrooloose/nerdcommenter'
-""Plug 'Xuyuanp/nerdtree-git-plugin'
-"
-""Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-"Plug 'junegunn/fzf.vim'
+
+"Plug 'vim-syntastic/syntastic'
+"Plug 'scrooloose/nerdtree'
+"Plug 'scrooloose/nerdcommenter'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
+
+Plug 'junegunn/fzf.vim'
 "Plug 'junegunn/goyo.vim'
-"
-""Plug 'morhetz/gruvbox'
+
+"Plug 'morhetz/gruvbox'
 Plug 'dylanaraps/wal'
 Plug 'mhinz/vim-startify'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 "Plug 'christoomey/vim-tmux-navigator'
-"
-""Plug 'Valloric/YouCompleteMe'
-Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+
+"Plug 'Valloric/YouCompleteMe'
+" Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 "wait to jedi archlinux update
 "Plug 'deoplete-plugins/deoplete-jedi'
-""Plug 'ervandew/supertab'
+"Plug 'ervandew/supertab'
 "Plug 'godlygeek/tabular'
 "Plug 'easymotion/vim-easymotion'
-""Plug 'terryma/vim-multiple-cursors'
-"
+"Plug 'terryma/vim-multiple-cursors'
+
 "Plug 'jalvesaq/Nvim-R'
-""Plug 'plasticboy/vim-markdown'
-""Plug 'xuhdev/vim-latex-live-preview'
-""Plug 'lervag/vimtex'
-""Plug 'vim-latex/vim-latex'
-""Plug 'rhysd/vim-grammarous'
-"
-""Plug 'sheerun/vim-polyglot'
+"Plug 'plasticboy/vim-markdown'
+"Plug 'xuhdev/vim-latex-live-preview'
+"Plug 'lervag/vimtex'
+"Plug 'vim-latex/vim-latex'
+"Plug 'rhysd/vim-grammarous'
+
+"Plug 'sheerun/vim-polyglot'
 "Plug 'majutsushi/tagbar'
-"Plug 'ludovicchabant/vim-gutentags'
-"
+Plug 'ludovicchabant/vim-gutentags'
+
 Plug 'dense-analysis/ale'
-""Plug 'prabirshrestha/async.vim'
-""Plug 'prabirshrestha/vim-lsp'
-""Plug 'ryanolsonx/vim-lsp-python'
-""Plug 'prabirshrestha/asyncomplete.vim'
-""Plug 'prabirshrestha/asyncomplete-lsp.vim'
-"
-""Plug 'jceb/vim-orgmode'
-""Plug 'joshhartigan/vim-reddit'
-""Plug 'itchyny/calendar.vim'
-"
+"Plug 'prabirshrestha/async.vim'
+"Plug 'prabirshrestha/vim-lsp'
+"Plug 'ryanolsonx/vim-lsp-python'
+"Plug 'prabirshrestha/asyncomplete.vim'
+"Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+"Plug 'jceb/vim-orgmode'
+"Plug 'joshhartigan/vim-reddit'
+"Plug 'itchyny/calendar.vim'
+
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
-""Plug 'neovimhaskell/haskell-vim'
-""Plug 'tpope/vim-fireplace'
-""Plug 'rust-lang/rust.vim'
-"
-"Plug 'ryanoasis/vim-devicons'
-"
+"Plug 'neovimhaskell/haskell-vim'
+"Plug 'tpope/vim-fireplace'
+"Plug 'rust-lang/rust.vim'
+
+Plug 'ryanoasis/vim-devicons'
+
 Plug 'psf/black'
 "Plug 'psf/black', { 'tag': '19.10b0' }
 ""Plug 'metakirby5/codi.vim'
 ""Plug 'jpalardy/vim-slime'
 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scalameta/coc-metals'
 call plug#end()
 
 " Change Leader and LocalLeader keys:

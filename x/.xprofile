@@ -30,6 +30,7 @@ wpg -m
 # export DXVK_HUD="devinfo,fps,frametimes,submissions,drawcalls,memory,gpuload,version,api,compiler"
 # export DXVK_HUD="full"
 # ACO backend for mesa
-export RADV_PERFTEST="aco"
+# export RADV_PERFTEST="aco"
 
-export MOZ_X11_EGL=1
+#export MOZ_X11_EGL=1
+#qjackctl &
