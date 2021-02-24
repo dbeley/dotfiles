@@ -424,6 +424,8 @@ bindsym XF86Launch1 exec --no-startup-id "$HOME/scripts/search.sh"
 bindsym Shift+XF86Launch1 exec --no-startup-id "$HOME/scripts/launch.sh"
 bindsym $mod+t exec --no-startup-id "$HOME/scripts/search.sh"
 bindsym $mod+Shift+t exec --no-startup-id "$HOME/scripts/launch.sh"
+bindsym $mod+u exec --no-startup-id "$HOME/scripts/launch.sh"
+bindsym $mod+i exec --no-startup-id "$HOME/scripts/passmenu-rofi.sh"
 # bindsym --release $mod+Shift+v exec --no-startup-id "$HOME/scripts/draw_urxvt.sh"
 
 # Screen brightness controls
