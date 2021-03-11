@@ -322,6 +322,7 @@ playlist_separate_albums = yes
 ## be used to build 'empty' part of progressbar.
 ##
 #progressbar_look = =>
+progressbar_look = -»
 #
 #progressbar_boldness = yes
 #
@@ -467,7 +468,7 @@ display_bitrate = yes
 #
 #search_engine_default_search_mode = 1
 #
-#external_editor = nano
+external_editor = nvim
 #
 ## Note: set to yes if external editor is a console application.
 ##
