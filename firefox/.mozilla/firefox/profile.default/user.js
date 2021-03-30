@@ -39,7 +39,7 @@ user_pref("media.ffvpx.enabled", false);
 user_pref("privacy.resistFingerprinting",			true);
 user_pref("privacy.firstparty.isolate",				true);
 user_pref("privacy.firstparty.isolate.restrict_opener_access", true);
-user_pref("network.cookie.cookieBehavior",			1);
+user_pref("network.cookie.cookieBehavior",			5);
 user_pref("browser.display.background_color", "#666666");
 user_pref("media.videocontrols.picture-in-picture.keyboard-controls.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.audio-toggle.enabled", true);

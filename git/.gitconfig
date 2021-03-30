@@ -19,6 +19,7 @@
 # set "nvim" as tool for merging
 [merge]
     tool = nvim
+    renamelimit = 20000
 # automatically launch merge tool without displaying a prompt
 [mergetool]
     prompt = false
