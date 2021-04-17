@@ -38,6 +38,8 @@ set FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 set FZF_ALT_C_COMMAND "fd --ignore-case --hidden -t d"
 set FZF_TMUX 1
 
+set TERM "rxvt"
+
 set -x -g PIPENV_VENV_IN_PROJECT 1
 set -x -g PIPENV_TIMEOUT 3600
 
