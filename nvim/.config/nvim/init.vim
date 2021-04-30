@@ -56,9 +56,9 @@ Plug 'edkolev/tmuxline.vim'
 
 "Plug 'sheerun/vim-polyglot'
 "Plug 'majutsushi/tagbar'
-Plug 'ludovicchabant/vim-gutentags'
+""Plug 'ludovicchabant/vim-gutentags'
 
-Plug 'dense-analysis/ale'
+""Plug 'dense-analysis/ale'
 "Plug 'prabirshrestha/async.vim'
 "Plug 'prabirshrestha/vim-lsp'
 "Plug 'ryanolsonx/vim-lsp-python'
@@ -69,7 +69,7 @@ Plug 'dense-analysis/ale'
 "Plug 'joshhartigan/vim-reddit'
 "Plug 'itchyny/calendar.vim'
 
-Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+""Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 "Plug 'neovimhaskell/haskell-vim'
 "Plug 'tpope/vim-fireplace'
 "Plug 'rust-lang/rust.vim'
@@ -81,8 +81,11 @@ Plug 'psf/black'
 ""Plug 'metakirby5/codi.vim'
 ""Plug 'jpalardy/vim-slime'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scalameta/coc-metals'
+""Plug 'neoclide/coc.nvim', {'branch': 'release'}
+""Plug 'scalameta/coc-metals'
+
+Plug 'mcchrish/nnn.vim'
+
 call plug#end()
 
 " Change Leader and LocalLeader keys:
@@ -180,7 +183,7 @@ nnoremap <leader>r :Rg<CR>
 nnoremap <leader>c :Commands<CR>
 nnoremap <leader>k :bdelete<CR>
 nnoremap <leader>g :Goyo<CR>
-nnoremap <leader>d :Codi<CR>
+"nnoremap <leader>d :Codi<CR>
 nnoremap <leader>x :Lines<CR>
 nnoremap <leader>v :BLines<CR>
 nnoremap <leader>w :w<CR>
@@ -189,8 +192,10 @@ nmap <leader>l :TagbarToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 " nnoremap <BS> <PageUp>
 " nnoremap <Space> <PageDown>
-nnoremap <leader>n :lnext<CR>
-nnoremap <leader>p :lprev<CR>
+"nnoremap <leader>n :lnext<CR>
+"nnoremap <leader>p :lprev<CR>
+let g:nnn#set_default_mappings = 0
+nnoremap <leader>n :NnnPicker %:p:h<CR>
 
 " Source fichiers de conf à la modification
 augroup configurationFiles

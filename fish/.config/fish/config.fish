@@ -15,12 +15,6 @@ alias l "exa"
 alias ll "exa -lh"
 alias la "exa -lah"
 
-alias emc "emacsclient -nw"
-alias enw "emacs -nw"
-alias merde "fuck"
-
-# alias cpr "rsync -azvhP --size-only --inplace --stats"
-# alias cpr "rsync -avhP --stats --inplace"
 alias cpr "rsync -azvhP --stats --inplace --zc=zstd --zl=3"
 
 alias expacsize "expac -H M '%m\t%n' | sort -h"

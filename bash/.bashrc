@@ -14,16 +14,12 @@ alias l='exa'
 alias ll='exa -lh'
 alias la='exa -lah'
 
-alias emc='emacsclient -nw'
-alias enw='emacs -nw'
-alias merde='fuck'
-
 PS1='[\u@\h \W]\$ '
 
 export EDITOR=nvim
 export TERM=xterm-256color
-[ -f /usr/share/doc/pkgfile/command-not-found.bash ] && source /usr/share/doc/pkgfile/command-not-found.bash
-[ -f /etc/profile.d/autojump.sh ] && source /etc/profile.d/autojump.sh
+# [ -f /usr/share/doc/pkgfile/command-not-found.bash ] && source /usr/share/doc/pkgfile/command-not-found.bash
+# [ -f /etc/profile.d/autojump.sh ] && source /etc/profile.d/autojump.sh
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f /usr/share/doc/fzf/key-bindings.bash ] && source /usr/share/doc/fzf/key-bindings.bash
 
@@ -36,9 +32,10 @@ export FZF_TMUX=1
 [ -f /home/david/.config/wpg/sequences ] && (cat /home/david/.config/wpg/sequences &)
 
 # eval "$(pipenv --completion)"
+# source /home/david/.config/broot/launcher/bash/br
+# complete -C /usr/bin/terraform terraform
+
+export NNN_BMS='d:~/Documents;n:~/Nextcloud'
+export NNN_OPTS="cdErx"
 
 [ -f /usr/bin/fish ] && exec fish
-
-source /home/david/.config/broot/launcher/bash/br
-
-complete -C /usr/bin/terraform terraform
