@@ -24,6 +24,7 @@ wpg -m
 #[ -f /usr/bin/picom ] && picom --config "~/.config/picom.conf"
 [ -f /usr/bin/dunst ] && dunst &
 [ -f /usr/bin/udiskie ] && udiskie -a &
+[ -f /usr/bin/nextcloud ] && nextcloud &
 
 # HUD in DXVK games (work with steam games)
 # export DXVK_HUD=1

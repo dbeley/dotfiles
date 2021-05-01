@@ -35,7 +35,7 @@ export FZF_TMUX=1
 # source /home/david/.config/broot/launcher/bash/br
 # complete -C /usr/bin/terraform terraform
 
-export NNN_BMS='d:~/Documents;n:~/Nextcloud'
+export NNN_BMS='h:~;d:~/Documents;n:~/Nextcloud;r:~/nfs/Expansion5/Medias/radarr'
 export NNN_OPTS="cdErx"
 
 [ -f /usr/bin/fish ] && exec fish
