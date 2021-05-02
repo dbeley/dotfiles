@@ -19,7 +19,7 @@ wpg -m
 [ -f /usr/bin/xset ] && xset -dpms
 [ -f /usr/bin/xset ] && xset s off
 [ -f /usr/bin/xset ] && xset -b
-#[ -f /usr/bin/xrdb ] && xrdb ~/.Xresources
+[ -f /usr/bin/xrdb ] && xrdb ~/.Xresources
 #[ -f /usr/bin/polybar ] && ~/.config/polybar/launch.sh
 #[ -f /usr/bin/picom ] && picom --config "~/.config/picom.conf"
 [ -f /usr/bin/dunst ] && dunst &
