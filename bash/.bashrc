@@ -36,6 +36,6 @@ export FZF_TMUX=1
 # complete -C /usr/bin/terraform terraform
 
 export NNN_BMS='h:~;d:~/Documents;n:~/Nextcloud;r:~/nfs/Expansion5/Medias/radarr'
-export NNN_OPTS="cdErx"
+export NNN_OPTS="cdEx"
 
 [ -f /usr/bin/fish ] && exec fish
