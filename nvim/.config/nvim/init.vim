@@ -14,9 +14,9 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-"Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
-"Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 "Plug 'tpope/vim-unimpaired'
 "Plug 'tpope/vim-speeddating'
@@ -39,9 +39,9 @@ Plug 'edkolev/tmuxline.vim'
 "Plug 'christoomey/vim-tmux-navigator'
 
 "Plug 'Valloric/YouCompleteMe'
-" Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 "wait to jedi archlinux update
-"Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'deoplete-plugins/deoplete-jedi'
 "Plug 'ervandew/supertab'
 "Plug 'godlygeek/tabular'
 "Plug 'easymotion/vim-easymotion'
@@ -58,7 +58,7 @@ Plug 'edkolev/tmuxline.vim'
 "Plug 'majutsushi/tagbar'
 ""Plug 'ludovicchabant/vim-gutentags'
 
-""Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 "Plug 'prabirshrestha/async.vim'
 "Plug 'prabirshrestha/vim-lsp'
 "Plug 'ryanolsonx/vim-lsp-python'
@@ -77,7 +77,6 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'psf/black'
-"Plug 'psf/black', { 'tag': '19.10b0' }
 ""Plug 'metakirby5/codi.vim'
 ""Plug 'jpalardy/vim-slime'
 

@@ -15,7 +15,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = mouse
+    follow = keyboard
 
     # The geometry of the window:
     #   [width]xheight[+/-x+/-y]
@@ -289,7 +289,7 @@
 
 [urgency_normal]
     #background = "#285577"
-    background = "#{background}"
+    background = "{background}"
     #foreground = "#ffffff"
     foreground = "{foreground}"
     timeout = 5
@@ -297,7 +297,7 @@
     #icon = /path/to/icon
 
 [urgency_critical]
-    background = "#{background}"
+    background = "{background}"
     foreground = "{foreground}"
     frame_color = "#ff0000"
     timeout = 0
