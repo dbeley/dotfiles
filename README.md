@@ -36,6 +36,7 @@ stow vim
 
 ## Terminal Emulators
 
+* alacritty
 * termite
 * urxvt
 * terminator
