@@ -46,7 +46,8 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec urxvtc
-bindsym $mod+Return exec termite
+# bindsym $mod+Return exec termite
+bindsym $mod+Return exec alacritty
 #bindsym $mod+Return exec st
 
 # kill focused window
@@ -207,7 +208,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
 
 #for_window [class="URxvt"] floating enable
 # for_window [class="URxvt" instance="float"] floating enable
-for_window [class="termite" instance="float"] floating enable
+for_window [class="alacritty" instance="float"] floating enable
 for_window [window_role="float"] floating enable
 for_window [class="mpv"] move window to scratchpad, scratchpad show, floating enable, sticky enable, resize set 518 294, move position 838 464
 for_window [instance="feh"] floating enable
