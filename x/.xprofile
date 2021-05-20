@@ -4,10 +4,12 @@
 
 [ "$XDG_CURRENT_DESKTOP" = "KDE" ] || export QT_QPA_PLATFORMTHEME="gtk2"
 
-#wal -R
-#~/.config/wpg/wp_init.sh
+# wal -R
+# ~/.config/wpg/wp_init.sh
 wpg -m
 
+# for laptops: setxkbmap, xmodmap, xcape, touchpad_toggle.sh
+# for keyboards with qmk: setxkbmap, xmodmap with only mouse settings, no xcape
 # [ -f /usr/bin/setxkbmap ] && setxkbmap -layout us -variant intl -option
 [ -f /usr/bin/setxkbmap ] && setxkbmap -layout us -variant intl -option ctrl:nocaps
 [ -f /usr/bin/xmodmap ] && xmodmap ~/.Xmodmap || true
@@ -15,14 +17,14 @@ wpg -m
 # [ -f /usr/bin/xcape ] && xcape -t 200 -e "Shift_L=Escape;Shift_R=Escape;Hyper_L=Tab"
 [ -f /usr/bin/xset ] && xset r rate 250 70
 [ -f /usr/bin/unclutter ] && unclutter --timeout 3 --ignore-scrolling &
-#[ -f ~/scripts/touchpad_toggle.sh ] && ~/scripts/touchpad_toggle.sh
+# [ -f ~/scripts/touchpad_toggle.sh ] && ~/scripts/touchpad_toggle.sh
 [ -f /usr/bin/xset ] && xset -dpms
 [ -f /usr/bin/xset ] && xset s off
 [ -f /usr/bin/xset ] && xset -b
 [ -f /usr/bin/xrdb ] && xrdb ~/.Xresources
 [ -f /usr/bin/xrdb ] && xrdb ~/.cache/wal/colors.Xresources
-#[ -f /usr/bin/polybar ] && ~/.config/polybar/launch.sh
-#[ -f /usr/bin/picom ] && picom --config "~/.config/picom.conf"
+# [ -f /usr/bin/polybar ] && ~/.config/polybar/launch.sh
+# [ -f /usr/bin/picom ] && picom --config "~/.config/picom.conf"
 [ -f /usr/bin/dunst ] && dunst &
 [ -f /usr/bin/udiskie ] && udiskie -a &
 [ -f /usr/bin/nextcloud ] && nextcloud &
@@ -34,8 +36,8 @@ wpg -m
 # ACO backend for mesa
 # export RADV_PERFTEST="aco"
 
-#export MOZ_X11_EGL=1
-#qjackctl &
+# export MOZ_X11_EGL=1
+# qjackctl &
 
 # dwm
 [ -f /home/david/scripts/dwmstatus.sh ] && /home/david/scripts/dwmstatus.sh &
