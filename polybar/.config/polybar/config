@@ -334,12 +334,12 @@ warn-temperature = 120
 
 [module/wired-network]
 type = internal/network
-interface = enp0s25
+interface = enp37s0
 label-connected = %downspeed:9%
 interval=3.0
 [module/wireless-network]
 type = internal/network
-interface = wls1
+interface = wlan0
 label-connected = %downspeed:9%
 interval=3.0
 [module/wireless-network2]
