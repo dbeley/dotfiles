@@ -75,7 +75,7 @@ main = do
          	, focusedBorderColor = "#888888"
          	} `additionalKeysP` myKeys
 
-myTerminal = "termite"
+myTerminal = "alacritty"
 
 myModMask = mod4Mask
 

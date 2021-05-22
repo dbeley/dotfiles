@@ -26,7 +26,7 @@ window#waybar.hidden {
     background: transparent;
 }
 
-window#waybar.termite #window,
+window#waybar.alacritty #window,
 window#waybar.Firefox #window,
 window#waybar.Nextcloud #window,
 window#waybar.keepassxc #window,
