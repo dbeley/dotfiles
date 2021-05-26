@@ -71,4 +71,4 @@ The following folders need to have a different root than `~` with the `stow -t` 
 * dracut: `stow -t /etc/dracut.conf.d/ dracut`
 * xorg: `stow -t /usr/share/X11/xorg.conf.d/ xorg`
 * collatz: `stow -t /var/lib/boinc/projects/boinc.thesonntags.com_collatz/ collatz`
-* reflector: `stow -r /etc/xdg/reflector/ reflector`
+* reflector: `stow -t /etc/xdg/reflector/ reflector`
