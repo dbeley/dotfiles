@@ -3,3 +3,5 @@
 image/jpeg=feh.desktop
 image/png=feh.desktop
 image/gif=feh.desktop
+video/mp4=mpv.desktop
+video/webm=mpv.desktop
