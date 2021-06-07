@@ -655,9 +655,9 @@
       (use-package org
         :ensure org-plus-contrib
         :config
-        (setq org-agenda-files (list "~/Nextcloud/3. org/Listes/"
-                                     "~/Nextcloud/3. org/Culture/"
-                                     "~/Nextcloud/3. org/Informatique/"))
+        (setq org-agenda-files (list "~/Nextcloud/03_org/Listes/"
+                                     "~/Nextcloud/03_org/Culture/"
+                                     "~/Nextcloud/03_org/Informatique/"))
         (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
         (global-set-key (kbd "C-c l") 'org-store-link)
         (global-set-key (kbd "C-c a") 'org-agenda)
@@ -745,15 +745,15 @@
                       'org-capture)
 
       (setq org-capture-templates
-            '(("a" "Album à écouter" entry (file+headline "~/Nextcloud/3. org/Culture/Musique.org" "Albums à écouter")
+            '(("a" "Album à écouter" entry (file+headline "~/Nextcloud/03_org/Culture/Musique.org" "Albums à écouter")
                "* %?\n%^g\n%T" :prepend t)
-              ("t" "À faire" entry (file+headline "~/Nextcloud/3. org/Listes/TODO.org" "À Faire")
+              ("t" "À faire" entry (file+headline "~/Nextcloud/03_org/Listes/TODO.org" "À Faire")
                "* %?\n%T\n" :prepend t)
-              ("p" "Idée programmation" entry (file+headline "~/Nextcloud/3. org/Listes/Idées programmation.org" "Idées programmation")
+              ("p" "Idée programmation" entry (file+headline "~/Nextcloud/03_org/Listes/Idées programmation.org" "Idées programmation")
                "* %?\n%T\n" :prepend t)
-              ("s" "Série à regarder" entry (file+headline "~/Nextcloud/3. org/Culture/Séries.org" "Séries à regarder")
+              ("s" "Série à regarder" entry (file+headline "~/Nextcloud/03_org/Culture/Séries.org" "Séries à regarder")
                "* %?\n%T\n" :prepend t)
-              ("f" "Film à regarder" entry (file+headline "~/Nextcloud/3. org/Culture/Films.org" "Films à regarder")
+              ("f" "Film à regarder" entry (file+headline "~/Nextcloud/03_org/Culture/Films.org" "Films à regarder")
                "* %?\n%T\n" :prepend t)
               ))
     #+END_SRC
@@ -770,7 +770,7 @@
       (use-package org-noter
         :ensure t
         :config (setq org-noter-default-notes-file-names '("Notes.org")
-                      org-noter-notes-search-path '("/~/Nextcloud/3. org/Notes/")
+                      org-noter-notes-search-path '("/~/Nextcloud/03_org/Notes/")
                       org-noter-separate-notes-from-heading t))
     #+END_SRC
    
@@ -779,16 +779,16 @@
       (use-package org-ref
         :ensure t
         :config
-        (setq reftex-default-bibliography '("~/Nextcloud/3. org/Stage/Articles.bib"))
+        (setq reftex-default-bibliography '("~/Nextcloud/03_org/Stage/Articles.bib"))
 
         ;; see org-ref for use of these variables
-        (setq org-ref-bibliography-notes "~/Nextcloud/3. org/Stage/Notes_articles.org"
-              org-ref-default-bibliography '("~/Nextcloud/3. org/Stage/Articles.bib")
-              org-ref-pdf-directory "~/Nextcloud/6. Cours/Stage/Articles/")
+        (setq org-ref-bibliography-notes "~/Nextcloud/03_org/Stage/Notes_articles.org"
+              org-ref-default-bibliography '("~/Nextcloud/03_org/Stage/Articles.bib")
+              org-ref-pdf-directory "~/Nextcloud/06_Cours/Stage/Articles/")
 
-        (setq bibtex-completion-notes-path "~/Nextcloud/3. org/Stage/Articles.org"
-              bibtex-completion-bibliography "~/Nextcloud/3. org/Stage/Articles.bib"
-              bibtex-completion-library-path "~/Nextcloud/6. Cours/Stage/Articles/")
+        (setq bibtex-completion-notes-path "~/Nextcloud/03_org/Stage/Articles.org"
+              bibtex-completion-bibliography "~/Nextcloud/03_org/Stage/Articles.bib"
+              bibtex-completion-library-path "~/Nextcloud/06_Cours/Stage/Articles/")
 
         (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
       )
@@ -985,7 +985,7 @@
         :ensure t
         :config
         (elfeed-org)
-        (setq rmh-elfeed-org-files (list "~/Nextcloud/3. org/Listes/rss.org"))
+        (setq rmh-elfeed-org-files (list "~/Nextcloud/03_org/Listes/rss.org"))
         )
 
       (use-package elfeed
