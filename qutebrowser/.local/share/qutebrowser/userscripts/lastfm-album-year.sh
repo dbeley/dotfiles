@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 last_year=$(date +%Y-01-01)
 today=$(date +%Y-%m-%d)
-echo "open https://last.fm/fr/user/diyod/library/albums?from=$last_year&to=$today&format=grid" >> "$QUTE_FIFO"
+echo "open https://last.fm/fr/user/d_beley/library/albums?from=$last_year&to=$today&format=grid" >> "$QUTE_FIFO"
