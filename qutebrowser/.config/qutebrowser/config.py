@@ -90,7 +90,7 @@ config.set("auto_save.interval", 60000)
 #   - bottom
 #   - left
 #   - right
-config.set("tabs.position", "top")
+config.set("tabs.position", "bottom")
 config.set("tabs.show", "multiple")
 
 # Value to send in the `Accept-Language` header. Note that the value
@@ -238,14 +238,14 @@ config.bind(
 config.bind(",ce", "config-edit")
 
 # Reddit bindings
-config.bind(",rn", "open {url}/new")
-config.bind(",rh", "open {url}/hot")
-config.bind(",rth", "open {url}/top/?sort=top&t=hour")
-config.bind(",rtd", "open {url}/top/?sort=top&t=day")
-config.bind(",rtw", "open {url}/top/?sort=top&t=week")
-config.bind(",rtm", "open {url}/top/?sort=top&t=month")
-config.bind(",rty", "open {url}/top/?sort=top&t=year")
-config.bind(",rta", "open {url}/top/?sort=top&t=all")
+config.bind(",rn", "open {url}new")
+config.bind(",rh", "open {url}hot")
+config.bind(",rth", "open {url}top/?sort=top&t=hour")
+config.bind(",rtd", "open {url}top/?sort=top&t=day")
+config.bind(",rtw", "open {url}top/?sort=top&t=week")
+config.bind(",rtm", "open {url}top/?sort=top&t=month")
+config.bind(",rty", "open {url}top/?sort=top&t=year")
+config.bind(",rta", "open {url}top/?sort=top&t=all")
 
 # Last.fm bindings
 config.bind(",lfw", "spawn --userscript lastfm-album-week.sh")
