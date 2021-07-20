@@ -18,8 +18,8 @@ stow vim
 * i3/i3-gaps (with polybar): Extensive configuration. Several modes for gaps presets or resizing/moving containers.
 * sway (with waybar): Extensive configuration without XWayland. Mostly the same as i3 configuration.
 * xmonad (with xmobar): Extensive configuration. Named scratchpads, several layouts.
+* dwm: Extensive configuration (available on my [fork](https://github.com/dbeley/dwm)).
 * bspwm (with polybar): Simple configuration.
-* dwm: Simple configuration.
 * exwm: Simple configuration.
 
 ## Editors
@@ -37,25 +37,25 @@ stow vim
 ## Terminal Emulators
 
 * alacritty
-* termite
+* st (available on my [fork](https://github.com/dbeley/st))
+* termite (deprecated)
 * urxvt
 * terminator
-* st
+
 
 ## Utilities
 
 * fish
 * oh-my-fish
-* tmux : Keybindings, powerline theme.
-* pywal / wpgtk : GTK/QT theme, colors for i3, sway, bspwm, dwm.
-* yay
-* compton
-* dunst
-* feh
+* tmux: Keybindings, powerline theme.
+* pywal / wpgtk: GTK/QT theme, colors for i3, sway, bspwm, dwm.
+* picom
+* dunst / mako
+* feh / imv
 * ledger
-* ranger
-* redshift
-* rofi
+* ranger / nnn
+* redshift / gammastep
+* rofi / dmenu / bemenu
 
 ## Media Players
 
