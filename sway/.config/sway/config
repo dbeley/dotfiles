@@ -69,7 +69,7 @@ exec swayidle -w \
 # Read `man 5 sway-input` for more information about this section.
 
 # Keymap sway-input
-input "*" {
+input type:keyboard {
     xkb_layout "us"
     xkb_variant "intl"
     xkb_options "ctrl:nocaps,shift:both_capslock"
@@ -77,8 +77,12 @@ input "*" {
     repeat_rate 55
     }
 
-input "*" {
+input type:mouse {
     left_handed enabled
+    }
+
+input type:touchpad {
+    natural_scroll enabled
     tap enabled
     }
 
@@ -90,9 +94,13 @@ seat * hide_cursor 3000
 #
     # start a terminal
     bindsym $mod+Return exec $term
+    bindsym $mod+x exec $term
+
+	bindsym $mod+z exec $browser
+	bindsym $mod+c exec keepassxc
 
     # kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # start your launcher
     # bindsym $mod+d exec $menu
@@ -109,7 +117,18 @@ seat * hide_cursor 3000
 
     # exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-#
+
+    for_window [window_role="pop-up"] floating enable
+    for_window [window_role="bubble"] floating enable
+    for_window [window_role="task_dialog"] floating enable
+    for_window [window_role="Preferences"] floating enable
+    for_window [window_type="dialog"] floating enable
+    for_window [window_type="menu"] floating enable
+    for_window [window_role="About"] floating enable
+    for_window [app_id="mpv"] floating enable, move to scratchpad, scratchpad show, sticky enable
+    for_window [app_id="org.keepassxc.KeePassXC"] floating enable, move to scratchpad, scratchpad show
+    for_window [app_id="com.nextcloud.desktopclient.nextcloud"] floating enable, move to scratchpad, scratchpad show
+
 # Moving around:
 #
     # Move your focus around
@@ -205,6 +224,8 @@ seat * hide_cursor 3000
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
 
+	bindsym $mod+Shift+s sticky toggle
+
     # move focus to the parent container
     bindsym $mod+a focus parent
 #
@@ -219,6 +240,10 @@ seat * hide_cursor 3000
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
+bindsym $mod+F9 scratchpad show
+bindsym $mod+F10 [app_id="org.keepassxc.KeePassXC"] scratchpad show
+bindsym $mod+F11 [app_id="com.nextcloud.desktopclient.nextcloud"] scratchpad show
 #
 # Resizing containers:
 #
@@ -255,7 +280,7 @@ mode "  (r)eboot, (p)oweroff, (l)ock, (s)uspend  " {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+p mode "  (r)eboot, (p)oweroff, (l)ock, (s)uspend  "
+bindsym $mod+Shift+p mode "  (r)eboot, (p)oweroff, (l)ock, (s)uspend  "
 
 #
 # Status Bar:
@@ -285,6 +310,7 @@ include /etc/sway/config.d/*
 default_border pixel 2
 gaps inner 6
 gaps outer 6
+smart_gaps off
 
 ############### Colors using pywal / wpgtk
 include "$HOME/.cache/wal/colors-sway"
@@ -302,19 +328,21 @@ client.placeholder      	$tx		$tx		$tx		$tx             $tx
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
     gsettings set $gnome-schema gtk-theme 'FlatColor'
-    gsettings set $gnome-schema icon-theme 'Numix-Square'
+    gsettings set $gnome-schema icon-theme 'Adwaita'
+    gsettings set $gnome-schema font-name 'Overpass 11'
     #gsettings set $gnome-schema cursor-theme 'Your cursor Theme'
 }
 
 # Notification daemon
 exec mako
+exec udiskie -a
+exec nextcloud
 
 ############### User-defined shortcuts
-bindsym $mod+z exec $browser
 
 # Launcher using j4-dmenu-desktop and bemenu (black and white)
 # bindsym $mod+d exec j4-dmenu-desktop --dmenu='bemenu -i -l 15 -p "" -b --fn "pango:Iosevka Italic 9" --nb "#282a36" --hf "#f8f8f2"' --term='alacritty' --display-binary
-bindsym $mod+d exec bemenu-run -l 15 -p "" --nb "#282a36" --hf "#f8f8f2"
+bindsym $mod+d exec bemenu-run -l 15 -p "" --nb "#282a36" --hf "#f8f8f2" --fn "iosevka italic 10"
 
 # Audio volume keys
 bindsym XF86AudioRaiseVolume exec "~/scripts/volume_pamixer.sh up"

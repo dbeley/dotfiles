@@ -386,8 +386,8 @@ exec --no-startup-id nm-applet
 #exec --no-startup-id mpd
 #exec --no-startup-id mpdscribble
 #exec --no-startup-id dunst
-#exec --no-startup-id udiskie --use-udisks2 -a
-exec --no-startup-id nextcloud
+#exec --no-startup-id udiskie -a
+# exec --no-startup-id nextcloud
 
 ###################
 ### KEYBINDINGS ###
