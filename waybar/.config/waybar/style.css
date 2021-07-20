@@ -4,8 +4,8 @@
 	font-family: Iosevka;
         font-style: italic;
         font-weight: bold;
-	font-size: 11px;
-	min-height: 22px;
+	font-size: 12px;
+	min-height: 20px;
 }
 
 window#waybar {
@@ -101,7 +101,9 @@ window#waybar.PCSX2 #window {
 #network {
 	margin-top: 8px;
 	margin-left: 8px;
+	margin-right: 12px;
 	padding-left: 16px;
+	padding-right: 16px;
 	margin-bottom: 0;
 	border-radius: 6px;
 	transition: none;
@@ -116,7 +118,7 @@ window#waybar.PCSX2 #window {
 #pulseaudio {
 	margin-top: 8px;
 	margin-left: 8px;
-        margin-right: 8px;
+    margin-right: 8px;
 	padding-left: 16px;
 	padding-right: 16px;
 	margin-bottom: 0;
