@@ -29,7 +29,7 @@ export FZF_ALT_C_COMMAND="fd --ignore-case --hidden -t d"
 export FZF_TMUX=1
 
 # wal -R
-[ -f /home/david/.config/wpg/sequences ] && (cat /home/david/.config/wpg/sequences &)
+[ -f ~/.config/wpg/sequences ] && (cat ~/.config/wpg/sequences &)
 
 # eval "$(pipenv --completion)"
 # source /home/david/.config/broot/launcher/bash/br

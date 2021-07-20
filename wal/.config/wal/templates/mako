@@ -1,0 +1,8 @@
+font=iosevka italic 10
+width=0
+height=2
+margin=-30
+padding=35
+background-color={background}
+text-color={foreground}
+border-color={foreground}

@@ -67,7 +67,7 @@ exec swayidle -w \
 # Read `man 5 sway-input` for more information about this section.
 
 # Keymap sway-input
-input "1:1:AT_Translated_Set_2_keyboard" {
+input "*" {
     xkb_layout "us"
     xkb_variant "intl"
     xkb_options "ctrl:nocaps,shift:both_capslock"
@@ -75,8 +75,9 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     repeat_rate 55
     }
 
-input "2:10:TPPS/2_IBM_TrackPoint" {
+input "*" {
     left_handed enabled
+    tap enabled
     }
 
 seat * hide_cursor 3000
@@ -242,15 +243,17 @@ mode "  resize  " {
 bindsym $mod+r mode "  resize  "
 
 # mode "poweroff/restart"
-mode "  (r)eboot, (s)hutdown  " {
+mode "  (r)eboot, (p)oweroff, (l)ock, (s)uspend  " {
     bindsym r exec reboot, mode "default"
-    bindsym s exec poweroff, mode "default"
+    bindsym p exec poweroff, mode "default"
+    bindsym l exec "swaylock -f -c 000000", mode "default"
+    bindsym s exec "systemctl suspend", mode "default"
 
     # return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+p mode "  (r)eboot, (s)hutdown  "
+bindsym $mod+p mode "  (r)eboot, (p)oweroff, (l)ock, (s)uspend  "
 
 #
 # Status Bar:
@@ -277,13 +280,13 @@ include /etc/sway/config.d/*
 
 ############### Borders
 # default_border none
-default_border pixel 3
-gaps inner 4
-gaps outer 4
+default_border pixel 2
+gaps inner 6
+gaps outer 6
 
 ############### Colors using pywal / wpgtk
 include "$HOME/.cache/wal/colors-sway"
-set $tx	#ffffff 
+set $tx	#ffffff
 
 #                               border          background      text            indicator       child-border
 client.focused         		$background		$background		$tx		$color3         $color3
@@ -308,13 +311,15 @@ exec mako
 bindsym $mod+z exec $browser
 
 # Launcher using j4-dmenu-desktop and bemenu (black and white)
-bindsym $mod+d exec j4-dmenu-desktop --dmenu='bemenu -i -p "" -b --fn "pango:Iosevka Italic 9" --nb "#282a36" --hf "#f8f8f2"' --term='alacritty' --display-binary
+# bindsym $mod+d exec j4-dmenu-desktop --dmenu='bemenu -i -l 15 -p "" -b --fn "pango:Iosevka Italic 9" --nb "#282a36" --hf "#f8f8f2"' --term='alacritty' --display-binary
+bindsym $mod+d exec bemenu-run -l 15 -p "" --nb "#282a36" --hf "#f8f8f2"
 
 # Audio volume keys
-bindsym XF86AudioRaiseVolume exec "amixer -q set Master 2%+ unmute"
-bindsym XF86AudioLowerVolume exec "amixer -q set Master 2%- unmute"
-bindsym XF86AudioMute exec "amixer -q set Master toggle"
-
+bindsym XF86AudioRaiseVolume exec "~/scripts/volume_pamixer.sh up"
+bindsym Shift+XF86AudioRaiseVolume exec "~/scripts/volume_pamixer.sh bigup"
+bindsym XF86AudioLowerVolume exec "~/scripts/volume_pamixer.sh down"
+bindsym Shift+XF86AudioLowerVolume exec "~/scripts/volume_pamixer.sh bigdown"
+bindsym XF86AudioMute exec "~/scripts/volume_pamixer.sh mute"
 # Lock screen
 bindsym XF86ScreenSaver exec "swaylock -f -c 000000"
 bindsym XF86Suspend exec "swaylock -f -c 000000"
@@ -324,8 +329,8 @@ bindsym XF86Back workspace prev
 bindsym XF86Forward workspace next
 
 # Screenshot
-bindsym --release Print exec "grim ~/Nextcloud/Images/Screenshots/$(date +%s).png"
-bindsym --release Shift+Print exec 'grim -g "$(slurp -d)" ~/Nextcloud/Images/Screenshots/$(date +%s)_cropped.png'
+bindsym --release Print exec "grim ~/Nextcloud/07_Images/07_Captures-d-écran_Wayland/$(date +%s).png"
+bindsym --release Shift+Print exec 'grim -g "$(slurp -d)" ~/Nextcloud/07_Images/07_Captures-d-écran_Wayland/$(date +%s)_cropped.png'
 
 bindsym Pause exec "killall -SIGUSR1 waybar"
 bindsym $mod+n exec wpg -m

@@ -380,7 +380,7 @@ exec --no-startup-id picom --config "$HOME/.config/picom.conf"
 # exec --no-startup-id urxvtd -q -o -f
 
 # Other
-exec --no-startup-id redshift-gtk
+# exec --no-startup-id redshift-gtk
 exec --no-startup-id nm-applet
 #exec --no-startup-id blueman-applet
 #exec --no-startup-id mpd
@@ -403,8 +403,8 @@ bindsym $mod+r mode "$mode_move_resize"
 bindsym $mod+m mode "$mode_move_resize"
 
 # Screenshot
-bindsym --release Print exec --no-startup-id "maim ~/Nextcloud/7.\ Images/Captures\ d\'écran/$(date +%s).png"
-bindsym Shift+Print exec --no-startup-id "maim -s -o ~/Nextcloud/7.\ Images/Captures\ d\'écran/$(date +%s)_cropped.png"
+bindsym --release Print exec --no-startup-id "$HOME/scripts/maim.sh"
+bindsym Shift+Print exec --no-startup-id "$HOME/scripts/maim_cropped.sh"
 
 # Lockscreen
 bindsym XF86ScreenSaver exec --no-startup-id "slock"
@@ -435,8 +435,8 @@ bindsym XF86MonBrightnessDown exec light -U 5%
 
 # i3/polybar commands
 bindsym Pause exec polybar-msg cmd toggle
-bindsym Shift+Pause exec --no-startup-id "wpg -m; systemctl --user restart emacs"
-bindsym $mod+n exec --no-startup-id "wpg -m; systemctl --user restart emacs"
+bindsym Shift+Pause exec --no-startup-id "wpg -m"
+bindsym $mod+n exec --no-startup-id "wpg -m"
 
 # Pulse Audio Controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id "$HOME/scripts/volume_pamixer.sh up"
