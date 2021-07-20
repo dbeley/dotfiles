@@ -31,6 +31,8 @@ font pango:iosevka italic 10
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 output * bg ~/.config/wpg/.current fill
+output HDMI-A-1 pos 0 0
+output HDMI-A-2 pos 1920 0
 #
 # Example configuration:
 #
@@ -334,3 +336,4 @@ bindsym --release Shift+Print exec 'grim -g "$(slurp -d)" ~/Nextcloud/07_Images/
 
 bindsym Pause exec "killall -SIGUSR1 waybar"
 bindsym $mod+n exec wpg -m
+exec "systemctl --user import-environment; systemctl --user start sway-session.target"
