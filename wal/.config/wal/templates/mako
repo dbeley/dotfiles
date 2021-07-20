@@ -6,5 +6,5 @@ padding=10
 border-size=4
 background-color={background}
 text-color={foreground}
-border-color={color1}
-progress-color={color2}
+border-color={foreground}
+progress-color={color1}
