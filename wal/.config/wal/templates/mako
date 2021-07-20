@@ -1,8 +1,10 @@
 font=iosevka italic 10
-width=150
+width=300
 height=100
 margin=10
 padding=10
+border-size=4
 background-color={background}
 text-color={foreground}
-border-color={foreground}
+border-color={color1}
+progress-color={color2}

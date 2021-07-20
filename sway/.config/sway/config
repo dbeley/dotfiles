@@ -94,10 +94,13 @@ seat * hide_cursor 3000
 #
     # start a terminal
     bindsym $mod+Return exec $term
-    bindsym $mod+x exec $term
 
 	bindsym $mod+z exec $browser
-	bindsym $mod+c exec keepassxc
+	bindsym $mod+Shift+z exec doom-emacs
+    bindsym $mod+x exec $term
+    bindsym $mod+Shift+x exec steam
+	bindsym $mod+t exec libreoffice
+	bindsym $mod+Shift+t exec gnome-system-monitor
 
     # kill focused window
     bindsym $mod+q kill
@@ -118,16 +121,12 @@ seat * hide_cursor 3000
     # exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
-    for_window [window_role="pop-up"] floating enable
-    for_window [window_role="bubble"] floating enable
-    for_window [window_role="task_dialog"] floating enable
-    for_window [window_role="Preferences"] floating enable
-    for_window [window_type="dialog"] floating enable
-    for_window [window_type="menu"] floating enable
-    for_window [window_role="About"] floating enable
-    for_window [app_id="mpv"] floating enable, move to scratchpad, scratchpad show, sticky enable
-    for_window [app_id="org.keepassxc.KeePassXC"] floating enable, move to scratchpad, scratchpad show
+    for_window [title="Ouvrir*"] floating enable
+    for_window [app_id="imv"] floating enable
+    for_window [app_id="mpv"] floating enable, sticky enable
+    for_window [app_id="org.keepassxc.KeePassXC"] floating enable, move to scratchpad
     for_window [app_id="com.nextcloud.desktopclient.nextcloud"] floating enable, move to scratchpad, scratchpad show
+    for_window [app_id="terminal_scratchpad"] move to scratchpad, resize set 800 600
 
 # Moving around:
 #
@@ -244,6 +243,9 @@ seat * hide_cursor 3000
 bindsym $mod+F9 scratchpad show
 bindsym $mod+F10 [app_id="org.keepassxc.KeePassXC"] scratchpad show
 bindsym $mod+F11 [app_id="com.nextcloud.desktopclient.nextcloud"] scratchpad show
+bindsym $mod+g [app_id="terminal_scratchpad"] scratchpad show
+bindsym $mod+c [app_id="org.keepassxc.KeePassXC"] scratchpad show
+
 #
 # Resizing containers:
 #
@@ -333,10 +335,11 @@ exec_always {
     #gsettings set $gnome-schema cursor-theme 'Your cursor Theme'
 }
 
-# Notification daemon
 exec mako
 exec udiskie -a
 exec nextcloud
+exec alacritty --class terminal_scratchpad -e nnn
+exec keepassxc
 
 ############### User-defined shortcuts
 
