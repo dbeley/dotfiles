@@ -77,7 +77,7 @@ input type:keyboard {
     repeat_rate 55
     }
 
-input type:mouse {
+input type:pointer {
     left_handed enabled
     }
 
