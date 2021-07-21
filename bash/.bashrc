@@ -17,6 +17,7 @@ alias la='exa -lah'
 PS1='[\u@\h \W]\$ '
 
 export EDITOR=nvim
+export IMG_VIEWER=feh
 export TERM=xterm-256color
 # [ -f /usr/share/doc/pkgfile/command-not-found.bash ] && source /usr/share/doc/pkgfile/command-not-found.bash
 # [ -f /etc/profile.d/autojump.sh ] && source /etc/profile.d/autojump.sh

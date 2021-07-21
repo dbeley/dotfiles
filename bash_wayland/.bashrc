@@ -17,6 +17,7 @@ alias la='exa -lah'
 PS1='[\u@\h \W]\$ '
 
 export EDITOR=nvim
+export IMG_VIEWER=imv
 #export TERM=xterm-256color
 # [ -f /usr/share/doc/pkgfile/command-not-found.bash ] && source /usr/share/doc/pkgfile/command-not-found.bash
 # [ -f /etc/profile.d/autojump.sh ] && source /etc/profile.d/autojump.sh
@@ -28,7 +29,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --ignore-case --hidden -t d"
 export FZF_TMUX=1
 
-# export QT_QPA_PLATFORMTHEME="gnome"
+# export QT_QPA_PLATFORMTHEME=gnome
 export QT_QPA_PLATFORM=wayland
 # export QT_QPA_PLATFORM=wayland-egl
 #export QT_WAYLAND_FORCE_DPI=physical
