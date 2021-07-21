@@ -122,6 +122,7 @@ seat * hide_cursor 3000
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
     for_window [title="Ouvrir*"] floating enable
+    for_window [title="Extension : *"] floating enable
     for_window [app_id="imv"] floating enable
     for_window [app_id="mpv"] floating enable, sticky enable
     for_window [app_id="org.keepassxc.KeePassXC"] floating enable, move to scratchpad
@@ -309,7 +310,7 @@ include /etc/sway/config.d/*
 
 ############### Borders
 # default_border none
-default_border pixel 2
+default_border pixel 3
 gaps inner 6
 gaps outer 6
 smart_gaps off
@@ -353,6 +354,11 @@ bindsym Shift+XF86AudioRaiseVolume exec "~/scripts/volume_pamixer.sh bigup"
 bindsym XF86AudioLowerVolume exec "~/scripts/volume_pamixer.sh down"
 bindsym Shift+XF86AudioLowerVolume exec "~/scripts/volume_pamixer.sh bigdown"
 bindsym XF86AudioMute exec "~/scripts/volume_pamixer.sh mute"
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioPause exec mpc toggle
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc prev
+
 # Lock screen
 bindsym XF86ScreenSaver exec "swaylock -f -c 000000"
 bindsym XF86Suspend exec "swaylock -f -c 000000"
@@ -366,5 +372,6 @@ bindsym --release Print exec "grim ~/Nextcloud/07_Images/07_Captures-d-écran_Wa
 bindsym --release Shift+Print exec 'grim -g "$(slurp -d)" ~/Nextcloud/07_Images/07_Captures-d-écran_Wayland/$(date +%s)_cropped.png'
 
 bindsym Pause exec "killall -SIGUSR1 waybar"
+bindsym Shift+Pause exec wpg -m
 bindsym $mod+n exec wpg -m
 exec "systemctl --user import-environment; systemctl --user start sway-session.target"
