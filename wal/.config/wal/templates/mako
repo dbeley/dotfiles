@@ -1,4 +1,5 @@
 font=iosevka italic 10
+default-timeout=5
 width=300
 height=100
 margin=10

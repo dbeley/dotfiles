@@ -3,8 +3,6 @@ mpd/.config/mpd/*
 wpgtk/.config/wpg/*
 !wpgtk/.config/wpg/wpg.conf
 
-# emacs
-
 emacs/.emacs.d/*
 !emacs/.emacs.d/*.org
 !emacs/.emacs.d/init.el
@@ -26,5 +24,7 @@ termite/.config/gtk-3.0/settings.ini
 gtk/.config/gtk-3.0/bookmarks
 gtk/.config/gtk-2.0/gtkfilechooser.ini
 
+sway/.config/systemd/user/*
+!sway/.config/systemd/user/sway-session.target
 
 tags
