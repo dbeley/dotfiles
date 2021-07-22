@@ -48,5 +48,6 @@ fi
 [ -f ~/.config/wpg/sequences ] && (cat ~/.config/wpg/sequences &)
 
 export NNN_OPTS="cdEx"
+export NNN_PLUG="f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview"
 
 [ -f /usr/bin/fish ] && exec fish
