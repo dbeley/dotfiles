@@ -5,10 +5,10 @@
     //"modules-right": ["clock"],
     //"modules-right": ["pulseaudio", "cpu", "memory", "temperature", "battery"],
     "modules-right": ["cpu", "memory", "temperature", "battery", "network"],
-    "sway/window": {
-        "max-length": 50
-},
-"pulseaudio": {
+	"sway/window": {
+    	"max-length": 50
+	},
+	"pulseaudio": {
             "tooltip": false,
             "scroll-step": 5,
             //"format": "{icon} {volume}%",

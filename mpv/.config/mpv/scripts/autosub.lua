@@ -3,7 +3,7 @@
 --=============================================================================
 --          This script uses Subliminal to download subtitles,
 --          so make sure to specify your system's Subliminal location below:
-local subliminal = '/home/david/Documents/subliminal/.venv/subliminal'
+local subliminal = '/home/david/Documents/subliminal/.venv/bin/subliminal'
 --=============================================================================
 -->>    SUBTITLE LANGUAGE:
 --=============================================================================
@@ -43,7 +43,7 @@ local logins = {
 -->>    ADDITIONAL OPTIONS:
 --=============================================================================
 local bools = {
-    auto = true,   -- Automatically download subtitles, no hotkeys required
+    auto = false,   -- Automatically download subtitles, no hotkeys required
     debug = true, -- Use `--debug` in subliminal command for debug output
     force = true,  -- Force download; will overwrite existing subtitle files
     utf8 = true,   -- Save all subtitle files as UTF-8
@@ -76,7 +76,7 @@ function download_subs(language)
     log('Searching ' .. language[1] .. ' subtitles ...', 30)
 
     -- Build the `subliminal` command, starting with the executable:
-    local table = { args = { pipenv run subliminal } }
+    local table = { args = { subliminal } }
     local a = table.args
 
     for _, login in ipairs(logins) do
@@ -256,4 +256,4 @@ end
 
 mp.add_key_binding('b', 'download_subs', download_subs)
 mp.add_key_binding('n', 'download_subs2', download_subs2)
-mp.register_event('file-loaded', control_downloads)
+-- mp.register_event('file-loaded', control_downloads)

@@ -22,8 +22,7 @@ window#waybar.hidden {
     padding-right: 16px;
     border-radius: 6px;
     transition: none;
-    color: transparent;
-    background: transparent;
+    background: #282a36;
 }
 
 window#waybar.alacritty #window,
