@@ -64,6 +64,9 @@ PKGLIST+=(python-pipenv python-pynvim)
 # Home
 PKGLIST+=(nfs-utils)
 
+# Steam
+PKGLIST+=(steam vulkan-intel lib32-vulkan-intel xorg-xwayland)
+
 echo paru -S ${PKGLIST[@]}
 # paru -S ${PKGLIST[@]}
 

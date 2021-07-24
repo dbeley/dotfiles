@@ -4,7 +4,9 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-xwayland disable
+# xwayland disable
+# Steam needs xwayland
+xwayland enable
 
 ### Variables
 #
@@ -45,10 +47,7 @@ output HDMI-A-2 pos 1920 0
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 600 'swaylock -f -c 000000' \
-         timeout 1200 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
+         timeout 600 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
