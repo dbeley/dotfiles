@@ -29,17 +29,17 @@ window#waybar.empty #window {
     background: #282a36;
 }
 
-/* window#waybar.alacritty #window, */
-/* window#waybar.Firefox #window, */
-/* window#waybar.Nextcloud #window, */
-/* window#waybar.keepassxc #window, */
-/* window#waybar.libreoffice #window, */
-/* window#waybar.Navigator #window, */
-/* window#waybar.qutebrowser #window, */
-/* window#waybar.PCSX2 #window { */
-/*     color: #f8f8f2; */
-/*     background: #282a36; */
-/* } */
+window#waybar.alacritty #window,
+window#waybar.Firefox #window,
+window#waybar.Nextcloud #window,
+window#waybar.keepassxc #window,
+window#waybar.libreoffice #window,
+window#waybar.mpv #window,
+window#waybar.Navigator #window,
+window#waybar.qutebrowser #window {
+    color: #f8f8f2;
+    background: #282a36;
+}
 
 #mode {
     margin-top: 8px;
