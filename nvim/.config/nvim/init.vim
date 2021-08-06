@@ -238,12 +238,12 @@ if !exists('g:airline_symbols')
     let g:airline_symbols.linenr = ''
 
 "Python
-"autocmd BufWritePre *.py execute ':Black'
+autocmd BufWritePre *.py execute ':Black'
 let g:ale_linters = {'python': ['bandit', 'flake8']}
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'python': ['black'],
 \}
+"\   'python': ['black'],
 
 let g:deoplete#enable_at_startup = 1
