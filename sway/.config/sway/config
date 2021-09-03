@@ -4,9 +4,9 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-# xwayland disable
+xwayland disable
 # Steam needs xwayland
-xwayland enable
+# xwayland enable
 
 ### Variables
 #
