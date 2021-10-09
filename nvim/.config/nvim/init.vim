@@ -28,7 +28,7 @@ Plug 'tpope/vim-commentary'
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'junegunn/fzf.vim'
-"Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim'
 
 "Plug 'morhetz/gruvbox'
 Plug 'dylanaraps/wal'
@@ -40,7 +40,6 @@ Plug 'edkolev/tmuxline.vim'
 
 "Plug 'Valloric/YouCompleteMe'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
-"wait to jedi archlinux update
 Plug 'deoplete-plugins/deoplete-jedi'
 "Plug 'ervandew/supertab'
 "Plug 'godlygeek/tabular'
@@ -56,7 +55,7 @@ Plug 'deoplete-plugins/deoplete-jedi'
 
 "Plug 'sheerun/vim-polyglot'
 "Plug 'majutsushi/tagbar'
-""Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'dense-analysis/ale'
 "Plug 'prabirshrestha/async.vim'
@@ -69,7 +68,7 @@ Plug 'dense-analysis/ale'
 "Plug 'joshhartigan/vim-reddit'
 "Plug 'itchyny/calendar.vim'
 
-""Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+"Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 "Plug 'neovimhaskell/haskell-vim'
 "Plug 'tpope/vim-fireplace'
 "Plug 'rust-lang/rust.vim'
@@ -77,11 +76,11 @@ Plug 'dense-analysis/ale'
 Plug 'ryanoasis/vim-devicons'
 
 Plug 'psf/black'
-""Plug 'metakirby5/codi.vim'
-""Plug 'jpalardy/vim-slime'
+"Plug 'metakirby5/codi.vim'
+"Plug 'jpalardy/vim-slime'
 
-""Plug 'neoclide/coc.nvim', {'branch': 'release'}
-""Plug 'scalameta/coc-metals'
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'scalameta/coc-metals'
 
 Plug 'mcchrish/nnn.vim'
 
@@ -189,8 +188,8 @@ nnoremap <leader>w :w<CR>
 inoremap <leader>w <C-c>:w<CR>
 nmap <leader>l :TagbarToggle<CR>
 nmap <F8> :TagbarToggle<CR>
-" nnoremap <BS> <PageUp>
-" nnoremap <Space> <PageDown>
+"nnoremap <BS> <PageUp>
+"nnoremap <Space> <PageDown>
 "nnoremap <leader>n :lnext<CR>
 "nnoremap <leader>p :lprev<CR>
 let g:nnn#set_default_mappings = 0
@@ -239,11 +238,9 @@ if !exists('g:airline_symbols')
 
 "Python
 autocmd BufWritePre *.py execute ':Black'
-let g:ale_linters = {'python': ['bandit', 'flake8']}
+let g:ale_linters = {'python': ['bandit', 'flake8', 'mypy']}
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \}
-"\   'python': ['black'],
-
 let g:deoplete#enable_at_startup = 1
