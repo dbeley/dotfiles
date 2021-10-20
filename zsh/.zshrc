@@ -88,6 +88,9 @@ else
   export EDITOR='nvim'
 fi
 
+export OKTA_USERNAME="david.beley@backmarket.com"
+export OKTA_MFA="Auto"
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -100,6 +103,9 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias bat="batcat"
+alias samlogin="saml2aws --idp-account='default' login"
+alias samloginshort="saml2aws --idp-account='default' login --skip-prompt"
 
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
+# eval "$(saml2aws --completion-script-zsh)"
