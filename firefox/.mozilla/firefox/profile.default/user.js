@@ -42,6 +42,8 @@ user_pref("gfx.webrender.all", true);
 user_pref("media.ffmpeg.vaapi.enabled", true);
 user_pref("media.ffvpx.enabled", false);
 user_pref("media.hardwaremediakeys.enabled", true);
+user_pref("media.navigator.mediadatadecoder_vpx_enabled", true);
+user_pref("media.rdd-vpx.enabled", false);
 user_pref("media.videocontrols.picture-in-picture.audio-toggle.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.keyboard-controls.enabled", true);
 user_pref("network.IDN_show_punycode", true);
