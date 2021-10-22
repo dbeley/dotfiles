@@ -366,6 +366,10 @@ bindsym XF86Suspend exec "swaylock -f -c 000000"
 # Workspace navigation
 bindsym XF86Back workspace prev
 bindsym XF86Forward workspace next
+#
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec light -A 5%
+bindsym XF86MonBrightnessDown exec light -U 5%
 
 # Screenshot
 bindsym --release Print exec "grim ~/Nextcloud/07_Images/07_Captures-d-écran_Wayland/$(date +%s).png"
