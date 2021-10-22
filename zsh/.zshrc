@@ -90,6 +90,9 @@ fi
 
 export OKTA_USERNAME="david.beley@backmarket.com"
 export OKTA_MFA="Auto"
+export PYTHONPATH=$PYTHONPATH:~/bm_env/badoom:vendors
+export ENV=DEV
+export GIT_ENV=DEV
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -103,8 +106,10 @@ export OKTA_MFA="Auto"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias bat="batcat"
+alias fd="fdfind"
 alias samlogin="saml2aws --idp-account='default' login"
 alias samloginshort="saml2aws --idp-account='default' login --skip-prompt"
+alias managepy="python manage.py"
 
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
