@@ -1,8 +1,8 @@
 " For syntax highlighting see https://github.com/tridactyl/vim-tridactyl
 vim: set filetype=tridactyl
 " " bovine3dom's dogfood
-sanitize tridactyllocal tridactylsync
-"
+" sanitize tridactyllocal tridactylsync
+
 " " Every line in this file is commented out because in general they're all bad ideas.
 " " If anything in here was a good idea, it would be default behaviour in Tridactyl.
 " " It's just a collection of interesting ideas that happen to also be bovine3dom's
@@ -228,6 +228,7 @@ set searchurls.hltb https://howlongtobeat.com/game.php?id=1023&t=games&platform=
 set searchurls.itad https://isthereanydeal.com/search/?q=%s
 
 bind j scrollline 5
+
 bind k scrollline -5
 
 set newtab about:blank
