@@ -83,7 +83,7 @@ Plug 'psf/black'
 "Plug 'scalameta/coc-metals'
 
 Plug 'mcchrish/nnn.vim'
-
+Plug 'tridactyl/vim-tridactyl'
 call plug#end()
 
 " Change Leader and LocalLeader keys:
