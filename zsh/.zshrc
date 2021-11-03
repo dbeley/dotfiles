@@ -93,6 +93,7 @@ export OKTA_MFA="Auto"
 export PYTHONPATH=$PYTHONPATH:~/bm_env/badoom:vendors
 export ENV=DEV
 export GIT_ENV=DEV
+export DOCKER_BUILDKIT=1
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -110,6 +111,10 @@ alias fd="fdfind"
 alias samlogin="saml2aws --idp-account='default' login"
 alias samloginshort="saml2aws --idp-account='default' login --skip-prompt"
 alias managepy="python manage.py"
+alias djshell="docker-compose run --rm badoom python manage.py shell"
+
+alias gs="git status"
+alias gd="git diff"
 
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
