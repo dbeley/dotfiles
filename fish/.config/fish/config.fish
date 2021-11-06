@@ -1,6 +1,9 @@
 fish_default_key_bindings
 #fish_vi_key_bindings
 
+# status --is-interactive; and pyenv init - | source
+# status --is-interactive; and pyenv virtualenv-init - | source
+
 set -g theme_display_vi no
 set -g theme_display_date no
 set -g theme_nerd_fonts yes
@@ -32,6 +35,8 @@ alias météo "curl -H 'Accept-Language: fr' wttr.in"
 alias weather "curl -H 'Accept-Language: fr' wttr.in"
 alias wttr "curl -H 'Accept-Language: fr' wttr.in"
 alias wtr "curl -H 'Accept-Language: fr' wttr.in"
+
+alias bal "ledger -f ledger.ledger balance"
 
 set FZF_DEFAULT_COMMAND "fd --type file --ignore-case --hidden --follow --exclude .git"
 set FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"

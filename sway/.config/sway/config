@@ -96,7 +96,7 @@ seat * hide_cursor 3000
     bindsym $mod+Return exec $term
 
     bindsym $mod+z exec $browser
-    bindsym $mod+Shift+z exec doom-emacs
+    bindsym $mod+Shift+z exec emacs
     bindsym $mod+x exec $term
     bindsym $mod+Shift+x exec steam
     bindsym $mod+t exec libreoffice

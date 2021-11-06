@@ -119,3 +119,5 @@ alias gd="git diff"
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
 # eval "$(saml2aws --completion-script-zsh)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
