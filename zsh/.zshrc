@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/dbeley/.oh-my-zsh"
@@ -118,6 +118,8 @@ alias gd="git diff"
 
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
+
 # eval "$(saml2aws --completion-script-zsh)"
+
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
