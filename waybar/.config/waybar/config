@@ -26,7 +26,8 @@
         //"format-icons": ["", "", "", "", ""]
     },
     "clock": {
-        "format": "{:%a %d %b %H:%M}",
+        "interval": 1,
+        "format": "{:%a %d %b %H:%M:%S}",
         "format-alt": "{:%H:%M}"
     },
     "cpu": {

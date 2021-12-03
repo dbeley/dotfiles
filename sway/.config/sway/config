@@ -4,9 +4,9 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-xwayland disable
+# xwayland disable
 # Steam needs xwayland
-# xwayland enable
+xwayland enable
 
 ### Variables
 #
@@ -19,7 +19,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 # set $term urxvt
-set $term alacritty
+set $term kitty
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
@@ -127,7 +127,7 @@ seat * hide_cursor 3000
     for_window [app_id="mpv"] floating enable, sticky enable
     for_window [app_id="org.keepassxc.KeePassXC"] floating enable, move to scratchpad
     for_window [app_id="com.nextcloud.desktopclient.nextcloud"] floating enable, move to scratchpad, scratchpad show
-    for_window [app_id="terminal_scratchpad"] move to scratchpad, resize set 800 600
+    for_window [app_id="scratchpad"] move to scratchpad, resize set 800 600
 
 # Moving around:
 #
@@ -244,7 +244,7 @@ seat * hide_cursor 3000
 bindsym $mod+F9 scratchpad show
 bindsym $mod+F10 [app_id="org.keepassxc.KeePassXC"] scratchpad show
 bindsym $mod+F11 [app_id="com.nextcloud.desktopclient.nextcloud"] scratchpad show
-bindsym $mod+g [app_id="terminal_scratchpad"] scratchpad show
+bindsym $mod+g [app_id="scratchpad"] scratchpad show
 bindsym $mod+c [app_id="org.keepassxc.KeePassXC"] scratchpad show
 
 #
@@ -339,13 +339,13 @@ exec_always {
 exec mako
 exec udiskie -a
 exec nextcloud
-exec alacritty --class terminal_scratchpad -e nnn
+exec kitty --class=scratchpad nnn
 exec keepassxc
 
 ############### User-defined shortcuts
 
 # Launcher using j4-dmenu-desktop and bemenu (black and white)
-# bindsym $mod+d exec j4-dmenu-desktop --dmenu='bemenu -i -l 15 -p "" -b --fn "pango:Iosevka Italic 9" --nb "#282a36" --hf "#f8f8f2"' --term='alacritty' --display-binary
+# bindsym $mod+d exec j4-dmenu-desktop --dmenu='bemenu -i -l 15 -p "" -b --fn "pango:Iosevka Italic 9" --nb "#282a36" --hf "#f8f8f2"' --term='kitty' --display-binary
 bindsym $mod+d exec bemenu-run -l 15 -p "" --nb "#282a36" --hf "#f8f8f2" --fn "iosevka italic 10"
 
 # Audio volume keys
