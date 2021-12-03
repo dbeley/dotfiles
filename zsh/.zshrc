@@ -108,10 +108,24 @@ export DOCKER_BUILDKIT=1
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias bat="batcat"
 alias fd="fdfind"
+alias cpr="rsync -azvhP --stats --inplace --zc=zstd --zl=3"
 alias samlogin="saml2aws --idp-account='default' login"
 alias samloginshort="saml2aws --idp-account='default' login --skip-prompt"
 alias managepy="python manage.py"
+
 alias djshell="docker-compose run --rm badoom python manage.py shell"
+alias djlog="docker logs badoom_badoom_1 -f"
+alias dprune="docker system prune -a"
+alias dprunev="docker system prune -a --volumes"
+
+alias mpv720="mpv --ytdl-format=\"(bestvideo[height<=720]+bestaudio)[ext=webm]/bestvideo[height<=720]+bestaudio/best[height<=720]/bestvideo+bestaudio/best\" "
+alias mpv1080="mpv --ytdl-format=\"(bestvideo[height<=1080]+bestaudio)[ext=webm]/bestvideo[height<=1080]+bestaudio/best[height<=1080]/bestvideo+bestaudio/best\" "
+
+alias meteo="curl -H 'Accept-Language: fr' wttr.in"
+alias météo="curl -H 'Accept-Language: fr' wttr.in"
+alias weather="curl -H 'Accept-Language: fr' wttr.in"
+alias wttr="curl -H 'Accept-Language: fr' wttr.in"
+alias wtr="curl -H 'Accept-Language: fr' wttr.in"
 
 alias gs="git status"
 alias gd="git diff"

@@ -1,0 +1,16 @@
+set visualbell
+set relativenumber
+set ruler
+set showcmd
+
+" set hlsearch
+" set incsearch
+" set ignorecase
+" set smartcase
+
+set clipboard+=unnamedplus
+set clipboard+=ideaput
+set scrolloff=5
+
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
