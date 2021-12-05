@@ -37,9 +37,10 @@ export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 # should not be set globally
 # export GDK_BACKEND=wayland
 export BEMENU_BACKEND=wayland
-export SDL_VIDEODRIVER=wayland
-# export SDL_VIDEODRIVER=x11
+# export SDL_VIDEODRIVER=wayland
+export SDL_VIDEODRIVER=x11
 export MOZ_ENABLE_WAYLAND=1
+# export XDG_CURRENT_DESKTOP=Unity
 
 if [ "$(tty)" = "/dev/tty1" ]; then
     exec sway

@@ -4,7 +4,7 @@
     "modules-center": ["clock"],
     //"modules-right": ["clock"],
     //"modules-right": ["pulseaudio", "cpu", "memory", "temperature", "battery"],
-    "modules-right": ["cpu", "memory", "temperature", "battery", "network"],
+    "modules-right": ["cpu", "memory", "temperature", "battery", "network", "tray"],
 	"sway/window": {
     	"max-length": 50
 	},
@@ -50,7 +50,11 @@
     "network": {
             "tooltip": false,
             "interval": 5,
-            "format-wifi": "DOWN {bandwidthDownOctets} | UP {bandwidthUpOctets}  ",
+            "format-wifi": "DOWN {bandwidthDownOctets} | UP {bandwidthUpOctets}",
             "format-ethernet": "DOWN {bandwidthDownOctets} | UP {bandwidthUpOctets}"
+    },
+    "tray": {
+            "icon-size": 21,
+            "spacing": 10
     }
 }

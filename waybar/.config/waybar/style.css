@@ -104,7 +104,7 @@ window#waybar.qutebrowser #window {
 #network {
     margin-top: 8px;
     margin-left: 8px;
-    margin-right: 12px;
+    /* margin-right: 12px; */
     padding-left: 16px;
     padding-right: 16px;
     margin-bottom: 0;
@@ -196,7 +196,6 @@ window#waybar.qutebrowser #window {
     background: #282a36;
 }
 
-/*
 #tray {
     margin-top: 8px;
     margin-left: 8px;
@@ -208,7 +207,7 @@ window#waybar.qutebrowser #window {
     transition: none;
     color: #f8f8f2;
     background: #282a36;
-} */
+}
 
 #battery {
     margin-top: 8px;
