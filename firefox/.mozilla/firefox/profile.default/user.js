@@ -51,6 +51,7 @@ user_pref("network.cookie.cookieBehavior", 5);
 user_pref("privacy.firstparty.isolate", true);
 user_pref("privacy.firstparty.isolate.restrict_opener_access", true);
 user_pref("privacy.resistFingerprinting", true);
+user_pref("privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts", false);
 user_pref("signon.rememberSignons", false);
 user_pref("ui.systemUsesDarkTheme", 1);
 // user_pref("browser.newtabpage.pinned", "[]");

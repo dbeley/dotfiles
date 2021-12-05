@@ -128,6 +128,7 @@ seat * hide_cursor 3000
     for_window [app_id="org.keepassxc.KeePassXC"] floating enable, move to scratchpad
     for_window [app_id="com.nextcloud.desktopclient.nextcloud"] floating enable, move to scratchpad, scratchpad show
     for_window [app_id="scratchpad"] move to scratchpad, resize set 800 600
+    for_window [shell=".*"] inhibit_idle fullscreen
 
 # Moving around:
 #
