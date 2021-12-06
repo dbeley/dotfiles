@@ -1,10 +1,10 @@
 {
     "layer": "bottom",
-    "modules-left": ["sway/workspaces", "sway/mode", "pulseaudio", "sway/window"],
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": ["clock"],
     //"modules-right": ["clock"],
     //"modules-right": ["pulseaudio", "cpu", "memory", "temperature", "battery"],
-    "modules-right": ["cpu", "memory", "temperature", "battery", "network", "tray"],
+    "modules-right": ["network", "cpu", "memory", "temperature", "pulseaudio", "battery", "tray"],
 	"sway/window": {
     	"max-length": 50
 	},
