@@ -15,10 +15,10 @@ stow vim
 
 ## WMs
 
-* i3/i3-gaps (with polybar): Extensive configuration. Several modes for gaps presets or resizing/moving containers.
 * sway (with waybar): Extensive configuration without XWayland. Mostly the same as i3 configuration.
-* xmonad (with xmobar): Extensive configuration. Named scratchpads, several layouts.
+* i3/i3-gaps (with polybar): Extensive configuration. Several modes for gaps presets or resizing/moving containers.
 * dwm: Extensive configuration (available on my [fork](https://github.com/dbeley/dwm)).
+* xmonad (with xmobar): Extensive configuration. Named scratchpads, several layouts.
 * bspwm (with polybar): Simple configuration.
 * exwm: Simple configuration.
 
@@ -28,6 +28,7 @@ stow vim
 * emacs: Extensive configuration, including exwm (needs to uncomment stuff).
 * neovim (with vim-plug): Extensive configuration, mainly for python and go.
 * vim: Very simple configuration.
+* ideavim
 
 ## Web Browsers
 
@@ -36,6 +37,7 @@ stow vim
 
 ## Terminal Emulators
 
+* kitty
 * alacritty
 * st (available on my [fork](https://github.com/dbeley/st))
 * termite (deprecated)
@@ -45,8 +47,8 @@ stow vim
 
 ## Utilities
 
-* fish
-* oh-my-fish
+* fish (with oh-my-fish)
+* zsh (with oh-my-zsh)
 * tmux: Keybindings, powerline theme.
 * pywal / wpgtk: GTK/QT theme, colors for i3, sway, bspwm, dwm.
 * picom
@@ -59,14 +61,14 @@ stow vim
 
 ## Media Players
 
-* mpv
+* mpv: Automatic subtitles fetching with subliminal.
 * mpd
 * ncmpcpp
 * beets
 
 ## Others
 
-The following folders need to have a different root than `~` with the `stow -t` command
+The following config folders need to have a different root than `~`. You can create symbolic links to a specific folder with the `stow -t` command.
 * NetworkManager: `stow -t /etc/NetworkManager/conf.d/ NetworkManager`
 * dracut: `stow -t /etc/dracut.conf.d/ dracut`
 * xorg: `stow -t /usr/share/X11/xorg.conf.d/ xorg`
