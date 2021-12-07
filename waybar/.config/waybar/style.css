@@ -54,6 +54,7 @@ window#waybar.qutebrowser #window {
 #workspaces {
     margin-top: 8px;
     margin-left: 12px;
+    margin-right: 12px;
     margin-bottom: 0;
     padding-left: 8px;
     padding-right: 8px;
@@ -121,7 +122,7 @@ window#waybar.qutebrowser #window {
 #pulseaudio {
     margin-top: 8px;
     margin-left: 8px;
-    margin-right: 8px;
+    /* margin-right: 8px; */
     padding-left: 16px;
     padding-right: 16px;
     margin-bottom: 0;
@@ -138,6 +139,7 @@ window#waybar.qutebrowser #window {
 #temperature {
     margin-top: 8px;
     margin-left: 8px;
+    /* margin-right: 8px; */
     padding-left: 16px;
     padding-right: 16px;
     margin-bottom: 0;
@@ -186,7 +188,7 @@ window#waybar.qutebrowser #window {
 #clock {
     margin-top: 8px;
     margin-left: 8px;
-    margin-right: 8px;
+    /* margin-right: 8px; */
     padding-left: 16px;
     padding-right: 16px;
     margin-bottom: 0;
@@ -212,7 +214,7 @@ window#waybar.qutebrowser #window {
 #battery {
     margin-top: 8px;
     margin-left: 8px;
-    /* margin-right: 12px; */
+    margin-right: 12px;
     padding-left: 16px;
     margin-bottom: 0;
     border-radius: 6px;
