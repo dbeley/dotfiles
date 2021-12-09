@@ -47,8 +47,8 @@ exec kanshi
 #
 # Example configuration:
 #
-exec swayidle -w \
-         timeout 600 'swaylock -f -c 000000'
+# exec swayidle -w \
+#          timeout 600 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -70,8 +70,10 @@ exec swayidle -w \
 
 # Keymap sway-input
 input type:keyboard {
-    xkb_layout "us,fr,us,us"
-    xkb_variant "intl,bepo_afnor,colemak_dh_iso,carpalx-intl"
+    xkb_layout "us,fr"
+    # xkb_layout "us,fr,us,us"
+    xkb_variant "intl,bepo_afnor"
+    # xkb_variant "intl,bepo_afnor,colemak_dh_iso,carpalx-intl"
     xkb_options "ctrl:nocaps,shift:both_capslock"
     repeat_delay 200
     repeat_rate 60
@@ -339,7 +341,7 @@ exec_always {
 
 exec mako
 exec udiskie -a
-exec nextcloud
+exec nextcloud --background
 exec kitty --class=scratchpad nnn
 exec keepassxc
 
@@ -360,6 +362,10 @@ bindsym XF86AudioPause exec mpc toggle
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc prev
 
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec light -A 5%
+bindsym XF86MonBrightnessDown exec light -U 5%
+
 # Lock screen
 bindsym XF86ScreenSaver exec "swaylock -f -c 000000"
 bindsym XF86Suspend exec "swaylock -f -c 000000"
@@ -367,14 +373,20 @@ bindsym XF86Suspend exec "swaylock -f -c 000000"
 # Workspace navigation
 bindsym XF86Back workspace prev
 bindsym XF86Forward workspace next
-#
-# Screen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 5%
-bindsym XF86MonBrightnessDown exec light -U 5%
+
+# T470s special keys
+# bindsym XF86AudioMicMute exec
+# bindsym XF86Display exec
+# bindsym XF86WLAN exec
+bindsym XF86Tools exec "~/scripts/touchpad_toggle_wayland.sh"
+# bindsym XF86Bluetooth exec
+bindsym XF86Keyboard exec "~/scripts/change_layout_wayland.sh"
+# bindsym XF86Favorites exec
 
 # Screenshot
 bindsym --release Print exec "grim ~/Nextcloud/07_Images/07_Captures-d-écran_Wayland/$(date +%s).png"
 bindsym --release Shift+Print exec 'grim -g "$(slurp -d)" ~/Nextcloud/07_Images/07_Captures-d-écran_Wayland/$(date +%s)_cropped.png'
+bindsym --release XF86SelectiveScreenshot exec 'grim -g "$(slurp -d)" ~/Nextcloud/07_Images/07_Captures-d-écran_Wayland/$(date +%s)_cropped.png'
 
 bindsym Pause exec "killall -SIGUSR1 waybar"
 bindsym Shift+Pause exec wpg -m
