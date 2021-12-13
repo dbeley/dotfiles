@@ -43,7 +43,7 @@ window#waybar.qutebrowser #window {
 
 #mode {
     margin-top: 8px;
-    margin-left: 8px;
+    margin-right: 8px;
     margin-bottom: 0;
     border-radius: 6px;
     color: #f8f8f2;
@@ -54,7 +54,7 @@ window#waybar.qutebrowser #window {
 #workspaces {
     margin-top: 8px;
     margin-left: 12px;
-    margin-right: 12px;
+    margin-right: 8px;
     margin-bottom: 0;
     padding-left: 8px;
     padding-right: 8px;
