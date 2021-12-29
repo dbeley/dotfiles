@@ -15,15 +15,14 @@
             "format": "VOL {volume}%",
             //"format-muted": "{icon} mute",
             "format-muted": "VOL mute",
-            "format-icons": {
+            // "format-icons": {
                     //"default": ["奄", "奔", "墳"]
-                    "default": ["奄"]
-            }
+            // }
     },
     "battery": {
         "format": "BAT {capacity}%  "
         //"format": "{icon} {capacity}%",
-        //"format-icons": ["", "", "", "", ""]
+        //"format-icons": ["  ", "  ", "  ", "  ", "  "]
     },
     "clock": {
         "interval": 1,

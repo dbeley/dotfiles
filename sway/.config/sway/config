@@ -379,7 +379,7 @@ bindsym XF86Forward workspace next
 bindsym XF86Tools exec "~/scripts/touchpad_toggle_wayland.sh"
 # bindsym XF86Bluetooth exec
 bindsym XF86Keyboard exec "~/scripts/change_layout_wayland.sh"
-# bindsym XF86Favorites exec
+bindsym XF86Favorites exec "~/scripts/toggle_gammastep.sh"
 
 # Screenshot
 bindsym --release Print exec "grim ~/Nextcloud/07_Images/07_Captures-d-écran_Wayland/$(date +%s).png"
