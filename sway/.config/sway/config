@@ -346,7 +346,6 @@ exec keepassxc
 ############### User-defined shortcuts
 
 # Launcher using j4-dmenu-desktop and bemenu (black and white)
-# bindsym $mod+d exec j4-dmenu-desktop --dmenu='bemenu -i -l 15 -p "" -b --fn "pango:Iosevka Italic 9" --nb "#282a36" --hf "#f8f8f2"' --term='kitty' --display-binary
 bindsym $mod+d exec bemenu-run -l 15 -p "" --nb "#282a36" --hf "#f8f8f2" --fn "iosevka italic 10"
 
 # Audio volume keys
@@ -374,12 +373,13 @@ bindsym XF86Forward workspace next
 
 # T470s special keys
 # bindsym XF86AudioMicMute exec
-# bindsym XF86Display exec
+bindsym XF86Display exec "~/scripts/toggle_gammastep.sh"
 # bindsym XF86WLAN exec
 bindsym XF86Tools exec "~/scripts/touchpad_toggle_wayland.sh"
 # bindsym XF86Bluetooth exec
 bindsym XF86Keyboard exec "~/scripts/change_layout_wayland.sh"
-bindsym XF86Favorites exec "~/scripts/toggle_gammastep.sh"
+bindsym XF86Favorites exec "~/scripts/search.sh"
+bindsym Shift+XF86Favorites exec "~/scripts/launch.sh"
 
 # Screenshot
 bindsym --release Print exec "grim ~/Nextcloud/07_Images/07_Captures-d-écran_Wayland/$(date +%s).png"
