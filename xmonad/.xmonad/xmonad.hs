@@ -186,7 +186,7 @@ myKeys =
         , ("M-<Tab>", sendMessage NextLayout)
         ]
 
-myFont = "xft:Iosevka Nerd Font Mono:style=Italic:size=9:antialias=true:hinting=true,xft:Deja Vu:size=9"
+myFont = "xft:Iosevka Nerd Font Mono:style=Regular:size=9:antialias=true:hinting=true,xft:Deja Vu:size=9"
 
 myPromptTheme = def
     { font                  = myFont

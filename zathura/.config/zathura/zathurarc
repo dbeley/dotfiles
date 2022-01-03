@@ -1,6 +1,6 @@
 set selection-clipboard clipboard
 
-set font "iosevka nerd font italic 10"
+set font "iosevka nerd font 10"
 
 #set default-bg                  "#262626" #00
 #set default-fg                  "#ebdbb2" #01
@@ -36,4 +36,3 @@ set font "iosevka nerd font italic 10"
 # setting recolor-keep true will keep any color your pdf has.
 # if it is false, it'll just be black and white
 set recolor-keephue "true"
-

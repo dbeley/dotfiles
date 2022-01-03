@@ -25,7 +25,7 @@ set $term kitty
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $browser env GDK_BACKEND=wayland firefox
 
-font pango:iosevka italic 10
+font pango:iosevka 10
 # font pango: overpass 10
 
 ### Output configuration
@@ -346,7 +346,7 @@ exec keepassxc
 ############### User-defined shortcuts
 
 # Launcher using j4-dmenu-desktop and bemenu (black and white)
-bindsym $mod+d exec bemenu-run -l 15 -p "" --nb "#282a36" --hf "#f8f8f2" --fn "iosevka italic 10"
+bindsym $mod+d exec bemenu-run -l 15 -p "" --nb "#282a36" --hf "#f8f8f2" --fn "iosevka 10"
 
 # Audio volume keys
 bindsym XF86AudioRaiseVolume exec "~/scripts/volume_pamixer.sh up"

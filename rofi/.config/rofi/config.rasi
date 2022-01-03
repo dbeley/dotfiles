@@ -1,6 +1,6 @@
 configuration {
 	modi: "run";
-	font: "iosevka nerd font italic 14";
+	font: "iosevka nerd font 14";
 	location: 0;
 	padding: 5;
 	show-icons: true;

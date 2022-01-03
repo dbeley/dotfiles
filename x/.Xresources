@@ -10,10 +10,10 @@ Xcursor.size: 16
 !URxvt.font:xft:FuraCode\ Nerd\ Font:style=Regular:size=9:antialias=true:hinting=true
 !URxvt.font:xft:Overpass\ Mono:style:Regular:size=9
 !URxvt.font: xft:Iosevka\ Nerd\ Font:style=Regular:size=11:antialias=true:hinting=true
-URxvt.font: xft:Iosevka\ Nerd\ Font\ Mono:style=Italic:size=11:antialias=true:hinting=true, xft:DejaVu Sans:pixelsize=11
+URxvt.font: xft:Iosevka\ Nerd\ Font\ Mono:style=Regular:size=11:antialias=true:hinting=true, xft:DejaVu Sans:pixelsize=11
 !URxvt.font: xft:Fixed:size=11:antialias=true:hinting=true
 
-rofi.font: iosevka nerd font italic 14
+rofi.font: iosevka nerd font 14
 !rofi.font: fixed 16
 
 URxvt.scrollBar: false
