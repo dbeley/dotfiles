@@ -37,6 +37,7 @@ stow vim
 
 ## Terminal Emulators
 
+* foot
 * kitty
 * alacritty
 * st (available on my [fork](https://github.com/dbeley/st))
