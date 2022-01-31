@@ -19,7 +19,8 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 # set $term urxvt
-set $term kitty
+# set $term kitty
+set $term foot
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
@@ -71,7 +72,7 @@ exec kanshi
 # Keymap sway-input
 input type:keyboard {
     xkb_layout "us,fr,us,us"
-    xkb_variant "intl,bepo_afnor,colemak_dh_iso,carpalx-intl"
+    xkb_variant "intl,bepo_afnor,colemak_dh,carpalx-intl"
     xkb_options "ctrl:nocaps,shift:both_capslock"
     repeat_delay 200
     repeat_rate 60
