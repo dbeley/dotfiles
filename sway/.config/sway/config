@@ -18,8 +18,6 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-# set $term urxvt
-# set $term kitty
 set $term foot
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
@@ -341,7 +339,7 @@ exec_always {
 exec mako
 exec udiskie -a
 exec nextcloud --background
-exec kitty --class=scratchpad nnn
+exec $term --app-id=scratchpad nnn
 exec keepassxc
 
 ############### User-defined shortcuts
