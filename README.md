@@ -1,6 +1,8 @@
 # dotfiles using GNU Stow
 
-![screenshot](https://raw.githubusercontent.com/dbeley/dotfiles/master/screenshot.png)
+![screenshot_2017](https://raw.githubusercontent.com/dbeley/dotfiles/master/screenshot_2017.png)
+
+![screenshot_2022](https://raw.githubusercontent.com/dbeley/dotfiles/master/screenshot_2022.png)
 
 # Software
 
