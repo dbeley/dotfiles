@@ -1,8 +1,6 @@
 window {
 	background-color: rgba(--wofi-rgb-color0,1);
-	/* font-family: iosevka; */
 	font-family: "Iosevka Nerd Font";
-	/* font-style: italic; */
 	transition: 0.1s ease-in-out;
 	font-size: 140%;
 }
@@ -14,18 +12,8 @@ window {
 	margin-left: 100px;
 	margin-right: 100px;
 	margin-top: 15px;
-	/* box-shadow: none; */
-	/* background-color: --wofi-color0; */
 	border: 3px solid --wofi-color3;
-	/* border-radius: 0px; */
-	/* transition: 0.1s ease-in-out; */
 }
-/* #input:focus { */
-/* 	background-color: rgba(--wofi-rgb-color4,0.2); */
-/* 	margin-left: 10px; */
-/* 	margin-right: 10px; */
-/* 	transition: 0.1s ease-in-out; */
-/* } */
 label {
 	color: --wofi-color13;
 	transition: 0.1s ease-in-out;
@@ -38,6 +26,3 @@ label {
 	border: 3px solid --wofi-color2;
 	transition: 0.1s ease-in-out;
 }
-/* #text { */
-/* 	color: --wofi-color7; */
-/* } */
