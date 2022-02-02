@@ -1,0 +1,6 @@
+width=600
+heigth=400
+mode=run
+stylesheet=style.css
+colors=/home/david/.cache/wal/colors
+prompt=

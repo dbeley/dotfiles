@@ -16,8 +16,8 @@ PKGLIST+=(intel-ucode intel-media-driver)
 # PKGLIST+=(amd-ucode)
 
 # Wayland: Sway
-PKGLIST+=(sway swayidle swaylock waybar alacritty bemenu gammastep grim imv mako qt5-wayland wpgtk-git)
-STOWLIST+=(sway bash_wayland alacritty gammastep wpgtk wal mime_wayland gtk mako)
+PKGLIST+=(sway swayidle swaylock waybar foot wofi gammastep grim imv mako qt5-wayland wpgtk-git)
+STOWLIST+=(sway bash_wayland foot gammastep wpgtk wal mime_wayland gtk mako wofi)
 
 #########################################################
 ## X.org: common

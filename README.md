@@ -58,7 +58,7 @@ stow vim
 * ledger
 * ranger / nnn
 * redshift / gammastep
-* rofi / dmenu / bemenu
+* wofi /rofi / dmenu / bemenu
 
 ## Media Players
 

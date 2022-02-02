@@ -345,7 +345,8 @@ exec keepassxc
 ############### User-defined shortcuts
 
 # Launcher using j4-dmenu-desktop and bemenu (black and white)
-bindsym $mod+d exec bemenu-run -l 15 -p "" --nb "#282a36" --hf "#f8f8f2" --fn "iosevka 10"
+# bindsym $mod+d exec bemenu-run -l 15 -p "" --nb "#282a36" --hf "#f8f8f2" --fn "iosevka 10"
+bindsym $mod+d exec wofi
 
 # Audio volume keys
 bindsym XF86AudioRaiseVolume exec "~/scripts/volume_pamixer.sh up"
