@@ -1,6 +1,12 @@
 width=600
-heigth=400
+heigth=500
 mode=run
 stylesheet=style.css
 colors=/home/david/.cache/wal/colors
 prompt=
+filter_rate=200
+insensitve=true
+allow_images=false
+allow_markup=true
+gtk_dark=true
+term=foot
