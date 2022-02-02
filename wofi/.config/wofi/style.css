@@ -15,7 +15,7 @@ window {
 	border: 3px solid --wofi-color3;
 }
 label {
-	color: --wofi-color13;
+	color: --wofi-color7;
 	transition: 0.1s ease-in-out;
 }
 #entry {
