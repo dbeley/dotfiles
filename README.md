@@ -1,18 +1,20 @@
 # dotfiles using GNU Stow
 
+Wanna get started with stow? Check out my [blog post about it](https://dbeley.ovh/en/post/2021/01/09/easily-manage-your-linux-config-files-with-stow/))!
+
 ![screenshot_2017](https://raw.githubusercontent.com/dbeley/dotfiles/master/screenshot_2017.png)
 
 ![screenshot_2022](https://raw.githubusercontent.com/dbeley/dotfiles/master/screenshot_2022.png)
 
 # Software
 
-Some config files might need the [scripts](https://github.com/dbeley/scripts) repo in the home directory.
+Some config files might need my own [scripts](https://github.com/dbeley/scripts) repo in the home directory.
 
-To create symbolic links
+To create symbolic links:
 ```
 git clone https://github.com/dbeley/dotfiles
 cd dotfiles
-stow vim
+stow nvim sway bash_wayland
 ```
 
 ## WMs
@@ -27,10 +29,10 @@ stow vim
 ## Editors
 
 * doom-emacs: Main editor.
-* emacs: Extensive configuration, including exwm (needs to uncomment stuff).
 * neovim (with vim-plug): Extensive configuration, mainly for python and go.
 * vim: Very simple configuration.
 * ideavim
+* emacs (deprecated): Extensive configuration, including exwm (needs to uncomment stuff).
 
 ## Web Browsers
 
