@@ -1,6 +1,6 @@
 # dotfiles using GNU Stow
 
-Wanna get started with stow? Check out my [blog post about it](https://dbeley.ovh/en/post/2021/01/09/easily-manage-your-linux-config-files-with-stow/))!
+Wanna get started with stow? Check out my [blog post about it](https://dbeley.ovh/en/post/2021/01/09/easily-manage-your-linux-config-files-with-stow/)!
 
 ![screenshot_2017](https://raw.githubusercontent.com/dbeley/dotfiles/master/screenshot_2017.png)
 
