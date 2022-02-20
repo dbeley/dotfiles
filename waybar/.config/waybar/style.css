@@ -222,3 +222,6 @@ window#waybar.qutebrowser #window {
     color: #f8f8f2;
     background: #282a36;
 }
+
+#battery.warning { color: orange; }
+#battery.critical { color: orange; }

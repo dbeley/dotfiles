@@ -2,8 +2,6 @@
     "layer": "bottom",
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": ["clock"],
-    //"modules-right": ["clock"],
-    //"modules-right": ["pulseaudio", "cpu", "memory", "temperature", "battery"],
     "modules-right": ["network", "cpu", "memory", "temperature", "pulseaudio", "battery", "tray"],
 	"sway/window": {
     	"max-length": 50
@@ -20,9 +18,13 @@
             // }
     },
     "battery": {
-        "format": "BAT {capacity}%  "
+        "format": "BAT {capacity}%  ",
         //"format": "{icon} {capacity}%",
         //"format-icons": ["  ", "  ", "  ", "  ", "  "]
+        "states": {
+        	"warning": 30,
+        	"critical": 15
+        	}
     },
     "clock": {
         "interval": 1,
@@ -41,16 +43,13 @@
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        // "critical-threshold": 80,
-        // "format-critical": " {temperatureC}°C",
         "format": " {temperatureC}°C"
-        //"format-icons": ["", "", ""]
     },
     "network": {
-            "tooltip": false,
+            "tooltip": true,
             "interval": 5,
-            "format-wifi": "DOWN {bandwidthDownOctets} | UP {bandwidthUpOctets}",
-            "format-ethernet": "DOWN {bandwidthDownOctets} | UP {bandwidthUpOctets}"
+            "format": "DOWN {bandwidthDownOctets} | UP {bandwidthUpOctets}",
+            "tooltip-format": "{ifname} via {gwaddr} "
     },
     "tray": {
             "icon-size": 21,
