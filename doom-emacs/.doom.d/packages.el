@@ -52,3 +52,4 @@
 (package! ox-hugo)
 (package! ox-reveal)
 (package! ox-twbs)
+(package! keychain-environment)

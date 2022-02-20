@@ -183,3 +183,5 @@
        :config
        ;;literate
        (default +bindings +smartparens))
+
+;;(keychain-refresh-environment)
