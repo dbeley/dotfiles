@@ -39,6 +39,8 @@ alias weather "curl -H 'Accept-Language: fr' wttr.in"
 alias wttr "curl -H 'Accept-Language: fr' wttr.in"
 alias wtr "curl -H 'Accept-Language: fr' wttr.in"
 
+alias mus "bat ~/Nextcloud/Notes/Musique.txt"
+
 alias bal "ledger -f ledger.ledger balance --depth 1"
 
 set FZF_DEFAULT_COMMAND "fd --type file --ignore-case --hidden --follow --exclude .git"
