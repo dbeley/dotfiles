@@ -29,7 +29,9 @@
     "clock": {
         "interval": 1,
         "format": "{:%a %d %b %H:%M:%S}",
-        "format-alt": "{:%H:%M}"
+        "format-alt": "{:%H:%M}",
+        "locale": "fr_FR.UTF-8",
+        "timezone": "Europe/Paris"
     },
     "cpu": {
         //"format": "{usage}% ",
