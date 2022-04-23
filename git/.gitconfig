@@ -6,6 +6,7 @@
 	minRacyThreshold = 6477 microseconds
 [diff]
 	algorithm = patience
+	colorMoved = zebra
 [color]
 	ui = auto
 	branch = auto
@@ -24,8 +25,7 @@
 [mergetool]
     prompt = false
 [pull]
-	rebase = false
-	# rebase = true
+	rebase = true
 [rebase]
 	autoStash = true
 [core]
@@ -41,3 +41,5 @@
 	defaultBranch = main
 [rerere]
 	enabled = true
+[fetch]
+	prune = true
