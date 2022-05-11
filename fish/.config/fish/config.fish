@@ -43,6 +43,8 @@ alias mus "bat ~/Nextcloud/Notes/Musique.txt"
 
 alias bal "ledger -f ledger.ledger balance --depth 1"
 
+alias ref "sudo reflector -c France --score 10 -p https -a 12 --sort rate --save /etc/pacman.d/mirrorlist"
+
 set FZF_DEFAULT_COMMAND "fd --type file --ignore-case --hidden --follow --exclude .git"
 set FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 set FZF_ALT_C_COMMAND "fd --ignore-case --hidden -t d"
@@ -53,7 +55,7 @@ set TERM "rxvt"
 set -x -g PIPENV_VENV_IN_PROJECT 1
 set -x -g PIPENV_TIMEOUT 3600
 
-if test -n "$DESKTOP_SESSION"
+if test -n "$DESKTOP_SESSION" | test -n "$WAYLAND_DISPLAY"
     set (gnome-keyring-daemon --start | string split "=")
 end
 
