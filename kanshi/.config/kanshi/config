@@ -1,13 +1,20 @@
-
 profile {
-	output HDMI-A-1 enable position 0,0
-	output HDMI-A-2 enable position 1920,0
+	output eDP-1 position 0,0
 }
 
 profile {
-	output HDMI-A-1 enable position 0,0
+	output eDP-1 position 1920,0 scale 1.4
+	output DP-1 position 0,0
 }
 
 profile {
-	output HDMI-A-2 enable position 0,0
+	output DP-3 position 0,0
+	output DP-4 position 1920,0
+	output eDP-1 disable
+}
+
+profile {
+	output eDP-1 disable
+	output DP-4 position 2560,0 mode 1920x1080
+ 	output HDMI-A-2 position 0,0 mode 2560x1440
 }
