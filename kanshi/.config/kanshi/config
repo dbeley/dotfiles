@@ -8,9 +8,9 @@ profile {
 }
 
 profile {
-	output DP-3 position 0,0
-	output DP-4 position 1920,0
 	output eDP-1 disable
+	output DP-4 position 2560,0 mode 1920x1080
+ 	output DP-3 position 0,0 mode 2560x1440
 }
 
 profile {
