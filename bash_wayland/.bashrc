@@ -46,6 +46,9 @@ export GNUPGHOME="$XDG_CONFIG_HOME"/gnupg
 export GOPATH="$XDG_DATA_HOME"/go
 export SQLITE_HISTORY="$XDG_DATA_HOME"/sqlite_history
 
+export USE_CCACHE=1
+export CCACHE_EXEC=/usr/bin/ccache
+
 #export TERM=xterm-256color
 # [ -f /usr/share/doc/pkgfile/command-not-found.bash ] && source /usr/share/doc/pkgfile/command-not-found.bash
 # [ -f /etc/profile.d/autojump.sh ] && source /etc/profile.d/autojump.sh

@@ -336,11 +336,11 @@ exec_always {
     #gsettings set $gnome-schema cursor-theme 'Your cursor Theme'
 }
 
-exec mako
-exec udiskie -a
-exec nextcloud --background
-exec $term --app-id=scratchpad nnn
-exec keepassxc
+exec sleep 1 && mako
+exec sleep 1 && udiskie -a
+exec sleep 3 && nextcloud --background
+exec sleep 2 && $term --app-id=scratchpad nnn
+exec sleep 2 && keepassxc
 
 ############### User-defined shortcuts
 
