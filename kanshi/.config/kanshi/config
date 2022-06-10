@@ -9,6 +9,11 @@ profile {
 
 profile {
 	output eDP-1 disable
+	output DP-4 position 0,0 mode 1920x1080
+}
+
+profile {
+	output eDP-1 disable
 	output DP-4 position 2560,0 mode 1920x1080
  	output DP-3 position 0,0 mode 2560x1440
 }
@@ -16,5 +21,11 @@ profile {
 profile {
 	output eDP-1 disable
 	output DP-4 position 2560,0 mode 1920x1080
+ 	output HDMI-A-2 position 0,0 mode 2560x1440
+}
+
+profile {
+	output eDP-1 disable
+	output DP-3 position 2560,0 mode 1920x1080
  	output HDMI-A-2 position 0,0 mode 2560x1440
 }
