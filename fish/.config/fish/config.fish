@@ -45,6 +45,9 @@ alias bal "ledger -f ledger.ledger balance --depth 1"
 
 alias ref "sudo reflector -c France --score 10 -p https -a 12 --sort rate --save /etc/pacman.d/mirrorlist"
 
+pyenv init - | source
+status --is-interactive; and pyenv virtualenv-init - | source
+
 set FZF_DEFAULT_COMMAND "fd --type file --ignore-case --hidden --follow --exclude .git"
 set FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 set FZF_ALT_C_COMMAND "fd --ignore-case --hidden -t d"

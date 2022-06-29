@@ -5,10 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# #alias ls='ls --color=auto'
-# #alias l='ls --color=auto'
-# #alias ll='ls -l'
-# #alias la='ls -la'
 alias ls='exa'
 alias l='exa'
 alias ll='exa -lh'
@@ -48,6 +44,8 @@ export SQLITE_HISTORY="$XDG_DATA_HOME"/sqlite_history
 
 export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
+
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 #export TERM=xterm-256color
 # [ -f /usr/share/doc/pkgfile/command-not-found.bash ] && source /usr/share/doc/pkgfile/command-not-found.bash
