@@ -137,3 +137,4 @@ source /usr/share/doc/fzf/examples/completion.zsh
 
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+eval "$(direnv hook zsh)"
