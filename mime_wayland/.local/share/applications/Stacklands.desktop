@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Stacklands
+Comment=Play this game on Steam
+Exec=steam steam://rungameid/1948280
+Icon=steam_icon_1948280
+Terminal=false
+Type=Application
+Categories=Game;
