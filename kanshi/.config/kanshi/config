@@ -39,3 +39,8 @@ profile {
 	output eDP-1 enable scale 1.4
 	output HDMI-A-2 mode 3840x2160 scale 2.0
 }
+
+profile {
+	output eDP-1 disable
+ 	output DP-5 position 0,0 mode 2560x1440
+}
