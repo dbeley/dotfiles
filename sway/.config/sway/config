@@ -388,5 +388,5 @@ bindsym --release XF86SelectiveScreenshot exec 'grim -g "$(slurp -d)" ~/Nextclou
 
 bindsym Pause exec "killall -SIGUSR1 waybar"
 bindsym Shift+Pause exec wpg -m
-bindsym $mod+n exec wpg -m
+bindsym $mod+Shift+n exec wpg -m
 exec "systemctl --user import-environment; systemctl --user start sway-session.target"

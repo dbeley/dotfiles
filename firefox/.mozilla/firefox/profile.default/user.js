@@ -55,5 +55,6 @@ user_pref("privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts", fa
 user_pref("signon.rememberSignons", false);
 user_pref("ui.systemUsesDarkTheme", 1);
 user_pref("browser.download.alwaysOpenPanel", false);
+user_pref("browser.download.open_pdf_attachments_inline", true);
 // user_pref("browser.newtabpage.pinned", "[]");
 // user_pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned", "duckduckgo");
