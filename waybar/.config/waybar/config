@@ -8,20 +8,15 @@
     	"icon": false
 	},
 	"pulseaudio": {
-            "tooltip": false,
-            "scroll-step": 5,
-            //"format": "{icon} {volume}%",
-            "format": "VOL {volume}%",
-            //"format-muted": "{icon} mute",
-            "format-muted": "VOL mute",
-            // "format-icons": {
-                    //"default": ["奄", "奔", "墳"]
-            // }
+        "tooltip": false,
+        "scroll-step": 5,
+        "on-click": "",
+        "format": "VOL {volume}%",
+        "format-muted": "VOL mute",
     },
     "battery": {
         "format": "BAT {capacity}%  ",
-        //"format": "{icon} {capacity}%",
-        //"format-icons": ["  ", "  ", "  ", "  ", "  "]
+        "on-click": "",
         "states": {
         	"warning": 30,
         	"critical": 15
@@ -35,27 +30,27 @@
         "timezone": "Europe/Paris"
     },
     "cpu": {
-        //"format": "{usage}% ",
         "format": "CPU {usage}%",
+        "on-click": "",
         "tooltip": false
     },
     "memory": {
-        //"format": "{}% "
+        "on-click": "",
         "format": "RAM {}%"
     },
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "on-click": "",
         "format": " {temperatureC}°C"
     },
     "network": {
-            "tooltip": true,
-            "interval": 5,
-            "format": "DOWN {bandwidthDownOctets} | UP {bandwidthUpOctets}",
-            "tooltip-format": "{ifname} via {gwaddr} "
+        "tooltip": true,
+        "interval": 5,
+        "format": "DOWN {bandwidthDownOctets} | UP {bandwidthUpOctets}",
+        "on-click": "",
+        "tooltip-format": "{ifname} via {gwaddr} "
     },
     "tray": {
-            "icon-size": 21,
-            "spacing": 10
+        "icon-size": 21,
+        "spacing": 10
     }
 }

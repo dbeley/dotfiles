@@ -12,10 +12,6 @@ window#waybar {
 	background: transparent;
 }
 
-/* window#waybar.hidden { */
-/* 	opacity: 0.0; */
-/* } */
-
 window#waybar.empty #window {
 	background: transparent;
 }
@@ -105,7 +101,6 @@ window#waybar.qutebrowser #window {
 #network {
     margin-top: 8px;
     margin-left: 8px;
-    /* margin-right: 12px; */
     padding-left: 16px;
     padding-right: 16px;
     margin-bottom: 0;
@@ -113,16 +108,11 @@ window#waybar.qutebrowser #window {
     transition: none;
     color: #f8f8f2;
     background: #282a36;
-        /*
-    color: #4d4d4d;
-    background: #bd93f9;
-        */
 }
 
 #pulseaudio {
     margin-top: 8px;
     margin-left: 8px;
-    /* margin-right: 8px; */
     padding-left: 16px;
     padding-right: 16px;
     margin-bottom: 0;
@@ -130,16 +120,11 @@ window#waybar.qutebrowser #window {
     transition: none;
     color: #f8f8f2;
     background: #282a36;
-        /*
-    color: #4d4d4d;
-    background: #9aedfe;
-        */
 }
 
 #temperature {
     margin-top: 8px;
     margin-left: 8px;
-    /* margin-right: 8px; */
     padding-left: 16px;
     padding-right: 16px;
     margin-bottom: 0;
@@ -147,10 +132,6 @@ window#waybar.qutebrowser #window {
     transition: none;
     color: #f8f8f2;
     background: #282a36;
-        /*
-    color: #4d4d4d;
-    background: #5af78e;
-        */
 }
 
 #cpu {
@@ -163,10 +144,6 @@ window#waybar.qutebrowser #window {
     transition: none;
     color: #f8f8f2;
     background: #282a36;
-        /*
-    color: #4d4d4d;
-    background: #f1fa8c;
-        */
 }
 
 #memory {
@@ -179,16 +156,11 @@ window#waybar.qutebrowser #window {
     transition: none;
     color: #f8f8f2;
     background: #282a36;
-        /*
-    color: #4d4d4d;
-    background: #ff6e67;
-        */
 }
 
 #clock {
     margin-top: 8px;
     margin-left: 8px;
-    /* margin-right: 8px; */
     padding-left: 16px;
     padding-right: 16px;
     margin-bottom: 0;
