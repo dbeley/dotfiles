@@ -55,7 +55,11 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 
 if [ "$(tty)" = "/dev/tty1" ]; then
-    exec sway
+    if [ -f ~/.local/bin/wrappedhl ]; then
+        exec ~/.local/bin/wrappedhl
+    else
+        exec sway
+    fi
 fi
 
 #wal -R
