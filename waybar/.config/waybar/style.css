@@ -6,6 +6,7 @@
     font-weight: bold;
 	font-size: 14px;
 	min-height: 20px;
+    color: #f8f8f2;
 }
 
 window#waybar {
@@ -22,6 +23,7 @@ window#waybar.empty #window {
     padding-right: 16px;
     border-radius: 6px;
     transition: none;
+    color: #f8f8f2;
     background: #282a36;
 }
 
