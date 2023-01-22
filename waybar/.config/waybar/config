@@ -1,6 +1,6 @@
 {
     "layer": "bottom",
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/window", "clock", "battery"],
+    "modules-left": ["wlr/workspaces", "sway/workspaces", "sway/mode", "sway/window", "clock", "battery"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["network", "cpu", "memory", "temperature", "pulseaudio", "tray"],
 	"sway/window": {
@@ -10,6 +10,22 @@
     "hyprland/window": {
     	"format": "{}",
     	"separate-outputs": true
+	},
+	"wlr/workspaces": {
+		"active-only": false,
+		"all-outputs": true,
+		"format": "{icon}",
+		"on-click": "activate",
+		/* "format-icons": { */
+		/* 	"1": "", */
+		/* 	"2": "", */
+		/* 	"3": "", */
+		/* 	"4": "", */
+		/* 	"5": "", */
+		/* 	"urgent": "", */
+		/* 	"active": "", */
+		/* 	"default": "" */
+  	  	  /* }, */
 	},
 	"pulseaudio": {
         "tooltip": false,
