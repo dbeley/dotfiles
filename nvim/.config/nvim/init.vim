@@ -111,6 +111,7 @@ colorscheme wal
 set ruler
 set showcmd
 set number relativenumber
+set mouse=
 
 " Recherche incrémentale
 " set hlsearch
