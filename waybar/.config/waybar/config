@@ -1,8 +1,8 @@
 {
     "layer": "bottom",
-    "modules-left": ["wlr/workspaces", "sway/workspaces", "sway/mode", "sway/window", "clock", "battery"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["network", "cpu", "memory", "temperature", "pulseaudio", "tray"],
+    "modules-left": ["wlr/workspaces", "sway/workspaces", "sway/mode", "sway/window", "hyprland/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["network", "cpu", "memory", "temperature", "battery", "pulseaudio", "tray"],
 	"sway/window": {
     	"max-length": 50,
     	"icon": false
