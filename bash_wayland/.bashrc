@@ -21,16 +21,9 @@ export FZF_DEFAULT_COMMAND="fd --type file --ignore-case --hidden --follow --exc
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --ignore-case --hidden -t d"
 export FZF_TMUX=1
+
 export QT_QPA_PLATFORMTHEME=qt5ct
-# export QT_QPA_PLATFORM=wayland
-# export QT_QPA_PLATFORM=wayland-egl
-#export QT_WAYLAND_FORCE_DPI=physical
-# export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-# should not be set globally
-# export GDK_BACKEND=wayland
-export BEMENU_BACKEND=wayland
 export SDL_VIDEODRIVER=wayland
-# export SDL_VIDEODRIVER=x11
 export MOZ_ENABLE_WAYLAND=1
 
 export NNN_OPTS="cdEx"
@@ -41,9 +34,6 @@ export _Z_DATA="$XDG_CONFIG_HOME"/z
 export GNUPGHOME="$XDG_CONFIG_HOME"/gnupg
 export GOPATH="$XDG_DATA_HOME"/go
 export SQLITE_HISTORY="$XDG_DATA_HOME"/sqlite_history
-
-export USE_CCACHE=1
-export CCACHE_EXEC=/usr/bin/ccache
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
