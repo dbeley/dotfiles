@@ -19,6 +19,7 @@ stow nvim sway bash_wayland
 
 ## WMs
 
+* Hyprland (with waybar): Extensive configuration.
 * sway (with waybar): Extensive configuration without XWayland. Mostly the same as i3 configuration.
 * i3/i3-gaps (with polybar): Extensive configuration. Several modes for gaps presets or resizing/moving containers.
 * dwm: Extensive configuration (available on my [fork](https://github.com/dbeley/dwm)).
@@ -41,9 +42,9 @@ stow nvim sway bash_wayland
 
 ## Terminal Emulators
 
+* alacritty
 * foot
 * kitty
-* alacritty
 * st (available on my [fork](https://github.com/dbeley/st))
 * termite (deprecated)
 * urxvt
