@@ -21,16 +21,16 @@ export FZF_DEFAULT_COMMAND="fd --type file --ignore-case --hidden --follow --exc
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --ignore-case --hidden -t d"
 export FZF_TMUX=1
-# export QT_QPA_PLATFORMTHEME=qt5ct
-export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORMTHEME=qt5ct
+# export QT_QPA_PLATFORM=wayland
 # export QT_QPA_PLATFORM=wayland-egl
 #export QT_WAYLAND_FORCE_DPI=physical
-export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+# export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 # should not be set globally
 # export GDK_BACKEND=wayland
 export BEMENU_BACKEND=wayland
-# export SDL_VIDEODRIVER=wayland
-export SDL_VIDEODRIVER=x11
+export SDL_VIDEODRIVER=wayland
+# export SDL_VIDEODRIVER=x11
 export MOZ_ENABLE_WAYLAND=1
 
 export NNN_OPTS="cdEx"
@@ -47,9 +47,6 @@ export CCACHE_EXEC=/usr/bin/ccache
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-#export TERM=xterm-256color
-# [ -f /usr/share/doc/pkgfile/command-not-found.bash ] && source /usr/share/doc/pkgfile/command-not-found.bash
-# [ -f /etc/profile.d/autojump.sh ] && source /etc/profile.d/autojump.sh
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 [ -f /usr/share/doc/fzf/key-bindings.bash ] && source /usr/share/doc/fzf/key-bindings.bash
 
@@ -62,7 +59,6 @@ if [ "$(tty)" = "/dev/tty1" ]; then
     fi
 fi
 
-#wal -R
 [ -f ~/.config/wpg/sequences ] && (cat ~/.config/wpg/sequences &)
 
 [ -f /usr/bin/fish ] && exec fish

@@ -8,10 +8,12 @@ export HYPRLAND_LOG_WLR=1
 
 export XCURSOR_SIZE=24
 
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=fcitx
-export SDL_IM_MODULE=fcitx
-export GLFW_IM_MODULE=fcitx
+export MOZ_ENABLE_WAYLAND=1
+export GTK_THEME=FlatColor
+# export GTK_IM_MODULE=fcitx
+# export QT_IM_MODULE=fcitx
+# export XMODIFIERS=fcitx
+# export SDL_IM_MODULE=fcitx
+# export GLFW_IM_MODULE=fcitx
 
 exec Hyprland
