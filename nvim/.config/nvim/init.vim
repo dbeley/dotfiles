@@ -84,6 +84,8 @@ Plug 'psf/black'
 
 Plug 'mcchrish/nnn.vim'
 Plug 'tridactyl/vim-tridactyl'
+
+Plug 'LnL7/vim-nix'
 call plug#end()
 
 " Change Leader and LocalLeader keys:
