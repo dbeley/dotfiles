@@ -1,5 +1,7 @@
 # dotfiles using GNU Stow
 
+> :warning: This repo might not be up-to-date as I'm now mainly using NixOS (see my config here: [nixos-config](https://github.com/dbeley/nixos-config))
+
 Wanna get started with stow? Check out my [blog post about it](https://dbeley.ovh/en/post/2021/01/09/easily-manage-your-linux-config-files-with-stow/)!
 
 ![screenshot_2017](https://raw.githubusercontent.com/dbeley/dotfiles/master/screenshot_2017.png)
