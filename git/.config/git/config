@@ -32,11 +32,6 @@
 	autocrlf = input
 [credential]
 	helper = cache
-[filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
 [init]
 	defaultBranch = main
 [rerere]
@@ -44,4 +39,10 @@
 [fetch]
 	prune = true
 [push]
+	default = current
 	autoSetupRemote = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
